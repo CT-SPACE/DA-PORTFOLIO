@@ -1,0 +1,84 @@
+@use '../../styles.scss' as *;
+
+.header{
+    height:100%;
+    display:flex;
+    width:100vw;
+    box-sizing:border-box;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 34px;
+    img.logo{
+        height:24px;
+    }
+
+    .menu{
+        height:30px;
+        width:30px;
+        object-fit: contain;
+        cursor:pointer;
+        display:block;
+    }
+}
+
+span.lang-item {
+    cursor:pointer;
+    padding: 4px 8px 2px;
+      position: relative;
+        border: 3px solid transparent;
+  transition: border-color 0.3s ease;
+  display: inline-block;
+  color: var(--main-font-color);
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left:8px;
+    bottom: -2px;
+    height: 2px;
+    width: 0; // Start: unsichtbar
+    background-color: var(--main-font-color); // deine Wunschfarbe
+    transition: width 0.3s ease; // Animation
+  }
+
+  &:not(.active):hover::after {
+    width: 60%; 
+  }
+
+  &.active {
+    border-color: var(--accent-font-color);
+    cursor:unset;
+  
+//   &:not(.active):hover {
+//    width:0;
+//   }
+}
+}
+
+
+.navi{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    .lang-item:nth-child(2) { margin-right: 10px; }
+
+    .lang{
+        font-family: "Syne", "Helvetica Neue", sans-serif;
+        font-weight: 800;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: var(--main-font-color);
+        cursor:pointer;
+        &.de{
+            opacity: 1;
+        }
+        &.en{
+            opacity: 0.5;
+        }
+    }
+ 
+}
+
+/* No keyframes needed for image sequence */

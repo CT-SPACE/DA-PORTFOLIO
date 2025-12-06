@@ -1,1 +1,8 @@
-<div class="header"><img src="/src/assets/img/logo.svg"> <div class="navi"><span class="lang de">DE</span><span class="lang en">EN</span><img src="/src/assets/img/burger-menu.svg" class="menu">
+<div class="header">
+	<img src="/assets/img/logo.svg" class="logo" alt="Logo">
+	<div class="navi">
+		<span class="lang-item de" [class.active]="selected === 'DE'" (click)="select('DE')">DE</span>
+		<span class="lang-item en" [class.active]="selected === 'EN'" (click)="select('EN')">EN</span>
+		<img class="menu" [src]="currentSrc()" (click)="onToggleMenu()" [attr.aria-pressed]="isOpen()" alt="Menu">
+	</div>
+</div>
