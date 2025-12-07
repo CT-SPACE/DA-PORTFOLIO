@@ -7,7 +7,7 @@
     box-sizing:border-box;
     justify-content:space-between;
     align-items:center;
-    padding:0 34px;
+    padding:0 50px;
     img.logo{
         height:24px;
     }
@@ -49,10 +49,6 @@ span.lang-item {
   &.active {
     border-color: var(--accent-font-color);
     cursor:unset;
-  
-//   &:not(.active):hover {
-//    width:0;
-//   }
 }
 }
 
@@ -61,9 +57,8 @@ span.lang-item {
     display:flex;
     align-items:center;
     gap:4px;
-    .lang-item:nth-child(2) { margin-right: 10px; }
-
-    .lang{
+    .lang-item:nth-child(2) { margin-right: 20px; }
+    .lang-item{
         font-family: "Syne", "Helvetica Neue", sans-serif;
         font-weight: 800;
         font-size: 14px;

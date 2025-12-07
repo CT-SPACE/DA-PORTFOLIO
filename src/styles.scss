@@ -19,9 +19,17 @@
 
 @font-face {
   font-family: "Syne";
-  src: url(/assets/fonts/syne.woff2) format("woff2"),
-       url(/assets/fonts/syne.woff) format("woff");
+  src: url('/assets/fonts/syne.woff2') format("woff2"),
+       url('/assets/fonts/syne.woff') format("woff");
+       font-weight: 400 800;
+       font-style: normal;
       }
+
+@font-face {
+  font-family: "Syne - ExtraBold";
+  src: url(/assets/fonts/Syne-ExtraBold.woff2) format("woff2"),
+     
+}
 
 html {
   @include mat.theme((
@@ -58,4 +66,21 @@ html, body { height: 100%; }
 body { margin: 0; font-family: "Overpass", "Helvetica Neue", sans-serif; }
 
 
+h1{
+  text-align:center;
+   font-size: 8rem !important;
+   font-weight: 800 !important;
+   line-height: 0.9 !important;
+   margin: 0; 
+    color: var(--main-font-color);
+    font-family: 'Syne - ExtraBold', 'Helvetica Neue', sans-serif !important;
+      font-variation-settings: "wght" 800, "ital" 0;
+}
 
+h2{
+    font-size: 2rem !important;
+    font-weight: 400 !important;
+    margin: 0;
+    color: var(--accent-font-color);
+    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+}

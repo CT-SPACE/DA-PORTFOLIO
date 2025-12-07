@@ -1,0 +1,32 @@
+@use '../../styles.scss' as *;
+
+.headline{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    gap: 20px;
+}
+
+div.subline {
+        display: flex;
+        width:100%;
+        align-items: center;
+        margin-top:30px;
+        gap: 10px;
+
+        div.first{
+            width: 100%;
+          
+        }
+        div.second{
+            width: 5%
+        }
+
+        div {
+            height: 2px;
+            background-color: var(--main-font-color);
+        }
+    }
