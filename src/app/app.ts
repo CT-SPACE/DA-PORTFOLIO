@@ -7,6 +7,7 @@ import { MySkills } from "./my-skills/my-skills";
 import { Portfolio } from "./portfolio/portfolio";
 import { SayHi } from "./say-hi/say-hi";
 
+
 @Component({
   selector: 'app-root',
   imports: [Header, Headline, AboutMe, MySkills, Portfolio, SayHi],
