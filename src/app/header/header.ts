@@ -51,7 +51,7 @@ select(choice: 'DE' | 'EN') {
       i++;
       if (i >= sequence.length) {
         clearInterval(timer);
-        this.isOpen.set(forward);
+        // this.isOpen.set(forward);
         this.isAnimating.set(false);
       }
     }, stepMs);
