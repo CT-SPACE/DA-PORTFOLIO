@@ -1,11 +1,30 @@
 @use '../../styles.scss' as *;
 
+:host{
+
+    position: fixed;
+    height: 50px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--main-bg-color);
+    box-sizing: border-box;
+    width: 100vw;
+
+
+}
 
 .header{
-    height:100%;
-    position:absolute;
-    top:0;
-    z-index:1000;
+  /* Shared header height variable for menu alignment */
+  --header-h: 49px;
+  height: var(--header-h);
+  position: fixed;
+  background-color: var(--main-bg-color);
+  top: 0;
+  left: 0;
+  right: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
     display:flex;
     width:100vw;
     box-sizing:border-box;
@@ -26,7 +45,7 @@
 }
 
 span.lang-item {
-    cursor:pointer;
+    
     padding: 2px 8px 1px;
       position: relative;
         border: 3px solid transparent;
@@ -34,6 +53,7 @@ span.lang-item {
   display: inline-block;
   color: var(--main-font-color);
   text-decoration: none;
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -52,7 +72,7 @@ span.lang-item {
 
   &.active {
     border-color: var(--accent-font-color);
-    cursor:unset;
+    cursor: default;
 }
 }
 
@@ -61,7 +81,7 @@ span.lang-item {
     display:flex;
     align-items:center;
     gap:4px;
-    .lang-item:nth-child(2) { margin-right: 20px; }
+    .lang-item:nth-child(2) { margin-right: 20px;}
     .lang-item{
         font-family: "Syne", "Helvetica Neue", sans-serif;
         font-weight: 800;
@@ -69,7 +89,7 @@ span.lang-item {
         line-height: 18px;
         text-transform: uppercase;
         color: var(--main-font-color);
-        cursor:pointer;
+       
     }
  
 }

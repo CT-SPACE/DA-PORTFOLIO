@@ -1,20 +1,23 @@
 @use '../../../styles.scss' as *;
 
-:host(.open) { top: 49px; z-index:0; pointer-events:auto;}
+:host(.open) { top: var(--header-h, 49px); z-index:0; pointer-events:auto; }
 :host{
     z-index:0;
-    top:-55vh;
+    top:-60vh;
     position:fixed;
-    height:49px;
+    left:0;
+    right:0;
     width:100%;
-        border-top: 1px solid #09090a1f;
-    transition: top 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    /* host should not constrain panel height */
+    border-top: 1px solid #09090a1f;
+    transition: top 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
 }
 
 .menuPanel{
     width:100%;
     min-height: clamp(500px, 50vh, 700px);
-    position:absolute;
+    position:relative;
     z-index:0;
     left:0;
     background-color: var(--main-bg-color);
