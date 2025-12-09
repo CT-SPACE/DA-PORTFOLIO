@@ -1,0 +1,46 @@
+@use '../../styles.scss' as *;
+
+main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 40px 0;
+    box-sizing: border-box;
+
+    >div{
+        flex:1;
+    }
+}
+
+.meContainer{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    cursor:pointer;
+   width:calc(380px * (300 / 286));
+    height: 380px;
+    &:hover{
+        div.meBorder{
+            z-index:20;
+    position:relative;
+    height:380px;
+    width: calc(380px * (286 / 300));
+    top:10px;
+    left:10px;
+    border:2px solid var(--main-font-color);
+    }
+}
+    img.me{
+        z-index:10;
+        display:flex;
+        justify-self:center;
+        position:absolute;
+        top:0px;
+border: 0.5px solid rgb(from var(--main-font-color) r g b / 0.3);        height: 100%;
+        aspect-ratio:300px/286px;
+        object-fit: cover;
+        
+    }
+}

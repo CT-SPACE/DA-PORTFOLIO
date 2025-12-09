@@ -88,6 +88,19 @@ h1{
 }
 
 h2{
+   margin: 3rem 0 2rem 0;
+   width: 100%;
+    font-size: clamp(1.2rem, 5vw, 4rem) !important;
+    font-weight: 600 !important;
+    color: var(--main-font-color);
+    font-family: 'Syne - Extrabold', 'Helvetica Neue', sans-serif !important;
+    &:hover{
+        color: var(--accent-font-color);
+    }
+}
+
+
+h3{
     font-size: 2rem !important;
     font-weight: 400 !important;
     margin: 0;
@@ -103,4 +116,10 @@ background-repeat: no-repeat;
 
 background-size: cover;
 background-position: 0% 50%;
+}
+
+main{
+   font-size: clamp(1rem, 3vw, 1.5rem);
+   line-height: 1.6;
+   color: var(--main-font-color);
 }
