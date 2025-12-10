@@ -17,15 +17,7 @@
 .menuPanel{
     width:100%;
     min-height: clamp(500px, 50vh, 700px);
-
-.menuItem {
-    border: 2px solid transparent;
-}
-
-.menuItem.active {
-    border-color: #000;
-}
-    position:relative;
+   position:relative;
     z-index:0;
     left:0;
     background-color: var(--main-bg-color);
@@ -41,6 +33,7 @@
     color: var(--main-font-color);
     padding-bottom:100px;
     box-sizing:border-box;
+
 }
 
 .angle{
@@ -51,15 +44,38 @@
     left:-16px;
     border-left: 2px solid var(--main-font-color);
     border-bottom: 2px solid var(--main-font-color);
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
 }
 
 .menuItem{
+            box-sizing: border-box;
+
         border:2px solid transparent;
     cursor:pointer;
     transition: width 0.3s ease;
     position:relative;
     display:inline-block;
-
+    &.active {
+    cursor:default;
+        >span{
+        border: 2px solid var(--main-font-color);
+        padding: 6px 30px;
+        }
+    &::after{
+        width:0;
+        transition:none;
+        }
+    &:hover::after{ 
+        width: 0;
+    }
+    :focus-visible::after{
+        width:0;
+    }
+    >.angle{
+        border: 2px solid transparent;   
+        }
+    }
 }
 .about,.mySkills, .portfolio, .sayhi{
     &::after{

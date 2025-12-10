@@ -18,7 +18,7 @@ export class Menu {
   @HostBinding('attr.aria-hidden') get ariaHidden() { return String(!this.isOpen); }
 
   activeId: string | null = null;
-  private headerHeightFallback = 49; // px fallback
+  private headerHeightFallback = 50; // px fallback
 
   toggleMenuItem(sectionId: string): void {
     this.activeId = sectionId;
@@ -63,13 +63,13 @@ export class Menu {
   }
 
   private getMenuHeight(): number {
-    const host = (this as any).el?.nativeElement as HTMLElement | null;
-    const panel = host?.querySelector('.menuPanel') as HTMLElement | null;
+    // Query the panel directly from document to avoid relying on ElementRef
+    const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
     return panel?.offsetHeight ?? 0;
   }
 
   private getMenuTransitionMs(): number {
-    const host = (this as any).el?.nativeElement as HTMLElement | null;
+    const host = document.querySelector('app-menu') as HTMLElement | null;
     const style = host ? getComputedStyle(host) : null;
     const dur = style?.transitionDuration || '0s';
     const m = dur.match(/([\d.]+)s/);

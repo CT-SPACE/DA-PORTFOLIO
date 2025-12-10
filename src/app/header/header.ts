@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core'
+import { Component, signal, ViewChild } from '@angular/core'
 import { Menu } from '../header/menu/menu';
 
 @Component({
@@ -14,6 +14,8 @@ isAnimating = signal(false);
 currentIndex = signal(0);
 currentSrc = signal(this.frames[0]);
 selected = signal<'DE' | 'EN'>('DE');
+@ViewChild(Menu) menu!: Menu;
+
 
 select(choice: 'DE' | 'EN') {
   this.selected.set(choice);
@@ -55,6 +57,9 @@ select(choice: 'DE' | 'EN') {
         this.isAnimating.set(false);
       }
     }, stepMs);
+    if (!forward){
+      this.menu.onClose();
+   }
   }
 
   private preloadFrames() {
