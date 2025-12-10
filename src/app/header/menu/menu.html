@@ -1,18 +1,18 @@
 <div class="menuPanel">
-    <div class="menuItem about" (click)="toggleMenuItem('aboutSection')">Über mich
+    <div class="menuItem about" [class.active]="activeId==='aboutSection'" (click)="toggleMenuItem('aboutSection')">Über mich
         <div class="angle"></div>
     </div>
-    <div class="menuItem mySkills" (click)="toggleMenuItem('mySkillsSection')">Fähigkeiten
+    <div class="menuItem mySkills" [class.active]="activeId==='mySkillsSection'" (click)="toggleMenuItem('mySkillsSection')">Fähigkeiten
          <div class="angle"></div>
     </div>
-    <div class="menuItem portfolio" (click)="toggleMenuItem('portfolioSection')">Portfolio
+    <div class="menuItem portfolio" [class.active]="activeId==='portfolioSection'" (click)="toggleMenuItem('portfolioSection')">Portfolio
          <div class="angle"></div>
     </div>
     <div class="sayhiContainer">
             <div class="diagonal">
             </div>
-            <div class="menuItem sayhi" >
-                <h1 (click)="toggleMenuItem('sayHiSection')">Say Hi!</h1>
+            <div class="menuItem sayhi" [class.active]="activeId==='sayHiSection'" (click)="toggleMenuItem('sayHiSection')">
+                <h1>Say Hi!</h1>
             <div class="stayConnected">
 <img src="/assets/img/sayhiEmail.svg" alt="Email-Adresse" class="sayhiEmail"> <div><span class="icon"> <img src="/assets/img/icon_Github.svg" alt="Github-Icon"> </span> <span class="icon"> <img src="/assets/img/icon_Email.svg" alt="Email-Icon"> </span><span class="icon"> <img src="/assets/img/icon_Linkedin.svg" alt="LinkedIn-Icon"> </span></div>           </div>
 

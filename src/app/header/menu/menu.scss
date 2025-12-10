@@ -17,6 +17,14 @@
 .menuPanel{
     width:100%;
     min-height: clamp(500px, 50vh, 700px);
+
+.menuItem {
+    border: 2px solid transparent;
+}
+
+.menuItem.active {
+    border-color: #000;
+}
     position:relative;
     z-index:0;
     left:0;
