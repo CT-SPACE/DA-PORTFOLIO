@@ -88,12 +88,17 @@ h1{
 }
 
 h2{
-   margin: 3rem 0 2rem 0;
+  position:relative;
+  z-index:100;
+   margin: 3rem 0 2rem 1.2rem;
+   padding:0 20px;
    width: 100%;
+   background: var(--main-bg-color);
     font-size: clamp(1.2rem, 5vw, 4rem) !important;
     font-weight: 600 !important;
     color: var(--main-font-color);
     font-family: 'Syne - Extrabold', 'Helvetica Neue', sans-serif !important;
+        width:fit-content;
     &:hover{
         color: var(--accent-font-color);
     }

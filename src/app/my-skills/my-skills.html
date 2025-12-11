@@ -1,2 +1,31 @@
-<p>my-skills works!</p>
-<p>Das sind meine Fähigkeiten</p>
+<h2 class="right">Fähigkeiten</h2>
+<main class="mainBorder">
+<div class="skillsContainer" inView>
+  <h4>Programmier Skills</h4>
+  @for (skill of skills; track skill; let i = $index) {
+    <div class="skillBox">
+      <img [src]="'assets/img/icon_' + skill + '.svg'" alt="" [attr.title]="skill + ' icon'" class="skillIcon">
+      <p class="skillName">{{ skill }}</p>
+    </div>
+  }
+</div>
+<div class="skillsContainer" inView>
+  <h4>Technische Skills</h4>
+  @for (knowledge of knowledges; track knowledges; let i = $index) {
+    <div class="skillBox">
+      <img [src]="'assets/img/icon_' + knowledge + '.svg'" alt="" [attr.title]="knowledge + ' icon'" class="skillIcon">
+      <p class="skillName">{{ knowledge }}</p>
+    </div>
+  }
+</div>
+<div class="skillsContainer" inView>
+  <h4>Tools-Kenntnisse</h4>
+  @for (tool of tools; track tools; let i = $index) {
+    <div class="skillBox">
+      <img [src]="'assets/img/icon_' + tool + '.svg'" alt="" [attr.title]="tool + ' icon'" class="skillIcon">
+      <p class="skillName">{{ tool }}</p>
+    </div>
+  }
+</div>
+
+</main>
