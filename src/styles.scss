@@ -9,6 +9,7 @@
   --main-bg-color: #FFFCF3;
   --main-font-color: #09090A;
   --accent-font-color: #00BC8F;
+  --extra-gap: 60px;
 }
 
 @font-face {
@@ -111,6 +112,19 @@ h3{
     margin: 0;
     color: var(--accent-font-color);
     font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+}
+
+h4{
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    position:relative;
+    border-bottom:1px solid #09090a45;
+    margin: 0;
+    width:100%;
+    text-align:center;
+    color: #09090a45;
+    font-family: 'Syne - Medium', 'Helvetica Neue', sans-serif !important;
+
 }
 
 .diagonal{

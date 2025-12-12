@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InViewDirective } from '../shared/in-view.directive';
 
 @Component({
   selector: 'app-my-skills',
-  imports: [CommonModule],
+  imports: [CommonModule, InViewDirective],
   templateUrl: './my-skills.html',
   styleUrl: './my-skills.scss',
 })
@@ -13,43 +14,48 @@ public skills: string[] = [
     'Typescript',
     'Angular',
     'Api',
-    'html',
+  'html',
     'Css',
-
     'Bootstrap',
     'Material-Design',
-
-
 ];
 
 public knowledges: string[] = [
   'Scrum',
-  'CanBan',
+  'Kanban',
   'Ki-Prompting'
 ];
 
 public tools: string[] = [
-  'Visual-Studio-Code',
+  'VSCode',
   'Figma',
-  'Gimp',
   'Browser-Dev-Tools',
       'Git',
     'Github',
         'Firebase',
-        'Adservers'
+        'GAM360',
+        'Salesforce',
+        'Confluence',
+        'Jira',
+        'Trello'
 
 ];
 
 
 
 public getKnowledges(): string[]{
-    return this.skills;
+  return this.knowledges;
 }
 
 public getSkills(): string[]{
     return this.skills;
 }
 public getTools(): string[]{
-    return this.skills;
+  return this.tools;
+}
+
+onContainerView(section: string, visible: boolean) 
+{ 
+  console.log(section, 'inView:', visible); 
 }
 }

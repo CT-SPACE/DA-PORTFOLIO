@@ -27,7 +27,6 @@ export class InViewDirective implements OnDestroy {
           target.classList.remove(this.activeClass);
         }
         this.inViewChange.emit(visible);
-        console.log('meText inView:', visible);
       },
       { threshold: this.threshold, rootMargin: this.rootMargin }
     );
