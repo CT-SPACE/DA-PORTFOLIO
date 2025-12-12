@@ -14,10 +14,9 @@
 .skillBox{
     opacity:0;
     position:relative;
-    // transform: translateX(-100vw) scale(2);
+    transform: translateX(-100vw) scale(2);
     display:flex;
     
-    // margin-inline-start: var(--extra-gap);
 
     flex-direction:column;
     align-items:center;
@@ -30,6 +29,8 @@ box-sizing:border-box;
     width:60px;
     height:60px;
     object-fit:contain;
+    &:hover{
+transform:scale(1.1)    }
 }
 
 .skillsContainer{
@@ -41,16 +42,13 @@ box-sizing:border-box;
     box-sizing:content-box;
     &.in-view{
         opacity:1;
-        // transform: translateX(0) scale(1);
-        animation: skillSnap 0.6s cubic-bezier(0.2, 0.9, 0.2, 1) both;    
-
-        justify-content:space-between;
+        /* animation applied to children only */
+        justify-content:flex-start;
         .skillBox{
         opacity:1;
-        animation: skillSnap 1.3ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+        animation: skillSnap 1.5s cubic-bezier(0.2, 0.9, 0.2, 1) both;
 
-        // transform: translateX(0) scale(1);
-        // margin-inline-start:0;
+        
         }
     }
 }
@@ -65,7 +63,7 @@ box-sizing:border-box;
     animation-delay: 0.2s;
 }
 .skillsContainer.in-view > div.skillBox:nth-of-type(4) {
-    animation-delay: 0.35;
+    animation-delay: 0.35s;
 }
 .skillsContainer.in-view > div.skillBox:nth-of-type(5) {
     animation-delay: 0.5s;
@@ -91,12 +89,26 @@ box-sizing:border-box;
 
 @keyframes skillSnap {
     0% {
-        transform: translateX(-100vw) scale(2) opacity(0);
+        transform: translateX(-100vw) scale(3);
+        opacity: 0;
+      
+    }
+    40%{
+        opacity:1;
+    }
+
+    70%{
+        transform: translateX(0) scale(1);
+       
     }
     80% {
-        transform: translateX(0) scale(0.8) opacity(1);
+        transform: translateX(0) scale(0.85);
+        opacity: 1;
+       
     }
     100% {
-        transform: translateX(0) scale(1) opacity(1);
+        transform: translateX(0) scale(1);
+        opacity: 1;
+        
     }
 }
