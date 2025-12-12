@@ -1,1 +1,20 @@
-<p>projects works!</p>
+@for (project of projects; track project.id) {
+  <div class="projectContainer">
+    <div class="imgContainer">
+      <img [src]="project.imgSrc" alt="" [attr.alt]="project.title" [attr.title]="project.title">
+    </div>
+    <div class="projectText">
+      <h5>{{ project.title }}</h5>
+      <p>{{ project.description }}</p>
+      <p class="tools">
+        @for (tool of project.tools; track tool) { <span class="tool">{{ tool }}</span> }
+      </p>
+      @if (project.gitLink) {
+        <button (click)="openNewTab(project.gitLink)" class="standardButton" type="button">Github</button>
+      }
+      @if (project.liveLink) {
+        <button (click)="openNewTab(project.liveLink)" class="standardButton" type="button">Live</button>
+      }
+    </div>
+  </div>
+}

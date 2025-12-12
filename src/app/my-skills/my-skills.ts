@@ -54,8 +54,5 @@ public getTools(): string[]{
   return this.tools;
 }
 
-onContainerView(section: string, visible: boolean) 
-{ 
-  console.log(section, 'inView:', visible); 
-}
+
 }

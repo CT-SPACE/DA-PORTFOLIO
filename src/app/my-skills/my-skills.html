@@ -1,6 +1,6 @@
 <h2 class="right">Fähigkeiten</h2>
 <main class="mainBorder">
-<div class="skillsContainer" inView [threshold]="0.2" [rootMargin]="'-10% 0px -10%'" (inViewChange)="onContainerView('programmingSkillsSection', $event)">
+<div class="skillsContainer" inView [threshold]="0.2" [rootMargin]="'-10% 0px -10%'">
   <h4>Programmier Skills</h4>
   @for (skill of skills; track skill; let i = $index) {
     <div class="skillBox">
