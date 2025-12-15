@@ -14,7 +14,7 @@
 .skillBox{
     opacity:0;
     position:relative;
-    transform: translateX(-100vw) scale(2);
+    // transform: translateX(-100vw) translateY(10vh) scale(2);
     display:flex;
     
 
@@ -30,7 +30,11 @@ box-sizing:border-box;
     height:60px;
     object-fit:contain;
     &:hover{
-transform:scale(1.1)    }
+    animation-name: wiggle;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
+ }
 }
 
 .skillsContainer{
@@ -53,43 +57,10 @@ transform:scale(1.1)    }
     }
 }
 
-.skillsContainer.in-view > div.skillBox:nth-of-type(1) {
-    animation-delay: 0s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(2) {
-    animation-delay: 0.1s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(3) {
-    animation-delay: 0.2s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(4) {
-    animation-delay: 0.35s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(5) {
-    animation-delay: 0.5s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(6) {
-    animation-delay: 0.66s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(8) {
-    animation-delay: 0.82s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(9) {
-    animation-delay: 1s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(10) {
-    animation-delay: 1.18s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(11) {
-    animation-delay: 1.3s;
-}
-.skillsContainer.in-view > div.skillBox:nth-of-type(12) {
-    animation-delay: 1.5s;
-}
 
 @keyframes skillSnap {
     0% {
-        transform: translateX(-100vw) scale(3);
+        transform: translateX(-100vw) translateY(10vh) scale(3);
         opacity: 0;
       
     }
@@ -98,17 +69,32 @@ transform:scale(1.1)    }
     }
 
     70%{
-        transform: translateX(0) scale(1);
+        transform: translateX(0) translateY(-1vw) scale(1);
        
     }
     80% {
-        transform: translateX(0) scale(0.85);
+        transform: translateX(0) translateY(0) scale(0.85);
         opacity: 1;
        
     }
     100% {
-        transform: translateX(0) scale(1);
+        transform: translateX(0) translateY(0) scale(1);
         opacity: 1;
         
     }
+}
+
+
+@keyframes wiggle {
+    0% { transform: skewX(9deg); }
+    10% { transform: skewX(-8deg); }
+    20% { transform: skewX(7deg); }
+    30% { transform: skewX(-6deg); }
+    40% { transform: skewX(5deg); }
+    50% { transform: skewX(-4deg); }
+    60% { transform: skewX(3deg); }
+    70% { transform: skewX(-2deg); }
+    80% { transform: skewX(1deg); }
+    90% { transform: skewX(0deg); }
+    100% { transform: skewX(0deg); }
 }

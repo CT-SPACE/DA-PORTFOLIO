@@ -8,7 +8,7 @@ export class InViewDirective implements OnDestroy {
   private observer?: IntersectionObserver;
 
   @Input() threshold = 1;
-  @Input() rootMargin = '-20% 0px -10%';
+  @Input() rootMargin = '-10% 0px -10%';
   @Input() activeClass = 'in-view';
   @Output() inViewChange = new EventEmitter<boolean>();
 

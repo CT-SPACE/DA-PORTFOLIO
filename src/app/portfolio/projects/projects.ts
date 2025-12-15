@@ -15,8 +15,8 @@ export class Projects {
     {
       id: 1,
       title: 'El Pollo Loco',
-      description: 'Jump-and-run game built with JavaScript, HTML, CSS.',
-      imgSrc: 'assets/img/project_pollo.png',
+      description: 'Jump-and-Run Spiel, bei dem der Spieler verschiedene Items sammeln muss, um Punkte zu sammeln und den Endboss zu besiegen. Es geht um Hühner.',
+      imgSrc: 'assets/img/project_el-pollo-loco.png',
       tools: ['JavaScript', 'HTML', 'CSS', 'Kanban-Board'],
       gitLink: 'https://github.com/CT-SPACE/EL-POLLO-LOCO',
       slug: 'el-pollo-loco',
@@ -24,25 +24,26 @@ export class Projects {
     },
     {
       id: 2,
-      title: 'Join',
-      description: 'Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.',
-      imgSrc: 'assets/img/project_join.png',
-      tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase', 'Kanban-Board'],
-      gitLink: 'https://github.com/CT-SPACE/JOIN-124_Gruppenarbeit',
-      slug: 'join-app',
-      liveLink: 'https://www.troitzsch.de/da/join/'  
-    }
-    ,
-    {
-      id: 3,
-      title: 'King\'s Cup',
+ title: 'King\'s Cup',
       description: 'Das ist die Digitale Version des beliebten Kartenspiels "King\'s Cup". Entwickelt mit Angular und Firebase, bietet diese App eine interaktive Möglichkeit, das Spiel online zu spielen. Es können gleichzeitig mehrere Gruppen unabhängig voneinander spielen.',
       imgSrc: 'assets/img/project_kingscup.png',
       tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase'],
       gitLink: 'https://github.com/CT-SPACE/KINGS-CUP',
       slug: 'kings-cup',
-      liveLink: 'https://www.troitzsch.de/da/kings-cup/'
+      liveLink: 'https://troitzsch.de/DA/ANGULAR/KINGS-CUP/'
     }
+    
+    ,
+    {
+      id: 3,
+        title: 'Join',
+      description: 'Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.',
+      imgSrc: 'assets/img/project_join.png',
+      tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase', 'Figma'],
+      gitLink: '',
+      slug: 'join-app',
+      liveLink: 'https://troitzsch.de/DA/JOIN/' 
+    }  
     ,
     {
       id: 4,
@@ -52,17 +53,17 @@ export class Projects {
       tools: ['Angular', 'TypeScript', 'SCSS', 'API'],
       gitLink: '' ,
       slug: 'pokedex',
-      liveLink: 'https://www.troitzsch.de/da/pokedex/'}
+      liveLink: 'https://troitzsch.de/DA/POKEDEX/'}
     ,
     {
       id: 5,
       title: 'Quiz-App',
-      description: 'Eine Bootstrap basierte App ohne Vorgaben an Gestaltung und Inhalt.',
+      description: 'Eine Bootstrap basierte Singlepage App. ',
       imgSrc: 'assets/img/project_quizapp.png',
-      tools: ['JavaScript', 'CSS'],
+      tools: ['JavaScript', 'CSS', 'HTML', 'Bootstrap'],
       gitLink: '',
       slug: 'quiz-app',
-      liveLink: 'https://www.troitzsch.de/da/quiz-app/'
+      liveLink: 'https://troitzsch.de/DA/QUIZ-APP/'
       
     }
   ];
