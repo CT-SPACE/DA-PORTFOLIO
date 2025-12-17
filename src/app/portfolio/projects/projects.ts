@@ -50,7 +50,7 @@ export class Projects {
       title: 'Pokedex',
       description: 'Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.',
       imgSrc: 'assets/img/project_pokedex.png',
-      tools: ['Angular', 'TypeScript', 'SCSS', 'API'],
+      tools: ['JavaScript','HTML','CSS', 'API'],
       gitLink: '' ,
       slug: 'pokedex',
       liveLink: 'https://troitzsch.de/DA/POKEDEX/'}

@@ -12,7 +12,7 @@
     grid-template-columns: repeat(1,6fr);
     gap: 50px;
     max-width:clamp(300px, 90vw, 1400px);
-    margin: 120px auto;
+    margin: 120px auto 0 auto;
 }   
 
 .dividerHome{
@@ -20,7 +20,6 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
-    // background-color: var(--main-font-color);
 }
 .vertEmail{
     rotate:-90deg;

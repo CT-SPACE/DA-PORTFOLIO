@@ -1,7 +1,42 @@
- <div class="sayhiContainer">
-            <div class="diagonal">
-            </div>
-            <div class="menuItem sayhi" >
-                <h1>Say Hi!</h1>
-            <div class="stayConnected">
-<img src="assets/img/sayhiEmail.svg" alt="Email-Adresse" class="sayhiEmail"> <div><span class="icon"> <img src="assets/img/icon___Github.svg" alt="Github-Icon"> </span> <span class="icon"> <img src="assets/img/icon___Email.svg" alt="Email-Icon"> </span><span class="icon"> <img src="/assets/img/icon___Linkedin.svg" alt="LinkedIn-Icon"> </span></div>           </div>
+<div class="sayhiContainer">
+  <div class="diagonal"></div>
+  <div class="menuItem sayhi">
+    <h1>Say Hi!</h1>
+    <div class="contactForm">
+      <p class="accentQuestion">Wollen wir ein neues Projekt diskutieren?</p>
+      <p class="normalCTA">Sag "Hallo"! Beschreibe deine Ideen und lass sie uns wahr machen!</p>
+      <!-- <form>
+        <input id="name" type="text" placeholder=" " />
+        <label for="name">Dein Name</label>
+        <input id="email" type="email" placeholder=" " />  
+        <label for="email">Deine E-Mail-Adresse</label>      
+       <div class="textArea"><textarea id="text" rows="4" placeholder=" "></textarea><label for="text">Deine Nachricht</label></div>
+        <span class="privacy"><img src="assets/img/button" alt="privacy policy">Ich habe die Datenschutzerklärung gelesen und bestätige.</span>
+        <button class="standardButton" onsubmit="submit" type="button">Absenden</button>
+    </form> -->
+      <form class="floating-form">
+        <div class="field">
+          <input id="name" type="text" placeholder=" " />
+          <label for="name">Dein Name:</label>
+        </div>
+
+        <div class="field">
+          <input id="email" type="email" placeholder=" " />
+          <label for="email">Deine E‑Mail:</label>
+        </div>
+
+        <div class="field">
+          <textarea id="message" rows="5" placeholder=" "></textarea>
+          <label for="message">Deine Nachricht:</label>
+        </div>
+    <div class="privacy" role="checkbox" tabindex="0" aria-hidden="true" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()">
+          <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
+          Ich habe die <span (click)="openPrivacyPolicy()">Datenschutzerklärung</span> gelesen und bestätige.
+    </div>
+        <button class="standardButton dark" [disabled]="!privacyAccepted" type="submit">Senden</button>
+      </form>
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+</div>

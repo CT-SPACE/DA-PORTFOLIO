@@ -16,7 +16,7 @@
       <p class="description" [class.right]="i % 2 === 1">{{ project.description }}</p>
     <div class="buttonGithub"  [class.right]="i % 2 === 1">
       @if (project.gitLink) {
-        <button (click)="openNewTab(project.gitLink)" class="standardButton" type="button">Github</button>
+        <button (click)="openNewTab(project.gitLink)" class="standardButton bright" type="button">Github</button>
       }
 
       </div>

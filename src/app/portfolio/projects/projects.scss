@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 100px;
+    gap:clamp(30px, 6vw, 100px);
     margin-top: 40px;
 
     &:hover {
@@ -96,6 +96,7 @@
 
 .reverse {
     flex-direction: row-reverse;
+    gap: calc(clamp(30px, 6vw, 100px) + 18px);
 }
 
 

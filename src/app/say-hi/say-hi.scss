@@ -1,8 +1,12 @@
+app-footer{
+    width:100%;
+    background-color:var(--main-font-color);
+}
 .sayhiContainer{
     width:100%;
+    overflow:hidden;
     display:flex;
     position:absolute;
-    bottom:0;
 
     flex-direction:column;
     align-items:center;
@@ -33,3 +37,158 @@
         }
     }
 }
+.contactForm{
+    width:100%;
+    max-width:600px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin: 2rem auto 3rem auto;
+
+    p.accentQuestion{
+        font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+        font-size:1.4rem;
+        color:var(--accent-font-color);
+        margin-bottom:1rem;
+    }
+    p.normalCTA{
+        font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+        font-size:1rem;
+        color:var(--main-bg-color);
+        margin-bottom:2rem;
+    }
+}
+form{
+    width:clamp(200px, 100%, 480px);
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+}
+.floating-form {
+  background: var(--main-font-color);
+  color: var(--main-bg-color);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+/* Feld-Wrapper */
+.floating-form .field {
+    width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* Inputs/Textarea: nur unten Weiß, bei Fokus kompletter weißer Rahmen */
+.floating-form input,
+.floating-form textarea {
+    width: 100%;
+  background: transparent;
+  color: var(--main-bg-color);
+  caret-color: #fff;
+  font: inherit;
+  border: 1px solid transparent;
+  border-bottom-color: var(--main-bg-color);
+  border-radius: 3px;
+  padding: 14px 12px 10px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.floating-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Fokus: kompletter Rahmen weiß */
+.floating-form input:focus-visible,
+.floating-form textarea:focus-visible {
+  outline: 0;
+  border-color: var(--main-bg-color);
+  font-size: 1rem;
+}
+
+/* Label als „Placeholder“: initial links im Feld */
+.floating-form .field > label {
+  position: absolute;
+  left: 12px;
+    bottom: 0;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.75);
+  font-size: 0.8rem;
+  pointer-events: none;
+  padding: 0 4px;
+  transition:
+    top 160ms ease,
+    transform 160ms ease,
+    font-size 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+/* Bei Fokus oder wenn Inhalt vorhanden: Label auf den oberen Rand setzen */
+.floating-form input:focus + label,
+.floating-form input:not(:placeholder-shown) + label,
+.floating-form textarea:focus + label,
+.floating-form textarea:not(:placeholder-shown) + label {
+  top: 4px;
+  height: fit-content;
+  transform: translateY(-100%); /* genau über die obere Border */
+  font-size: 0.75rem;
+  background: var(--main-font-color);             /* „Tag“ über der weißen Linie */
+  color: var(--main-bg-color);
+}
+
+button.standardButton:disabled{
+
+    cursor:unset;
+     pointer-events: none; 
+     opacity:0.6;
+}
+
+.privacy{
+    width:100%;
+    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+    font-size:0.85rem;
+    font-weight:200;
+    color:var(--main-bg-color);
+    margin: 0 0 2rem 0;
+    display:inline-flex;
+    align-items:center;
+    text-align:left;
+    gap:8px;
+    
+    span{
+        text-decoration:none;
+        color:var(--accent-font-color);
+        cursor:pointer;
+        &:hover{
+            color:var(--accent-font-color);
+            text-decoration:underline;
+        }
+    }
+    .checkboxImg{
+        width:16px;
+        height:16px;
+        background-image: url('../../../public/assets/img/check-button.svg');
+        background-position: -8px -9px;
+        background-size:100px;
+        background-repeat:no-repeat;
+    }
+    
+  &:not(.checked):hover .checkboxImg,
+  &:not(.checked):focus-visible .checkboxImg {
+            background-position: -30px -9px;
+        }
+  &.checked .checkboxImg {
+        background-position: -53px -9px;   /* checked-Frame (Sprite-Frame anpassen) */
+        }
+
+  &.checked:hover .checkboxImg,
+  &.checked:focus-visible .checkboxImg {
+           
+            background-position: -75px -9px;
+        }
+        
+ }
+
+
