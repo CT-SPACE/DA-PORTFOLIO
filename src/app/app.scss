@@ -35,13 +35,16 @@
     height:180px;
     width:100%;
     display:flex;
+    position:relative;
+    bottom:-50px;
+
     &.right{
         justify-content: right;
+
     }
     &.left{
-        position:relative;
         justify-content: right;
-        transform: scaleX(-1);
+         transform: scaleX(-1);
     }
 }
 .spacerArrow{

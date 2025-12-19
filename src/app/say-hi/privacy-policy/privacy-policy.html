@@ -1,1 +1,59 @@
-<p>privacy-policy works!</p>
+@if (opened) {
+<hr class="line line-top" aria-hidden="true">
+<div id="privacy" class="privacy-reveal is-open" role="dialog" aria-modal="true">
+  
+ 
+    <div class="privacyPolicyContainer">
+
+        <button class="standardButton dark closeButton" (click)="onClose()" role="button" tabindex="0" aria-label="Close Privacy Policy">
+        </button>
+        <h1>Datenschutzerklärung</h1>
+        <h6>1. Allgemeine Informationen</h6>
+        <p>
+            Im Rahmen der Nutzung der Plattform werden folgende personenbezogene Daten von Ihnen erhoben und
+            verarbeitet:
+        <ul type="circle">
+            <li>Dein Name</li>
+            <li>Deine E-Mail-Adresse</li>
+        </ul>
+        <p></p>
+        Weitere technische Daten, wie z.B. IP-Adresse, Browsertyp, Geräteinformationen, Betriebssystem usw., werden nur
+        zur technischen Analyse und Fehlerbehebung erfasst.
+        <p></p>
+        <h6>2. Zweck der Datenverarbeitung</h6>
+        Die Verarbeitung der personenbezogenen Daten erfolgt zur Durchführung und Abwicklung der auf der Plattform
+        angebotenen Kontaktaufnahme.
+        <p></p>
+        <h6>3. Verantwortlicher für die Datenverarbeitung</h6>
+        Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit der Nutzung der Plattform
+        www.troitzsch.de ist Christina Troitzsch mit der im <a href="/impressum" class="legal">Impressum</a> angegebenen Anschrift.
+        <p></p>
+        <h6>4. Rechtsgrundlage der Verarbeitung</h6>
+        Die Verarbeitung Ihrer personenbezogenen Daten erfolgt aufgrund der Erforderlichkeit zur Kontaktaufnahme im
+        Zusammenhang mit der Nutzung der Plattform gemäß den geltenden datenschutzrechtlichen Bestimmungen. Diese
+        Bestimmungen gewährleisten den Schutz Ihrer personenbezogenen Daten und ermöglichen die rechtliche Grundlage für
+        die Verarbeitung gemäß den entsprechenden Datenschutzgesetzen.
+        <p></p>
+
+        <h6>5. Weitergabe von Daten an Dritte</h6>
+        Rechtliche-Dokumente.de gibt personenbezogene Daten der Nutzer nur dann an Dritte weiter, wenn dies zur
+        Erfüllung der vertraglichen Verpflichtungen erforderlich ist, z.B. an Zahlungsdienstleister zur Abwicklung der
+        Zahlungen oder an Hosting-Dienstleister zur Bereitstellung der Plattforminfrastruktur.
+        Darüber hinaus erfolgt eine Weitergabe von Daten nur mit Ihrer ausdrücklichen Einwilligung oder aufgrund
+        gesetzlicher Verpflichtungen.
+        <p></p>
+        <h6>6. Speicherdauer</h6>
+        Ihre personenbezogenen Daten werden für die Dauer der Vertragsbeziehung mit Ihnen gespeichert und anschließend
+        gelöscht, es sei denn, es bestehen gesetzliche Aufbewahrungspflichten oder es liegen berechtigte Interessen von
+        Rechtliche-Dokumente.de vor.
+        <p></p>
+        <h6>7. Anpassung der Datenschutzerklärung</h6>
+        Wir behalten uns das Recht vor, diese Datenschutzerklärung zu ändern oder zu aktualisieren. Die jeweils gültige
+        Version wird auf der Plattform veröffentlicht.
+        <p></p>
+                <button class="standardButton dark acceptButton" (click)="onCloseAccepted()" role="button" tabindex="0"
+            aria-label="Close Privacy Policy">Bestätigen und Schließen</button>
+    </div>
+</div>
+ <hr class="line line-bottom" aria-hidden="true">
+    }

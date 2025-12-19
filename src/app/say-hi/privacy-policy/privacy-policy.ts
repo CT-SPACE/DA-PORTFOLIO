@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [],
+  standalone: true,
+  imports: [ CommonModule ],
   templateUrl: './privacy-policy.html',
-  styleUrl: './privacy-policy.scss',
+  styleUrls: ['./privacy-policy.scss'],
 })
 export class PrivacyPolicy {
+  @Input() opened = false;
+  @Output() close = new EventEmitter<void>();
+  @Output() accept = new EventEmitter<void>();
 
+  onClose(): void {
+    this.close.emit();
+  }
+  onCloseAccepted(): void {
+    this.close.emit();
+    this.accept.emit();
+  }
 }

@@ -21,17 +21,53 @@
 
   <app-about-me id="aboutMeSection" class="app-section"></app-about-me>
   <div class="spacer right">
-    <a href="#mySkillsSection" title="zu den Fähigkeiten"><img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"></a>
+    <a href="#mySkillsSection" title="zu den Fähigkeiten">
+        <img
+      src="/assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="/assets/img/spacer-arrow_1.svg"
+      data-frame2="/assets/img/spacer-arrow_2.svg"
+      data-frame3="/assets/img/spacer-arrow_3.svg"
+    >
+    
+    </a>
   </div>
   <app-my-skills id="mySkillsSection" class="app-section"></app-my-skills>
   
     <div class="spacer left">
-    <a href="#portfolioSection" title="zu den Projekten"><img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"></a>
+    <a href="#portfolioSection" title="zu den Projekten">
+      <!-- <img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"></a> -->
+    <img
+      src="/assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="/assets/img/spacer-arrow_1.svg"
+      data-frame2="/assets/img/spacer-arrow_2.svg"
+      data-frame3="/assets/img/spacer-arrow_3.svg"
+    >
+    </a>
   </div>
   
   <app-portfolio id="portfolioSection" class="app-section"></app-portfolio>
     <div class="spacer right">
-    <a href="#sayHiSection" title="Sag Hallo"><img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"></a>
+    <a href="#sayHiSection" title="Sag Hallo">
+      <!-- <img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"> -->
+         <img
+      src="/assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="/assets/img/spacer-arrow_1.svg"
+      data-frame2="/assets/img/spacer-arrow_2.svg"
+      data-frame3="/assets/img/spacer-arrow_3.svg"
+    >  
+    </a>
   </div>
 
 </div>
