@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-// import { Headline } from './headline/headline';
-// import { MySkills } from './my-skills/my-skills';
-// import { AboutMe } from './about-me/about-me';
-// import { Portfolio } from './portfolio/portfolio';
-// import { SayHi } from './say-hi/say-hi';
+
+import { SayHi } from './say-hi/say-hi';
+import { PrivacyPolicy } from './say-hi/privacy-policy/privacy-policy';
+import { Legal } from './say-hi/legal/legal';
+import { Footer } from './say-hi/footer/footer';
 
 export const routes: Routes = [ 
-    // { path: '', component: Headline},
-    // { path: 'skills', component: MySkills},
-    // { path: 'about', component: AboutMe},
-    // { path: 'portfolio', component: Portfolio},
-    // { path: 'sayhi', component: SayHi}
+{ path: '', redirectTo: 'sayhi', pathMatch: 'full' },
+{ path: 'sayhi', component: SayHi, 
+    children: [ 
+        { path: 'impressum', component: Legal, outlet: 'legal' }, 
+        { path: 'privacy-policy', component: PrivacyPolicy, outlet: 'legal'} ] }
 
 ];

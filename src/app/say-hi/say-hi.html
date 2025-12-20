@@ -1,6 +1,6 @@
 <div class="sayhiContainer">
   <div class="diagonal"></div>
-  <div class="menuItem sayhi">
+  <div class="sayhi">
     <h1>Say Hi!</h1>
     <div class="contactForm">
       <p class="accentQuestion">Wollen wir ein neues Projekt diskutieren?</p>
@@ -24,15 +24,21 @@
         </div>
     <div class="privacy" role="checkbox" tabindex="0" aria-hidden="true" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()">
           <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
-          Ich habe die <span [class.active]="activeId === 'privacy'" (click)="openPrivacyPolicy(); $event.stopPropagation()">Datenschutzerklärung</span> gelesen und bestätige.
+          Ich habe die  
+          <!-- <a routerLink="/sayhi/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Datenschutzerklärung </a> -->
+        <a [routerLink]="['/sayhi', { outlets: { legal: ['privacy-policy'] } }]" routerLinkActive="active">
+  Datenschutzerklärung
+</a>
+          gelesen und bestätige.
     </div>
 
         <button class="standardButton dark" [disabled]="!privacyAccepted" type="submit" >Senden</button>
       </form>
       </div>
     </div>
-    <app-privacy-policy [opened]="privacyOpened" (close)="closePrivacyPolicy()" (accept)="onPrivacyAccepted()"
-    ></app-privacy-policy>
+    <div class="legal-container">
+      <router-outlet name="legal"></router-outlet>
+    </div>
   </div>
   <app-footer></app-footer>
 </div>

@@ -19,7 +19,6 @@ main{
     position:relative;
     display:flex;
     justify-content:center;
-    cursor:pointer;
    width:calc(380px * (300 / 286));
     height: 380px;
     &.in-view{
@@ -28,10 +27,17 @@ main{
     position:relative;
     height:380px;
     width: calc(380px * (286 / 300));
+    transform: rotate(0deg);
     top:10px;
     left:10px;
     border:2px solid var(--main-font-color);
+     transition: transform 0.2s ease-in-out;
+            &:hover{
+                transform:rotate(3deg);
+               
+ }
     }
+
     }
     img.me{
         z-index:10;

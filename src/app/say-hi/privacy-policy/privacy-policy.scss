@@ -1,3 +1,4 @@
+@use '../say-hi.scss' as *;
 
 div#privacy{
     width: clamp(300px, 80vw, 600px);
@@ -34,7 +35,6 @@ div#privacy{
     background-position: right;
     filter: invert(1);
     padding: unset !important;
-    // top: 20px;
     right: 20px;
     width: 16px;
     height: 16px;

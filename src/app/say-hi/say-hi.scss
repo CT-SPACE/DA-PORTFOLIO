@@ -7,6 +7,14 @@ app-privacy-policy{
     overflow:hidden; 
 }
 
+.legal{
+    font-size:12px;
+    color: var(--accent-font-color);
+    cursor:pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
 
 
 .sayhiContainer{
