@@ -184,6 +184,23 @@ button.standardButton{
 
 } 
 
+.closeButton{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 16px;
+  height: 16px;
+  background: var(--main-bg-color) url(/assets/img/burger_5.svg) no-repeat right / contain;
+  filter: invert(1);
+  border: 0;
+  cursor: pointer;
+}
+.closeButton:hover{
+  filter: invert(0);
+  transition: all 0.3s ease-in-out;
+}
+
+
 .submit-result{
     display:flex;
     flex-direction:column;

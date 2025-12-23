@@ -22,21 +22,17 @@
           <textarea id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" "></textarea>
           <label for="message">Deine Nachricht:</label>
         </div>
-    <div class="privacy" role="checkbox" tabindex="0" aria-hidden="true" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()">
+    <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" >
           <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
-          Ich habe die  
-          <!-- <a routerLink="/sayhi/privacy-policy" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> Datenschutzerklärung </a> -->
-        <a [routerLink]="['/sayhi', { outlets: { legal: ['privacy-policy'] } }]" routerLinkActive="active">
-  Datenschutzerklärung
-</a>
-          gelesen und bestätige.
+          Ich habe die  <a [routerLink]="['/sayhi', { outlets: { legal: ['privacy-policy'] } }]" routerLinkActive="active"  [skipLocationChange]="true" (click)="privacyService.openLegalContainerAndScroll('legalAnker'); $event.stopPropagation()" [class.active]="activeId === 'legalAnker'" class="privacyLink">
+  Datenschutzerklärung</a> gelesen und bestätige.
     </div>
 
-        <button class="standardButton dark" [disabled]="!privacyAccepted" type="submit" >Senden</button>
+        <button id="legalAnker" class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
       </form>
       </div>
     </div>
-    <div class="legal-container">
+    <div class="legal-container"  [class.open]="privacyOpened" [ngStyle]="{}">
       <router-outlet name="legal"></router-outlet>
     </div>
   </div>

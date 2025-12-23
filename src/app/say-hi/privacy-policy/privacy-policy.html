@@ -1,10 +1,10 @@
-@if (opened) {
-<!-- <div id="privacy" class="privacy-reveal is-open" role="dialog" aria-modal="true">
+<!-- @if (opened) { -->
+<div id="privacy" class="privacy-reveal is-open" role="dialog" aria-modal="true">
   
  
-    <div class="privacyPolicyContainer"> -->
+    <div class="privacyPolicyContainer">
 
-        <button class="standardButton dark closeButton" (click)="onClose()" role="button" tabindex="0" aria-label="Close Privacy Policy">
+        <button class="closeButton" (click)="privacyService.closeLegalContainer()" role="button" tabindex="0" aria-label="Close Privacy Policy">
         </button>
         <h1>Datenschutzerklärung</h1>
         <h6>1. Allgemeine Informationen</h6>
@@ -25,7 +25,7 @@
         <p></p>
         <h6>3. Verantwortlicher für die Datenverarbeitung</h6>
         Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit der Nutzung der Plattform
-        www.troitzsch.de ist Christina Troitzsch mit der im <span class="legal">Impressum</span> angegebenen Anschrift.
+        www.troitzsch.de ist Christina Troitzsch mit der im   <a [routerLink]="['/sayhi', { outlets: { legal: ['legal'] } }]" routerLinkActive="active" [skipLocationChange]="true" (click)="$event.stopPropagation(); privacyService.switchToImpressum()" class="legal">Impressum</a> angegebenen Anschrift.
         <p></p>
         <h6>4. Rechtsgrundlage der Verarbeitung</h6>
         Die Verarbeitung Ihrer personenbezogenen Daten erfolgt aufgrund der Erforderlichkeit zur Kontaktaufnahme im
@@ -52,7 +52,7 @@
         <p></p>
                 <button class="standardButton dark acceptButton" (click)="onCloseAccepted()" role="button" tabindex="0"
             aria-label="Close Privacy Policy">Bestätigen und Schließen</button>
-    <!-- </div>
-</div> -->
+    </div>
+</div>
 
-    }
+    <!-- } -->

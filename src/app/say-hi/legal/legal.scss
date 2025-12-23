@@ -1,3 +1,6 @@
+@use '../../../styles.scss' as *;
+
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -15,25 +18,37 @@
   border: 1px solid var(--main-bg-color);
   border-radius: 4px;
   background: var(--main-font-color);
-  color: var(--main-bg-color);
+  color: var(--main-bg-color) !important;
   overflow: hidden;
 }
 
-.closeButton{
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  width: 16px;
-  height: 16px;
-  background: var(--main-bg-color) url(/assets/img/burger_5.svg) no-repeat right / contain;
-  filter: invert(1);
-  border: 0;
-  cursor: pointer;
+#legalContent {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: contentReveal 360ms ease 560ms forwards;
 }
-.closeButton:hover{
-  filter: invert(0);
-  transition: all 0.3s ease-in-out;
+
+.privacyPolicyContainer {
+    img{
+        display:flex;
+        align-self:baseline;
+        margin-top:4px;
+        height:20px;
+    }
+    h1{
+        margin-bottom:60px;
+    }
+    h4{
+        color: var(--main-bg-color) !important;
+        font-family:inherit;
+        text-align:left;
+        
+    }
+    p{
+margin:30px 0;
+    }
 }
+
 
 /* Linien-Animation (aus Punkt -> horizontal -> vertikal split) */
 .legal-reveal { position: relative; overflow: hidden; }
@@ -53,11 +68,7 @@
 .legal-reveal.is-open .line-top { animation: lineGrowSplitTop 600ms ease-in-out forwards; }
 .legal-reveal.is-open .line-bottom { animation: lineGrowSplitBottom 600ms ease-in-out forwards; }
 
-.legalContent {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: contentReveal 360ms ease 560ms forwards;
-}
+
 
 @keyframes lineGrowSplitTop {
   0%   { width: 0;   top: 50%; }

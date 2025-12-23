@@ -1,9 +1,10 @@
 @use '../say-hi.scss' as *;
+@use '../../../styles.scss' as *;
 
-div#privacy{
+div#privacy, div#legalContent{
     width: clamp(300px, 80vw, 600px);
     margin:  30px auto;
-    font-size:12px;
+    font-size:14px;
     padding:50px;
     border: 1px solid var(--main-bg-color);
     line-height:18px;
@@ -88,8 +89,6 @@ div#privacy{
 #privacy {
   opacity: 0;
   transform: translateY(8px);
-}
-#privacy {
   animation: contentReveal 360ms ease 560ms forwards; /* Delay nahe Linienende */
 }
 

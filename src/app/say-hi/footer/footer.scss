@@ -10,7 +10,16 @@
     margin:0 8px;
 }
 
-
+.legal{
+    font-size:10px;
+    line-height:20px;
+    text-decoration:none;
+    color:var(--accent-font-color);
+    &:hover{
+        cursor:pointer;
+        text-decoration:underline;
+    }
+}
 
 .stayConnected{
     box-sizing:border-box;
