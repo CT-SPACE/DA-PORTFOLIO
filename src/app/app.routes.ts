@@ -5,7 +5,7 @@ import { PrivacyPolicy } from './say-hi/privacy-policy/privacy-policy';
 import { LegalComponent } from './say-hi/legal/legal';
 
 export const routes: Routes = [ 
-{ path: '', redirectTo: 'sayhi', pathMatch: 'full' },
+// { path: '', redirectTo: 'sayhi', pathMatch: 'full' },
 { path: 'sayhi', component: SayHi, 
     children: [ 
         { path: 'legal', component: LegalComponent, outlet: 'legal' }, 

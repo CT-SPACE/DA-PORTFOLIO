@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit, inject } from '@angular/core';
 import { Footer } from './footer/footer';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
 import { PrivacyService } from '../shared/privacy.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -21,6 +21,7 @@ export class SayHi implements OnInit {
   public privacyService = inject(PrivacyService);
   activeId: string | null = null;
   @ViewChild('formContainerRef') formContainerRef!: ElementRef<HTMLButtonElement>;
+ 
 
   contactData = {
     name: '',
@@ -47,7 +48,15 @@ export class SayHi implements OnInit {
       });
   }
 
-  onSubmit(): void {
+  ngOnInit(): void {
+    // this.privacyService.getState().subscribe((state: boolean) => {
+  }
+
+
+
+  onSubmit(ngForm: NgForm): void {
+    if (ngForm.valid && ngForm.submitted){}
+
     const el = this.formContainerRef.nativeElement;
     el.innerHTML = `<div class="submit-result">
       <img src="assets/img/flieger.svg" alt="Nachricht gesendet" class="paper-plane" />
@@ -61,7 +70,5 @@ export class SayHi implements OnInit {
   }
 
 
-ngOnInit(): void {
-    // Initial load of acceptance state
-}
+
 }

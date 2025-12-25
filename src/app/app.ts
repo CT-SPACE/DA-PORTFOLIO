@@ -25,9 +25,9 @@ export class App {
     if (!img) return;
 
     const frames = [
-      img.dataset['frame1'] || '/assets/img/spacer-arrow_1.svg',
-      img.dataset['frame2'] || '/assets/img/spacer-arrow_2.svg',
-      img.dataset['frame3'] || '/assets/img/spacer-arrow_3.svg',
+      img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg',
+      img.dataset['frame2'] || 'assets/img/spacer-arrow_2.svg',
+      img.dataset['frame3'] || 'assets/img/spacer-arrow_3.svg',
     ];
 
     // Preload
@@ -60,7 +60,7 @@ export class App {
       this.hoverTimers.delete(img);
     }
     // Zurück zum ersten Frame
-    const first = img.dataset['frame1'] || '/assets/img/spacer-arrow_1.svg';
+    const first = img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg';
     img.src = first;
     this.frameIndex.delete(img);
   }
