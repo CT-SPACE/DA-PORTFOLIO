@@ -16,26 +16,26 @@
 
 @font-face {
   font-family: "Syne";
-  src: url('../public/assets/fonts/syne.woff2') format("woff2"),
-       url(../public/assets/fonts/syne.woff) format("woff");
+  src: url('./../public/assets/fonts/syne.woff2') format("woff2"),
+       url(./../public/assets/fonts/syne.woff) format("woff");
        font-weight: 400 800;
        font-style: normal;
       }
 
 @font-face {
   font-family: "Syne - ExtraBold";
-  src: url(../public/assets/fonts/Syne-ExtraBold.woff2) format("woff2");
+  src: url(./../public/assets/fonts/Syne-ExtraBold.woff2) format("woff2");
      
 }
 
 @font-face{
   font-family: "Syne - Medium";
-  src: url(../public/assets/fonts/Syne-Medium.woff2) format("woff2");
+  src: url(./../public/assets/fonts/Syne-Medium.woff2) format("woff2");
 }
 
 @font-face{
   font-family: "Syne - Bold";
-  src: url(../public/assets/fonts/Syne-Bold.woff2) format("woff2"); 
+  src: url(./../public/assets/fonts/Syne-Bold.woff2) format("woff2"); 
 }
 
 html {
@@ -70,7 +70,11 @@ body {
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: "Overpass", "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: "Overpass", "Helvetica Neue", sans-serif; 
+  overflow-x:hidden;
+}
 
 
 h1{
@@ -86,7 +90,7 @@ h1{
 
 h2{
   position:relative;
-  z-index:100;
+  z-index:1;
    margin: 3rem 0 2rem 1.2rem;
    padding:0 20px;
    width: 100%;
@@ -227,4 +231,35 @@ button.standardButton{
     80% { transform: skewX(1deg); }
     90% { transform: skewX(0deg); }
     100% { transform: skewX(0deg); }
+}
+
+
+@keyframes woodpecker {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-6px);
+  }
+
+  35% {
+    transform: translateX(0);
+  }
+
+  55% {
+    transform: translateX(-4px);
+  }
+
+  70% {
+    transform: translateX(0);
+  }
+
+  85% {
+    transform: translateX(-6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }

@@ -1,14 +1,12 @@
 import { Routes } from '@angular/router';
 
-import { SayHi } from './say-hi/say-hi';
-import { PrivacyPolicy } from './say-hi/privacy-policy/privacy-policy';
-import { LegalComponent } from './say-hi/legal/legal';
+import { Main } from './main/main';
+import { PrivacyPolicy } from './main/privacy-policy/privacy-policy';
+import { LegalComponent } from './main/legal/legal';
 
 export const routes: Routes = [ 
-// { path: '', redirectTo: 'sayhi', pathMatch: 'full' },
-{ path: 'sayhi', component: SayHi, 
-    children: [ 
-        { path: 'legal', component: LegalComponent, outlet: 'legal' }, 
-        { path: 'privacy-policy', component: PrivacyPolicy, outlet: 'legal'} ] }
+{ path: '', component: Main, pathMatch: 'full' },
+{ path: 'legal', component: LegalComponent}, 
+{ path: 'privacy', component: PrivacyPolicy}
 
 ];

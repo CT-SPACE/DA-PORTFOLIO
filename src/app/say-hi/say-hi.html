@@ -1,4 +1,4 @@
-<div class="sayhiContainer">
+<div id="sayhiAnchor" class="sayhiContainer">
   <div class="diagonal"></div>
   <div class="sayhi">
     <h1>Say Hi!</h1>
@@ -19,26 +19,27 @@
         </div>
 
         <div class="field">
-          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" " required pattern="{2,}"></textarea>
+          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" " required pattern=".{2,}"></textarea>
           <label for="message">Deine Nachricht:</label>
             @if (!message.valid && message.touched && !message.disabled) {
               <span class="alertMessage">Ich benötige mehr Informationen zu deinem Projekt</span>
       }
         </div>
-    <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" >
+    <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" aria-label="Datenschutzerklärung akzeptieren" title="Datenschutzerklärung akzeptieren">
           <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
-          Ich habe die  <a [routerLink]="['/sayhi', { outlets: { legal: ['privacy-policy'] } }]" routerLinkActive="active"  [skipLocationChange]="true" (click)="privacyService.openLegalContainerAndScroll('legalAnker'); $event.stopPropagation()" [class.active]="activeId === 'legalAnker'" class="privacyLink">
+           Ich habe die  <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">
   Datenschutzerklärung</a> gelesen und bestätige.
+   <!-- Ich habe die  <a [routerLink]="['/privacy']" routerLinkActive="active"  [skipLocationChange]="true" (click)="privacyService.openLegalContainerAndScroll('legalAnker'); $event.stopPropagation()" [class.active]="activeId === 'legalAnker'" class="privacyLink">
+  Datenschutzerklärung</a> gelesen und bestätige. -->
     </div>
       @if (!message.valid && message.touched && !message.disabled) {
       }
-        <button id="legalAnker" class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
+        <button class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
       </form>
       </div>
     </div>
     <div class="legal-container"  [class.open]="privacyOpened" [ngStyle]="{}">
-      <router-outlet name="legal"></router-outlet>
+      <!-- <router-outlet name="legal"></router-outlet> -->
     </div>
   </div>
-  <app-footer></app-footer>
 </div>

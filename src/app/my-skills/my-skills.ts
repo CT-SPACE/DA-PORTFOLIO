@@ -6,7 +6,7 @@ import { InViewDirective } from '../shared/in-view.directive';
   selector: 'app-my-skills',
   imports: [CommonModule, InViewDirective],
   templateUrl: './my-skills.html',
-  styleUrl: './my-skills.scss',
+  styleUrls: ['./my-skills.scss'],
 })
 export class MySkills {
 public skills: string[] = [

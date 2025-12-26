@@ -1,15 +1,13 @@
 import { Component, ElementRef, ViewChild, OnInit, inject } from '@angular/core';
-import { Footer } from './footer/footer';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { RouterLink, RouterOutlet, RouterLinkActive } from '@angular/router';
-import { PrivacyService } from '../shared/privacy.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-say-hi',
-  imports: [Footer, RouterLinkActive, RouterOutlet, RouterLink, CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, RouterLink],
   standalone: true,
   providers: [],
   templateUrl: './say-hi.html',
@@ -18,10 +16,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class SayHi implements OnInit {
   privacyAccepted: boolean = false;
   privacyOpened: boolean = false;
-  public privacyService = inject(PrivacyService);
   activeId: string | null = null;
   @ViewChild('formContainerRef') formContainerRef!: ElementRef<HTMLButtonElement>;
- 
+footerVisible: boolean = false;
 
   contactData = {
     name: '',
@@ -31,22 +28,11 @@ export class SayHi implements OnInit {
 
 
   constructor() {
-    this.privacyService
-      .getState()
-      .pipe(takeUntilDestroyed())
-      .subscribe(state => { 
-        this.privacyOpened = state;
-              console.log('SayHi - privacyOpened state:', state); // ← Debug-Log
-
-      }); 
-
-    this.privacyService
-      .getAcceptance()
-      .pipe(takeUntilDestroyed())
-      .subscribe(accepted => {
-        this.privacyAccepted = accepted;
-      });
-  }
+//     let rootElement = null;
+// if (this.rootSelector) {
+//   rootElement = document.querySelector(this.rootSelector);
+}
+  
 
   ngOnInit(): void {
     // this.privacyService.getState().subscribe((state: boolean) => {

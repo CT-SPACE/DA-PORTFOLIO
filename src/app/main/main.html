@@ -1,0 +1,74 @@
+<div class="layoutGrid">
+
+  <app-headline id="homeSection" class="app-section"></app-headline>
+
+  <div class="dividerHome">
+    <img src="assets/img/sayhiEmail.svg" alt="Email-Adresse" class="vertEmail">
+    <div class="scrollDown">
+      <div class="scrollDownArrow">
+        <img class="arrow" src="assets/img/scrollDownArrow2.svg" data-index="2" alt="" aria-hidden="true">
+        <img class="arrow" src="assets/img/scrollDownArrow3.svg" data-index="3" alt="" aria-hidden="true">
+        <img class="arrow" src="assets/img/scrollDownArrow4.svg" data-index="4" alt="" aria-hidden="true">
+        
+        <img class="arrow" src="assets/img/scrollDownArrow6.svg" data-index="6"  alt="" aria-hidden="true">
+        <img class="arrow" src="assets/img/scrollDownArrow7.svg" data-index="7" alt="" aria-hidden="true">
+        
+      </div>
+      <p>Scroll Down</p>
+    </div>
+  </div>
+
+  <app-about-me id="aboutMeSection" class="app-section"></app-about-me>
+  <div class="spacer right">
+    <a href="#mySkillsSection" title="zu den Fähigkeiten">
+        <img
+      src="assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="assets/img/spacer-arrow_1.svg"
+      data-frame2="assets/img/spacer-arrow_2.svg"
+      data-frame3="assets/img/spacer-arrow_3.svg"
+    >
+    
+    </a>
+  </div>
+  <app-my-skills id="mySkillsSection" class="app-section"></app-my-skills>
+  
+    <div class="spacer left">
+    <a href="#portfolioSection" title="zu den Projekten">
+      <!-- <img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"></a> -->
+    <img
+      src="assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="assets/img/spacer-arrow_1.svg"
+      data-frame2="assets/img/spacer-arrow_2.svg"
+      data-frame3="assets/img/spacer-arrow_3.svg"
+    >
+    </a>
+  </div>
+  
+  <app-portfolio id="portfolioSection" class="app-section"></app-portfolio>
+    <div class="spacer right">
+    <a href="#sayHiSection" title="Sag Hallo">
+      <!-- <img src="/assets/img/spacer-arrow.svg" alt="" class="spacerArrow"> -->
+         <img
+      src="assets/img/spacer-arrow_1.svg"
+      alt=""
+      class="spacerArrow"
+      (mouseenter)="startArrowHover($event.target)"
+      (mouseleave)="stopArrowHover($event.target)"
+      data-frame1="assets/img/spacer-arrow_1.svg"
+      data-frame2="assets/img/spacer-arrow_2.svg"
+      data-frame3="assets/img/spacer-arrow_3.svg"
+    >  
+    </a>
+  </div>
+
+</div>
+
+<app-say-hi id="sayHiSection" class="app-section"></app-say-hi>

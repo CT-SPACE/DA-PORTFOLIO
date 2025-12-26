@@ -1,9 +1,9 @@
 import { Component, inject, AfterViewInit } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+// import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-// import { Router } from '@angular/router';
-import { PrivacyService } from '../../shared/privacy.service';
+import { Router } from '@angular/router';
+// import { PrivacyService } from '../../shared/privacy.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -13,23 +13,23 @@ import { PrivacyService } from '../../shared/privacy.service';
   styleUrl: './privacy-policy.scss'
 })
 export class PrivacyPolicy {
-    public privacyService = inject(PrivacyService);
+    // public privacyService = inject(PrivacyService);
     // constructor(private router: Router, public privacyService: PrivacyService) {
-    constructor () {
-    console.log('PrivacyPolicy Costructor loaded');
-        this.privacyService
-      .getState()
-      .pipe(takeUntilDestroyed())
-      .subscribe(state => {
-        this.opened = state;
-        console.log('PrivacyPolicy - opened state:', state);
-      });
-  }
+    constructor (private router: Router) {}
+
 
    opened: boolean = false;
 
    ngAfterViewInit(): void {
     console.log('PrivacyPolicy ngAfterViewInit called');
+  }
+
+  goToMain(): void {
+    this.router.navigate(['/']);
+  }
+
+  goToImpressum(): void {
+    this.router.navigate(['/legal']);
   }
 
     ngOnInit(): void {
@@ -40,7 +40,7 @@ export class PrivacyPolicy {
 
   onCloseAccepted(): void {
     console.log('onCloseAccepted called - current state', this.opened);
-    this.privacyService.accept();
-    this.privacyService.closeLegalContainer();
+    // this.privacyService.accept();
+    // this.privacyService.closeLegalContainer();
   }
 }

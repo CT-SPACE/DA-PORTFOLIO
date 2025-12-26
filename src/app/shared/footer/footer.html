@@ -3,8 +3,8 @@
             <img src="assets/img/logo.svg" class="logo" alt="Logo" class="logo toWhite"><br>
             <span class="copyright">&copy;&nbsp;Christina&nbsp;Troitzsch&nbsp;2025</span><br>
             <!-- <span class="legal" [class.active]="activeId === 'legal'" (click)="openPrivacyPolicy()">Impressum</span> -->
-            <!-- <a [routerLink]="['sayhi', 'impressum']"  class="legal" >Impressum</a>  -->
-              <a [routerLink]="['/sayhi', { outlets: { legal: ['legal'] } }]" routerLinkActive="active"  [skipLocationChange]="true" (click)="$event.stopPropagation(); privacyService.openLegalContainerAndScroll('legalAnker')" class="legal">Impressum</a>
+            <a [routerLink]="['/legal']"  class="legal" >Impressum</a> 
+              <!-- <a [routerLink]="['/sayhi', { outlets: { legal: ['legal'] } }]" routerLinkActive="active"  [skipLocationChange]="true" (click)="$event.stopPropagation(); privacyService.openLegalContainerAndScroll('legalAnker')" class="legal">Impressum</a> -->
           </div>
         
       <div class="stayConnectedIcons">

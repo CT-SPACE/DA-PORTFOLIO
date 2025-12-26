@@ -2,10 +2,10 @@
 <div class="legal-reveal" [class.is-open]="isOpen" role="dialog" aria-modal="true">
     <div id="legalContent">
         <div class="privacyPolicyContainer">
-    <button class="closeButton" title="close" (click)="privacyService.closeLegalContainer()"  role="button" tabindex="0" aria-label="Close Legal Notice"></button>
+    <!-- <button class="closeButton" title="close" (click)="privacyService.closeLegalContainer()"  role="button" tabindex="0" aria-label="Close Legal Notice"></button> -->
   
 <h1>Impressum</h1>
-<p></p>
+<p><img alt="zurück" [routerLink]="['/']"  class="goBack" src="assets/img/go-back-arrows.svg"></p>
 Angaben gemäß § 5 TMG.
 <p></p>
 Diese Webseite wurde erstellt und wird betrieben von:
@@ -20,7 +20,6 @@ Web-Design:<br>
 Developer Akademie GmbH<br>
 Tassiloplatz 25, 81541 München
 <p> </p>
-    <button class="acceptButton standardButton dark" (click)="privacyService.closeLegalContainer()"  role="button" tabindex="0" aria-label="Close Legal Notice">Schließen</button>
  </div>
 </div>
 </div>

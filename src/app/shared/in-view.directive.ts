@@ -11,11 +11,17 @@ export class InViewDirective implements OnDestroy {
   @Input() rootMargin = '-10% 0px -10%';
   @Input() activeClass = 'in-view';
   @Output() inViewChange = new EventEmitter<boolean>();
+  @Input() rootSelector?: string = 'sayhiAnchor';
+
 
   constructor(private el: ElementRef<HTMLElement>) {
     if (typeof window === 'undefined') {
       return;
     }
+      let rootElement = null;
+  if (this.rootSelector) {
+    rootElement = document.querySelector(this.rootSelector);
+  }
     const target = this.el.nativeElement;
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -28,7 +34,9 @@ export class InViewDirective implements OnDestroy {
         }
         this.inViewChange.emit(visible);
       },
-      { threshold: this.threshold, rootMargin: this.rootMargin }
+      { threshold: this.threshold, 
+        rootMargin: this.rootMargin,
+       ...(rootElement ? { root: rootElement } : {})  }
     );
     this.observer.observe(target);
   }
