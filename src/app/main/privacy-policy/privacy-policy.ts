@@ -1,9 +1,9 @@
-import { Component, inject, AfterViewInit } from '@angular/core';
-// import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Component} from '@angular/core';
+import { SayHi} from '../../say-hi/say-hi';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-// import { PrivacyService } from '../../shared/privacy.service';
+import { PrivacyService } from '../../shared/privacy.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -14,8 +14,10 @@ import { Router } from '@angular/router';
 })
 export class PrivacyPolicy {
     // public privacyService = inject(PrivacyService);
-    // constructor(private router: Router, public privacyService: PrivacyService) {
-    constructor (private router: Router) {}
+    constructor(private router: Router, private privacyService: PrivacyService) {
+  }
+
+    // sayHi = new SayHi();
 
 
    opened: boolean = false;
@@ -40,7 +42,9 @@ export class PrivacyPolicy {
 
   onCloseAccepted(): void {
     console.log('onCloseAccepted called - current state', this.opened);
-    // this.privacyService.accept();
+    // this.sayHi.privacyAccepted = true;
+    this.goToMain();
+    this.privacyService.accept();
     // this.privacyService.closeLegalContainer();
   }
 }
