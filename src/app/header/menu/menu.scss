@@ -1,6 +1,6 @@
 @use '../../../styles.scss' as *;
 
-:host(.open) { top: var(--header-h, 49px); z-index:0; pointer-events:auto; }
+// :host(.open) { top: var(--header-h, 49px); z-index:0; pointer-events:auto; }
 :host{
     z-index:0;
     top:-100vh;

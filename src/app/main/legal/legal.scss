@@ -1,14 +1,6 @@
 @use '../../../styles.scss' as *;
 
 
-// .overlay {
-//   position: fixed;
-//   inset: 0;
-//   background: rgba(0,0,0,0.35);
-//   display: grid;
-//   place-items: center;
-//   z-index: 1000;
-// }
 
 .dialog {
   position: relative;
@@ -23,14 +15,21 @@
 }
 
 #legalContent {
-  animation: contentReveal 360ms ease 560ms forwards;
-}
+  animation: contentReveal 0.8s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
+  display:flex;
+  flex-direction: column;
+  justify-content:space-between;
+  opacity:0;
+  transform: translateY(300px);
 
-.privacyPolicyContainer {
-  transform: translateY(8px);
-
+  img.adress {
+    display: flex;
+    filter: brightness(0);
+    align-self: baseline;
+    margin-top: 4px;
+    height: 20px;
+  }
   img.goBack {
-    // transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);   
     width: 24px;
     cursor: pointer;
     float: right;
@@ -43,13 +42,7 @@
     }
   }
 
-  img {
-    display: flex;
-    filter: brightness(0);
-    align-self: baseline;
-    margin-top: 4px;
-    height: 20px;
-  }
+
 
   h1 {
     margin-bottom: 64px;
@@ -71,7 +64,8 @@
 /* Linien-Animation (aus Punkt -> horizontal -> vertikal split) */
 .legal-reveal {
   height: calc(100% - 120px);
-
+display:flex;
+align-items:center;
   position: relative;
   overflow: hidden;
 }
@@ -118,3 +112,4 @@
     transform: translateY(0);
   }
 }
+

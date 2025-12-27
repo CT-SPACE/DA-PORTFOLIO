@@ -1,31 +1,6 @@
 @use '../main.scss' as *;
 @use '../../../styles.scss' as *;
 
-div#privacy, div#legalContent{
-    width: clamp(300px, 80vw, 600px);
-    margin:  80px auto 30px auto;
-    font-size:14px;
-    padding:50px;
-    border: 1px solid var(--main-font-color);
-    line-height:18px;
-    border-radius: 8px;
-    h1{
-        font-size:20px !important;
-        text-align:left;
-        color: var(--accent-font-color) !important;
-        margin-bottom:10px;
-    }
-    h6{
-        font-size:16px;
-        color: var(--main-font-color);
-        margin-bottom:10px;
-    }
-}
-
-p:last-of-type{
-  margin: 40px auto -10px auto;
-  text-align: center;
-}
 
 .acceptButton{
     margin-top:20px;
@@ -59,71 +34,83 @@ p:last-of-type{
     }
 }
 
-// .closeButton{
-//     position: absolute;
-//     background-image: url('../../../../public/assets/img/burger_5.svg');
-//     background-color: var(--main-bg-color) !important;
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-position: right;
-//     filter: invert(1);
-//     padding: unset !important;
-//     right: 20px;
-//     width: 16px;
-//     height: 16px;
-//     cursor: pointer;
-//     :hover{
-//         filter: invert(0);
-//         height: 20px !important;
-//         transition: all 0.3s ease-in-out;
-//         padding: unset !important;
-//     }
-// }
 
 .privacy-reveal {
   position: relative;
   overflow: hidden;
-  // background: var(--main-font-color);
-  // color: var(--main-bg-color);
+
 }
 
-/* Linien-Reset und Positionierung */
-.line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;           /* Start: Punkt */
-  height: 1px;        /* Dicke der Linie */
-  border: 0;          /* hr-Default entfernen */
-  margin: 0;
-  background: var(--main-bg-color);
-}
-.line-top { top: 50%; }
-.line-bottom { bottom: 50%; }
 
-/* Animationen triggern über .is-open */
-.privacy-reveal.is-open .line-top {
-  animation: lineGrowSplitTop 600ms ease-in-out forwards;
-}
-.privacy-reveal.is-open .line-bottom {
-  animation: lineGrowSplitBottom 600ms ease-in-out forwards;
-}
+// /* Linien-Reset und Positionierung */
+// .line {
+//   position: absolute;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   width: 0;           /* Start: Punkt */
+//   height: 1px;        /* Dicke der Linie */
+//   border: 0;          /* hr-Default entfernen */
+//   margin: 0;
+//   background: var(--main-bg-color);
+// }
+// .line-top { top: 50%; }
+// .line-bottom { bottom: 50%; }
 
-/* Inhalt nach Linien-Trennung einblenden */
-.privacy-reveal .privacyPolicyContainer {
-  opacity: 0;
-  transform: translateY(8px);
-}
-.privacy-reveal.is-open .privacyPolicyContainer {
-  animation: contentReveal 360ms ease 560ms forwards;
-}
+// /* Animationen triggern über .is-open */
+// .privacy-reveal.is-open .line-top {
+//   animation: lineGrowSplitTop 600ms ease-in-out forwards;
+// }
+// .privacy-reveal.is-open .line-bottom {
+//   animation: lineGrowSplitBottom 600ms ease-in-out forwards;
+// }
+
+// /* Inhalt nach Linien-Trennung einblenden */
+// .privacy-reveal .privacyPolicyContainer {
+//   opacity: 0;
+//   transform: translateY(8px);
+// }
+// .privacy-reveal.is-open .privacyPolicyContainer {
+//   animation: contentReveal 360ms ease 560ms forwards;
+// }
 
 #privacy {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: contentReveal 360ms ease 560ms forwards; /* Delay nahe Linienende */
+  animation: contentReveal 0.8s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
+  opacity:0;
+  transform: translateY(300px);
 }
 
-@keyframes contentReveal {
-  to { opacity: 1; transform: translateY(0); }
+
+#privacy, #legalContent{
+    width: clamp(300px, 80vw, 600px);
+    margin:  80px auto 30px auto;
+    font-size:14px;
+    padding:clamp(20px, 10vw, 50px);
+    border: 1px solid var(--main-font-color);
+    line-height:18px;
+    border-radius: 8px;
+    h1{
+        font-size:20px !important;
+        text-align:left;
+        color: var(--accent-font-color) !important;
+        margin-bottom:10px;
+    }
+    h6{
+        font-size:16px;
+        color: var(--main-font-color);
+        margin-bottom:10px;
+    }
 }
+
+.privacyBTN{
+  margin: 40px auto -10px auto;
+  text-align: center;
+}
+
+
+@keyframes contentReveal {
+  0% { opacity: 0; transform: translateY(300px); }
+  30% { opacity: 0.3  }
+  80% { opacity: 0.5; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+

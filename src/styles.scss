@@ -44,22 +44,15 @@ html {
       primary: mat.$cyan-palette,
       tertiary: mat.$orange-palette,
     ),
-    // typography: mat-typography.define-typography-config(
-    //   $font-family: 'Overpass, "Helvetica Neue", sans-serif',
-    // ),
+
     density: 0,
   ));
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
+
   color-scheme: light;
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
   font-family: "Overpass", "Helvetica Neue", sans-serif;
@@ -209,15 +202,16 @@ button.standardButton{
     img.paper-plane{
         width:64px;
         height:64px;
-    // object-fit:contain;
     &:hover{
     animation-name: wiggle;
     animation-duration: 1s;
     animation-timing-function: ease-in;
     animation-fill-mode: both;
- }
-    } 
+      }
+    }    
 }
+
+
 
 @keyframes wiggle {
     0% { transform: skewX(9deg); }
@@ -263,3 +257,11 @@ button.standardButton{
     transform: translateX(0);
   }
 }
+
+@media (max-height: 800px){
+
+    .privacy-reveal, .legal-reveal {
+        height: calc(100% - 120px);
+    }   
+
+   }
