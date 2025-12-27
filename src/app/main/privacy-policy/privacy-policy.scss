@@ -21,8 +21,15 @@ div#privacy, div#legalContent{
         margin-bottom:10px;
     }
 }
+
+p:last-of-type{
+  margin: 40px auto -10px auto;
+  text-align: center;
+}
+
 .acceptButton{
     margin-top:20px;
+    width:100%;
     display:flex;
     justify-self:center;
     

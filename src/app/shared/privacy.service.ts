@@ -5,15 +5,18 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class PrivacyService {
-  private privacyAccepted$ = new BehaviorSubject<boolean>(false);
+    private privacyAcceptedSubject$ = new BehaviorSubject<boolean>(false);
+    public privacyAccepted$ = this.privacyAcceptedSubject$.asObservable();
+
+
   private legalContainer$ = new BehaviorSubject<boolean>(false);
 
   accept(): void {
-    this.privacyAccepted$.next(true);
+    this.privacyAcceptedSubject$.next(true);
   }
 
   getAcceptance() {
-    return this.privacyAccepted$.asObservable();
+    return this.privacyAccepted$;
   }
 
 

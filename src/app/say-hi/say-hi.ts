@@ -1,7 +1,9 @@
-import { Component, ElementRef, ViewChild, OnInit, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit,  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { PrivacyService } from '../shared/privacy.service';
+
 import { RouterLink } from '@angular/router';
 
 
@@ -13,6 +15,8 @@ import { RouterLink } from '@angular/router';
   templateUrl: './say-hi.html',
   styleUrls: ['./say-hi.scss'],
 })
+
+
 export class SayHi implements OnInit {
   privacyAccepted: boolean = false;
   privacyOpened: boolean = false;
@@ -27,17 +31,16 @@ footerVisible: boolean = false;
   };
 
 
-  constructor() {
-//     let rootElement = null;
-// if (this.rootSelector) {
-//   rootElement = document.querySelector(this.rootSelector);
-}
-  
+   constructor(private privacyService: PrivacyService) {}
+
 
   ngOnInit(): void {
-    // this.privacyService.getState().subscribe((state: boolean) => {
+    // Make sure your PrivacyService has a property or observable to subscribe to.
+    // If it is privacyAccepted$ (as implied by your accept() method), use that:
+    this.privacyService.privacyAccepted$.subscribe((state: boolean) => {
+      this.privacyAccepted = state;
+    });
   }
-
 
 
   onSubmit(ngForm: NgForm): void {
