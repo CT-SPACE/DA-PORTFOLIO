@@ -7,8 +7,8 @@
       <p class="normalCTA">Sag "Hallo"! Beschreibe deine Ideen und lass sie uns wahr machen!</p>
 
     <div class="formContainer"  #formContainerRef >
-     
-      <form class="floating-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
+      @if (!submitResultVisible) {
+      <form class="floating-form" (ngSubmit)="onSubmit(contactForm, $event)" #contactForm="ngForm" novalidate>
         <div class="field">
           <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" type="text" placeholder=" " required pattern=".{3,}" />
           <label for="name">Dein Name:</label>
@@ -21,11 +21,11 @@
         </div>
 
         <div class="field">
-          <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" type="email" placeholder=" " required pattern="[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled ? '' : null" />
+        <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" type="email" required placeholder=" " [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled && !validateEmail(contactData.email) ? '' : null" />
           <label for="email">Deine E‑Mail:</label>
-                    @if(email.valid && email.touched && !email.disabled) {
+                    @if(email.valid && email.touched && !email.disabled && validateEmail(contactData.email)) {
 <img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
-          @if (!email.valid && email.touched && !email.disabled) {
+          @if ((!email.valid || !validateEmail(contactData.email)) && email.touched && !email.disabled) {
               <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
               <span class="alertMessage missing">Bitte gib eine gültige Email-Adresse an!</span>
       }
@@ -60,6 +60,13 @@
 
       
       </form>
+    }
+      @if(submitResultVisible) {
+      <div class="submit-result">
+  <img src="assets/img/flieger.svg" alt="Nachricht gesendet" class="paper-plane" />
+  <h3>Danke! Deine Nachricht wurde versandt.</h3>
+  <img alt="zurück" (click)="resetFormAndHideResult()" class="goBack" src="assets/img/go-back-arrows.svg">
+</div>}
       </div>
     </div>
     <div class="legal-container"  [class.open]="privacyOpened" [ngStyle]="{}">

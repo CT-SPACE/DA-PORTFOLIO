@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import { RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
@@ -9,16 +9,32 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-footer',
   standalone:true,
-  imports: [CommonModule, RouterModule],
-  providers: [ Router],
+  imports: [CommonModule,RouterLink,RouterModule],
+  providers: [Router],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
 export class Footer {
   constructor(private router: Router) {}
+showFirst = true;
+private intervalId: any;
 
-  // footerVisible = false;
-// @Input() footerVisible: boolean = false;
-//  @Input() visible: boolean = false;
-//  footerVisible: boolean = this.visible;
+
+  ngOnInit() {
+    this.intervalId = setInterval(() => {
+      this.showFirst = !this.showFirst;
+    }, 500); // Wechsel alle 500ms
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
+
+
+
+

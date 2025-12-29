@@ -8,6 +8,22 @@
           </div>
         
       <div class="stayConnectedIcons">
+        <div class="goTop" (click)="scrollToTop()">
+  <img
+    src="assets/img/toTop1.svg"
+    class="toTopImg"
+    [class.visible]="showFirst"
+    [class.hidden]="!showFirst"
+    alt="Nach oben 1"
+  />
+  <img
+    src="assets/img/toTop2.svg"
+    class="toTopImg"
+    [class.visible]="!showFirst"
+    [class.hidden]="showFirst"
+    alt="Nach oben 2"
+  />
+</div>
         <div class="icon"> <img src="assets/img/icon___Github.svg" alt="Github-Icon" /> </div>
         <div class="icon"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /> </div>
         <div class="icon">

@@ -24,6 +24,8 @@ export class SayHi implements OnInit {
   @ViewChild('formContainerRef') formContainerRef!: ElementRef<HTMLButtonElement>;
 @ViewChild('contactForm') contactForm!: NgForm;
    showPrivacyHint: boolean = false;
+   emailValid: boolean = false;
+    submitResultVisible: boolean = false; 
   mailTest: boolean = true;
   http = inject(HttpClient);
   contactData = {
@@ -59,12 +61,14 @@ onTrySubmit(event: Event) {
 }
 
 
-  onSubmit(ngForm: NgForm): void {
+  onSubmit(ngForm: NgForm,event: Event): void {
+    event.preventDefault();
+     this.showSubmitResult();
     if (ngForm.valid && ngForm.submitted && !this.mailTest){
       this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
       .subscribe({
         next: (response) => {
-          this.showSubmitResult()
+          this.showSubmitResult();
           ngForm.resetForm();
         },
         error: (error) => {
@@ -80,11 +84,7 @@ onTrySubmit(event: Event) {
     }
     
   showSubmitResult(): void {
-    const el = this.formContainerRef.nativeElement;
-    el.innerHTML = `<div class="submit-result">
-      <img src="assets/img/flieger.svg" alt="Nachricht gesendet" class="paper-plane" />
-    <h3>Danke! Deine Nachricht wurde versandt.</h3></div>`;
-
+    this.submitResultVisible = true;
     console.log('Form submitted:', this.contactData);
   }
 
@@ -92,6 +92,14 @@ onTrySubmit(event: Event) {
     this.privacyAccepted = !this.privacyAccepted;
   }
 
+  validateEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+}
+
+resetFormAndHideResult(): void {
+this.submitResultVisible = false;
+this.privacyAccepted = false;
+}
 
 
 }
