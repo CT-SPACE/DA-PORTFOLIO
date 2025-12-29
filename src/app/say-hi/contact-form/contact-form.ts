@@ -2,28 +2,25 @@ import { Component, ElementRef, ViewChild, OnInit, inject } from '@angular/core'
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { PrivacyService } from '../shared/privacy.service';
+import { PrivacyService } from '../../shared/privacy.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 
-
 @Component({
-  selector: 'app-say-hi',
-  imports: [CommonModule, FormsModule, RouterModule, RouterLink],
-  standalone: true,
-  providers: [],
-  templateUrl: './say-hi.html',
-  styleUrls: ['./say-hi.scss'],
+  selector: 'app-contact-form',
+  imports: [ CommonModule, FormsModule, RouterModule, RouterLink],
+  templateUrl: './contact-form.html',
+  styleUrl: './contact-form.scss',
 })
+export class ContactForm {
 
 
-export class SayHi implements OnInit {
+
  privacyAccepted: boolean = false;
   privacyOpened: boolean = false;
   activeId: string | null = null;
   @ViewChild('formContainerRef') formContainerRef!: ElementRef<HTMLButtonElement>;
-@ViewChild('contactForm') contactForm!: NgForm;
-   showPrivacyHint: boolean = false;
+
   mailTest: boolean = true;
   http = inject(HttpClient);
   contactData = {
@@ -52,19 +49,11 @@ export class SayHi implements OnInit {
 
 
 
-onTrySubmit(event: Event) {
-    event.preventDefault();
-  this.contactForm.control.markAllAsTouched();
-  this.showPrivacyHint = !this.privacyAccepted || !this.contactForm.valid;
-}
-
-
   onSubmit(ngForm: NgForm): void {
     if (ngForm.valid && ngForm.submitted && !this.mailTest){
       this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
       .subscribe({
         next: (response) => {
-          this.showSubmitResult()
           ngForm.resetForm();
         },
         error: (error) => {
@@ -91,7 +80,5 @@ onTrySubmit(event: Event) {
   onTogglePrivacyAcceptance(): void {
     this.privacyAccepted = !this.privacyAccepted;
   }
-
-
 
 }

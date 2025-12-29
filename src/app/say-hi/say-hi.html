@@ -7,39 +7,62 @@
       <p class="normalCTA">Sag "Hallo"! Beschreibe deine Ideen und lass sie uns wahr machen!</p>
 
     <div class="formContainer"  #formContainerRef >
+     
       <form class="floating-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" novalidate>
         <div class="field">
-          <input id="name" name="name" [(ngModel)]="contactData.name" type="text" placeholder=" " required pattern="[a-zA-Z0-9._%+-]{2,}"/>
+          <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" type="text" placeholder=" " required pattern=".{3,}" />
           <label for="name">Dein Name:</label>
-        </div>
-
-        <div class="field">
-          <input id="email" name="email" [(ngModel)]="contactData.email" type="email" placeholder=" " required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" />
-          <label for="email">Deine E‑Mail:</label>
-        </div>
-
-        <div class="field">
-          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" " required pattern=".{2,}"></textarea>
-          <label for="message">Deine Nachricht:</label>
-            @if (!message.valid && message.touched && !message.disabled) {
-              <span class="alertMessage">Ich benötige mehr Informationen zu deinem Projekt</span>
+             @if(name.valid && name.touched && !name.disabled) {
+<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+          @if (!name.valid && name.touched && !name.disabled) {
+              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <span class="alertMessage missing">Bitte gib mindestens 3 Zeichen ein!</span>
       }
         </div>
+
+        <div class="field">
+          <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" type="email" placeholder=" " required pattern="[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled ? '' : null" />
+          <label for="email">Deine E‑Mail:</label>
+                    @if(email.valid && email.touched && !email.disabled) {
+<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+          @if (!email.valid && email.touched && !email.disabled) {
+              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <span class="alertMessage missing">Bitte gib eine gültige Email-Adresse an!</span>
+      }
+        </div>
+
+        <div class="field">
+          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" " required pattern=".{5,}"
+            [attr.data-focus-visible-added]="!message.valid && message.touched && !message.disabled ? '' : null"></textarea>
+          <label for="message">Deine Nachricht:</label>
+          @if(message.valid && message.touched && !message.disabled) {
+<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+          @if (!message.valid && message.touched && !message.disabled) {
+              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <span class="alertMessage missing">Ich benötige mehr Informationen zu deinem Projekt</span>
+      }
+        </div>
+
     <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" aria-label="Datenschutzerklärung akzeptieren" title="Datenschutzerklärung akzeptieren">
-          <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
+       
+      <div class="checkboxImg"  [class.hint]="showPrivacyHint && !privacyAccepted" aria-hidden="true" title="Privacy Acceptance"></div>
            Ich habe die  <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">
   Datenschutzerklärung</a> gelesen und bestätige.
-   <!-- Ich habe die  <a [routerLink]="['/privacy']" routerLinkActive="active"  [skipLocationChange]="true" (click)="privacyService.openLegalContainerAndScroll('legalAnker'); $event.stopPropagation()" [class.active]="activeId === 'legalAnker'" class="privacyLink">
-  Datenschutzerklärung</a> gelesen und bestätige. -->
+
     </div>
-      @if (!message.valid && message.touched && !message.disabled) {
-      }
-        <button class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
+          @if (showPrivacyHint && !privacyAccepted) {
+  <div class="alertMessage missing privacyHint">
+    Bitte akzeptiere die Datenschutzerklärung, um fortzufahren.
+  </div>
+}
+      <div class="showPrivacyHint" [class.hideElement]="privacyAccepted" (click)="onTrySubmit($event)"></div>
+       <button class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
+
+      
       </form>
       </div>
     </div>
     <div class="legal-container"  [class.open]="privacyOpened" [ngStyle]="{}">
-      <!-- <router-outlet name="legal"></router-outlet> -->
     </div>
   </div>
 </div>

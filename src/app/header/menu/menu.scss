@@ -1,15 +1,15 @@
 @use '../../../styles.scss' as *;
 
-// :host(.open) { top: var(--header-h, 49px); z-index:0; pointer-events:auto; }
+:host(.open) { top: var(--header-h, 49px); z-index:0; pointer-events:auto; }
 :host{
     z-index:0;
-    top:-100vh;
+    top:-100%;
     position:fixed;
     left:0;
     right:0;
     width:100%;
     /* host should not constrain panel height */
-    border-top: 1px solid #09090a1f;
+    border-top: 1px solid #0101011f;
     transition: top 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
 }

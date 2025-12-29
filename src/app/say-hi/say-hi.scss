@@ -78,7 +78,7 @@ form{
     width:clamp(200px, 100%, 480px);
     display:flex;
     flex-direction:column;
-
+    position:relative;
     align-items:center;
 }
 .floating-form {
@@ -154,6 +154,43 @@ textarea:-webkit-autofill:focus {
     background-color 160ms ease;
 }
 
+.alertMessage {
+  display: block;
+  color: indianred;
+  font-size: 10px;
+  bottom: -14px;
+  margin-top: 4px;
+  margin-left: 12px;
+  background: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.privacyHint{
+  position:relative;
+    align-self: start;
+    top: -30px;
+}
+.alertIcon{
+    width:12px;
+     border:1px solid;
+    padding:2px;
+    border-radius:50%;
+    height:12px;
+ opacity:0.8;
+     position:absolute;
+    right:10px;
+    top:50%;
+    transform: translateY(-50%);
+    z-index:2;
+    &.missing{
+      border-color: indianred;
+    }
+    &.okay{
+      border-color: var(--accent-font-color);
+    }
+}
+
 /* Bei Fokus oder wenn Inhalt vorhanden: Label auf den oberen Rand setzen */
 .floating-form input:focus + label,
 .floating-form input:not(:placeholder-shown) + label,
@@ -172,6 +209,14 @@ button.standardButton:disabled{
     cursor:unset;
      pointer-events: none; 
      opacity:0.6;
+}
+
+.showPrivacyHint{
+    width: 150px;
+    height: 40px;
+    position: relative;
+    top: 42px;
+    z-index: 100;
 }
 
 .privacy{
@@ -196,12 +241,17 @@ button.standardButton:disabled{
         }
     }
     .checkboxImg{
-        width:16px;
-        height:16px;
-        background-image: url('../../../public/assets/img/check-button.svg');
-        background-position: -8px -9px;
-        background-size:100px;
+        width:20px;
+        height:20px;
+        background-image: url('../../../public/assets/img/check-button.png');
+        background-position: -6px -9px;
+        filter:brightness(1.2);
+        background-size:130px;
         background-repeat:no-repeat;
+        
+    &.hint {
+        background-position: -103px -9px;
+    }
     }
     
   &:not(.checked):hover .checkboxImg,
@@ -215,7 +265,7 @@ button.standardButton:disabled{
   &.checked:hover .checkboxImg,
   &.checked:focus-visible .checkboxImg {
            
-            background-position: -75px -9px;
+            background-position: -78px -9px;
         }
         
  }

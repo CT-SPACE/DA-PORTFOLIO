@@ -1,9 +1,11 @@
+import 'zone.js';
 import { Component, signal } from '@angular/core';
 import { Headline } from "../headline/headline";
 import { AboutMe } from "../about-me/about-me";
 import { MySkills } from "../my-skills/my-skills";
 import { Portfolio } from "../portfolio/portfolio";
 import { SayHi } from "../say-hi/say-hi";
+
 
 
 @Component({

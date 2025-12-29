@@ -148,10 +148,11 @@ button.standardButton{
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
+    z-index:10;
     // transition: background-color 0.3s ease;
     transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, padding 0.3s ease;
     font-family: 'Overpass', 'Helvetica Neue', sans-serif;
-    &.bright{
+    &.light{
       background-color: var(--main-bg-color);
     color: var(--main-font-color);
     border: 2px solid var(--main-font-color);
@@ -164,7 +165,7 @@ button.standardButton{
 
     &:hover{
         padding:10px 40px 8px;
-        &.bright{
+        &.light{
   background-color: var(--main-font-color);
         color: var(--main-bg-color)
         }
@@ -174,6 +175,13 @@ button.standardButton{
         }
       
     } 
+    &:focus, &:active{
+      &.light{
+          outline: 1px solid var(--main-font-color);
+      }
+      &.dark {
+        outline: 1px solid var(--main-bg-color);}
+    }
 
 } 
 
@@ -211,6 +219,10 @@ button.standardButton{
     }    
 }
 
+.hideElement{
+    z-index:0 !important;
+    visibility:hidden !important;
+}
 
 
 @keyframes wiggle {
