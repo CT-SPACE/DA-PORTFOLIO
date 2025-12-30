@@ -68,4 +68,8 @@ export class Main {
     this.frameIndex.delete(img);
   }
 
+  scrollToBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
 }

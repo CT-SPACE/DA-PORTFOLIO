@@ -2,26 +2,20 @@
         <div>
             <img src="assets/img/logo.svg" class="logo" alt="Logo" class="logo toWhite"><br>
             <span class="copyright">&copy;&nbsp;Christina&nbsp;Troitzsch&nbsp;2025</span><br>
-            <!-- <span class="legal" [class.active]="activeId === 'legal'" (click)="openPrivacyPolicy()">Impressum</span> -->
             <a [routerLink]="['/legal']"  class="legal" >Impressum</a> 
-              <!-- <a [routerLink]="['/sayhi', { outlets: { legal: ['legal'] } }]" routerLinkActive="active"  [skipLocationChange]="true" (click)="$event.stopPropagation(); privacyService.openLegalContainerAndScroll('legalAnker')" class="legal">Impressum</a> -->
           </div>
         
       <div class="stayConnectedIcons">
-        <div class="goTop" (click)="scrollToTop()">
-  <img
-    src="assets/img/toTop1.svg"
-    class="toTopImg"
-    [class.visible]="showFirst"
-    [class.hidden]="!showFirst"
-    alt="Nach oben 1"
-  />
+<div class="goTop" (click)="scrollToTop()">
   <img
     src="assets/img/toTop2.svg"
-    class="toTopImg"
-    [class.visible]="!showFirst"
-    [class.hidden]="showFirst"
-    alt="Nach oben 2"
+    class="toTopImg2"
+    alt="Nach oben"
+  />
+  <img
+    src="assets/img/toTop1.svg"
+    class="toTopImg1"
+    alt="Nach oben"
   />
 </div>
         <div class="icon"> <img src="assets/img/icon___Github.svg" alt="Github-Icon" /> </div>
