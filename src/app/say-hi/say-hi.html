@@ -10,7 +10,7 @@
       @if (!submitResultVisible) {
       <form class="floating-form" (ngSubmit)="onSubmit(contactForm, $event)" #contactForm="ngForm" novalidate>
         <div class="field">
-          <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" type="text" placeholder=" " required pattern=".{3,}" />
+          <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" (ngModelChange)="onContactDataChange()" type="text" placeholder=" " required pattern=".{3,}" />
           <label for="name">Dein Name:</label>
              @if(name.valid && name.touched && !name.disabled) {
 <img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
@@ -21,7 +21,7 @@
         </div>
 
         <div class="field">
-        <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" type="email" required placeholder=" " [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled && !validateEmail(contactData.email) ? '' : null" />
+        <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" (ngModelChange)="onContactDataChange()" type="email" required placeholder=" " [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled && !validateEmail(contactData.email) ? '' : null" />
           <label for="email">Deine E‑Mail:</label>
                     @if(email.valid && email.touched && !email.disabled && validateEmail(contactData.email)) {
 <img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
@@ -32,7 +32,7 @@
         </div>
 
         <div class="field">
-          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" rows="5" placeholder=" " required pattern=".{5,}"
+          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" (ngModelChange)="onContactDataChange()" rows="5" placeholder=" " required pattern=".{5,}"
             [attr.data-focus-visible-added]="!message.valid && message.touched && !message.disabled ? '' : null"></textarea>
           <label for="message">Deine Nachricht:</label>
           @if(message.valid && message.touched && !message.disabled) {

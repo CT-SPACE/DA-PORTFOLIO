@@ -42,6 +42,8 @@ export class SayHi implements OnInit {
        },
   },
 };
+saved = localStorage.getItem('contactData');
+
 
    constructor(private privacyService: PrivacyService) {}
 
@@ -50,8 +52,14 @@ export class SayHi implements OnInit {
     this.privacyService.privacyAccepted$.subscribe((state: boolean) => {
       this.privacyAccepted = state;
     });
+  if (this.saved) {
+    this.contactData = JSON.parse(this.saved);
+  }
   }
 
+onContactDataChange() {
+  localStorage.setItem('contactData', JSON.stringify(this.contactData));
+}
 
 
 onTrySubmit(event: Event) {
@@ -99,6 +107,7 @@ onTrySubmit(event: Event) {
 resetFormAndHideResult(): void {
 this.submitResultVisible = false;
 this.privacyAccepted = false;
+  localStorage.removeItem('contactData');
 }
 
 
