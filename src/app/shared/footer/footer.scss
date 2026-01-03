@@ -25,7 +25,7 @@
   max-height: 0;
   padding-top:0px;
   opacity: 0;
-  overflow: hidden;
+  //overflow:hidden;
   transition: all 1.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
   transform:  scale(0.55);
@@ -101,7 +101,8 @@
 
 .goTop {
   position: absolute;
-    top: -6px;
+  z-index:10;
+    top: 20px;
     right: 50px;
     height: 40px;
   cursor: pointer;

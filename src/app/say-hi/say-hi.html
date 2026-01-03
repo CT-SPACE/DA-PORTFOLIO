@@ -46,8 +46,8 @@
     <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" aria-label="Datenschutzerklärung akzeptieren" title="Datenschutzerklärung akzeptieren">
        
       <div class="checkboxImg"  [class.hint]="showPrivacyHint && !privacyAccepted" aria-hidden="true" title="Privacy Acceptance"></div>
-           Ich habe die  <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">
-  Datenschutzerklärung</a> gelesen und bestätige.
+          <span>Ich habe die  <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">
+  Datenschutzerklärung</a> gelesen und bestätige.</span>
 
     </div>
           @if (showPrivacyHint && !privacyAccepted) {

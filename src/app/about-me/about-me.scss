@@ -1,10 +1,13 @@
 @use '../../styles.scss' as *;
 
-main{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+.aboutmeDiv{
+    // display: flex;
+    // flex-direction: row;
+    // align-items: center;
+    // justify-content: space-between;
+    display: grid;
+    width:100%;
+    grid-template-columns: 1fr auto;
     gap: 20px;
     padding: 40px 0;
     box-sizing: border-box;
@@ -13,20 +16,31 @@ main{
     >div{
         flex:1;
     }
+    @media (max-width: 600px){
+        grid-template-columns: auto;
+        > :first-child{
+            order:2;
+        }
+        > :last-child{
+            order:1;   
+            display:flex;
+            justify-content:center;
+            width:100%;}
+}
 }
 
 .meContainer{
     position:relative;
     display:flex;
     justify-content:center;
-   width:calc(380px * (300 / 286));
-    height: 380px;
+    height: clamp(280px, 60vw, 380px);
+    aspect-ratio: 38/40;
     &.in-view{
         div.meBorder{
             z-index:20;
     position:relative;
-    height:380px;
-    width: calc(380px * (286 / 300));
+    height: clamp(280px, 60vw, 380px);
+    aspect-ratio: 38/40;
     transform: rotate(0deg);
     top:10px;
     left:10px;
@@ -57,7 +71,7 @@ border: 0.5px solid rgb(from var(--main-font-color) r g b / 0.3);        height:
 
 .meText > * {
     opacity: 1;
-    transform: translateX(-50vw);
+    transform: translateX(-100%);
     transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
     transition-delay: 0s;
 }
@@ -90,5 +104,5 @@ border: 0.5px solid rgb(from var(--main-font-color) r g b / 0.3);        height:
 .iconAboutMe{
     width:20px;
     height:20px;
-     margin-right:20px;
+  //   margin-right:20px;
 }

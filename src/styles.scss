@@ -65,8 +65,12 @@ body {
 html, body { height: 100%; }
 body { 
   margin: 0; 
-  font-family: "Overpass", "Helvetica Neue", sans-serif; 
-  overflow-x:hidden;
+  font-family: "Overpass", "Helvetica Neue", sans-serif;
+  overlay-x: hidden; 
+  div{
+    border:1px solid fuchsia;
+  }
+  
 }
 
 
@@ -84,17 +88,43 @@ h1{
 h2{
   position:relative;
   z-index:1;
-   margin: 3rem 0 2rem 1.2rem;
-   padding:0 20px;
-   width: 100%;
+    padding: 0 20px;
+    width: fit-content;
+    left: 20px;
+   //margin: 3rem 0 2rem 1.2rem;
    background: var(--main-bg-color);
     font-size: clamp(1.2rem, 5vw, 4rem) !important;
     font-weight: 600 !important;
     color: var(--main-font-color);
     font-family: 'Syne - Extrabold', 'Helvetica Neue', sans-serif !important;
-        width:fit-content;
+    &.skills{
+    top: clamp(0px, 1vw, 18px);
+
+    }
+
     &:hover{
         color: var(--accent-font-color);
+    }
+    @media(max-width: 1200px){
+            top:clamp(-8px, -1vw, 0px);
+
+    }
+
+    @media (max-width: 800px){
+      &.skills{
+        top:clamp(-28px, -2vw, -8px) !important;
+      }
+    }
+    @media (max-width: 600px){ 
+      
+      padding:0 10px;
+      font-size: 1.8rem !important;
+     &.skills{
+      top:-28px;
+      
+     } 
+
+
     }
 }
 
