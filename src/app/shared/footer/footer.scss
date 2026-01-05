@@ -53,6 +53,13 @@
     line-height:20px;
     margin: 2rem 0px;
     padding: 0 50px;
+    @media (max-width: 600px){
+        padding: 0 20px;
+    } 
+    @media (max-width:400px){
+        flex-direction:column;
+        gap:10px;
+    }
     .stayConnectedIcons{
         display:flex;
         box-sizing:border-box;
@@ -64,12 +71,15 @@
                 position:relative;
                 top:0;
                 img{
-                    width:26px;
-                
+                   width:26px;
+                  @media (max-width:600px){
+                  width:40px;
+        
+                   }
 
                 &:hover{
                     cursor: pointer;
-                    filter:opacity(0.8);
+                    filter: brightness(81%)  saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
                     transform: scale(1.25);
                     transition: transform 0.3s ease, filter 0.3s ease;
                 }
@@ -104,8 +114,10 @@
   z-index:10;
     top: 20px;
     right: 50px;
+    width:50px;
     height: 40px;
   cursor: pointer;
+
 
  .toTopImg2 {
     opacity: 1;
@@ -116,6 +128,10 @@
     top: 0;
     right: 0;
     z-index: 2;
+            @media (max-width:600px){
+        height:30px;
+        
+        }
   }
 
   .toTopImg1 {
@@ -128,6 +144,10 @@
     right: 0;
     z-index: 3;
     pointer-events: none;
+                @media (max-width:600px){
+        height:30px;
+        
+        }
   }
 
   &:hover {

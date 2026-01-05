@@ -3,7 +3,7 @@
     <div class="imgContainer">
         @if (project.liveLink) {
         <div class="imgOverlay" (click)="openNewTab(project.liveLink)"><img src="assets/img/icon____link.svg" class="imgLink" [class.left]="i % 2 === 1" alt=""></div>
-      <img [src]="project.imgSrc" alt="" [attr.alt]="project.title" [attr.title]="project.title">
+      <img [src]="project.imgSrc" class="imgProject" alt="" [attr.alt]="project.title" [attr.title]="project.title">
         }
     </div>
 

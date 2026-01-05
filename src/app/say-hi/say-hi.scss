@@ -33,6 +33,9 @@
         background: var(--main-font-color);
         color:var(--main-bg-color);
         bottom:0;
+        @media (max-width: 600px){
+            padding:0 20px;
+        }
 
         & h1{
             font-size: 3rem !important;
@@ -41,6 +44,10 @@
             color: var(--main-bg-color);
             text-align:left;
             padding:0 50px;
+            @media (max-width: 600px){
+                padding:0 20px;
+                font-size:1.8rem;
+            }
             &:hover{
             color: var(--accent-font-color);
         }
@@ -50,6 +57,7 @@
 .contactForm{
     width:100%;
     max-width:600px;
+    box-sizing:border-box;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -60,12 +68,14 @@
         font-size:1.4rem;
         color:var(--accent-font-color);
         margin-bottom:1rem;
+        padding:0 10px;
     }
     p.normalCTA{
         font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
         font-size:1rem;
         color:var(--main-bg-color);
         margin-bottom:2rem;
+        padding:0 10px
     }
 }
 .formContainer{
@@ -168,9 +178,10 @@ textarea:-webkit-autofill:focus {
 }
 
 .privacyHint{
-  position:relative;
+  position:absolute;
     align-self: start;
-    top: -30px;
+    height:16px;
+    bottom: 114px;
 }
 .alertIcon{
     width:12px;
@@ -211,6 +222,10 @@ button.standardButton:disabled{
      pointer-events: none; 
      opacity:0.6;
 }
+button.standardButton{
+  // top:-40px;
+    position:relative;
+}
 
 .showPrivacyHint{
     width: 150px;
@@ -245,28 +260,28 @@ button.standardButton:disabled{
         width:20px;
         height:20px;
         background-image: url('../../../public/assets/img/check-button.png');
-        background-position: -6px -9px;
+        background-position: -12px -9px;
         filter:brightness(1.2);
         background-size:130px;
         background-repeat:no-repeat;
         
     &.hint {
-        background-position: -103px -9px;
+        background-position: -109px -9px;
     }
     }
     
   &:not(.checked):hover .checkboxImg,
   &:not(.checked):focus-visible .checkboxImg {
-            background-position: -30px -9px;
+            background-position: -36px -9px;
         }
   &.checked .checkboxImg {
-        background-position: -53px -9px;   /* checked-Frame (Sprite-Frame anpassen) */
+        background-position: -59px -9px;   /* checked-Frame (Sprite-Frame anpassen) */
         }
 
   &.checked:hover .checkboxImg,
   &.checked:focus-visible .checkboxImg {
            
-            background-position: -78px -9px;
+            background-position: -84px -9px;
         }
         
  }

@@ -20,7 +20,7 @@ export class Projects {
       tools: ['JavaScript', 'HTML', 'CSS', 'Kanban-Board'],
       gitLink: 'https://github.com/CT-SPACE/EL-POLLO-LOCO',
       slug: 'el-pollo-loco',
-      liveLink: 'https://www.troitzsch.de/da/el-pollo-loco/'
+      liveLink: 'https://www.troitzsch.de/DA/EL-POLLO-LOCO/'
     },
     {
       id: 2,

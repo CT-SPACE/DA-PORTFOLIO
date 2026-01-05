@@ -8,3 +8,7 @@ bootstrapApplication(App, {
   providers: [provideRouter(routes), ...appConfig.providers]
 })
   .catch((err) => console.error(err));
+  
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('contactData');
+});

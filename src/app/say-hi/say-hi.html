@@ -56,7 +56,7 @@
   </div>
 }
       <div class="showPrivacyHint" [class.hideElement]="privacyAccepted" (click)="onTrySubmit($event)"></div>
-       <button class="standardButton dark"  [disabled]="!privacyAccepted" type="submit" >Senden</button>
+       <button class="standardButton dark"  [disabled]="!email.valid || !message.valid || !name.valid || !privacyAccepted" type="submit" >Senden</button>
 
       
       </form>

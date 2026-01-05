@@ -16,7 +16,7 @@
 
 .menuPanel{
     width:100%;
-    min-height: clamp(500px, 50vh, 700px);
+    min-height:50vh;
    position:relative;
     z-index:0;
     left:0;
@@ -33,6 +33,26 @@
     color: var(--main-font-color);
     padding-bottom:100px;
     box-sizing:border-box;
+       @media (max-width: 600px){ 
+    // height: clamp(350px, 50vw, 600px) !important;
+
+        font-size:2.4rem;
+      gap:5px;
+      padding: 20px 0 130px 0;
+      >.sayhiContainer .sayhi h1{
+        font-size:2.4rem !important;
+      } 
+    }
+    @media (max-width: 400px){ 
+    height: clamp(350px, 50vw, 600px) !important;
+
+        font-size:1.8rem;
+      gap:5px;
+      padding: 20px 0 130px 0;
+      >.sayhiContainer .sayhi h1{
+        font-size:1.8rem !important;
+      } 
+    }   
 
 }
 
@@ -137,6 +157,9 @@
             color: var(--main-bg-color);
             text-align:left;
             padding:0 50px;
+            @media (max-width: 400px){
+                padding:0 20px;
+            }   
             &:hover{
             color: var(--accent-font-color);
         }
@@ -154,6 +177,9 @@
     align-items:center;    gap:10px;
     color: var(--main-bg-color);
     font-size:0.5rem;
+    @media(max-width:600px){
+        padding:10px 20px;
+    }
     > :first-child{
         height:14px;  
      }   
@@ -163,13 +189,26 @@
         cursor:pointer;
         transition: filter 100ms ease;
         filter: none;
+        @media (max-width:600px){
+        height:40px;
+        
+        }
         &:hover{
+
               filter: brightness(81%)  saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
         }
+
     }
 
     & div{
         display:flex;
         gap:15px;
+        @media (max-width:600px){
+            gap:10px;
+        }
+        @media (max-width:400px){
+            flex-direction:column;
+            gap:5px;
+        }
     }
 }

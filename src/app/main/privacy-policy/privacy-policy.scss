@@ -81,13 +81,14 @@
 
 
 #privacy, #legalContent{
-    width: clamp(300px, 80vw, 600px);
+    width: clamp(200px, 80%, 600px);
     margin:  80px auto 30px auto;
     font-size:14px;
-    padding:clamp(20px, 10vw, 50px);
+    padding:clamp(20px, 8%, 50px);
     border: 1px solid var(--main-font-color);
     line-height:18px;
     border-radius: 8px;
+    box-sizing: border-box;
     h1{
         font-size:20px !important;
         text-align:left;
@@ -99,6 +100,15 @@
         color: var(--main-font-color);
         margin-bottom:10px;
     }
+
+    @media (max-width: 400px){
+        width:90%;
+        padding:20px;
+        h1{
+            font-size:16px !important;
+            top:20px
+    } 
+  }
 }
 
 .privacyBTN{

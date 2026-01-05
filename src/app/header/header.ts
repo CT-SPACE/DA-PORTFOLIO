@@ -1,15 +1,17 @@
 import { Component, signal, ViewChild } from '@angular/core'
 import { Menu } from '../header/menu/menu';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [Menu],
+  imports: [Menu, CommonModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
   frames: string[] = ['assets/img/burger_1.svg', 'assets/img/burger_2.svg', 'assets/img/burger_3.svg', 'assets/img/burger_4.svg', 'assets/img/burger_5.svg'];
 isOpen = signal(false);
+windowWidth = signal(window.innerWidth);
 isAnimating = signal(false);
 currentIndex = signal(0);
 currentSrc = signal(this.frames[0]);
@@ -25,6 +27,8 @@ select(choice: 'DE' | 'EN') {
 }
 
   ngOnInit() {
+      window.addEventListener('resize', () => this.windowWidth.set(window.innerWidth));
+
     if (typeof window !== 'undefined') {
       this.preloadFrames();
       const saved = window.localStorage.getItem('lang');

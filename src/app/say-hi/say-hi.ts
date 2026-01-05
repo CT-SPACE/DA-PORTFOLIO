@@ -26,7 +26,7 @@ export class SayHi implements OnInit {
    showPrivacyHint: boolean = false;
    emailValid: boolean = false;
     submitResultVisible: boolean = false; 
-  mailTest: boolean = true;
+  mailTest: boolean = false;
   http = inject(HttpClient);
   contactData = {
     name: '',
@@ -49,6 +49,7 @@ saved = localStorage.getItem('contactData');
 
 
   ngOnInit(): void {
+    
     this.privacyService.privacyAccepted$.subscribe((state: boolean) => {
       this.privacyAccepted = state;
     });
