@@ -12,7 +12,7 @@ import { ViewportScroller } from '@angular/common';
 
 export class Menu {
   constructor(private vs: ViewportScroller) {}
-
+  copied = false;
   @Input() isOpen = false;
   @HostBinding('class.open') get opened() { return this.isOpen; }
   @HostBinding('attr.aria-hidden') get ariaHidden() { return String(!this.isOpen); }
@@ -76,4 +76,18 @@ export class Menu {
     const secs = m ? parseFloat(m[1]) : 0;
     return Math.max(0, Math.round(secs * 1000));
   }
+
+    copyEmail() {
+    const A = 'christina.troitzsch';
+    const B = 'web';
+    const C = '.de';
+    const email = `${A}@${B}${C}`;
+    navigator.clipboard.writeText(email).then(() => {
+      this.copied = true;
+      setTimeout(() => {
+        this.copied = false;
+      }, 3000); 
+    });
+  }
 }
+

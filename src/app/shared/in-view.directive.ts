@@ -11,7 +11,7 @@ export class InViewDirective implements OnDestroy {
   @Input() rootMargin = '-10% 0px -10%';
   @Input() activeClass = 'in-view';
   @Output() inViewChange = new EventEmitter<boolean>();
-  @Input() rootSelector?: string = 'sayhiAnchor';
+  @Input() rootSelector?: string = undefined;
 
 
   constructor(private el: ElementRef<HTMLElement>) {

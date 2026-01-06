@@ -18,10 +18,11 @@
     alt="Nach oben"
   />
 </div>
-        <div class="icon"> <img src="assets/img/icon___Github.svg" alt="Github-Icon" /> </div>
-        <div class="icon"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /> </div>
+        <div class="icon"><a target="_blanc" href="https://www.linkedin.com/in/christina-troitzsch-cv"><img src="assets/img/icon___Github.svg" alt="Porfolio on Github" /></a></div>
+        <div class="icon"><a (click)="copyEmail()"><img src="assets/img/icon___Email.svg" alt="Email-Icon" /></a>
+        <span class="copyStatus" [class.visible]="copied">Kopiert!</span></div>
         <div class="icon">
-          <img src="assets/img/icon___Linkedin.svg" alt="LinkedIn-Icon" />
+         <a target="_blanc" href="https://www.linkedin.com/in/christina-troitzsch-cv"><img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkeIn" /></a>
         </div>
       </div>
     </div>

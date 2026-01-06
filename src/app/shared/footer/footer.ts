@@ -8,17 +8,17 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
-  standalone:true,
-  imports: [CommonModule,RouterLink,RouterModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterModule],
   providers: [Router],
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
 export class Footer {
   constructor(private router: Router) {}
-showFirst = true;
-private intervalId: any;
-
+  showFirst = true;
+  copied = false;
+  private intervalId: any;
 
   ngOnInit() {
     this.intervalId = setInterval(() => {
@@ -33,8 +33,18 @@ private intervalId: any;
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  copyEmail() {
+    const A = 'christina.troitzsch';
+    const B = 'web';
+    const C = '.de';
+    const email = `${A}@${B}${C}`;
+    navigator.clipboard.writeText(email).then(() => {
+      this.copied = true;
+      setTimeout(() => {
+        this.copied = false;
+      }, 3000); 
+    });
+  }
 }
-
-
-
 

@@ -33,11 +33,11 @@
 
         <div class="field">
           <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" (ngModelChange)="onContactDataChange()" rows="5" placeholder=" " required pattern=".{5,}"
-            [attr.data-focus-visible-added]="!message.valid && message.touched && !message.disabled ? '' : null"></textarea>
+            [attr.data-focus-visible-added]="!validateMessage(contactData.message) && message.touched && !message.disabled ? '' : null"></textarea>
           <label for="message">Deine Nachricht:</label>
-          @if(message.valid && message.touched && !message.disabled) {
+          @if(validateMessage(contactData.message) && message.touched && !message.disabled) {
 <img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
-          @if (!message.valid && message.touched && !message.disabled) {
+          @if (!validateMessage(contactData.message) && message.touched && !message.disabled) {
               <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
               <span class="alertMessage missing">Ich benötige mehr Informationen zu deinem Projekt</span>
       }
@@ -56,7 +56,7 @@
   </div>
 }
       <div class="showPrivacyHint" [class.hideElement]="privacyAccepted" (click)="onTrySubmit($event)"></div>
-       <button class="standardButton dark"  [disabled]="!email.valid || !message.valid || !name.valid || !privacyAccepted" type="submit" >Senden</button>
+       <button class="standardButton dark"  [disabled]="!email.valid || !validateMessage(contactData.message) || !name.valid || !privacyAccepted" type="submit" >Senden</button>
 
       
       </form>

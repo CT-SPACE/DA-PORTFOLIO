@@ -54,7 +54,14 @@ saved = localStorage.getItem('contactData');
       this.privacyAccepted = state;
     });
   if (this.saved) {
-    this.contactData = JSON.parse(this.saved);
+        try {
+      const parsed = JSON.parse(this.saved);
+      if (parsed && typeof parsed === 'object' && 'name' in parsed && 'email' in parsed && 'message' in parsed) {
+        this.contactData = parsed;
+      }
+    } catch (e) {
+      // Falls Parsing fehlschlägt, bleibt contactData wie initialisiert
+    }
   }
   }
 
@@ -105,10 +112,21 @@ onTrySubmit(event: Event) {
   return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
 }
 
+validateMessage(message: string): boolean {
+  // Entfernt Leerzeichen und Zeilenumbrüche
+  const cleaned = message.replace(/\s/g, '');
+  return cleaned.length >= 5;
+}
+
 resetFormAndHideResult(): void {
 this.submitResultVisible = false;
 this.privacyAccepted = false;
+this.contactData = { name: '', email: '', message: '' }; // Felder leeren
+
   localStorage.removeItem('contactData');
+    if (this.contactForm) {
+    this.contactForm.resetForm();
+  }
 }
 
 

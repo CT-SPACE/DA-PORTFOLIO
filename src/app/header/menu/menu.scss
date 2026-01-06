@@ -56,6 +56,32 @@
 
 }
 
+
+.copyStatus {
+  // margin-left: 12px;
+//   width:0;
+  position:absolute;
+  left:-12px;
+  top:-10px;
+  font-size: 0.8rem;
+  color: var(--accent-font-color);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: width 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  @media (max-width:600px) {
+    left:-10px;
+    font-size: 0.9rem;
+    // left:-5px;
+    // top:-14px;
+  }
+}
+.copyStatus.visible {
+  opacity: 1;
+//   width: auto;
+//   transform: translateY(0);
+}
+
 .angle{
     position:relative;
     height:20px;
@@ -203,6 +229,10 @@
     & div{
         display:flex;
         gap:15px;
+        div.icon{
+            position:relative;
+           
+        }
         @media (max-width:600px){
             gap:10px;
         }

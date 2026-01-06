@@ -79,12 +79,12 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: clamp(30px, 6vw, 100px);
+    gap: calc(clamp(30px, 6vw, 100px) + 18px);
     margin-top: 40px;
 
     &.reverse {
         flex-direction: row-reverse;
-        gap: calc(clamp(30px, 6vw, 100px) + 18px);
+        // gap: calc(clamp(30px, 6vw, 100px) + 18px);
 
         >.imgContainer .imgOverlay {
             left: -18px !important;
@@ -121,7 +121,6 @@
                 max-height: 200px;
                 transform: translateX(0);
                 opacity: 1;
-                // animation: expandWidth 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
             }
 
             .buttonGithub {

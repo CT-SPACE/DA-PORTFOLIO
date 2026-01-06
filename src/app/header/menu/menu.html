@@ -34,10 +34,13 @@
       <div class="stayConnected">
         <img src="assets/img/sayhiEmail.svg" alt="Email-Adresse" class="sayhiEmail" />
         <div>
-          <span class="icon"> <img src="assets/img/icon___Github.svg" alt="Github-Icon" /> </span>
-          <span class="icon"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /> </span
-          ><span class="icon">
-            <img src="assets/img/icon___Linkedin.svg" alt="LinkedIn-Icon" />
+          <span class="icon"><a href="https://github.com/CT-SPACE/DA-PORTFOLIO.git" (click)="$event.stopPropagation()"><img src="assets/img/icon___Github.svg" alt="Portfolio on Github" /></a></span>
+          <div class="icon"><a (click)="$event.stopPropagation();copyEmail()"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /></a> 
+            <span class="copyStatus" [class.visible]="copied">Kopiert!</span>
+          </div>        
+          <span class="icon">
+            <a href="www.linkedin.com/in/christina-troitzsch-cv" (click)="$event.stopPropagation();">
+<img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkedIn" /></a>
           </span>
         </div>
       </div>

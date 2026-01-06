@@ -30,14 +30,11 @@
     @media (max-width:400px){
         >.meContainer{
             >img.me{
-                width:80%;
-                height:90%;
+                height:100%;
                 object-fit:unset;
             }
         >.meBorder{
-            height: 90%;
-            aspect-ratio: unset;
-            width:80%;
+            height: 100%;
         }
         }
     }

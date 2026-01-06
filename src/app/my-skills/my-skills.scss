@@ -2,8 +2,6 @@
 
 h2
 {
-
-
 &.skills{
     @media (max-width: 800px){
 
@@ -17,6 +15,11 @@ h2
         top:-38px !important;
 }
 }
+}
+
+h4{
+margin-top:20px;
+
 }
 .skillsBorder{
     border: 2px solid var(--main-font-color);
@@ -35,16 +38,18 @@ h2
 .skillBox{
     opacity:0;
     position:relative;
-    // transform: translateX(-100vw) translateY(10vh) scale(2);
+    transform: translateX(-10px) translateY(10px) scale(2);
     display:flex;
-    
-
     flex-direction:column;
     align-items:center;
     justify-content:center;
     width:120px;
     height:120px;
 box-sizing:border-box;
+        &.in-view{
+        opacity:1;      ;
+        animation: skillSnap 1.3s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+        
 }
 .skillIcon{
     width:60px;
@@ -57,7 +62,7 @@ box-sizing:border-box;
     animation-fill-mode: both;
  }
 }
-
+}
 .skillsContainer{
   
     display:flex;
@@ -65,26 +70,20 @@ box-sizing:border-box;
     justify-content:center;
     gap:30px;   
     box-sizing:content-box;
-    >div.skillsGrid{
+    div.skillsGrid{
         display:grid;
         width:100%;
         margin: 0 auto;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap:30px;
         justify-items:center;
-    }
-    &.in-view{
-        opacity:1;
-        /* animation applied to children only */
-        .skillBox{
-        opacity:1;
-        animation: skillSnap 1.5s cubic-bezier(0.2, 0.9, 0.2, 1) both;
-        }
+
         }
 
+    
     @media (max-width:400px){  
     gap:20px;
-    >.skillBox{
+    .skillBox{
         width:80px;
         height:80px;
         .skillIcon{
@@ -93,7 +92,7 @@ box-sizing:border-box;
         }
     }
 }
-    }
+    
 
 
 @keyframes skillSnap {
@@ -106,11 +105,11 @@ box-sizing:border-box;
         opacity:1;
     }
 
-    70%{
+    80%{
         transform: translateX(0) translateY(-1vw) scale(1);
        
     }
-    80% {
+    90% {
         transform: translateX(0) translateY(0) scale(0.85);
         opacity: 1;
        
@@ -121,4 +120,4 @@ box-sizing:border-box;
         
     }
 }
-
+}

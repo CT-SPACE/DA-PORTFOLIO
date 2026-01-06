@@ -9,50 +9,48 @@ import { InViewDirective } from '../shared/in-view.directive';
   styleUrls: ['./my-skills.scss'],
 })
 export class MySkills {
-public skills: string[] = [
+  windowHeight = window.innerHeight;
+visible = { tools: false, skills: false, knowledges: false };
+
+  public skills: string[] = [
     'JavaScript',
     'Typescript',
     'Angular',
     'Api',
-  'html',
+    'html',
     'Css',
     'Bootstrap',
     'Material-Design',
-];
+  ];
 
-public knowledges: string[] = [
-  'Scrum',
-  'Kanban',
-  'Ki-Prompting'
-];
+  public knowledges: string[] = ['Scrum', 'Kanban', 'Ki-Prompting'];
 
-public tools: string[] = [
-  'VSCode',
-  'Figma',
-  'Browser-Dev-Tools',
-      'Git',
+  public tools: string[] = [
+    'VSCode',
+    'Figma',
+    'Browser-Dev-Tools',
+    'Git',
     'Github',
-        'Firebase',
-        'GAM360',
-        'Salesforce',
-        'Confluence',
-        'Jira',
-        'Trello'
+    'Firebase',
+    'GAM360',
+    'Salesforce',
+    'Confluence',
+    'Jira',
+    'Trello',
+  ];
 
-];
+  public getKnowledges(): string[] {
+    return this.knowledges;
+  }
 
-
-
-public getKnowledges(): string[]{
-  return this.knowledges;
-}
-
-public getSkills(): string[]{
+  public getSkills(): string[] {
     return this.skills;
-}
-public getTools(): string[]{
-  return this.tools;
-}
+  }
+  public getTools(): string[] {
+    return this.tools;
+  }
 
 
+setSectionVisible(section:'skills' | 'knowledges' | 'tools', value: boolean) { 
+  this.visible[section] = value; }
 }
