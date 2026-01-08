@@ -12,7 +12,7 @@
   line-height: 20px;
   text-decoration: none;
   color: var(--accent-font-color);
-  @media(max-width:600px) {
+  @media (max-width: 600px) {
     font-size: 16px;
   }
 
@@ -26,14 +26,13 @@
   max-height: 0;
   padding-top: 0px;
   opacity: 0;
-  //overflow:hidden;
   transition: all 1.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   transform: scale(0.55);
 
   &.open {
     padding-top: 0px;
-    max-height: 2000px; // Passen Sie die Höhe nach Bedarf an
+    max-height: 2000px;
     opacity: 1;
     transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -59,7 +58,7 @@
     padding: 0 20px;
   }
 
-  @media (max-width:400px) {
+  @media (max-width: 400px) {
     flex-direction: column;
     gap: 10px;
   }
@@ -78,38 +77,36 @@
       img {
         width: 26px;
 
-        @media (max-width:600px) {
+        @media (max-width: 600px) {
           width: 40px;
-
         }
 
         &:hover {
           cursor: pointer;
-          filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
+          filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%)
+            hue-rotate(133deg) contrast(81%);
           transform: scale(1.25);
           transition: transform 0.3s ease, filter 0.3s ease;
         }
       }
     }
   }
-
 }
 
 .copyStatus {
-  // margin-left: 12px;
-  width:0;
-  position:absolute;
-  left:-10px;
-  top:-20px;
+  width: 0;
+  position: absolute;
+  left: -10px;
+  top: -20px;
   font-size: 0.9rem;
   color: var(--accent-font-color);
   opacity: 0;
   transform: translateY(-4px);
   transition: width 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
-  @media (max-width:600px) {
-    left:-5px;
-    top:-14px;
+  @media (max-width: 600px) {
+    left: -5px;
+    top: -14px;
   }
 }
 
@@ -118,26 +115,6 @@
   width: auto;
   transform: translateY(0);
 }
-
-// .toTopImg {
-//   transition: opacity 0.3s;
-//   position: absolute;
-//   bottom:0;
-//   right:65%;
-//   width:40px;
-// }
-// .toTopImgStandby{
-//   opacity: 0.5;
-
-// }
-// .visible {
-//   opacity: 1;
-//   z-index: 2;
-// }
-// .hidden {
-//   opacity: 0;
-//   z-index: 1;
-// }
 
 .goTop {
   position: absolute;
@@ -148,20 +125,17 @@
   height: 40px;
   cursor: pointer;
 
-
   .toTopImg2 {
     opacity: 1;
     transition: opacity 0.3s infinite;
     position: absolute;
-    // width: 40px;
     height: 40px;
     top: 0;
     right: 0;
     z-index: 2;
 
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
       height: 30px;
-
     }
   }
 
@@ -169,28 +143,18 @@
     opacity: 0;
     transition: opacity 0.3s infinite;
     position: absolute;
-    // width: 40px;
     height: 40px;
     top: 0;
     right: 0;
     z-index: 3;
     pointer-events: none;
 
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
       height: 30px;
-
     }
   }
 
   &:hover {
-
-    // .toTopImg2 {
-    //   opacity: 0;
-    // }
-    // .toTopImg1 {
-    //   opacity: 1;
-    //   animation: toTopAnim 1s infinite;
-    // }
     .toTopImg2 {
       animation: blinkImg2 0.8s ease-in-out infinite;
     }
@@ -221,8 +185,6 @@
     transform: translateY(-20px);
     opacity: 1;
   }
-
-  // 60%  { opacity: 0; }
   100% {
     transform: translateY(0);
     opacity: 0;
@@ -268,7 +230,7 @@
 
   80% {
     opacity: 1;
-    transform: translateY(-20px)
+    transform: translateY(-20px);
   }
 
   100% {

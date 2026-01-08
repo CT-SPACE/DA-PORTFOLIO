@@ -3,8 +3,6 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
-// import { Input } from '@angular/core';
-// 'import { InViewDirective } from '../in-view.directive';
 
 @Component({
   selector: 'app-footer',
@@ -23,7 +21,7 @@ export class Footer {
   ngOnInit() {
     this.intervalId = setInterval(() => {
       this.showFirst = !this.showFirst;
-    }, 500); // Wechsel alle 500ms
+    }, 500); 
   }
 
   ngOnDestroy() {

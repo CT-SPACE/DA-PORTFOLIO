@@ -1,12 +1,10 @@
 import 'zone.js';
 import { Component, signal } from '@angular/core';
-import { Headline } from "../headline/headline";
-import { AboutMe } from "../about-me/about-me";
-import { MySkills } from "../my-skills/my-skills";
-import { Portfolio } from "../portfolio/portfolio";
-import { SayHi } from "../say-hi/say-hi";
-
-
+import { Headline } from '../headline/headline';
+import { AboutMe } from '../about-me/about-me';
+import { MySkills } from '../my-skills/my-skills';
+import { Portfolio } from '../portfolio/portfolio';
+import { SayHi } from '../say-hi/say-hi';
 
 @Component({
   selector: 'app-main',
@@ -15,15 +13,12 @@ import { SayHi } from "../say-hi/say-hi";
   styleUrl: './main.scss',
 })
 export class Main {
-
-    protected readonly title = signal('DA-PORTFOLIO');
+  protected readonly title = signal('DA-PORTFOLIO');
 
   private hoverTimers = new Map<HTMLImageElement, number>();
   private frameIndex = new Map<HTMLImageElement, number>();
 
-
-
-    startArrowHover(target: EventTarget | null): void {
+  startArrowHover(target: EventTarget | null): void {
     const img = target as HTMLImageElement;
     if (!img) return;
 
@@ -34,13 +29,14 @@ export class Main {
     ];
 
     // Preload
-    frames.forEach(src => { const i = new Image(); i.src = src; });
+    frames.forEach((src) => {
+      const i = new Image();
+      i.src = src;
+    });
 
-    // Reset to first frame
     img.src = frames[0];
     this.frameIndex.set(img, 0);
 
-    // Prevent duplicate timers
     if (this.hoverTimers.has(img)) return;
 
     const intervalMs = 220; // Geschwindigkeit der Animation
@@ -62,14 +58,13 @@ export class Main {
       clearInterval(id);
       this.hoverTimers.delete(img);
     }
-    // Zurück zum ersten Frame
+
     const first = img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg';
     img.src = first;
     this.frameIndex.delete(img);
   }
 
   scrollToBottom() {
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-}
-
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  }
 }

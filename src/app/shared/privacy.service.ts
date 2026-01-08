@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PrivacyService {
-    private privacyAcceptedSubject$ = new BehaviorSubject<boolean>(false);
-    public privacyAccepted$ = this.privacyAcceptedSubject$.asObservable();
-
+  private privacyAcceptedSubject$ = new BehaviorSubject<boolean>(false);
+  public privacyAccepted$ = this.privacyAcceptedSubject$.asObservable();
 
   private legalContainer$ = new BehaviorSubject<boolean>(false);
 
@@ -19,59 +18,54 @@ export class PrivacyService {
     return this.privacyAccepted$;
   }
 
+  openLegalContainer(): void {
+    console.log('openLegalContainer aufgerufen');
+    this.legalContainer$.next(true);
+  }
 
-
-openLegalContainer(): void {
-  console.log('openLegalContainer aufgerufen');
-  this.legalContainer$.next(true);
-}
-
-closeLegalContainer(): void {
-  console.log('closeLegalContainer aufgerufen');
-  setTimeout(() => {
-    this.legalContainer$.next(false);
-  }, 100);
-}
+  closeLegalContainer(): void {
+    console.log('closeLegalContainer aufgerufen');
+    setTimeout(() => {
+      this.legalContainer$.next(false);
+    }, 100);
+  }
 
   getState() {
     return this.legalContainer$.asObservable();
   }
 
- openLegalContainerAndScroll(targetId: string): void {
+  openLegalContainerAndScroll(targetId: string): void {
     this.openLegalContainer();
-    
-    // Schritt 1: Sofort scrollen
+
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       const rect = targetElement.getBoundingClientRect();
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       window.scrollTo({
         top: rect.top + scrollTop - 100,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
-    
-    // Schritt 2: Nachkorrektur nach Animation
+
     setTimeout(() => {
       const el = document.getElementById(targetId);
       if (el) {
         const rect = el.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         window.scrollTo({
           top: rect.top + scrollTop + 40,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     }, 1000);
   }
 
   switchToImpressum(): void {
-  this.closeLegalContainer();
-  setTimeout(() => {
-    this.openLegalContainerAndScroll('legalAnker'); 
-  }, 400); 
-}
-
+    this.closeLegalContainer();
+    setTimeout(() => {
+      this.openLegalContainerAndScroll('legalAnker');
+    }, 400);
+  }
 }

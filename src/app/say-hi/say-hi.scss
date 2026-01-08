@@ -1,95 +1,91 @@
-
-
-.legal{
-    font-size:12px;
-    text-decoration: none;
-    color: var(--accent-font-color) !important;
-    cursor:pointer;
-    &:hover{
-        text-decoration: underline;
-    }
+.legal {
+  font-size: 12px;
+  text-decoration: none;
+  color: var(--accent-font-color) !important;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
+.sayhiContainer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
 
-.sayhiContainer{
-    width:100%;
-    overflow:hidden;
-    display:flex;
-    position:relative;
-    
-    flex-direction:column;
-    align-items:center;
-    & .diagonal{
-        width:104%;
-        background: var(--main-font-color);
-        height:64px;
-         clip-path: polygon(0 0%, 0% 0, 0% 100%, 100% 100%);
-         position: relative;
-         //overflow:hidden;
-        bottom: -2px;
+  flex-direction: column;
+  align-items: center;
+  & .diagonal {
+    width: 104%;
+    background: var(--main-font-color);
+    height: 64px;
+    clip-path: polygon(0 0%, 0% 0, 0% 100%, 100% 100%);
+    position: relative;
+    bottom: -2px;
+  }
+  & .sayhi {
+    width: 100%;
+    background: var(--main-font-color);
+    color: var(--main-bg-color);
+    bottom: 0;
+    @media (max-width: 600px) {
+      padding: 0 20px;
     }
-    & .sayhi{
-        width:100%;
-        background: var(--main-font-color);
-        color:var(--main-bg-color);
-        bottom:0;
-        @media (max-width: 600px){
-            padding:0 20px;
-        }
 
-        & h1{
-            font-size: 3rem !important;
-            font-weight: 600 !important;
-            position:relative;
-            color: var(--main-bg-color);
-            text-align:left;
-            padding:0 50px;
-            @media (max-width: 600px){
-                padding:0 20px;
-                font-size:1.8rem;
-            }
-            &:hover{
-            color: var(--accent-font-color);
-        }
-        }
+    & h1 {
+      font-size: 3rem !important;
+      font-weight: 600 !important;
+      position: relative;
+      color: var(--main-bg-color);
+      text-align: left;
+      padding: 0 50px;
+      @media (max-width: 600px) {
+        padding: 0 20px;
+        font-size: 1.8rem;
+      }
+      &:hover {
+        color: var(--accent-font-color);
+      }
     }
+  }
 }
-.contactForm{
-    width:100%;
-    max-width:600px;
-    box-sizing:border-box;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin: 2rem auto 3rem auto;
+.contactForm {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto 3rem auto;
 
-    p.accentQuestion{
-        font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
-        font-size:1.4rem;
-        color:var(--accent-font-color);
-        margin-bottom:1rem;
-        padding:0 10px;
-    }
-    p.normalCTA{
-        font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
-        font-size:1rem;
-        color:var(--main-bg-color);
-        margin-bottom:2rem;
-        padding:0 10px
-    }
+  p.accentQuestion {
+    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+    font-size: 1.4rem;
+    color: var(--accent-font-color);
+    margin-bottom: 1rem;
+    padding: 0 10px;
+  }
+  p.normalCTA {
+    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+    font-size: 1rem;
+    color: var(--main-bg-color);
+    margin-bottom: 2rem;
+    padding: 0 10px;
+  }
 }
-.formContainer{
-    width:100%;
-    display:flex;
-    justify-content:center;
+.formContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-form{
-    width:clamp(200px, 100%, 480px);
-    display:flex;
-    flex-direction:column;
-    position:relative;
-    align-items:center;
+form {
+  width: clamp(200px, 100%, 480px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
 }
 .floating-form {
   background: var(--main-font-color);
@@ -100,32 +96,32 @@ form{
 
 /* Feld-Wrapper */
 .floating-form .field {
-    width: 100%;
+  width: 100%;
   position: relative;
   margin-bottom: 24px;
 }
 
 /* Inputs/Textarea: nur unten Weiß, bei Fokus kompletter weißer Rahmen */
-input,textarea {
-    width: 100%;
+input,
+textarea {
+  width: 100%;
   background: transparent !important;
   color: var(--main-bg-color);
-  box-sizing:border-box;
+  box-sizing: border-box;
   border: 1px solid transparent;
   border-bottom-color: var(--main-bg-color);
   border-radius: 3px;
-  line-height:1.5rem;
+  line-height: 1.5rem;
   padding: 14px 14px 10px;
   transition: border-color 160ms ease, box-shadow 160ms ease;
-    /* Für Chrome, Edge, Safari */
-  &::-webkit-scrollbar {
-    display: none;
-  }
   /* Für Firefox */
   scrollbar-width: none;
   /* Optional: Für IE/Edge Legacy */
   -ms-overflow-style: none;
-  
+  /* Für Chrome, Edge, Safari */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 input:-webkit-autofill,
@@ -138,19 +134,19 @@ textarea:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--main-bg-color) !important;
   transition: background-color 9999s ease-in-out 0s;
 
-      /* Für Chrome, Edge, Safari */
+  /* Für Chrome, Edge, Safari */
   &::-webkit-scrollbar {
     display: unset;
   }
 
   /* Optional: Für IE/Edge Legacy */
   -ms-overflow-style: unset;
-  
-    scrollbar-width: thin;              // Für Firefox
-  scrollbar-color: #bdbdbd #f5f5f5;   // Für Firefox (Daumen, Track)
+
+  scrollbar-width: thin; // Für Firefox
+  scrollbar-color: #bdbdbd #f5f5f5; // Für Firefox (Daumen, Track)
 
   &::-webkit-scrollbar {
-    width: 8px;                       // Für Chrome, Edge, Safari
+    width: 8px; // Für Chrome, Edge, Safari
   }
   &::-webkit-scrollbar-thumb {
     background: #bdbdbd;
@@ -162,49 +158,42 @@ textarea:-webkit-autofill:focus {
   }
 }
 
-textarea:focus, textarea:focus-visible, textarea:hover{
-  
-      /* Für Chrome, Edge, Safari */
+textarea:focus,
+textarea:focus-visible,
+textarea:hover {
+  /* Für Chrome, Edge, Safari */
   &::-webkit-scrollbar {
     display: unset;
   }
 
   /* Optional: Für IE/Edge Legacy */
   -ms-overflow-style: unset;
-  
-    scrollbar-width: thin;              // Für Firefox
-    border-radius:4px;
-    border:1px solid transparent;
-  scrollbar-color: #696666 var(--main-font-color);   // Für Firefox (Daumen, Track)
+
+  scrollbar-width: thin; // Für Firefox
+  border-radius: 4px;
+  border: 1px solid transparent;
+  scrollbar-color: #696666 var(--main-font-color); // Für Firefox (Daumen, Track)
 
   &::-webkit-scrollbar {
-    width: 8px;                       // Für Chrome, Edge, Safari
+    width: 8px; // Für Chrome, Edge, Safari
     background: var(--main-font-color);
   }
   &::-webkit-scrollbar-thumb {
     background: #464444;
     border-radius: 4px;
-    // border:2px solid var(--main-font-color);
   }
   &::-webkit-scrollbar-track {
     background: #514c4c;
     border-radius: 4px;
-    // border:2px solid var(--main-font-color);
   }
 }
 
 textarea::-webkit-resizer {
-  // background: gray;
-  // color:var(--main-bg-color);
   border-color: transparent;
-  // border-radius: 3px;
-
-    background: 
-    url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="12" x2="12" y2="4" stroke="white" stroke-width="2"/><line x1="8" y1="16" x2="16" y2="8" stroke="white" stroke-width="2"/></svg>')
-    center/10px no-repeat,
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="12" x2="12" y2="4" stroke="white" stroke-width="2"/><line x1="8" y1="16" x2="16" y2="8" stroke="white" stroke-width="2"/></svg>')
+      center/10px no-repeat,
     var(--main-font-color);
 }
-
 
 .floating-form textarea {
   min-height: 120px;
@@ -215,7 +204,7 @@ textarea::-webkit-resizer {
 .floating-form input:focus-visible,
 .floating-form textarea:focus-visible {
   outline: 0;
-  background-color:transparent;
+  background-color: transparent;
   border-color: var(--main-bg-color);
   font-size: 1rem;
 }
@@ -224,18 +213,14 @@ textarea::-webkit-resizer {
 .floating-form .field > label {
   position: absolute;
   left: 12px;
-    bottom: 0;
-    background-color:var(--main-font-color);
+  bottom: 0;
+  background-color: var(--main-font-color);
   transform: translateY(-50%);
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.8rem;
   pointer-events: none;
   padding: 0 4px;
-  transition:
-    top 160ms ease,
-    transform 160ms ease,
-    font-size 160ms ease,
-    color 160ms ease,
+  transition: top 160ms ease, transform 160ms ease, font-size 160ms ease, color 160ms ease,
     background-color 160ms ease;
 }
 
@@ -251,31 +236,31 @@ textarea::-webkit-resizer {
   z-index: 1;
 }
 
-.privacyHint{
-  position:absolute;
-    align-self: start;
-    height:16px;
-    bottom: 114px;
+.privacyHint {
+  position: absolute;
+  align-self: start;
+  height: 16px;
+  bottom: 114px;
 }
-.alertIcon{
-    width:12px;
-     border:1px solid;
-    padding:2px;
-    border-radius:50%;
-    margin-right: 8px;
-    height:12px;
- opacity:0.8;
-     position:absolute;
-    right:10px;
-    top:50%;
-    transform: translateY(-50%);
-    z-index:2;
-    &.missing{
-      border-color: indianred;
-    }
-    &.okay{
-      border-color: var(--accent-font-color);
-    }
+.alertIcon {
+  width: 12px;
+  border: 1px solid;
+  padding: 2px;
+  border-radius: 50%;
+  margin-right: 8px;
+  height: 12px;
+  opacity: 0.8;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  &.missing {
+    border-color: indianred;
+  }
+  &.okay {
+    border-color: var(--accent-font-color);
+  }
 }
 
 /* Bei Fokus oder wenn Inhalt vorhanden: Label auf den oberen Rand setzen */
@@ -287,85 +272,72 @@ textarea::-webkit-resizer {
   height: fit-content;
   transform: translateY(-100%); /* genau über die obere Border */
   font-size: 0.75rem;
-  background: var(--main-font-color);          
+  background: var(--main-font-color);
   color: var(--main-bg-color);
 }
 
-button.standardButton:disabled{
-
-    cursor:unset;
-     pointer-events: none; 
-     opacity:0.6;
+button.standardButton:disabled {
+  cursor: unset;
+  pointer-events: none;
+  opacity: 0.6;
 }
-button.standardButton{
-  // top:-40px;
-    position:relative;
+button.standardButton {
+  position: relative;
 }
 
-.showPrivacyHint{
-    width: 150px;
-    height: 40px;
-    position: relative;
-    top: 42px;
-    z-index: 100;
+.showPrivacyHint {
+  width: 150px;
+  height: 40px;
+  position: relative;
+  top: 42px;
+  z-index: 10;
 }
 
-.privacy{
-    width:100%;
-    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
-    font-size:0.85rem;
-    font-weight:200;
-    cursor:default;
-    color:var(--main-bg-color);
-    margin: 0 0 2rem 0;
-    display:flex;
-    align-items:center;
-    text-align:left;
-    gap:8px;
-    
-    a{
-        text-decoration:none;
-        color:var(--accent-font-color);
-        cursor:pointer;
-        &:hover{
-            text-decoration:underline;
-        }
+.privacy {
+  width: 100%;
+  font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+  font-size: 0.85rem;
+  font-weight: 200;
+  cursor: default;
+  color: var(--main-bg-color);
+  margin: 0 0 2rem 0;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 8px;
+
+  a {
+    text-decoration: none;
+    color: var(--accent-font-color);
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
-    .checkboxImg{
-        width:20px;
-        height:20px;
-        background-image: url('../../../public/assets/img/check-button.png');
-        background-position: -12px -9px;
-        filter:brightness(1.2);
-        background-size:130px;
-        background-repeat:no-repeat;
-        
+  }
+  .checkboxImg {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../../public/assets/img/check-button.png');
+    background-position: -12px -9px;
+    filter: brightness(1.2);
+    background-size: 130px;
+    background-repeat: no-repeat;
+
     &.hint {
-        background-position: -109px -9px;
+      background-position: -109px -9px;
     }
-    }
-    
+  }
+
   &:not(.checked):hover .checkboxImg,
   &:not(.checked):focus-visible .checkboxImg {
-            background-position: -36px -9px;
-        }
+    background-position: -36px -9px;
+  }
   &.checked .checkboxImg {
-        background-position: -59px -9px;   /* checked-Frame (Sprite-Frame anpassen) */
-        }
+    background-position: -59px -9px; /* checked-Frame (Sprite-Frame anpassen) */
+  }
 
   &.checked:hover .checkboxImg,
   &.checked:focus-visible .checkboxImg {
-           
-            background-position: -84px -9px;
-        }
-        
- }
-
-
-
-
-
-
-
-
-
+    background-position: -84px -9px;
+  }
+}

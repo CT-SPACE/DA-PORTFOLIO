@@ -13,9 +13,9 @@
           <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" (ngModelChange)="onContactDataChange()" type="text" placeholder=" " required pattern=".{3,}" />
           <label for="name">Dein Name:</label>
              @if(name.valid && name.touched && !name.disabled) {
-<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
           @if (!name.valid && name.touched && !name.disabled) {
-              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
               <span class="alertMessage missing">Bitte gib mindestens 3 Zeichen ein!</span>
       }
         </div>
@@ -24,9 +24,9 @@
         <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" (ngModelChange)="onContactDataChange()" type="email" required placeholder=" " [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled && !validateEmail(contactData.email) ? '' : null" />
           <label for="email">Deine E‑Mail:</label>
                     @if(email.valid && email.touched && !email.disabled && validateEmail(contactData.email)) {
-<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
           @if ((!email.valid || !validateEmail(contactData.email)) && email.touched && !email.disabled) {
-              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
               <span class="alertMessage missing">Bitte gib eine gültige Email-Adresse an!</span>
       }
         </div>
@@ -36,9 +36,9 @@
             [attr.data-focus-visible-added]="!validateMessage(contactData.message) && message.touched && !message.disabled ? '' : null"></textarea>
           <label for="message">Deine Nachricht:</label>
           @if(validateMessage(contactData.message) && message.touched && !message.disabled) {
-<img alt="alert" class="alertIcon okay" src="/assets/img/okay_2.svg">          }
+<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
           @if (!validateMessage(contactData.message) && message.touched && !message.disabled) {
-              <img alt="alert" class="alertIcon missing" src="/assets/img/missing_2.svg">
+              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
               <span class="alertMessage missing">Ich benötige mehr Informationen zu deinem Projekt</span>
       }
         </div>

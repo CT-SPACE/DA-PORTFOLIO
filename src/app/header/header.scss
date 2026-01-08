@@ -1,57 +1,51 @@
 @use '../../styles.scss' as *;
 
-:host{
-
-    position: fixed;
-    height: 50px;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background-color: var(--main-bg-color);
-    box-sizing: border-box;
-    width: 100%;
-
-
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
-.header{
+.header {
   /* Shared header height variable for menu alignment */
   --header-h: 50px;
   height: var(--header-h);
-  position:relative;
+  position: relative;
   background-color: var(--main-bg-color);
   top: 0;
   left: 0;
   right: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-    display:flex;
-    width:100%;
-    box-sizing:border-box;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 50px;
-    @media (max-width: 600px){
-        padding: 0 20px;
-    } 
-    img.logo{
-        height:24px;
-    }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  @media (max-width: 600px) {
+    padding: 0 20px;
+  }
+  img.logo {
+    height: 24px;
+  }
 
-    .menu{
-        height:30px;
-        width:30px;
-        object-fit: contain;
-        cursor:pointer;
-        display:block;
-    }
+  .menu {
+    height: 30px;
+    width: 30px;
+    object-fit: contain;
+    cursor: pointer;
+    display: block;
+  }
 }
 
 span.lang-item {
-    
-    padding: 2px 8px 1px;
-      position: relative;
-        border: 3px solid transparent;
+  padding: 2px 8px 1px;
+  position: relative;
+  border: 3px solid transparent;
   transition: border-color 0.3s ease;
   display: inline-block;
   color: var(--main-font-color);
@@ -59,41 +53,39 @@ span.lang-item {
   cursor: pointer;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
-    left:8px;
+    left: 8px;
     bottom: -2px;
     height: 2px;
-    width: 0; // Start: unsichtbar
-    background-color: var(--main-font-color); // deine Wunschfarbe
-    transition: width 0.3s ease; // Animation
+    width: 0;
+    background-color: var(--main-font-color);
+    transition: width 0.3s ease;
   }
 
   &:not(.active):hover::after {
-    width: 60%; 
+    width: 60%;
   }
 
   &.active {
     border-color: var(--accent-font-color);
     cursor: default;
-}
-}
-
-
-.navi{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    .lang-item:nth-child(2) { margin-right: 20px;}
-    .lang-item{
-        font-family: "Syne", "Helvetica Neue", sans-serif;
-        font-weight: 800;
-        font-size: 14px;
-        line-height: 18px;
-        text-transform: uppercase;
-        color: var(--main-font-color);
-       
-    }
- 
+  }
 }
 
+.navi {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  .lang-item:nth-child(2) {
+    margin-right: 20px;
+  }
+  .lang-item {
+    font-family: 'Syne', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: var(--main-font-color);
+  }
+}

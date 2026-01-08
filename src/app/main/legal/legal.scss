@@ -1,7 +1,5 @@
 @use '../../../styles.scss' as *;
 
-
-
 .dialog {
   position: relative;
   width: clamp(300px, 80vw, 600px);
@@ -11,15 +9,14 @@
   border-radius: 4px;
   background: var(--main-font-color);
   color: var(--main-bg-color) !important;
-  //overflow:hidden;
 }
 
 #legalContent {
-  animation: contentReveal 0.8s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
-  display:flex;
+  animation: contentReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+  display: flex;
   flex-direction: column;
-  justify-content:space-between;
-  opacity:0;
+  justify-content: space-between;
+  opacity: 0;
   transform: translateY(300px);
 
   img.adress {
@@ -42,8 +39,6 @@
     }
   }
 
-
-
   h1 {
     margin-bottom: 64px;
   }
@@ -52,7 +47,6 @@
     color: var(--main-font-color) !important;
     font-family: inherit;
     text-align: left;
-
   }
 
   p {
@@ -60,17 +54,12 @@
   }
 }
 
-
-/* Linien-Animation (aus Punkt -> horizontal -> vertikal split) */
 .legal-reveal {
   height: calc(100% - 120px);
-display:flex;
-align-items:center;
+  display: flex;
+  align-items: center;
   position: relative;
-  //overflow:hidden;
 }
-
-
 
 @keyframes lineGrowSplitTop {
   0% {
@@ -112,4 +101,3 @@ align-items:center;
     transform: translateY(0);
   }
 }
-

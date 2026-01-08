@@ -1,228 +1,204 @@
-
 @use '@angular/material' as mat;
 
 :root {
-  --main-bg-color: #FFFCF3;
-  --main-font-color: #09090A;
-  --accent-font-color: #00BC8F;
+  --main-bg-color: #fffcf3;
+  --main-font-color: #09090a;
+  --accent-font-color: #00bc8f;
   --extra-gap: 60px;
 }
 
 @font-face {
-  font-family: "Overpass";
-  src: url('../public/assets/fonts/overpass.woff2') format("woff2"),
-       url('../public/assets/fonts/overpass.woff') format("woff");
+  font-family: 'Overpass';
+  src: url('../public/assets/fonts/overpass.woff2') format('woff2'),
+    url('../public/assets/fonts/overpass.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Syne";
-  src: url('./../public/assets/fonts/syne.woff2') format("woff2"),
-       url(./../public/assets/fonts/syne.woff) format("woff");
-       font-weight: 400 800;
-       font-style: normal;
-      }
+  font-family: 'Syne';
+  src: url('./../public/assets/fonts/syne.woff2') format('woff2'),
+    url(./../public/assets/fonts/syne.woff) format('woff');
+  font-weight: 400 800;
+  font-style: normal;
+}
 
 @font-face {
-  font-family: "Syne - ExtraBold";
-  src: url(./../public/assets/fonts/Syne-ExtraBold.woff2) format("woff2");
-     
+  font-family: 'Syne - ExtraBold';
+  src: url(./../public/assets/fonts/Syne-ExtraBold.woff2) format('woff2');
 }
 
-@font-face{
-  font-family: "Syne - Medium";
-  src: url(./../public/assets/fonts/Syne-Medium.woff2) format("woff2");
+@font-face {
+  font-family: 'Syne - Medium';
+  src: url(./../public/assets/fonts/Syne-Medium.woff2) format('woff2');
 }
 
-@font-face{
-  font-family: "Syne - Bold";
-  src: url(./../public/assets/fonts/Syne-Bold.woff2) format("woff2"); 
+@font-face {
+  font-family: 'Syne - Bold';
+  src: url(./../public/assets/fonts/Syne-Bold.woff2) format('woff2');
 }
 
 html {
-  @include mat.theme((
-    color: (
-      primary: mat.$cyan-palette,
-      tertiary: mat.$orange-palette,
-    ),
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$orange-palette,
+      ),
 
-    density: 0,
-  ));
+      density: 0,
+    )
+  );
 }
 
 body {
-
   color-scheme: light;
 
   background-color: var(--main-bg-color);
   color: var(--main-font-color);
-  font-family: "Overpass", "Helvetica Neue", sans-serif;
-
-  // Reset the user agent margin.
+  font-family: 'Overpass', 'Helvetica Neue', sans-serif;
   margin: 0;
 }
-/* You can add global styles to this file, and also import other style files */
 
-html, body { 
-  height: 100%; 
-  scroll-behavior:smooth;
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
 }
-body { 
-  margin: 0; 
-  font-family: "Overpass", "Helvetica Neue", sans-serif;
-  overflow-x: hidden; 
-  // div{
-    // border:1px solid fuchsia;
-  // }
-  
+body {
+  margin: 0;
+  font-family: 'Overpass', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
 }
 
-
-h1{
-  text-align:center;
-   font-size: clamp(2rem, 8vw,  7rem) !important;
-   font-weight: 800 !important;
-   line-height: 0.9 !important;
-   margin: 0; 
-    color: var(--main-font-color);
-    font-family: 'Syne - ExtraBold', 'Helvetica Neue', sans-serif !important;
-      font-variation-settings: "wght" 800, "ital" 0;
+h1 {
+  text-align: center;
+  font-size: clamp(2rem, 8vw, 7rem) !important;
+  font-weight: 800 !important;
+  line-height: 0.9 !important;
+  margin: 0;
+  color: var(--main-font-color);
+  font-family: 'Syne - ExtraBold', 'Helvetica Neue', sans-serif !important;
+  font-variation-settings: 'wght' 800, 'ital' 0;
 }
 
-h2{
-  position:relative;
-  z-index:1;
-    padding: 0 20px;
-    width: fit-content;
-    left: 20px;
-   //margin: 3rem 0 2rem 1.2rem;
-   background: var(--main-bg-color);
-    font-size: clamp(1.2rem, 5vw, 4rem) !important;
-    font-weight: 600 !important;
-    color: var(--main-font-color);
-    font-family: 'Syne - Extrabold', 'Helvetica Neue', sans-serif !important;
-    &.skills{
+h2 {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  width: fit-content;
+  left: 20px;
+  background: var(--main-bg-color);
+  font-size: clamp(1.2rem, 5vw, 4rem) !important;
+  font-weight: 600 !important;
+  color: var(--main-font-color);
+  font-family: 'Syne - Extrabold', 'Helvetica Neue', sans-serif !important;
+  &.skills {
     top: clamp(0px, 1vw, 18px);
+  }
 
-    }
+  &:hover {
+    color: var(--accent-font-color);
+  }
+  @media (max-width: 1200px) {
+    top: clamp(-8px, -1vw, 0px);
+  }
 
-    &:hover{
-        color: var(--accent-font-color);
-    }
-    @media(max-width: 1200px){
-            top:clamp(-8px, -1vw, 0px);
-
-    }
-
-
-    @media (max-width: 600px){ 
-      
-      padding:0 10px;
-      font-size: 1.8rem !important;
-    //  &.skills{
-    //   top:-28px;
-      
-    //  } 
-
-
-    }
-        @media(max-width:400px){
-        font-size:1.2rem !important;
-        margin: 1rem auto;
-        left:0;
-    }
+  @media (max-width: 600px) {
+    padding: 0 10px;
+    font-size: 1.8rem !important;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.2rem !important;
+    margin: 1rem auto;
+    left: 0;
+  }
 }
 
-
-h3{
-    font-size: 2rem !important;
-    font-weight: 400 !important;
-    margin: 0;
-    color: var(--accent-font-color);
-    font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
-  @media (max-width: 800px){
+h3 {
+  font-size: 2rem !important;
+  font-weight: 400 !important;
+  margin: 0;
+  color: var(--accent-font-color);
+  font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
+  @media (max-width: 800px) {
     font-size: clamp(1rem, 3.5vw, 2rem) !important;
   }
 }
 
-h4{
-    font-size: 1rem !important;
-    font-weight: 400 !important;
-    position:relative;
-    border-bottom:1px solid #09090a45;
-    margin: 0;
-    width:100%;
-    text-align:center;
-    color: #09090a45;
-    font-family: 'Syne - Medium', 'Helvetica Neue', sans-serif !important;
-
+h4 {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  position: relative;
+  border-bottom: 1px solid #09090a45;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: #09090a45;
+  font-family: 'Syne - Medium', 'Helvetica Neue', sans-serif !important;
 }
 
-.diagonal{
-// background-image: linear-gradient(10deg, green 50% , transparent 50%);
-// background-image:  url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 1191 567" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M0,0l1190.551,441.128l0,125.801l-1190.551,0l0,-566.929Z" style="fill:#353538;"/></svg>');
-background-image: url('../public/assets/img/sayhibg.svg');
-background-repeat: no-repeat;
+.diagonal {
+  background-image: url('../public/assets/img/sayhibg.svg');
+  background-repeat: no-repeat;
 
-background-size: cover;
-background-position: 0% 50%;
+  background-size: cover;
+  background-position: 0% 50%;
 }
 
-main{
-   font-size: clamp(1rem, 3vw, 1.5rem);
-   line-height: 1.6;
-   color: var(--main-font-color);
+main {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  line-height: 1.6;
+  color: var(--main-font-color);
 }
-.buttonContainer{
-    display:flex;
-    justify-content:center;
-    margin-top:30px;
-    width:100%;
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
 }
 
-button.standardButton{
-
-    padding: 10px 28px 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    z-index:10;
-    // transition: background-color 0.3s ease;
-    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, padding 0.3s ease;
-    font-family: 'Overpass', 'Helvetica Neue', sans-serif;
-    &.light{
-      background-color: var(--main-bg-color);
+button.standardButton {
+  padding: 10px 28px 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease,
+    padding 0.3s ease;
+  font-family: 'Overpass', 'Helvetica Neue', sans-serif;
+  &.light {
+    background-color: var(--main-bg-color);
     color: var(--main-font-color);
     border: 2px solid var(--main-font-color);
-    }
-    &.dark{
-  background-color: var(--main-font-color);
-        color: var(--main-bg-color);
-        border: 2px solid var(--main-bg-color);
-    }
+  }
+  &.dark {
+    background-color: var(--main-font-color);
+    color: var(--main-bg-color);
+    border: 2px solid var(--main-bg-color);
+  }
 
-    &:hover{
-        padding:10px 40px 8px;
-        &.light{
-  background-color: var(--main-font-color);
-        color: var(--main-bg-color)
-        }
-        &.dark{
-            color: var(--main-font-color);
-        background-color: var(--main-bg-color)
-        }
-      
-    } 
-    &:focus, &:active{
-      &.light{
-          outline: 1px solid var(--main-font-color);
-      }
-      &.dark {
-        outline: 1px solid var(--main-bg-color);}
+  &:hover {
+    padding: 10px 40px 8px;
+    &.light {
+      background-color: var(--main-font-color);
+      color: var(--main-bg-color);
     }
+    &.dark {
+      color: var(--main-font-color);
+      background-color: var(--main-bg-color);
+    }
+  }
+  &:focus,
+  &:active {
+    &.light {
+      outline: 1px solid var(--main-font-color);
+    }
+    &.dark {
+      outline: 1px solid var(--main-bg-color);
+    }
+  }
+}
 
-} 
-
-.closeButton{
+.closeButton {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -233,60 +209,80 @@ button.standardButton{
   border: 0;
   cursor: pointer;
 }
-.closeButton:hover{
+.closeButton:hover {
   filter: invert(0);
   transition: all 0.3s ease-in-out;
 }
 
-
-.submit-result{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-    img.paper-plane{
-        width:64px;
-        height:64px;
-    &:hover{
-    animation-name: wiggle;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: both;
-      }
-    }   
-    img.goBack{
-        width:20px;
-        height:20px;
-        align-self:end;
-        filter: brightness(81%)  saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
-        cursor:pointer;
-        margin-right:10px;
-        &:hover{
-            animation: woodpecker 0.5s ease-out;
-        }
-    } 
+.submit-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  img.paper-plane {
+    width: 64px;
+    height: 64px;
+    &:hover {
+      animation-name: wiggle;
+      animation-duration: 1s;
+      animation-timing-function: ease-in;
+      animation-fill-mode: both;
+    }
+  }
+  img.goBack {
+    width: 20px;
+    height: 20px;
+    align-self: end;
+    filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg)
+      contrast(81%);
+    cursor: pointer;
+    margin-right: 10px;
+    &:hover {
+      animation: woodpecker 0.5s ease-out;
+    }
+  }
 }
 
-.hideElement{
-    z-index:0 !important;
-    visibility:hidden !important;
+.hideElement {
+  z-index: 0 !important;
+  visibility: hidden !important;
 }
-
 
 @keyframes wiggle {
-    0% { transform: skewX(9deg); }
-    10% { transform: skewX(-8deg); }
-    20% { transform: skewX(7deg); }
-    30% { transform: skewX(-6deg); }
-    40% { transform: skewX(5deg); }
-    50% { transform: skewX(-4deg); }
-    60% { transform: skewX(3deg); }
-    70% { transform: skewX(-2deg); }
-    80% { transform: skewX(1deg); }
-    90% { transform: skewX(0deg); }
-    100% { transform: skewX(0deg); }
+  0% {
+    transform: skewX(9deg);
+  }
+  10% {
+    transform: skewX(-8deg);
+  }
+  20% {
+    transform: skewX(7deg);
+  }
+  30% {
+    transform: skewX(-6deg);
+  }
+  40% {
+    transform: skewX(5deg);
+  }
+  50% {
+    transform: skewX(-4deg);
+  }
+  60% {
+    transform: skewX(3deg);
+  }
+  70% {
+    transform: skewX(-2deg);
+  }
+  80% {
+    transform: skewX(1deg);
+  }
+  90% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
 }
-
 
 @keyframes woodpecker {
   0% {
@@ -318,10 +314,9 @@ button.standardButton{
   }
 }
 
-@media (max-height: 800px){
-
-    .privacy-reveal, .legal-reveal {
-        height: calc(100% - 120px);
-    }   
-
-   }
+@media (max-height: 800px) {
+  .privacy-reveal,
+  .legal-reveal {
+    height: calc(100% - 120px);
+  }
+}

@@ -2,11 +2,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width:100vw;
     gap: 100px;
+    padding: 0 50px;
+    box-sizing: border-box;
 
     @media (max-width:600px) {
         gap: 50px;
+        padding: 0 20px;
     }
+    @media (max-width:400px) {
+ 
+        padding: 0 10px;
+    }
+    
 }
 
 
@@ -15,26 +24,27 @@
     z-index: 10;
 
     .imgOverlay {
-        z-index: 100;
+        z-index: 20;
         position: absolute;
         top: -18px;
         left: 18px;
         aspect-ratio: 16 / 9;
-        width: clamp(320px, 50vw, 533px);
-        // height: clamp(180px, 30vw, 300px);
+        width: clamp(320px, 30vw, 533px);
         border: 3px solid var(--main-font-color);
         opacity: 0;
         transition: opacity 0.3s ease, scale 0.3s ease;
         border-radius: 5px;
 
         @media (max-width:400px) {
-            width: calc(100% - 30px);
+            width: calc(100% - 40px);
+            >img{
+                right:-18px;
+            }
 
         }
 
         .imgLink {
-            z-index: 200;
-            // opacity: 1;
+            z-index: 30;
             position: absolute;
             top: 70%;
             right: -28px;
@@ -55,9 +65,8 @@
     }
 
     img.imgProject {
-        z-index: 200;
-        width: clamp(320px, 50vw, 533px);
-        // height: clamp(180px, 30vw, 300px);
+        z-index: 20;
+        width: clamp(320px, 30vw, 533px);
         aspect-ratio: 16 / 9;
         filter: grayscale(1) brightness(1.02) opacity(0.8);
         border: #000000A0 1px solid;
@@ -84,7 +93,6 @@
 
     &.reverse {
         flex-direction: row-reverse;
-        // gap: calc(clamp(30px, 6vw, 100px) + 18px);
 
         >.imgContainer .imgOverlay {
             left: -18px !important;
@@ -92,7 +100,6 @@
 
         >div:last-child {
             text-align: right;
-            // justify-content: right;
         }
     }
 
@@ -106,6 +113,7 @@
                 .imgLink {
                     transition-delay: 0.2s;
                     rotate: 0deg;
+                    right:-18px
                 }
             }
 
@@ -160,9 +168,6 @@
         }
 
         >div.imgContainer .imgOverlay {
-            // top: -10px;
-            // left: 10px;
-            // width: calc(100% - 40px);
 
             >.imgLink {
                 top: 70%;
@@ -205,13 +210,10 @@
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
-    // overflow:hidden;
-    // transform: translateX(-560px);
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease-in-out;
 
     width: 100%;
-    // opacity:0;
-    // max-width: 0px;
+    opacity:0.8;
     font-size: 1.2rem;
     line-height: 1.6rem;
     font-family: 'Overpass', 'Helvetica Neue', sans-serif;
@@ -225,7 +227,6 @@
 
     &.right {
         text-align: right;
-        // transform: translateX(560px);
     }
 
     .projectNumber {
@@ -279,8 +280,9 @@
         &.right {
             width: 0 !important;
             max-height: 0 !important;
-            transform: translateX(500px);
+            transform: translateX(-500px);
             animation: expandWidth 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+ 
         }
 
     }
@@ -302,11 +304,6 @@
         overflow:unset;
     }
 
-    //   50% {
-    //     width: 300px;
-    //     max-height:300px;
-    //     overflow:unset;
-    //   }
     99% {
         width: 100% !important;
         max-height: fit-content !important;
@@ -314,8 +311,16 @@
 
     100% {
         width: 100% !important;
-        // max-height: unset !important;
-        // overflow: unset !important;
-        // margin-top: 20px;
     }
+}
+
+@keyframes flyInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

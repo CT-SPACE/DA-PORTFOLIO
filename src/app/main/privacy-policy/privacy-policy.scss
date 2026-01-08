@@ -1,126 +1,98 @@
 @use '../main.scss' as *;
 @use '../../../styles.scss' as *;
 
-
-.acceptButton{
-    margin-top:20px;
-    width:100%;
-    display:flex;
-    justify-self:center;
-    
-}   
+.acceptButton {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-self: center;
+}
 
 .goBack {
-    height: 20px;
-    cursor: pointer;
-    float: right;
-    position: relative;
-    top: -30px;
-    filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.8));
-
-    &:hover {
-      animation: woodpecker 0.5s ease-out;
-    }
-}
-
-.legal{
-    font-size:14px;
-    line-height:20px;
-    text-decoration:none;
-    color:var(--accent-font-color);
-    &:hover{
-        cursor:pointer;
-        text-decoration:underline;
-    }
-}
-
-
-.privacy-reveal {
+  height: 20px;
+  cursor: pointer;
+  float: right;
   position: relative;
-  //overflow:hidden;
+  top: -30px;
+  filter: drop-shadow(2px 4px 2px rgba(0, 0, 0, 0.8));
 
-}
-
-
-// /* Linien-Reset und Positionierung */
-// .line {
-//   position: absolute;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   width: 0;           /* Start: Punkt */
-//   height: 1px;        /* Dicke der Linie */
-//   border: 0;          /* hr-Default entfernen */
-//   margin: 0;
-//   background: var(--main-bg-color);
-// }
-// .line-top { top: 50%; }
-// .line-bottom { bottom: 50%; }
-
-// /* Animationen triggern über .is-open */
-// .privacy-reveal.is-open .line-top {
-//   animation: lineGrowSplitTop 600ms ease-in-out forwards;
-// }
-// .privacy-reveal.is-open .line-bottom {
-//   animation: lineGrowSplitBottom 600ms ease-in-out forwards;
-// }
-
-// /* Inhalt nach Linien-Trennung einblenden */
-// .privacy-reveal .privacyPolicyContainer {
-//   opacity: 0;
-//   transform: translateY(8px);
-// }
-// .privacy-reveal.is-open .privacyPolicyContainer {
-//   animation: contentReveal 360ms ease 560ms forwards;
-// }
-
-#privacy {
-  animation: contentReveal 0.8s cubic-bezier(.34,1.56,.64,1) 0.6s forwards;
-  opacity:0;
-  transform: translateY(300px);
-}
-
-
-#privacy, #legalContent{
-    width: clamp(200px, 80%, 600px);
-    margin:  80px auto 30px auto;
-    font-size:14px;
-    padding:clamp(20px, 8%, 50px);
-    border: 1px solid var(--main-font-color);
-    line-height:18px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    h1{
-        font-size:20px !important;
-        text-align:left;
-        color: var(--accent-font-color) !important;
-        margin-bottom:10px;
-    }
-    h6{
-        font-size:16px;
-        color: var(--main-font-color);
-        margin-bottom:10px;
-    }
-
-    @media (max-width: 400px){
-        width:90%;
-        padding:20px;
-        h1{
-            font-size:16px !important;
-            top:20px
-    } 
+  &:hover {
+    animation: woodpecker 0.5s ease-out;
   }
 }
 
-.privacyBTN{
+.legal {
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  color: var(--accent-font-color);
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.privacy-reveal {
+  position: relative;
+}
+
+#privacy {
+  animation: contentReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+  opacity: 0;
+  transform: translateY(300px);
+}
+
+#privacy,
+#legalContent {
+  width: clamp(200px, 80%, 600px);
+  margin: 80px auto 30px auto;
+  font-size: 14px;
+  padding: clamp(20px, 8%, 50px);
+  border: 1px solid var(--main-font-color);
+  line-height: 18px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  h1 {
+    font-size: 20px !important;
+    text-align: left;
+    color: var(--accent-font-color) !important;
+    margin-bottom: 10px;
+  }
+  h6 {
+    font-size: 16px;
+    color: var(--main-font-color);
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 400px) {
+    width: 90%;
+    padding: 20px;
+    h1 {
+      font-size: 16px !important;
+      top: 20px;
+    }
+  }
+}
+
+.privacyBTN {
   margin: 40px auto -10px auto;
   text-align: center;
 }
 
-
 @keyframes contentReveal {
-  0% { opacity: 0; transform: translateY(300px); }
-  30% { opacity: 0.3  }
-  80% { opacity: 0.5; transform: translateY(0); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(300px);
+  }
+  30% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-

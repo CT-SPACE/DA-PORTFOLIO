@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input} from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
@@ -8,17 +8,19 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './menu.html',
   styleUrl: './menu.scss',
 })
-
-
 export class Menu {
   constructor(private vs: ViewportScroller) {}
   copied = false;
   @Input() isOpen = false;
-  @HostBinding('class.open') get opened() { return this.isOpen; }
-  @HostBinding('attr.aria-hidden') get ariaHidden() { return String(!this.isOpen); }
+  @HostBinding('class.open') get opened() {
+    return this.isOpen;
+  }
+  @HostBinding('attr.aria-hidden') get ariaHidden() {
+    return String(!this.isOpen);
+  }
 
   activeId: string | null = null;
-  private headerHeightFallback = 50; // px fallback
+  private headerHeightFallback = 50;
 
   toggleMenuItem(sectionId: string): void {
     this.activeId = sectionId;
@@ -26,7 +28,7 @@ export class Menu {
     if (!target) return;
 
     const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-    const menuH = this.isOpen ? (this.readPxVar('--menu-h') ?? this.getMenuHeight()) : 0;
+    const menuH = this.isOpen ? this.readPxVar('--menu-h') ?? this.getMenuHeight() : 0;
 
     const targetTop = window.scrollY + target.getBoundingClientRect().top;
     const top = targetTop - (headerH + menuH);
@@ -63,7 +65,6 @@ export class Menu {
   }
 
   private getMenuHeight(): number {
-    // Query the panel directly from document to avoid relying on ElementRef
     const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
     return panel?.offsetHeight ?? 0;
   }
@@ -77,7 +78,7 @@ export class Menu {
     return Math.max(0, Math.round(secs * 1000));
   }
 
-    copyEmail() {
+  copyEmail() {
     const A = 'christina.troitzsch';
     const B = 'web';
     const C = '.de';
@@ -86,8 +87,7 @@ export class Menu {
       this.copied = true;
       setTimeout(() => {
         this.copied = false;
-      }, 3000); 
+      }, 3000);
     });
   }
 }
-
