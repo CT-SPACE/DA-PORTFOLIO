@@ -1,89 +1,131 @@
 <h2 class="right skills">Fähigkeiten</h2>
 <div class="skillsBorder">
-  <!-- <div class="skillsContainer" inView [threshold]="windowHeight < 400 ? 0 : 0.2" [rootMargin]="'-40% 0px -40%'"> -->
   <div
+    #skillsContainer
     class="skillsContainer"
     inView
     [threshold]="0.1"
-    [rootMargin]="'-0% 0px -0%'"
+    [rootMargin]="'10% 0px 10% -0%'"
     (inViewChange)="setSectionVisible('skills', $event)"
   >
     <h4>Programmier Skills</h4>
     <div class="skillsGrid">
       @for (skill of skills; track skill; let i = $index) {
-      <!-- <div class="skillBox" [style.animationDelay.ms]="i * 180">
-      <img [src]="'assets/img/icon_' + skill + '.svg'" alt="" [attr.title]="skill + ' icon'" class="skillIcon" >
-      <p class="skillName">{{ skill }}</p>
-    </div> -->
-      <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.skills">
-        <img
-          [src]="'assets/img/icon_' + skill + '.svg'"
-          alt=""
-          [attr.title]="skill + ' icon'"
-          class="skillIcon"
-        />
-        <p class="skillName">{{ skill }}</p>
-      </div>
-      }
+
+        @if(inViewMobileSkills) {
+          <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.skills">
+            <img
+              [src]="'assets/img/icon_' + skill + '.svg'"
+              alt=""
+              [attr.title]="skill + ' icon'"
+              class="skillIcon"
+            />
+            <p class="skillName">{{ skill }}</p>
+          </div>
+        } @else {
+          <div
+            class="individual"
+            [style.animationDelay.ms]="i * 180"
+            [class.in-view]="visible.skills"
+          >
+            <img
+              [src]="'assets/img/icon_' + skill + '.svg'"
+              alt=""
+              [attr.title]="skill + ' icon'"
+              class="skillIcon"
+            />
+            <p class="skillName">{{ skill }}</p>
+          </div>
+        }
+     <!-- @end-->
+    }
+   <!-- @end-->
     </div>
   </div>
-  <!-- <div class="skillsContainer" inView [threshold]="0.5" [rootMargin]="'-10% 0px -10%'"> -->
+
   <div
+    #knowledgesContainer
     class="skillsContainer"
     inView
     [threshold]="0.2"
+    
     (inViewChange)="setSectionVisible('knowledges', $event)"
   >
     <h4>Methodische Skills</h4>
     <div class="skillsGrid">
       @for (knowledge of knowledges; track knowledge; let i = $index) {
-      <!-- <div class="skillBox" [style.animationDelay.ms]="i * 180">
-      <img [src]="'assets/img/icon_' + knowledge + '.svg'" alt="" [attr.title]="knowledge + ' icon'" class="skillIcon">
-      <p class="skillName">{{ knowledge }}</p>
-    </div> -->
 
-      <div
-        class="skillBox"
-        [style.animationDelay.ms]="i * 180"
-        [class.in-view]="visible.knowledges"
-      >
-        <img
-          [src]="'assets/img/icon_' + knowledge + '.svg'"
-          alt=""
-          [attr.title]="knowledge + ' icon'"
-          class="skillIcon"
-        />
-        <p class="skillName">{{ knowledge }}</p>
-      </div>
-
-      }
+        @if(!inViewMobileKnowledges) {
+          <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.knowledges">
+            <img
+              [src]="'assets/img/icon_' + knowledge + '.svg'"
+              alt=""
+              [attr.title]="knowledge + ' icon'"
+              class="skillIcon"
+            />
+            <p class="skillName">{{ knowledge }}</p>
+          </div>
+        } @else {
+          <div
+            class="individual"
+            [style.animationDelay.ms]="i * 180"
+            [class.in-view]="visible.knowledges"
+          >
+            <img
+              [src]="'assets/img/icon_' + knowledge + '.svg'"
+              alt=""
+              [attr.title]="knowledge + ' icon'"
+              class="skillIcon"
+            />
+            <p class="skillName">{{ knowledge }}</p>
+          </div>
+        }
+    <!-- @end-->
+    }
+<!-- @end-->
     </div>
   </div>
-  <!-- <div class="skillsContainer" inView [threshold]="0" [rootMargin]="'-110% 0px -110%'"> -->
-  <div
-    class="skillsContainer"
-    inView
-    [threshold]="0"
-    [rootMargin]="'0% 0px 0%'"
-    (inViewChange)="setSectionVisible('tools', $event)" >
+<div
+  #toolsContainer 
+  class="skillsContainer"
+  inView
+  [threshold]="inViewMobileTools ? 0 : 0.2"
+    [rootMargin]="'-0% 0px -20% -0%'"
   
-    <h4>Tools</h4>
-    <div class="skillsGrid">
-      @for (tool of tools; track tool; let i = $index) {
-      <!-- <div class="skillBox" [style.animationDelay.ms]="i * 180">
-      <img [src]="'assets/img/icon_' + tool + '.svg'" alt="" [attr.title]="tool + ' icon'" class="skillIcon">
-      <p class="skillName">{{ tool }}</p>
-    </div> -->
-      <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.tools">
-        <img
-          [src]="'assets/img/icon_' + tool + '.svg'"
-          alt=""
-          [attr.title]="tool + ' icon'"
-          class="skillIcon"
-        />
-        <p class="skillName">{{ tool }}</p>
-      </div>
-      }
-    </div>
+  (inViewChange)="setSectionVisible('tools', $event)"
+>
+  <h4>Tools</h4>
+  <div class="skillsGrid">
+    @for (tool of tools; track tool; let i = $index) {
+      @if (!inViewMobileTools) {
+        <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.tools">
+          <img
+            [src]="'assets/img/icon_' + tool + '.svg'"
+            alt=""
+            [attr.title]="tool + ' icon'"
+            class="skillIcon"
+          />
+          <p class="skillName">{{ tool }}</p>
+        </div>
+      } @else {
+        <div
+          class="individual"
+          [style.animationDelay.ms]="i * 180"
+          [class.in-view]="visible.tools"
+        >
+          <img
+            [src]="'assets/img/icon_' + tool + '.svg'"
+            alt=""
+            [attr.title]="tool + ' icon'"
+            class="skillIcon"
+          />
+          <p class="skillName">{{ tool }}</p>
+        </div>
+       }
+<!-- @end -->
+    }
+<!--@end
+  -->
   </div>
+</div>
 </div>
