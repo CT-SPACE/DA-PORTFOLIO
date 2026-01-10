@@ -1,0 +1,105 @@
+{
+  "header": {
+    "title": "header###!",
+    "logo_alt": "Logo CT###!",
+    "langDE_alt": "Deutsch###!",
+    "langEN_alt": "English###!",
+    "menu": "Menü###!"
+  },
+  
+    "menu":{
+        "home": "Startseite###!",
+        "aboutMe": "Über mich###!",
+        "mySkills": "Fähigkeiten###!",
+        "portfolio": "Meine Projekte###!",
+        "sayHi": "Say Hi!###!"
+    },
+    "main":{
+        "vertEmail_alt": "E-Mail Adresse###!",
+        "mySkillsAnchor_title": "Zu den Fähigkeiten###!",
+        "portfolioSection_title": "Zu meinen Projekten###!"
+
+    },
+    
+    "about-me":{
+        "h2": "Über mich###!",
+        "p_1": "Hi, du bist hier richtig, wenn du meine Begeisterung für schöne Designs und userorientierte Prozesse teilst. Ich bin Christina Troitzsch, Frontend Entwicklerin.<br> Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.###!",
+        "p_2": "Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.###!",
+        "p_3": "Durch meine jahrelange Erfahrung in der technischen Umsetzung von Online‑Werbung bringe ich ein gutes Verständnis für präzise Anforderungen, enge Timings und saubere Umsetzung mit.<br>In Projekten schätze ich Verlässlichkeit, offene Kommunikation und ein Miteinander, das Raum für Ideen lässt. Ich mag es, wenn man gemeinsam an Lösungen feilt, statt nur Aufgaben abzuarbeiten. ###!",
+        "p_4": "Mein Ziel ist es, digitale Erlebnisse zu schaffen, die ruhig, verständlich und angenehm sind — nicht laut, sondern einfach stimmig.###!",
+        "p_homebase": "&nbsp;Standort:&nbsp;München###!",
+        "p_workmode": "&nbsp;Offen&nbsp;für:&nbsp;Hybrid & Remote###!"
+    },
+    "my-skills":{
+        "h2": "Fähigkeiten###!",
+        "h4_skills": "Programmier Skills###!",
+        "h4_knowledges": "Methodische Kenntnisse###!",
+        "h4_tools": "Tools###!"
+    },
+    "portfolio":{
+        "h2": "Portfolio###!",
+        "description_polloloco": "Jump-and-Run Spiel, bei dem der Spieler verschiedene Items sammeln muss, um Punkte zu machen und den Endboss zu besiegen. Es geht um Hühner.###!",
+        "description_kingscup": "Das ist die Digitale Version des beliebten Kartenspiels \"King's Cup\". Diese App bietet eine interaktive Möglichkeit, das Spiel online zu spielen. Es können mehrere Gruppen unabhängig voneinander gleichzeitig spielen.###!",
+        "description_join": "Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.###!",
+        "description_pokedex": "Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.###!",
+        "description_quizapp":"Eine Bootstrap basierte Singlepage App. ###!"
+    },
+    "say-hi":{
+        "h2": "Sag&nbsp;Hi!###!",
+        "p_1": "Wollen wir ein neues Projekt diskutieren?###!",
+        "p_2": "Sag \"Hallo\"! Beschreibe deine Ideen und lass sie uns wahr machen!###!",
+        "form_name": "Dein Name:###!",
+        "form_email": "Deine E-Mail:###!",
+        "form_message": "Deine Nachricht:###!",
+        "form_dsgvo": "Ich habe die Datenschutzerklärung gelesen und bestätige.###!",
+        "form_success": "Danke! Deine Nachricht wurde versandt.###!",
+        "form_error": "Hoppla! Da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.###!",
+        "button_submit": "Senden###!",
+        "button_back": "Zurück zum Formular###!",
+        "img_alt": "Papierflieger Illustration###!"
+    },
+    "footer":{
+        "goTop": "Nach Oben###!",
+        "logo_alt": "Logo CT###!",
+        "github_alt": "Portfolio auf Github###!",
+        "linkedin_alt": "Mein LinkedIn Profil###!",
+        "email_alt": "E-Mail Icon###!", 
+        "copySuccess": "Kopiert###!",
+        "legal": "Impressum###!"
+        
+        },
+    "legalNotice": {
+            "h1": "Impressum###!",
+            "p_1": "Angaben gemäß § 5 TMG###!",
+            "p_2": "Diese Webseite wurde erstellt und wird betrieben von:###!",
+            "p_homebase": "München, Deutschland###!",
+            "p_email":"E-Mail an:###!"
+        },
+        "privacyPolicy":{
+            "h1": "Datenschutzerklärung###!",
+            "h6_1": "1. Allgemeine Hinweise###!",
+            "p_1a": " Im Rahmen der Nutzung der Plattform werden folgende personenbezogene Daten von Ihnen erhoben und verarbeitet: ###!",
+            "ul_1": {
+                "li_1": "Dein Name###!",
+                "li_2": "Deine E-Mail-Adresse###!"    
+                    },
+            "p_1b": " Weitere technische Daten, wie z.B. IP-Adresse, Browsertyp, Geräteinformationen, Betriebssystem usw., werden nur zur technischen Analyse und Fehlerbehebung erfasst. ###!",
+            "h6_2": "2. Zweck der Datenverarbeitung###!",
+            "p_2": "Die Verarbeitung der personenbezogenen Daten erfolgt zur Durchführung und Abwicklung der auf der Plattform angebotenen Kontaktaufnahme.###!",
+            "h6_3": "3. Verantwortlicher für die Datenverarbeitung###!",
+            "p_3a": "Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit der Nutzung der Plattform www.troitzsch.de ist Christina Troitzsch mit der im  ###!",
+            "p_legal": "Impressum###!",
+            "p_3b": "angegebenen Anschrift.###!",
+            "h6_4": "4. Rechtsgrundlage der Verarbeitung###!",
+            "p_4": "Die Verarbeitung der personenbezogenen Daten erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.###!",
+            "h6_5": "5. Weitergabe von Daten an Dritte###!",
+            "p_5": "Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nur, wenn dies zur Durchführung der Kontaktaufnahme erforderlich ist oder Sie ausdrücklich eingewilligt haben.###!",
+            "h6_6": "6. Speicherdauer###!",
+            "p_6": "Ihre personenbezogenen Daten werden gelöscht, sobald sie für den Zweck, für den sie erhoben wurden, nicht mehr erforderlich sind.###!",
+            "h6_7": "7. Anpassung der Datenschutzerklärung###!",
+            "p_7": "Wir behalten uns das Recht vor, diese Datenschutzerklärung zu ändern oder zu aktualisieren. Die jeweils gültige Version wird auf der Plattform veröffentlicht.###!",
+            "button_confirm": "Bestätigen und Schließen###!",
+            "button_back": "Zurück zu Say Hi!###!"
+        }
+  
+}
