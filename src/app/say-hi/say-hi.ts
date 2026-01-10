@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { PrivacyService } from '../shared/privacy.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-say-hi',
-  imports: [CommonModule, FormsModule, RouterModule, RouterLink],
+  imports: [TranslateModule, CommonModule, FormsModule, RouterModule, RouterLink],
   standalone: true,
   providers: [],
   templateUrl: './say-hi.html',

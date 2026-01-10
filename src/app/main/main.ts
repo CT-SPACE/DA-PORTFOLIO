@@ -5,10 +5,11 @@ import { AboutMe } from '../about-me/about-me';
 import { MySkills } from '../my-skills/my-skills';
 import { Portfolio } from '../portfolio/portfolio';
 import { SayHi } from '../say-hi/say-hi';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-main',
-  imports: [Headline, AboutMe, MySkills, Portfolio, SayHi],
+  imports: [Headline, AboutMe, MySkills, Portfolio, SayHi, TranslateModule],
   templateUrl: './main.html',
   styleUrl: './main.scss',
 })

@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { PrivacyService } from '../../shared/privacy.service';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [ CommonModule, FormsModule, RouterModule, RouterLink],
+  imports: [ TranslateModule, CommonModule, FormsModule, RouterModule, RouterLink],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.scss',
 })

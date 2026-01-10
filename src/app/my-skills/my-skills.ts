@@ -1,10 +1,11 @@
 import { Component,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InViewDirective } from '../shared/in-view.directive';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-my-skills',
-  imports: [CommonModule, InViewDirective],
+  imports: [CommonModule, InViewDirective, TranslateModule],
   templateUrl: './my-skills.html',
   styleUrls: ['./my-skills.scss'],
 })

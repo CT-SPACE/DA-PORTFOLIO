@@ -1,9 +1,11 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [TranslateModule],
   standalone: true,
   templateUrl: './menu.html',
   styleUrl: './menu.scss',

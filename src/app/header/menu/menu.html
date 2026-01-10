@@ -4,7 +4,7 @@
     [class.active]="activeId === 'aboutMeSection'"
     (click)="toggleMenuItem('aboutMeSection')"
   >
-    <span>Über mich</span>
+    <span>{{ menu.aboutMe | translate }}</span>
     <div class="angle"></div>
   </div>
   <div

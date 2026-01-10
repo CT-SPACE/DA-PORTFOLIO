@@ -5,10 +5,10 @@
 		<!-- <span class="lang-item de" [class.active]="selected() === 'DE'" (click)="select('DE')" *ngIf="isOpen() || windowWidth() >= 400">DE</span>
 		<span class="lang-item en" [class.active]="selected() === 'EN'" (click)="select('EN')" *ngIf="isOpen() || windowWidth() >= 400">EN</span> -->
 		@if (isOpen() || windowWidth() >= 400) { 
-			<span class="lang-item de" [class.active]="selected() === 'DE'"	(click)="select('DE')"> DE </span>
-		    <span class="lang-item en" [class.active]="selected() === 'EN'" (click)="select('EN')"> EN </span> 
+			<span class="lang-item de" [class.active]="selected() === 'de'"	(click)="select('de')"> DE </span>
+		    <span class="lang-item en" [class.active]="selected() === 'en'" (click)="select('en')"> EN </span> 
 		}
-			<img class="menu" [src]="currentSrc()" (click)="onToggleMenu()" [attr.aria-pressed]="isOpen()"  alt="Menu">
+			<img class="menu" [src]="currentSrc()" alt="" [alt]="'header.menu_alt' | translate" (click)="onToggleMenu()" [attr.aria-pressed]="isOpen()">
 	</div>
 </div>
 <app-menu [isOpen]="isOpen()"></app-menu>

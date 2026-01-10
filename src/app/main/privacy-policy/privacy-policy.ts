@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { PrivacyService } from '../../shared/privacy.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.scss',
 })
