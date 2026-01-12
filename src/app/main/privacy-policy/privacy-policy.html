@@ -3,55 +3,41 @@
   
  
     <div class="privacyPolicyContainer">
-       <p><img alt="zurück" [routerLink]="['/']"  class="goBack" src="assets/img/go-back-arrows.svg"></p>
+       <p><img alt="{{'privacyPolicy.button_back' | translate }}" [routerLink]="['/']"  class="goBack" src="assets/img/go-back-arrows.svg"></p>
 
-        <h1>Datenschutz&shy;erklärung</h1>
-        <h6>1. Allgemeine Informationen</h6>
+        <h1>{{'privacyPolicy.h1' | translate }}</h1>
+        <h6>{{'privacyPolicy.h6_1' | translate }}</h6>
         <p>
-            Im Rahmen der Nutzung der Plattform werden folgende personenbezogene Daten von Ihnen erhoben und
-            verarbeitet:
+         {{'privacyPolicy.p_1a' | translate }}
         <ul type="circle">
-            <li>Dein Name</li>
-            <li>Deine E-Mail-Adresse</li>
+            <li>{{'privacyPolicy.ul_1.li_1' | translate }}</li>
+            <li>{{'privacyPolicy.ul_1.li_1' | translate }}</li>
         </ul>
         <p></p>
-        Weitere technische Daten, wie z.B. IP-Adresse, Browsertyp, Geräteinformationen, Betriebssystem usw., werden nur
-        zur technischen Analyse und Fehlerbehebung erfasst.
+{{'privacyPolicy.p_1b' | translate }}
         <p></p>
-        <h6>2. Zweck der Datenverarbeitung</h6>
-        Die Verarbeitung der personenbezogenen Daten erfolgt zur Durchführung und Abwicklung der auf der Plattform
-        angebotenen Kontaktaufnahme.
+        <h6>{{'privacyPolicy.h6_2' | translate }}</h6>
+      {{'privacyPolicy.p_2' | translate }}
         <p></p>
-        <h6>3. Verantwortlicher für die Datenverarbeitung</h6>
-        Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit der Nutzung der Plattform
-        www.troitzsch.de ist Christina Troitzsch mit der im   <a [routerLink]="['/legal']" [skipLocationChange]="true" (click)="goToImpressum()" class="legal">Impressum</a> angegebenen Anschrift.
+        <h6>{{'privacyPolicy.h6_3' | translate }}</h6>
+        {{'privacyPolicy.p_3a' | translate }}   <a [routerLink]="['/legal']" [skipLocationChange]="true" (click)="goToImpressum()" class="legal">{{'privacyPolicy.p_legal' | translate }}</a> {{'privacyPolicy.p_3b' | translate }}.
         <p></p>
-        <h6>4. Rechtsgrundlage der Verarbeitung</h6>
-        Die Verarbeitung Ihrer personenbezogenen Daten erfolgt aufgrund der Erforderlichkeit zur Kontaktaufnahme im
-        Zusammenhang mit der Nutzung der Plattform gemäß den geltenden datenschutzrechtlichen Bestimmungen. Diese
-        Bestimmungen gewährleisten den Schutz Ihrer personenbezogenen Daten und ermöglichen die rechtliche Grundlage für
-        die Verarbeitung gemäß den entsprechenden Datenschutzgesetzen.
+        <h6>{{'privacyPolicy.h6_4' | translate }}</h6>
+       {{'privacyPolicy.p_4' | translate }}
         <p></p>
 
-        <h6>5. Weitergabe von Daten an Dritte</h6>
-        Rechtliche-Dokumente.de gibt personenbezogene Daten der Nutzer nur dann an Dritte weiter, wenn dies zur
-        Erfüllung der vertraglichen Verpflichtungen erforderlich ist, z.B. an Zahlungsdienstleister zur Abwicklung der
-        Zahlungen oder an Hosting-Dienstleister zur Bereitstellung der Plattforminfrastruktur.
-        Darüber hinaus erfolgt eine Weitergabe von Daten nur mit Ihrer ausdrücklichen Einwilligung oder aufgrund
-        gesetzlicher Verpflichtungen.
+        <h6>{{'privacyPolicy.h6_5' | translate }}</h6>
+        {{'privacyPolicy.p_5' | translate }}
         <p></p>
-        <h6>6. Speicherdauer</h6>
-        Ihre personenbezogenen Daten werden für die Dauer der Vertragsbeziehung mit Ihnen gespeichert und anschließend
-        gelöscht, es sei denn, es bestehen gesetzliche Aufbewahrungspflichten oder es liegen berechtigte Interessen von
-        Rechtliche-Dokumente.de vor.
+        <h6>{{'privacyPolicy.h6_6' | translate }}</h6>
+        {{'privacyPolicy.p_6' | translate }}
         <p></p>
-        <h6>7. Anpassung der Datenschutzerklärung</h6>
-        Wir behalten uns das Recht vor, diese Datenschutzerklärung zu ändern oder zu aktualisieren. Die jeweils gültige
-        Version wird auf der Plattform veröffentlicht.
+        <h6>{{'privacyPolicy.h6_7' | translate }}</h6>
+        {{'privacyPolicy.p_7' | translate }}
         <p class="privacyBTN">
 
                       <button class="standardButton light" (click)="onCloseAccepted()" role="button" tabindex="0"
-            aria-label="Close Privacy Policy">Bestätigen und Schließen</button>
+            aria-label="Close Privacy Policy">{{'privacyPolicy.button_confirm' | translate }}</button>
         </p>
    
     </div>

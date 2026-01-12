@@ -11,7 +11,7 @@
         "home": "Startseite",
         "aboutMe": "Über mich",
         "mySkills": "Fähigkeiten",
-        "portfolio": "Meine Projekte",
+        "portfolio": "Projekte",
         "sayHi": "Say Hi!"
     },
     "main":{
@@ -23,10 +23,9 @@
     
     "about-me":{
         "h2": "Über mich",
-        "p_1": "Hi, du bist hier richtig, wenn du meine Begeisterung für schöne Designs und userorientierte Prozesse teilst. Ich bin Christina Troitzsch, Frontend Entwicklerin.<br> Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.",
-        "p_2": "Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.",
-        "p_3": "Durch meine jahrelange Erfahrung in der technischen Umsetzung von Online‑Werbung bringe ich ein gutes Verständnis für präzise Anforderungen, enge Timings und saubere Umsetzung mit.<br>In Projekten schätze ich Verlässlichkeit, offene Kommunikation und ein Miteinander, das Raum für Ideen lässt. Ich mag es, wenn man gemeinsam an Lösungen feilt, statt nur Aufgaben abzuarbeiten. ",
-        "p_4": "Mein Ziel ist es, digitale Erlebnisse zu schaffen, die ruhig, verständlich und angenehm sind — nicht laut, sondern einfach stimmig.",
+        "p_1": "Hi, du bist hier richtig, wenn du meine Begeisterung für schöne Designs und userorientierte Prozesse teilst. <br> Ich bin Christina Troitzsch, Frontend Entwicklerin.",
+        "p_2": "Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind.",
+        "p_3": "Durch meine jahrelange Erfahrung in der technischen Umsetzung von Online‑Werbung konnte ich ein gutes Verständnis für präzise Anforderungen, enge Timings und saubere Umsetzung entwickeln.<br>Verlässlichkeit, offene Kommunikation und ein Miteinander, das Raum für Ideen lässt, ist die Basis für alles.",
         "p_homebase": "&nbsp;Standort:&nbsp;München",
         "p_workmode": "&nbsp;Offen&nbsp;für:&nbsp;Hybrid & Remote"
     },
@@ -45,18 +44,24 @@
         "description_quizapp":"Eine Bootstrap basierte Singlepage App. "
     },
     "say-hi":{
-        "h2": "Sag&nbsp;Hi!",
+        "h1": "Say Hi!",
         "p_1": "Wollen wir ein neues Projekt diskutieren?",
         "p_2": "Sag \"Hallo\"! Beschreibe deine Ideen und lass sie uns wahr machen!",
         "form_name": "Dein Name:",
         "form_email": "Deine E-Mail:",
         "form_message": "Deine Nachricht:",
-        "form_dsgvo": "Ich habe die Datenschutzerklärung gelesen und bestätige.",
+        "form_dsgvo_first": "Ich habe die",
+        "form_dsgvo_link": "Datenschutzerklärung",
+        "form_dsgvo_last": "gelesen und bestätige.",
         "form_success": "Danke! Deine Nachricht wurde versandt.",
         "form_error": "Hoppla! Da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.",
+        "form_error_name": "Bitte gib mindestens 3 Zeichen ein!",
+        "form_error_email": "Bitte gib eine gültige E‑Mail Adresse ein!",
+        "form_error_message": "Ich benötige mehr Informationen zu deinem Projekt",
+        "form_error_dsgvo": "Bitte bestätige die Datenschutzerklärung!",
         "button_submit": "Senden",
         "button_back": "Zurück zum Formular",
-        "img_alt": "Papierflieger Illustration"
+        "paperplane_alt": "Papierflieger Illustration"
     },
     "footer":{
         "goTop": "Nach Oben",
@@ -101,5 +106,5 @@
             "button_confirm": "Bestätigen und Schließen",
             "button_back": "Zurück zu Say Hi!"
         }
-  
+   
 }

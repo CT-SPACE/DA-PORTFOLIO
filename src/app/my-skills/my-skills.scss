@@ -48,7 +48,7 @@ margin-top:20px;
 box-sizing:border-box;
         &.in-view{
         opacity:1;      
-         border:2px solid rgb(29, 17, 250);
+        //  border:2px solid blue;
         animation: skillSnap 1.3s cubic-bezier(0.2, 0.9, 0.2, 1) both;
         
 }
@@ -65,7 +65,7 @@ box-sizing:border-box;
 
           &.in-view{
       
-            border:2px solid rgb(99, 250, 17);
+            // border:2px solid greenyellow;
             animation: skillSnapMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
         }
 }

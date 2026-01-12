@@ -1,15 +1,9 @@
-import { Component } from '@angular/core';
+
+import { Component, inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './header/header';
 import { Footer } from "./shared/footer/footer";
-import { TranslateModule } from '@ngx-translate/core';
-
-
-
-
-
-
-
+import { TranslateModule, TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -20,8 +14,20 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 
 export class App {
+ private translate = inject(TranslateService);
 
- 
+    // constructor() {
+    //     this.translate.addLangs(['de', 'en']);
+    //     this.translate.setFallbackLang('de');
+    //     this.translate.use('de');
+    // }
+    constructor() {
+     const savedLang = window.localStorage.getItem('lang');
+  const lang = (savedLang === 'de' || savedLang === 'en') ? savedLang : 'de';
+  this.translate.setFallbackLang('de');
+  this.translate.use(lang);
+ }
+
 
 }
 

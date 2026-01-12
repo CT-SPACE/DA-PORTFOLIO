@@ -14,7 +14,7 @@ export class Projects {
       id: 1,
       title: 'El Pollo Loco',
       description:
-        'Jump-and-Run Spiel, bei dem der Spieler verschiedene Items sammeln muss, um Punkte zu sammeln und den Endboss zu besiegen. Es geht um Hühner.',
+        'portfolio.description_polloloco',
       imgSrc: 'assets/img/project_el-pollo-loco.png',
       tools: ['JavaScript', 'HTML', 'CSS', 'Kanban-Board'],
       gitLink: 'https://github.com/CT-SPACE/EL-POLLO-LOCO',
@@ -25,7 +25,7 @@ export class Projects {
       id: 2,
       title: "King's Cup",
       description:
-        'Das ist die Digitale Version des beliebten Kartenspiels "King\'s Cup". Entwickelt mit Angular und Firebase, bietet diese App eine interaktive Möglichkeit, das Spiel online zu spielen. Es können gleichzeitig mehrere Gruppen unabhängig voneinander spielen.',
+       'portfolio.description_kingscup',
       imgSrc: 'assets/img/project_kingscup.png',
       tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase'],
       gitLink: 'https://github.com/CT-SPACE/KINGS-CUP',
@@ -36,8 +36,7 @@ export class Projects {
     {
       id: 3,
       title: 'Join',
-      description:
-        'Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.',
+      description: 'portfolio.description_join',
       imgSrc: 'assets/img/project_join.png',
       tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase', 'Figma'],
       gitLink: '',
@@ -47,8 +46,7 @@ export class Projects {
     {
       id: 4,
       title: 'Pokedex',
-      description:
-        'Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.',
+      description: 'portfolio.description_pokedex',
       imgSrc: 'assets/img/project_pokedex.png',
       tools: ['JavaScript', 'HTML', 'CSS', 'API'],
       gitLink: '',
@@ -58,7 +56,7 @@ export class Projects {
     {
       id: 5,
       title: 'Quiz-App',
-      description: 'Eine Bootstrap basierte Singlepage App. ',
+      description: 'portfolio.description_quizapp',
       imgSrc: 'assets/img/project_quizapp.png',
       tools: ['JavaScript', 'CSS', 'HTML', 'Bootstrap'],
       gitLink: '',

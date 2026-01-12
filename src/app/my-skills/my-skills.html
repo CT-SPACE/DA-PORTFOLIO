@@ -1,18 +1,18 @@
-<h2 class="right skills">Fähigkeiten</h2>
+<h2 class="right skills" [innerHTML]="'my-skills.h2' | translate"></h2>
 <div class="skillsBorder">
   <div
     #skillsContainer
     class="skillsContainer"
     inView
-    [threshold]="0.1"
+    [threshold]="inViewMobileTools ? 0 : 0.2" 
     [rootMargin]="'10% 0px 10% -0%'"
     (inViewChange)="setSectionVisible('skills', $event)"
   >
-    <h4>Programmier Skills</h4>
+    <h4 [innerHTML]="'my-skills.h4_skills' | translate"></h4>
     <div class="skillsGrid">
       @for (skill of skills; track skill; let i = $index) {
 
-        @if(inViewMobileSkills) {
+        @if(!inViewMobileSkills) {
           <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.skills">
             <img
               [src]="'assets/img/icon_' + skill + '.svg'"
@@ -51,7 +51,7 @@
     
     (inViewChange)="setSectionVisible('knowledges', $event)"
   >
-    <h4>Methodische Skills</h4>
+    <h4 [innerHTML]="'my-skills.h4_knowledges' | translate"></h4>
     <div class="skillsGrid">
       @for (knowledge of knowledges; track knowledge; let i = $index) {
 
@@ -94,7 +94,7 @@
   
   (inViewChange)="setSectionVisible('tools', $event)"
 >
-  <h4>Tools</h4>
+  <h4 [innerHTML]="'my-skills.h4_tools' | translate"></h4>
   <div class="skillsGrid">
     @for (tool of tools; track tool; let i = $index) {
       @if (!inViewMobileTools) {

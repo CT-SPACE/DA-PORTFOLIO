@@ -13,7 +13,7 @@
     <p class="tools">
     <span class="tool">{{ project.tools.join(' | ') }}</span> 
       </p>
-      <div class="description" [class.right]="i % 2 === 1">{{ project.description }}</div>
+      <div class="description" [class.right]="i % 2 === 1" [innerHTML]="project.description | translate"></div>
     <div class="buttonGithub"  [class.right]="i % 2 === 1">
       @if (project.gitLink) {
         <button (click)="openNewTab(project.gitLink)" class="standardButton light" type="button">Github</button>

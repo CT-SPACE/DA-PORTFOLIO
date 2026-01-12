@@ -1,105 +1,110 @@
 {
   "header": {
-    "title": "header###!",
-    "logo_alt": "Logo CT###!",
-    "langDE_alt": "Deutsch###!",
-    "langEN_alt": "English###!",
-    "menu": "Menü###!"
+    "title": "header",
+    "logo_alt": "Logo CT",
+    "langDE_alt": "German",
+    "langEN_alt": "English",
+    "menu": "Menü"
   },
   
     "menu":{
-        "home": "Startseite###!",
-        "aboutMe": "Über mich###!",
-        "mySkills": "Fähigkeiten###!",
-        "portfolio": "Meine Projekte###!",
-        "sayHi": "Say Hi!###!"
+        "home": "Startseite",
+        "aboutMe": "About me",
+        "mySkills": "Skills",
+        "portfolio": "Portfolio",
+        "sayHi": "Say Hi!"
     },
     "main":{
-        "vertEmail_alt": "E-Mail Adresse###!",
-        "mySkillsAnchor_title": "Zu den Fähigkeiten###!",
-        "portfolioSection_title": "Zu meinen Projekten###!"
+        "vertEmail_alt": "E-Mail Adress",
+        "mySkillsAnchor_title": "to skills",
+        "portfolioSection_title": "to my porfolio"
 
     },
     
     "about-me":{
-        "h2": "Über mich###!",
-        "p_1": "Hi, du bist hier richtig, wenn du meine Begeisterung für schöne Designs und userorientierte Prozesse teilst. Ich bin Christina Troitzsch, Frontend Entwicklerin.<br> Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.###!",
-        "p_2": "Mich interessiert vor allem, wie sich digitale Produkte anfühlen, wenn sie wirklich für Menschen gemacht sind — genau dort setze ich an. Ich arbeite gerne an klaren Strukturen und Details, die ein Interface verständlich und angenehm machen.###!",
-        "p_3": "Durch meine jahrelange Erfahrung in der technischen Umsetzung von Online‑Werbung bringe ich ein gutes Verständnis für präzise Anforderungen, enge Timings und saubere Umsetzung mit.<br>In Projekten schätze ich Verlässlichkeit, offene Kommunikation und ein Miteinander, das Raum für Ideen lässt. Ich mag es, wenn man gemeinsam an Lösungen feilt, statt nur Aufgaben abzuarbeiten. ###!",
-        "p_4": "Mein Ziel ist es, digitale Erlebnisse zu schaffen, die ruhig, verständlich und angenehm sind — nicht laut, sondern einfach stimmig.###!",
-        "p_homebase": "&nbsp;Standort:&nbsp;München###!",
-        "p_workmode": "&nbsp;Offen&nbsp;für:&nbsp;Hybrid & Remote###!"
+        "h2": "About me",
+        "p_1": "Hi, you've come to the right place if you share my enthusiasm for beautiful designs and user-oriented processes.</br>I'm Christina Troitzsch, front-end developer.",
+        "p_2": "I am particularly interested in how digital products feel when they are truly made for people.",
+        "p_3": "Thanks to my many years of experience in the technical implementation of online advertising, I have developed a good understanding of precise requirements, tight timings and clean implementation. Reliability, open communication and a collaborative approach that leaves room for ideas form the basis for everything.",
+        "p_homebase": "&nbsp;Homebase:&nbsp;München",
+        "p_workmode": "&nbsp;Open&nbsp;for:&nbsp;Hybrid & Remote"
     },
     "my-skills":{
-        "h2": "Fähigkeiten###!",
-        "h4_skills": "Programmier Skills###!",
-        "h4_knowledges": "Methodische Kenntnisse###!",
-        "h4_tools": "Tools###!"
+        "h2": "Skills",
+        "h4_skills": "Coding Skills",
+        "h4_knowledges": "Methodological knowledge",
+        "h4_tools": "Tools"
     },
     "portfolio":{
-        "h2": "Portfolio###!",
-        "description_polloloco": "Jump-and-Run Spiel, bei dem der Spieler verschiedene Items sammeln muss, um Punkte zu machen und den Endboss zu besiegen. Es geht um Hühner.###!",
-        "description_kingscup": "Das ist die Digitale Version des beliebten Kartenspiels \"King's Cup\". Diese App bietet eine interaktive Möglichkeit, das Spiel online zu spielen. Es können mehrere Gruppen unabhängig voneinander gleichzeitig spielen.###!",
-        "description_join": "Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.###!",
-        "description_pokedex": "Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.###!",
-        "description_quizapp":"Eine Bootstrap basierte Singlepage App. ###!"
+        "h2": "Portfolio",
+        "description_polloloco": "A jump-and-run game in which the player must collect various items to score points and defeat the final boss. It's all about chickens.",
+        "description_kingscup": "This is the digital version of the popular card game ‘King's Cup’. This app offers an interactive way to play the game online. Several groups can play independently of each other at the same time.",
+        "description_join": "A task manager based on the Kanban system that allows you to create tasks and organise them using drag and drop. You can register and manage your contacts.",
+        "description_pokedex": "Here, the content is fed via API, so that everything worth knowing about the little rascals can be accessed.",
+        "description_quizapp":"A Bootstrap-based single-page application."
     },
     "say-hi":{
-        "h2": "Sag&nbsp;Hi!###!",
-        "p_1": "Wollen wir ein neues Projekt diskutieren?###!",
-        "p_2": "Sag \"Hallo\"! Beschreibe deine Ideen und lass sie uns wahr machen!###!",
-        "form_name": "Dein Name:###!",
-        "form_email": "Deine E-Mail:###!",
-        "form_message": "Deine Nachricht:###!",
-        "form_dsgvo": "Ich habe die Datenschutzerklärung gelesen und bestätige.###!",
-        "form_success": "Danke! Deine Nachricht wurde versandt.###!",
-        "form_error": "Hoppla! Da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.###!",
-        "button_submit": "Senden###!",
-        "button_back": "Zurück zum Formular###!",
-        "img_alt": "Papierflieger Illustration###!"
+        "h1": "Say Hi!",
+        "p_1": "Shall we discuss a new project?",
+        "p_2": "Say \"Hi\"! Describe your ideas and let us make them come true!",
+        "form_name": "your name:",
+        "form_email": "your e-mail adress:",
+        "form_message": "your message:",
+        "form_dsgvo_first": "I have read the",
+        "form_dsgvo_link": "privacy policy ",
+        "form_dsgvo_last": "and confirm!",
+        "form_success": "Thanks! Your message has been sent.",
+        "form_error": "Oops! Something went wrong. Please try again later.",
+        "form_error_name": "Please enter at least 3 characters!",
+        "form_error_email": "Please enter a valid email address!",
+        "form_error_message": "I require more information about your project.t",
+        "form_error_dsgvo": "Please confirm the privacy policy!",
+        "button_submit": "Send",
+        "button_back": "Back to form",
+        "paperplane_alt": "Paper plane illustration"
     },
     "footer":{
-        "goTop": "Nach Oben###!",
-        "logo_alt": "Logo CT###!",
-        "github_alt": "Portfolio auf Github###!",
-        "linkedin_alt": "Mein LinkedIn Profil###!",
-        "email_alt": "E-Mail Icon###!", 
-        "copySuccess": "Kopiert###!",
-        "legal": "Impressum###!"
+        "goTop": "To top",
+        "logo_alt": "Logo CT",
+        "github_alt": "Portfolio on Github",
+        "linkedin_alt": "Profil on LinkedIn",
+        "email_alt": "E-Mail Icon", 
+        "copySuccess": "Copied",
+        "legal": "Legal"
         
         },
     "legalNotice": {
-            "h1": "Impressum###!",
-            "p_1": "Angaben gemäß § 5 TMG###!",
-            "p_2": "Diese Webseite wurde erstellt und wird betrieben von:###!",
-            "p_homebase": "München, Deutschland###!",
-            "p_email":"E-Mail an:###!"
+            "h1": "Legal",
+            "p_1": "Information pursuant to Section 5 of the German Telemedia Act (TMG)",
+            "p_2": "This website was created and is operated by:",
+            "p_homebase": "Munich, Germany",
+            "p_email":"E-Mail to:"
         },
         "privacyPolicy":{
-            "h1": "Datenschutzerklärung###!",
-            "h6_1": "1. Allgemeine Hinweise###!",
-            "p_1a": " Im Rahmen der Nutzung der Plattform werden folgende personenbezogene Daten von Ihnen erhoben und verarbeitet: ###!",
+            "h1": "Privacy policy",
+            "h6_1": "1. General information",
+            "p_1a": "When using the platform, the following personal data is collected and processed: ",
             "ul_1": {
-                "li_1": "Dein Name###!",
-                "li_2": "Deine E-Mail-Adresse###!"    
+                "li_1": "Your name",
+                "li_2": "Your e-mail adress"    
                     },
-            "p_1b": " Weitere technische Daten, wie z.B. IP-Adresse, Browsertyp, Geräteinformationen, Betriebssystem usw., werden nur zur technischen Analyse und Fehlerbehebung erfasst. ###!",
-            "h6_2": "2. Zweck der Datenverarbeitung###!",
-            "p_2": "Die Verarbeitung der personenbezogenen Daten erfolgt zur Durchführung und Abwicklung der auf der Plattform angebotenen Kontaktaufnahme.###!",
-            "h6_3": "3. Verantwortlicher für die Datenverarbeitung###!",
-            "p_3a": "Verantwortlich für die Verarbeitung personenbezogener Daten im Zusammenhang mit der Nutzung der Plattform www.troitzsch.de ist Christina Troitzsch mit der im  ###!",
-            "p_legal": "Impressum###!",
-            "p_3b": "angegebenen Anschrift.###!",
-            "h6_4": "4. Rechtsgrundlage der Verarbeitung###!",
-            "p_4": "Die Verarbeitung der personenbezogenen Daten erfolgt auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.###!",
-            "h6_5": "5. Weitergabe von Daten an Dritte###!",
-            "p_5": "Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nur, wenn dies zur Durchführung der Kontaktaufnahme erforderlich ist oder Sie ausdrücklich eingewilligt haben.###!",
-            "h6_6": "6. Speicherdauer###!",
-            "p_6": "Ihre personenbezogenen Daten werden gelöscht, sobald sie für den Zweck, für den sie erhoben wurden, nicht mehr erforderlich sind.###!",
-            "h6_7": "7. Anpassung der Datenschutzerklärung###!",
-            "p_7": "Wir behalten uns das Recht vor, diese Datenschutzerklärung zu ändern oder zu aktualisieren. Die jeweils gültige Version wird auf der Plattform veröffentlicht.###!",
-            "button_confirm": "Bestätigen und Schließen###!",
-            "button_back": "Zurück zu Say Hi!###!"
+            "p_1b": " Further technical data, such as IP address, browser type, device information, operating system, etc., is only collected for technical analysis and troubleshooting purposes. ",
+            "h6_2": "2. Purpose of data processing",
+            "p_2": "Personal data is processed for the purpose of establishing and handling the contact option offered on the platform.",
+            "h6_3": "3. Person responsible for data processing",
+            "p_3a": "Christina Troitzsch, whose address is given in the ",
+            "p_legal": "legal notice",
+            "p_3b": ", is responsible for processing personal data in connection with the use of the www.troitzsch.de platform.",
+            "h6_4": "4. Legal basis for processing",
+            "p_4": "The processing of personal data is based on your consent in accordance with Art. 6(1)(a) GDPR.",
+            "h6_5": "5. Disclosure of data to third parties",
+            "p_5": "Your personal data will only be passed on to third parties if this is necessary to establish contact or if you have expressly consented to this.",
+            "h6_6": "6. Storage duration",
+            "p_6": "Your personal data will be deleted as soon as it is no longer required for the purpose for which it was collected.",
+            "h6_7": "7. Update to the privacy policy",
+            "p_7": "We reserve the right to change or update this privacy policy. The current version will be published on the platform.",
+            "button_confirm": "Confirm and Close",
+            "button_back": "Back to Say Hi!"
         }
-  
+   
 }

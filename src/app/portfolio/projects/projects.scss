@@ -34,6 +34,10 @@
         opacity: 0;
         transition: opacity 0.3s ease, scale 0.3s ease;
         border-radius: 5px;
+        @media (max-width:600px) {
+             width: clamp(200px, 60vw, 300px);
+
+        }
 
         @media (max-width:400px) {
             width: calc(100% - 40px);
@@ -73,6 +77,11 @@
         scale: 1;
         transition: filter 0.3s ease, scale 0.3s ease;
         border-radius: 5px;
+        
+        @media (max-width:600px) {
+             width: clamp(200px, 60vw, 300px);
+
+        }
 
         @media (max-width:400px) {
             width: calc(100% - 40px);

@@ -1,22 +1,22 @@
 <div class="legal-reveal" [class.is-open]="isOpen" role="dialog" aria-modal="true">
   <div id="legalContent">
-    <h1>Impressum</h1>
+    <h1 [innerHTML]="'legalNotice.h1' | translate">Impressum</h1>
     <p>
-      <img alt="zurück" [routerLink]="['/']" class="goBack" src="assets/img/go-back-arrows.svg" />
+      <img alt="{{'legalNotice.back' | translate}}" [routerLink]="['/']" class="goBack" src="assets/img/go-back-arrows.svg" />
     </p>
-    Angaben gemäß § 5 TMG.
-    <p>Diese Webseite wurde erstellt und wird betrieben von:</p>
+    {{'legalNotice.p_1' | translate}}
+    <p> {{'legalNotice.p_2' | translate}}</p>
     <h6>Christina Troitzsch</h6>
 
     Frontend Developer<br />
-    München, Deutschland<br />
+    {{'legalNotice.p_homebase' | translate}}<br />
 
-    <p>E-Mail an: <img class="adress" alt="email" src="assets/img/sayhiEmail.svg" /></p>
-
+    <p> {{'legalNotice.p_email' | translate}}<img class="adress" alt="email" src="assets/img/sayhiEmail.svg" /></p>
+<p>
     Web-Design:<br />
     Developer Akademie GmbH<br />
     Tassiloplatz 25, 81541 München
- 
+ </p>
   </div>
 </div>
 

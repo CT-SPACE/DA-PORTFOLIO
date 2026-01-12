@@ -1,26 +1,26 @@
     <div class="stayConnected">
         <div>
-            <img src="assets/img/logo.png" class="logo" alt="Logo" class="logo toWhite"><br>
+            <img src="assets/img/logo.png" class="logo" alt="Logo" [alt]="'footer.logo_alt' | translate" class="logo toWhite"><br>
             <span class="copyright">&copy;&nbsp;Christina&nbsp;Troitzsch&nbsp;2025</span><br>
-            <a [routerLink]="['/legal']"  class="legal" >Impressum</a> 
+            <a [routerLink]="['/legal']"  class="legal" >{{ 'footer.legal' | translate  }}</a> 
           </div>
         
       <div class="stayConnectedIcons">
-<div class="goTop" (click)="scrollToTop()">
+<div class="goTop" (click)="scrollToTop()" title="" [title]="'footer.goTop' | translate">
   <img
     src="assets/img/toTop2.svg"
     class="toTopImg2"
-    alt="Nach oben"
+    alt=""
   />
   <img
     src="assets/img/toTop1.svg"
     class="toTopImg1"
-    alt="Nach oben"
+    alt=""
   />
 </div>
         <div class="icon"><a target="_blank" rel="noopener" href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"><img src="assets/img/icon___Github.svg" alt="Porfolio on Github" /></a></div>
-        <div class="icon"><a (click)="copyEmail()"><img src="assets/img/icon___Email.svg" alt="Email-Icon" /></a>
-        <span class="copyStatus" [class.visible]="copied">Kopiert!</span></div>
+        <div class="icon"><a (click)="copyEmail()"><img src="assets/img/icon___Email.svg" alt="Email-Icon" [alt]="'footer.email_alt' | translate" /></a>
+        <span class="copyStatus" [class.visible]="copied">{{ 'footer.copySuccess' | translate }}</span></div>
         <div class="icon">
          <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/christina-troitzsch-cv"><img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkeIn" /></a>
         </div>

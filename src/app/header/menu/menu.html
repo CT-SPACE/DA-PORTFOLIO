@@ -4,7 +4,7 @@
     [class.active]="activeId === 'aboutMeSection'"
     (click)="toggleMenuItem('aboutMeSection')"
   >
-    <span>{{ menu.aboutMe | translate }}</span>
+    <span [innerHTML]="'menu.aboutMe' | translate"></span>
     <div class="angle"></div>
   </div>
   <div
@@ -12,7 +12,7 @@
     [class.active]="activeId === 'mySkillsAnchor'"
     (click)="toggleMenuItem('mySkillsAnchor')"
   >
-    <span>My Skills</span>
+    <span [innerHTML]="'menu.mySkills' | translate"></span>
     <div class="angle"></div>
   </div>
   <div
@@ -20,7 +20,7 @@
     [class.active]="activeId === 'portfolioSection'"
     (click)="toggleMenuItem('portfolioSection')"
   >
-    <span>Portfolio</span>
+    <span [innerHTML]="'menu.portfolio' | translate"></span>
     <div class="angle"></div>
   </div>
   <div class="sayhiContainer">
@@ -32,11 +32,11 @@
     >
       <h1>Say Hi!</h1>
       <div class="stayConnected">
-        <img src="assets/img/sayhiEmail.svg" alt="Email-Adresse" class="sayhiEmail" />
+        <img src="assets/img/sayhiEmail.svg" alt="E-mail" class="sayhiEmail" />
         <div>
           <span class="icon"><a href="https://github.com/CT-SPACE/DA-PORTFOLIO.git" (click)="$event.stopPropagation()" rel="noopener" target="_blank"><img src="assets/img/icon___Github.svg" alt="Portfolio on Github" /></a></span>
           <div class="icon"><a (click)="$event.stopPropagation();copyEmail()"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /></a> 
-            <span class="copyStatus" [class.visible]="copied">Kopiert!</span>
+            <span class="copyStatus" [class.visible]="copied" [innerHTML]="'footer.copySuccess' | translate" ></span>
           </div>        
           <span class="icon">
             <a href="www.linkedin.com/in/christina-troitzsch-cv" (click)="$event.stopPropagation();" rel="noopener" target="_blank">

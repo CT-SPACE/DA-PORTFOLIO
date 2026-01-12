@@ -15,8 +15,8 @@ bootstrapApplication(App, {
     ...appConfig.providers
   ]
 }).then(appRef => {
-  const translate = appRef.injector.get(TranslateService);
-  translate.use('de');
+  // const translate = appRef.injector.get(TranslateService);
+  // translate.use('de');
   console.log('Application bootstrapped with TranslateService set to German.');
 });
 
