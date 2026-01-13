@@ -70,11 +70,11 @@
         "linkedin_alt": "Profil on LinkedIn",
         "email_alt": "E-Mail Icon", 
         "copySuccess": "Copied",
-        "legal": "Legal"
+        "legal": "Legal Notice"
         
         },
     "legalNotice": {
-            "h1": "Legal",
+            "h1": "Legal Notice",
             "p_1": "Information pursuant to Section 5 of the German Telemedia Act (TMG)",
             "p_2": "This website was created and is operated by:",
             "p_homebase": "Munich, Germany",
