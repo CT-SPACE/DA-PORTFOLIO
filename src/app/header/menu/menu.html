@@ -34,13 +34,33 @@
       <div class="stayConnected">
         <img src="assets/img/sayhiEmail.svg" alt="E-mail" class="sayhiEmail" />
         <div>
-          <span class="icon"><a href="https://github.com/CT-SPACE/DA-PORTFOLIO.git" (click)="$event.stopPropagation()" rel="noopener" target="_blank"><img src="assets/img/icon___Github.svg" alt="Portfolio on Github" /></a></span>
-          <div class="icon"><a (click)="$event.stopPropagation();copyEmail()"> <img src="assets/img/icon___Email.svg" alt="Email-Icon" /></a> 
-            <span class="copyStatus" [class.visible]="copied" [innerHTML]="'footer.copySuccess' | translate" ></span>
-          </div>        
+          <span class="icon"
+            ><a
+              href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"
+              (click)="$event.stopPropagation()"
+              rel="noopener"
+              target="_blank"
+              ><img src="assets/img/icon___Github.svg" alt="Portfolio on Github" /></a
+          ></span>
+          <div class="icon">
+            <a (click)="$event.stopPropagation(); copyEmail()">
+              <img src="assets/img/icon___Email.svg" alt="Email-Icon"
+            /></a>
+            <span
+              class="copyStatus"
+              [class.visible]="copied"
+              [innerHTML]="'footer.copySuccess' | translate"
+            ></span>
+          </div>
           <span class="icon">
-            <a href="www.linkedin.com/in/christina-troitzsch-cv" (click)="$event.stopPropagation();" rel="noopener" target="_blank">
-<img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkedIn" /></a>
+            <a
+              href="www.linkedin.com/in/christina-troitzsch-cv"
+              (click)="$event.stopPropagation()"
+              rel="noopener"
+              target="_blank"
+            >
+              <img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkedIn"
+            /></a>
           </span>
         </div>
       </div>

@@ -11,12 +11,7 @@ import { TranslateModule, TranslateService, TranslatePipe } from '@ngx-translate
 })
 export class Header {
  constructor(private translate: TranslateService) {
-  // if (typeof window !== 'undefined') {
-  //   const saved = window.localStorage.getItem('lang');
-  //   if (saved) {
-  //     this.translate.use(saved);
-  //   }
-  // }
+
 };
   frames: string[] = ['assets/img/burger_1.svg', 'assets/img/burger_2.svg', 'assets/img/burger_3.svg', 'assets/img/burger_4.svg', 'assets/img/burger_5.svg'];
 isOpen = signal(false);

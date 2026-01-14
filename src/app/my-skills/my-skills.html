@@ -37,9 +37,9 @@
             <p class="skillName">{{ skill }}</p>
           </div>
         }
-     <!-- @end-->
+ 
     }
-   <!-- @end-->
+
     </div>
   </div>
 
@@ -80,9 +80,8 @@
             <p class="skillName">{{ knowledge }}</p>
           </div>
         }
-    <!-- @end-->
-    }
-<!-- @end-->
+  
+      }
     </div>
   </div>
 <div
@@ -90,8 +89,7 @@
   class="skillsContainer"
   inView
   [threshold]="inViewMobileTools ? 0 : 0.2"
-    [rootMargin]="'-0% 0px -20% -0%'"
-  
+    [rootMargin]="'-0% 0px -10% -0%'" 
   (inViewChange)="setSectionVisible('tools', $event)"
 >
   <h4 [innerHTML]="'my-skills.h4_tools' | translate"></h4>
@@ -122,10 +120,9 @@
           <p class="skillName">{{ tool }}</p>
         </div>
        }
-<!-- @end -->
+
     }
-<!--@end
-  -->
+
   </div>
 </div>
 </div>

@@ -5,6 +5,7 @@
   z-index: 0;
   pointer-events: auto;
 }
+
 :host {
   z-index: 0;
   top: -100%;
@@ -38,22 +39,35 @@
   color: var(--main-font-color);
   padding-bottom: 100px;
   box-sizing: border-box;
+
   @media (max-width: 600px) {
-    font-size: 2.4rem;
     gap: 5px;
     padding: 20px 0 130px 0;
-    > .sayhiContainer .sayhi h1 {
+
+    >.sayhiContainer .sayhi h1 {
       font-size: 2.4rem !important;
     }
   }
+
   @media (max-width: 400px) {
     height: clamp(350px, 50vw, 600px) !important;
-
-    font-size: 1.8rem;
     gap: 5px;
     padding: 20px 0 130px 0;
-    > .sayhiContainer .sayhi h1 {
+
+    >.sayhiContainer .sayhi h1 {
       font-size: 1.8rem !important;
+    }
+  }
+
+  @media (max-height: 950px) {
+    display: flex !important;
+    gap: 0px !important;
+    font-size: clamp(1.1rem, 3vh, 2rem) !important;
+  }
+
+  @media (max-height: 550px) {
+    >.menuItem {
+      height: 50px
     }
   }
 }
@@ -69,11 +83,13 @@
   transform: translateY(-4px);
   transition: width 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+
   @media (max-width: 600px) {
     left: -10px;
     font-size: 0.9rem;
   }
 }
+
 .copyStatus.visible {
   opacity: 1;
 }
@@ -98,27 +114,34 @@
   transition: width 0.3s ease;
   position: relative;
   display: inline-block;
+
   &.active {
     cursor: default;
-    > span {
+
+    >span {
       border: 2px solid var(--main-font-color);
       padding: 6px 30px;
     }
+
     &::after {
       width: 0;
       transition: none;
     }
+
     &:hover::after {
       width: 0;
     }
+
     :focus-visible::after {
       width: 0;
     }
-    > .angle {
+
+    >.angle {
       border: 2px solid transparent;
     }
   }
 }
+
 .about,
 .mySkills,
 .portfolio,
@@ -134,13 +157,16 @@
     transition: width 0.3s ease;
     pointer-events: none;
   }
+
   &:hover::after {
     width: 100%;
   }
+
   :focus-visible::after {
     width: 100%;
   }
 }
+
 .about,
 .mySkills,
 .portfolio {
@@ -151,11 +177,13 @@
   .sayhi {
     background-color: var(--main-font-color);
     color: var(--main-bg-color);
+
     &::after {
       background-color: var(--main-bg-color);
     }
   }
 }
+
 .sayhiContainer {
   width: 100%;
   display: flex;
@@ -163,6 +191,7 @@
   bottom: 0;
   flex-direction: column;
   align-items: center;
+
   & .diagonal {
     width: 104%;
     background: var(--main-font-color);
@@ -172,6 +201,7 @@
     overflow: hidden;
     bottom: -2px;
   }
+
   & .sayhi {
     width: 100%;
     background: var(--main-font-color);
@@ -184,10 +214,12 @@
       color: var(--main-bg-color);
       text-align: left;
       padding: 0 50px;
+
       @media (max-width: 400px) {
         padding: 0 20px;
         text-align: center;
       }
+
       &:hover {
         color: var(--accent-font-color);
       }
@@ -206,12 +238,15 @@
   gap: 10px;
   color: var(--main-bg-color);
   font-size: 0.5rem;
+
   @media (max-width: 600px) {
     padding: 10px 20px;
   }
+
   @media (max-width: 400px) {
     flex-direction: column;
   }
+
   > :first-child {
     height: 14px;
   }
@@ -221,24 +256,28 @@
     cursor: pointer;
     transition: filter 100ms ease;
     filter: none;
+
     @media (max-width: 600px) {
       height: 40px;
     }
+
     &:hover {
-      filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%)
-        hue-rotate(133deg) contrast(81%);
+      filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
     }
   }
 
   & div {
     display: flex;
     gap: 15px;
+
     div.icon {
       position: relative;
     }
+
     @media (max-width: 600px) {
       gap: 10px;
     }
+
     @media (max-width: 400px) {
       gap: 5px;
     }

@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './menu.scss',
 })
 export class Menu {
-  constructor(private vs: ViewportScroller) {}
+  constructor(private vs: ViewportScroller, private router: Router) {}
   copied = false;
   @Input() isOpen = false;
   @HostBinding('class.open') get opened() {
@@ -24,8 +24,18 @@ export class Menu {
   activeId: string | null = null;
   private headerHeightFallback = 50;
 
-  toggleMenuItem(sectionId: string): void {
+  async toggleMenuItem(sectionId: string): Promise<void> {
     this.activeId = sectionId;
+    const currentUrl = this.router.url;
+    if (currentUrl === '/legal' || currentUrl === '/privacy') {
+      await this.router.navigate(['/']);
+      setTimeout(() => this.scrollToSection(sectionId), 100);
+    } else {
+      this.scrollToSection(sectionId);
+    }
+  }
+
+  private scrollToSection(sectionId: string): void {
     const target = document.getElementById(sectionId);
     if (!target) return;
 

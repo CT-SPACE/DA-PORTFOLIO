@@ -2,8 +2,7 @@
 <div class="header">
 	<img src="assets/img/logo.png" class="logo" alt="" [alt]="'header.logo_alt' | translate">
 	<div class="navi">
-		<!-- <span class="lang-item de" [class.active]="selected() === 'DE'" (click)="select('DE')" *ngIf="isOpen() || windowWidth() >= 400">DE</span>
-		<span class="lang-item en" [class.active]="selected() === 'EN'" (click)="select('EN')" *ngIf="isOpen() || windowWidth() >= 400">EN</span> -->
+		
 		@if (isOpen() || windowWidth() >= 400) { 
 			<span class="lang-item de" [class.active]="selected() === 'de'"	(click)="select('de')"> DE </span>
 		    <span class="lang-item en" [class.active]="selected() === 'en'" (click)="select('en')"> EN </span> 

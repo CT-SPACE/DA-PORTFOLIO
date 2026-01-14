@@ -40,7 +40,7 @@ export class Main {
 
     if (this.hoverTimers.has(img)) return;
 
-    const intervalMs = 220; // Geschwindigkeit der Animation
+    const intervalMs = 220;
     const id = window.setInterval(() => {
       const idx = ((this.frameIndex.get(img) || 0) + 1) % frames.length;
       this.frameIndex.set(img, idx);

@@ -1,11 +1,5 @@
 @use '../../styles.scss' as *;
 
-// p{
-//   border:1px solid red;
-// }
-// .aboutmeDiv{   
-//   border:1px solid red;
-// }
 .meContainer {
 
   position: relative;
@@ -15,6 +9,7 @@
   margin: 0 0 20px 10px;
   height: clamp(280px, 60vw, 380px);
   aspect-ratio: 38/40;
+
   &.in-view {
     div.meBorder {
       z-index: 20;
@@ -26,11 +21,13 @@
       left: 10px;
       border: 2px solid var(--main-font-color);
       transition: transform 0.2s ease-in-out;
+
       &:hover {
         transform: rotate(3deg) translateX(-10px) translateY(-10px);
       }
     }
   }
+
   img.me {
     z-index: 10;
     display: flex;
@@ -42,16 +39,20 @@
     object-fit: cover;
   }
 }
+
 .meText {
   opacity: 0;
+
   @media (max-width: 680px) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
-.meText > * {
+.meText>* {
   opacity: 1;
   transform: translateX(-10%);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
@@ -62,24 +63,28 @@
   opacity: 1;
 }
 
-.meTextWrap.in-view .meText > * {
+.meTextWrap.in-view .meText>* {
   transform: translateX(0);
 }
 
-.meText > p:nth-of-type(1) {
+.meText>p:nth-of-type(1) {
   transition-delay: 0s;
 }
-.meText > p:nth-of-type(2) {
+
+.meText>p:nth-of-type(2) {
   transition-delay: 0.1s;
 }
-.meText > p:nth-of-type(3) {
+
+.meText>p:nth-of-type(3) {
   transition-delay: 0.2s;
 }
-.meText > p:nth-of-type(4) {
+
+.meText>p:nth-of-type(4) {
   transition-delay: 0.4s;
   margin-top: 50px;
 }
-.meText > .buttonContainer {
+
+.meText>.buttonContainer {
   transition-delay: 0.6s;
 }
 
@@ -95,27 +100,32 @@
   box-sizing: border-box;
   font-size: 18px;
   line-height: 1.8;
-  > div {
+
+  >div {
     flex: 1;
     width: 100%;
   }
+
   @media (max-width: 680px) {
     .meContainer {
       float: none;
       margin: 0 0 20px 0;
     }
+
     .meText {
       > :first-child {
         align-self: center;
       }
     }
   }
+
   @media (max-width: 400px) {
     .meContainer {
-      > img.me {
+      >img.me {
         height: 90%;
         object-fit: unset;
       }
+
       .meBorder {
         height: 90%;
       }

@@ -16,12 +16,7 @@ import { TranslateModule, TranslateService} from "@ngx-translate/core";
 export class App {
  private translate = inject(TranslateService);
 
-    // constructor() {
-    //     this.translate.addLangs(['de', 'en']);
-    //     this.translate.setFallbackLang('de');
-    //     this.translate.use('de');
-    // }
-    constructor() {
+ constructor() {
      const savedLang = window.localStorage.getItem('lang');
   const lang = (savedLang === 'de' || savedLang === 'en') ? savedLang : 'de';
   this.translate.setFallbackLang('de');

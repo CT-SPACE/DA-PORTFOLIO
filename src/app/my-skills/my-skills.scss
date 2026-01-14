@@ -1,168 +1,179 @@
 @use '../../styles.scss' as *;
 
-h2
-{
-&.skills{
-    @media (max-width: 800px){
+h2 {
+    &.skills {
+        @media (max-width: 800px) {
 
-        top:clamp(-28px, -2vw, -8px) !important;
-    
+            top: clamp(-28px, -2vw, -8px) !important;
+
+        }
+
+        @media (max-width:600px) {
+            top: -28px !important;
+        }
+
+        @media (max-width:400px) {
+            top: -38px !important;
+        }
     }
-    @media (max-width:600px){
-        top:-28px !important;
-    }
-    @media (max-width:400px){
-        top:-38px !important;
-}
-}
 }
 
-h4{
-margin-top:20px;
+h4 {
+    margin-top: 20px;
 
 }
-.skillsBorder{
+
+.skillsBorder {
     border: 2px solid var(--main-font-color);
     position: relative;
-    margin-top:-64px;
+    margin-top: -64px;
     padding: 80px;
-    font-size:14px;
+    font-size: 14px;
 
-    @media (max-width:600px){
-        padding:40px 20px;
+    @media (max-width:600px) {
+        padding: 40px 20px;
     }
 
 }
 
 
-.skillBox{
-    opacity:0; //!0
-    position:relative;
+.skillBox {
+    opacity: 0;
+    position: relative;
     transform: translateX(-10px) translateY(10px) scale(2);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    width:120px;
-    height:120px;
-box-sizing:border-box;
-        &.in-view{
-        opacity:1;      
-        //  border:2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+
+    &.in-view {
+        opacity: 1;
         animation: skillSnap 1.3s cubic-bezier(0.2, 0.9, 0.2, 1) both;
-        
+
+    }
 }
-}
-.individual{
-                opacity:0;
-    position:relative;
+
+.individual {
+    opacity: 0;
+    position: relative;
     transform: translateX(-10px) translateY(10px) scale(2);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-        box-sizing:border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 
-          &.in-view{
-      
-            // border:2px solid greenyellow;
-            animation: skillSnapMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
-        }
+    &.in-view {
+        animation: skillSnapMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    }
 }
 
-.skillIcon{
-    width:60px;
-    height:60px;
-    object-fit:contain;
-    &:hover{
-    animation-name: wiggle;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: both;
- }
+.skillIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    &:hover {
+        animation-name: wiggle;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-fill-mode: both;
+    }
 }
 
-.skillsContainer{
-  
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:30px;   
-    box-sizing:content-box;
-    div.skillsGrid{
-        display:grid;
-        width:100%;
+.skillsContainer {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    box-sizing: content-box;
+
+    div.skillsGrid {
+        display: grid;
+        width: 100%;
         margin: 0 auto;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap:30px;
-        justify-items:center;
+        gap: 30px;
+        justify-items: center;
 
-        }
+    }
 
-    
-    @media (max-width:400px){  
-    gap:20px;
-    .skillBox, .individual{
 
-        width:80px;
-        height:80px;
-        .skillIcon{
-            width:40px;
-            height:40px;
+    @media (max-width:400px) {
+        gap: 20px;
+
+        .skillBox,
+        .individual {
+
+            width: 80px;
+            height: 80px;
+
+            .skillIcon {
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 }
-}
-    
+
 @keyframes skillSnapMobile {
-  0% {
-    transform: translateX(-40px) translateY(-10vh) scale(0.8);
-    opacity: 0;
-  }
-    40%{
-        opacity:1;
+    0% {
+        transform: translateX(-40px) translateY(-10vh) scale(0.8);
+        opacity: 0;
     }
 
-    80%{
-        transform: translateX(0) translateY(-1vw) scale(1);
-       
+    40% {
+        opacity: 1;
     }
+
+    80% {
+        transform: translateX(0) translateY(-1vw) scale(1);
+
+    }
+
     90% {
         transform: translateX(0) translateY(0) scale(0.85);
         opacity: 1;
-       
+
     }
+
     100% {
         transform: translateX(0) translateY(0) scale(1);
         opacity: 1;
-        
+
     }
 }
 
 @keyframes skillSnap {
     0% {
-        
+
         transform: translateX(-300px) translateY(10vh) scale(1.5);
-        opacity:0;
-      
-    }
-    40%{
-        opacity:1;
+        opacity: 0;
+
     }
 
-    80%{
-        transform: translateX(0) translateY(-1vw) scale(1);
-       
+    40% {
+        opacity: 1;
     }
+
+    80% {
+        transform: translateX(0) translateY(-1vw) scale(1);
+
+    }
+
     90% {
         transform: translateX(0) translateY(0) scale(0.85);
         opacity: 1;
-       
+
     }
+
     100% {
         transform: translateX(0) translateY(0) scale(1);
         opacity: 1;
-        
+
     }
 }
-

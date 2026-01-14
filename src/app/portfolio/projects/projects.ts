@@ -9,12 +9,13 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './projects.scss',
 })
 export class Projects {
+  hoverActive: { [key: string]: boolean } = {};
+
   public projects: Project[] = [
     {
       id: 1,
       title: 'El Pollo Loco',
-      description:
-        'portfolio.description_polloloco',
+      description: 'portfolio.description_polloloco',
       imgSrc: 'assets/img/project_el-pollo-loco.png',
       tools: ['JavaScript', 'HTML', 'CSS', 'Kanban-Board'],
       gitLink: 'https://github.com/CT-SPACE/EL-POLLO-LOCO',
@@ -24,8 +25,7 @@ export class Projects {
     {
       id: 2,
       title: "King's Cup",
-      description:
-       'portfolio.description_kingscup',
+      description: 'portfolio.description_kingscup',
       imgSrc: 'assets/img/project_kingscup.png',
       tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase'],
       gitLink: 'https://github.com/CT-SPACE/KINGS-CUP',
@@ -67,6 +67,20 @@ export class Projects {
 
   openNewTab(url: string): void {
     window.open(url, '_blank', 'noopener');
+  }
+
+  onProjectClick(project: any, event: Event) {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouch && event.type === 'click') {
+      if (!this.hoverActive[project.id]) {
+        this.hoverActive[project.id] = true;
+        event.preventDefault();
+
+        setTimeout(() => (this.hoverActive[project.id] = false), 2000);
+        return;
+      }
+    }
+    this.openNewTab(project.liveLink);
   }
 }
 
