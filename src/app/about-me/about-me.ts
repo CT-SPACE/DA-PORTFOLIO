@@ -14,7 +14,7 @@ export class AboutMe implements AfterViewInit {
   visible = false;
   windowHeight = window.innerHeight - 100;
   @ViewChild('aboutmeContainer') aboutmeContainerRef!: ElementRef;
-  public inViewMobile = true;
+  public inViewMobile = false;
 
 
   /**
@@ -35,6 +35,6 @@ export class AboutMe implements AfterViewInit {
    * @param containerHeight The height of the about me container.
    */
   setInViewMobile(containerHeight: number): void {
-    this.inViewMobile = containerHeight < this.windowHeight;
+    this.inViewMobile = this.windowHeight <= containerHeight;
   }
 }

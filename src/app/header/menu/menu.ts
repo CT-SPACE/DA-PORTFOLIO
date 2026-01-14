@@ -126,8 +126,8 @@ export class Menu {
    */
   copyEmail() {
     const A = 'christina.troitzsch';
-    const B = 'web';
-    const C = '.de';
+    const B = 'web.';
+    const C = 'de';
     const email = `${A}@${B}${C}`;
     navigator.clipboard.writeText(email).then(() => {
       this.copied = true;
