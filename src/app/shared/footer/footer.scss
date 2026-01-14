@@ -86,7 +86,9 @@
           filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%)
             hue-rotate(133deg) contrast(81%);
           transform: scale(1.25);
-          transition: transform 0.3s ease, filter 0.3s ease;
+          transition:
+            transform 0.3s ease,
+            filter 0.3s ease;
         }
       }
     }
@@ -102,7 +104,10 @@
   color: var(--accent-font-color);
   opacity: 0;
   transform: translateY(-4px);
-  transition: width 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    width 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
   pointer-events: none;
   @media (max-width: 600px) {
     left: -5px;

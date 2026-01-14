@@ -76,14 +76,14 @@
 }
 .formContainer {
   width: 100%;
-  max-width:100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
 }
 
 form {
   width: clamp(200px, 100%, 480px);
-  box-sizing:border-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -115,7 +115,9 @@ textarea {
   border-radius: 3px;
   line-height: 1.5rem;
   padding: 14px 14px 10px;
-  transition: border-color 160ms ease, box-shadow 160ms ease;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
   /* Für Firefox */
   scrollbar-width: none;
   /* Optional: Für IE/Edge Legacy */
@@ -192,7 +194,8 @@ textarea:hover {
 
 textarea::-webkit-resizer {
   border-color: transparent;
-  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="12" x2="12" y2="4" stroke="white" stroke-width="2"/><line x1="8" y1="16" x2="16" y2="8" stroke="white" stroke-width="2"/></svg>')
+  background:
+    url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="12" x2="12" y2="4" stroke="white" stroke-width="2"/><line x1="8" y1="16" x2="16" y2="8" stroke="white" stroke-width="2"/></svg>')
       center/10px no-repeat,
     var(--main-font-color);
 }
@@ -222,7 +225,11 @@ textarea::-webkit-resizer {
   font-size: 0.8rem;
   pointer-events: none;
   padding: 0 4px;
-  transition: top 160ms ease, transform 160ms ease, font-size 160ms ease, color 160ms ease,
+  transition:
+    top 160ms ease,
+    transform 160ms ease,
+    font-size 160ms ease,
+    color 160ms ease,
     background-color 160ms ease;
 }
 

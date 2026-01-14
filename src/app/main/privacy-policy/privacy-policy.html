@@ -1,46 +1,63 @@
-
 <div id="privacy" class="privacy-reveal is-open" role="dialog" aria-modal="true">
-  
- 
-    <div class="privacyPolicyContainer">
-       <p><img alt="{{'privacyPolicy.button_back' | translate }}" [routerLink]="['/']"  class="goBack" src="assets/img/go-back-arrows.svg"></p>
+  <div class="privacyPolicyContainer">
+    <p>
+      <img
+        alt="{{ 'privacyPolicy.button_back' | translate }}"
+        [routerLink]="['/sayhi']"
+        class="goBack"
+        src="assets/img/go-back-arrows.svg"
+      />
+    </p>
 
-        <h1>{{'privacyPolicy.h1' | translate }}</h1>
-        <h6>{{'privacyPolicy.h6_1' | translate }}</h6>
-        <p>
-         {{'privacyPolicy.p_1a' | translate }}
-        <ul type="circle">
-            <li>{{'privacyPolicy.ul_1.li_1' | translate }}</li>
-            <li>{{'privacyPolicy.ul_1.li_1' | translate }}</li>
-        </ul>
-        <p></p>
-{{'privacyPolicy.p_1b' | translate }}
-        <p></p>
-        <h6>{{'privacyPolicy.h6_2' | translate }}</h6>
-      {{'privacyPolicy.p_2' | translate }}
-        <p></p>
-        <h6>{{'privacyPolicy.h6_3' | translate }}</h6>
-        {{'privacyPolicy.p_3a' | translate }}   <a [routerLink]="['/legal']" [skipLocationChange]="true" (click)="goToImpressum()" class="legal">{{'privacyPolicy.p_legal' | translate }}</a> {{'privacyPolicy.p_3b' | translate }}.
-        <p></p>
-        <h6>{{'privacyPolicy.h6_4' | translate }}</h6>
-       {{'privacyPolicy.p_4' | translate }}
-        <p></p>
+    <h1>{{ 'privacyPolicy.h1' | translate }}</h1>
+    <h6>{{ 'privacyPolicy.h6_1' | translate }}</h6>
+    <p>
+      {{ 'privacyPolicy.p_1a' | translate }}
+    </p>
 
-        <h6>{{'privacyPolicy.h6_5' | translate }}</h6>
-        {{'privacyPolicy.p_5' | translate }}
-        <p></p>
-        <h6>{{'privacyPolicy.h6_6' | translate }}</h6>
-        {{'privacyPolicy.p_6' | translate }}
-        <p></p>
-        <h6>{{'privacyPolicy.h6_7' | translate }}</h6>
-        {{'privacyPolicy.p_7' | translate }}
-        <p class="privacyBTN">
+    <ul type="circle">
+      <li>{{ 'privacyPolicy.ul_1.li_1' | translate }}</li>
+      <li>{{ 'privacyPolicy.ul_1.li_1' | translate }}</li>
+    </ul>
+    <p></p>
+    {{ 'privacyPolicy.p_1b' | translate }}
+    <p></p>
+    <h6>{{ 'privacyPolicy.h6_2' | translate }}</h6>
+    {{ 'privacyPolicy.p_2' | translate }}
+    <p></p>
+    <h6>{{ 'privacyPolicy.h6_3' | translate }}</h6>
+    {{ 'privacyPolicy.p_3a' | translate }}
+    <a
+      [routerLink]="['/legal']"
+      [skipLocationChange]="true"
+      (click)="goToImpressum()"
+      class="legal"
+      >{{ 'privacyPolicy.p_legal' | translate }}</a
+    >
+    {{ 'privacyPolicy.p_3b' | translate }}.
+    <p></p>
+    <h6>{{ 'privacyPolicy.h6_4' | translate }}</h6>
+    {{ 'privacyPolicy.p_4' | translate }}
+    <p></p>
 
-                      <button class="standardButton light" (click)="onCloseAccepted()" role="button" tabindex="0"
-            aria-label="Close Privacy Policy">{{'privacyPolicy.button_confirm' | translate }}</button>
-        </p>
-   
-    </div>
+    <h6>{{ 'privacyPolicy.h6_5' | translate }}</h6>
+    {{ 'privacyPolicy.p_5' | translate }}
+    <p></p>
+    <h6>{{ 'privacyPolicy.h6_6' | translate }}</h6>
+    {{ 'privacyPolicy.p_6' | translate }}
+    <p></p>
+    <h6>{{ 'privacyPolicy.h6_7' | translate }}</h6>
+    {{ 'privacyPolicy.p_7' | translate }}
+    <p class="privacyBTN">
+      <button
+        class="standardButton light"
+        (click)="onCloseAccepted()"
+        role="button"
+        tabindex="0"
+        aria-label="Close Privacy Policy"
+      >
+        {{ 'privacyPolicy.button_confirm' | translate }}
+      </button>
+    </p>
+  </div>
 </div>
-
- 

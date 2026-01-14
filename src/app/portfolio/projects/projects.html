@@ -1,24 +1,48 @@
 @for (project of projects; track project.id; let i = $index) {
   <div class="projectContainer" [class.reverse]="i % 2 === 1" [class.mobile]="true">
     <div class="imgContainer">
-        @if (project.liveLink) {
-        <div class="imgOverlay" (click)="onProjectClick(project, $event)" [class.hover]="hoverActive[project.id]"><img src="assets/img/icon____link.svg" class="imgLink" [class.left]="i % 2 === 1" alt=""></div>
-      <img [src]="project.imgSrc" class="imgProject" alt="" [attr.alt]="project.title" [attr.title]="project.title">
-        }
+      @if (project.liveLink) {
+        <div
+          class="imgOverlay"
+          (click)="onProjectClick(project, $event)"
+          [class.hover]="hoverActive[project.id]"
+        >
+          <img
+            src="assets/img/icon____link.svg"
+            class="imgLink"
+            [class.left]="i % 2 === 1"
+            alt=""
+          />
+        </div>
+        <img
+          [src]="project.imgSrc"
+          class="imgProject"
+          alt=""
+          [attr.alt]="project.title"
+          [attr.title]="project.title"
+        />
+      }
     </div>
 
     <div class="textContainer" [class.right]="i % 2 === 1">
-        <div class="projectNumber" [class.left]="i % 2 === 1">{{ i + 1 | number:'2.0' }}/{{ projects.length | number: '2.0' }}</div>
+      <div class="projectNumber" [class.left]="i % 2 === 1">
+        {{ i + 1 | number: '2.0' }}/{{ projects.length | number: '2.0' }}
+      </div>
       <h5>{{ project.title }}</h5>
-    <p class="tools">
-    <span class="tool">{{ project.tools.join(' | ') }}</span> 
+      <p class="tools">
+        <span class="tool">{{ project.tools.join(' | ') }}</span>
       </p>
-      <div class="description" [class.right]="i % 2 === 1" [innerHTML]="project.description | translate"></div>
-    <div class="buttonGithub"  [class.right]="i % 2 === 1">
-      @if (project.gitLink) {
-        <button (click)="openNewTab(project.gitLink)" class="standardButton light" type="button">Github</button>
-      }
-
+      <div
+        class="description"
+        [class.right]="i % 2 === 1"
+        [innerHTML]="project.description | translate"
+      ></div>
+      <div class="buttonGithub" [class.right]="i % 2 === 1">
+        @if (project.gitLink) {
+          <button (click)="openNewTab(project.gitLink)" class="standardButton light" type="button">
+            Github
+          </button>
+        }
       </div>
     </div>
   </div>

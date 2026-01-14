@@ -42,6 +42,10 @@ export class ContactForm {
    constructor(private privacyService: PrivacyService) {}
 
 
+  /**
+   * Angular lifecycle hook called after component initialization.
+   * Subscribes to privacy acceptance state.
+   */
   ngOnInit(): void {
     this.privacyService.privacyAccepted$.subscribe((state: boolean) => {
       this.privacyAccepted = state;
@@ -50,6 +54,10 @@ export class ContactForm {
 
 
 
+  /**
+   * Handles the form submission, sends data via HTTP if valid, and resets the form.
+   * @param ngForm The Angular form object.
+   */
   onSubmit(ngForm: NgForm): void {
     if (ngForm.valid && ngForm.submitted && !this.mailTest){
       this.http.post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
@@ -69,6 +77,9 @@ export class ContactForm {
       }
     }
     
+  /**
+   * Displays the submit result message and logs the contact data.
+   */
   showSubmitResult(): void {
     const el = this.formContainerRef.nativeElement;
     el.innerHTML = `<div class="submit-result">
@@ -78,6 +89,9 @@ export class ContactForm {
     console.log('Form submitted:', this.contactData);
   }
 
+  /**
+   * Toggles the privacy acceptance state.
+   */
   onTogglePrivacyAcceptance(): void {
     this.privacyAccepted = !this.privacyAccepted;
   }

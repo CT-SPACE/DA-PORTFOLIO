@@ -2,21 +2,28 @@
   <div id="legalContent">
     <h1 [innerHTML]="'legalNotice.h1' | translate">Impressum</h1>
     <p>
-      <img alt="{{'legalNotice.back' | translate}}" [routerLink]="['/']" class="goBack" src="assets/img/go-back-arrows.svg" />
+      <img
+        alt="{{ 'legalNotice.back' | translate }}"
+        [routerLink]="['/']"
+        class="goBack"
+        src="assets/img/go-back-arrows.svg"
+      />
     </p>
-    {{'legalNotice.p_1' | translate}}
-    <p> {{'legalNotice.p_2' | translate}}</p>
+    {{ 'legalNotice.p_1' | translate }}
+    <p>{{ 'legalNotice.p_2' | translate }}</p>
     <h6>Christina Troitzsch</h6>
 
     Frontend Developer<br />
-    {{'legalNotice.p_homebase' | translate}}<br />
+    {{ 'legalNotice.p_homebase' | translate }}<br />
 
-    <p> {{'legalNotice.p_email' | translate}}<img class="adress" alt="email" src="assets/img/sayhiEmail.svg" /></p>
-<p>
-    Web-Design:<br />
-    Developer Akademie GmbH<br />
-    Tassiloplatz 25, 81541 München
- </p>
+    <p>
+      {{ 'legalNotice.p_email' | translate
+      }}<img class="adress" alt="email" src="assets/img/sayhiEmail.svg" />
+    </p>
+    <p>
+      Web-Design:<br />
+      Developer Akademie GmbH<br />
+      Tassiloplatz 25, 81541 München
+    </p>
   </div>
 </div>
-

@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './loop.html',
   styleUrl: './loop.scss',
 })
-export class Loop {
-
-}
+export class Loop {}

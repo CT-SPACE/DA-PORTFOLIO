@@ -6,68 +6,187 @@
       <p class="accentQuestion" [innerHTML]="'say-hi.p_1' | translate"></p>
       <p class="normalCTA" [innerHTML]="'say-hi.p_2' | translate"></p>
 
-    <div class="formContainer"  #formContainerRef >
-      @if (!submitResultVisible) {
-      <form class="floating-form" (ngSubmit)="onSubmit(contactForm, $event)" #contactForm="ngForm" novalidate>
-        <div class="field">
-          <input #name="ngModel" id="name" name="name" [(ngModel)]="contactData.name" (ngModelChange)="onContactDataChange()" type="text" placeholder=" " required pattern=".{3,}" />
-          <label for="name" title="name" [innerHTML]="'say-hi.form_name' | translate"></label>
-             @if(name.valid && name.touched && !name.disabled) {
-<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
-          @if (!name.valid && name.touched && !name.disabled) {
-              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
-              <span class="alertMessage missing" [innerHTML]="'say-hi.form_error_name' | translate"></span>
-      }
-        </div>
+      <div class="formContainer" #formContainerRef>
+        @if (!submitResultVisible) {
+          <form
+            class="floating-form"
+            (ngSubmit)="onSubmit(contactForm, $event)"
+            #contactForm="ngForm"
+            novalidate
+          >
+            <div class="field">
+              <input
+                #name="ngModel"
+                id="name"
+                name="name"
+                [(ngModel)]="contactData.name"
+                (ngModelChange)="onContactDataChange()"
+                type="text"
+                placeholder=" "
+                required
+                pattern=".{3,}"
+              />
+              <label for="name" title="name" [innerHTML]="'say-hi.form_name' | translate"></label>
+              @if (name.valid && name.touched && !name.disabled) {
+                <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
+              }
+              @if (!name.valid && name.touched && !name.disabled) {
+                <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg" />
+                <span
+                  class="alertMessage missing"
+                  [innerHTML]="'say-hi.form_error_name' | translate"
+                ></span>
+              }
+            </div>
 
-        <div class="field">
-        <input #email="ngModel" id="email" name="email" [(ngModel)]="contactData.email" (ngModelChange)="onContactDataChange()" type="email" required placeholder=" " [attr.data-focus-visible-added]="!email.valid && email.touched && !email.disabled && !validateEmail(contactData.email) ? '' : null" />
-          <label for="email" title="email" [innerHTML]="'say-hi.form_email' | translate"></label>
-                    @if(email.valid && email.touched && !email.disabled && validateEmail(contactData.email)) {
-<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
-          @if ((!email.valid || !validateEmail(contactData.email)) && email.touched && !email.disabled) {
-              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
-              <span class="alertMessage missing" [innerHTML]="'say-hi.form_error_email' | translate"></span>
-      }
-        </div>
+            <div class="field">
+              <input
+                #email="ngModel"
+                id="email"
+                name="email"
+                [(ngModel)]="contactData.email"
+                (ngModelChange)="onContactDataChange()"
+                type="email"
+                required
+                placeholder=" "
+                [attr.data-focus-visible-added]="
+                  !email.valid &&
+                  email.touched &&
+                  !email.disabled &&
+                  !validateEmail(contactData.email)
+                    ? ''
+                    : null
+                "
+              />
+              <label
+                for="email"
+                title="email"
+                [innerHTML]="'say-hi.form_email' | translate"
+              ></label>
+              @if (
+                email.valid && email.touched && !email.disabled && validateEmail(contactData.email)
+              ) {
+                <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
+              }
+              @if (
+                (!email.valid || !validateEmail(contactData.email)) &&
+                email.touched &&
+                !email.disabled
+              ) {
+                <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg" />
+                <span
+                  class="alertMessage missing"
+                  [innerHTML]="'say-hi.form_error_email' | translate"
+                ></span>
+              }
+            </div>
 
-        <div class="field">
-          <textarea #message="ngModel" id="message" name="message" [(ngModel)]="contactData.message" (ngModelChange)="onContactDataChange()" rows="5" placeholder=" " required pattern=".{5,}"
-            [attr.data-focus-visible-added]="!validateMessage(contactData.message) && message.touched && !message.disabled ? '' : null"></textarea>
-          <label for="message" title="message" [innerHTML]="'say-hi.form_message' | translate"></label>
-          @if(validateMessage(contactData.message) && message.touched && !message.disabled) {
-<img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg">          }
-          @if (!validateMessage(contactData.message) && message.touched && !message.disabled) {
-              <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg">
-              <span class="alertMessage missing" [innerHTML]="'say-hi.form_error_message' | translate"></span>
-      }
-        </div>
+            <div class="field">
+              <textarea
+                #message="ngModel"
+                id="message"
+                name="message"
+                [(ngModel)]="contactData.message"
+                (ngModelChange)="onContactDataChange()"
+                rows="5"
+                placeholder=" "
+                required
+                pattern=".{5,}"
+                [attr.data-focus-visible-added]="
+                  !validateMessage(contactData.message) && message.touched && !message.disabled
+                    ? ''
+                    : null
+                "
+              ></textarea>
+              <label
+                for="message"
+                title="message"
+                [innerHTML]="'say-hi.form_message' | translate"
+              ></label>
+              @if (validateMessage(contactData.message) && message.touched && !message.disabled) {
+                <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
+              }
+              @if (!validateMessage(contactData.message) && message.touched && !message.disabled) {
+                <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg" />
+                <span
+                  class="alertMessage missing"
+                  [innerHTML]="'say-hi.form_error_message' | translate"
+                ></span>
+              }
+            </div>
 
-    <div class="privacy" role="checkbox" tabindex="0" [class.checked]="privacyAccepted" [attr.aria-checked]="privacyAccepted" (click)="onTogglePrivacyAcceptance()" aria-label="Datenschutzerklärung akzeptieren" title="Datenschutzerklärung akzeptieren">
-       
-      <div class="checkboxImg"  [class.hint]="showPrivacyHint && !privacyAccepted" aria-hidden="true" title="Privacy Acceptance"></div>
-       <span>{{ 'say-hi.form_dsgvo_first' | translate }} <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">{{ "say-hi.form_dsgvo_link" | translate }}</a> {{ 'say-hi.form_dsgvo_last' | translate }}</span>
-
-    </div>
-          @if (showPrivacyHint && !privacyAccepted) {
-  <div class="alertMessage missing privacyHint" [innerHTML]="'say-hi.form_error_dsgvo' | translate">
-  </div>
-}
-      <div class="showPrivacyHint" [class.hideElement]="privacyAccepted" (click)="onTrySubmit($event)"></div>
-       <button class="standardButton dark"  [disabled]="!email.valid || !validateMessage(contactData.message) || !name.valid || !privacyAccepted" type="submit" >{{ 'say-hi.button_submit' | translate }}</button>
-
-      
-      </form>
-    }
-      @if(submitResultVisible) {
-      <div class="submit-result">
-  <img src="assets/img/flieger.svg" title="'say-hi.paperplane_alt' | translate" [alt]="'say-hi.paperplane_alt' | translate" class="paper-plane" />
-  <h3 [innerHTML]="'say-hi.form_success' | translate"></h3>
-  <img alt="zurück" [alt]="'say_hi.button_back' | translate" (click)="resetFormAndHideResult()" class="goBack" src="assets/img/go-back-arrows.svg">
-</div>}
+            <div
+              class="privacy"
+              role="checkbox"
+              tabindex="0"
+              [class.checked]="privacyAccepted"
+              [attr.aria-checked]="privacyAccepted"
+              (click)="onTogglePrivacyAcceptance()"
+              aria-label="Datenschutzerklärung akzeptieren"
+              title="Datenschutzerklärung akzeptieren"
+            >
+              <div
+                class="checkboxImg"
+                [class.hint]="showPrivacyHint && !privacyAccepted"
+                aria-hidden="true"
+                title="Privacy Acceptance"
+              ></div>
+              <span
+                >{{ 'say-hi.form_dsgvo_first' | translate }}
+                <a
+                  [routerLink]="['/privacy']"
+                  (click)="$event.stopPropagation()"
+                  class="privacyLink"
+                  >{{ 'say-hi.form_dsgvo_link' | translate }}</a
+                >
+                {{ 'say-hi.form_dsgvo_last' | translate }}</span
+              >
+            </div>
+            @if (showPrivacyHint && !privacyAccepted) {
+              <div
+                class="alertMessage missing privacyHint"
+                [innerHTML]="'say-hi.form_error_dsgvo' | translate"
+              ></div>
+            }
+            <div
+              class="showPrivacyHint"
+              [class.hideElement]="privacyAccepted"
+              (click)="onTrySubmit($event)"
+            ></div>
+            <button
+              class="standardButton dark"
+              [disabled]="
+                !email.valid ||
+                !validateMessage(contactData.message) ||
+                !name.valid ||
+                !privacyAccepted
+              "
+              type="submit"
+            >
+              {{ 'say-hi.button_submit' | translate }}
+            </button>
+          </form>
+        }
+        @if (submitResultVisible) {
+          <div class="submit-result">
+            <img
+              src="assets/img/flieger.svg"
+              title="'say-hi.paperplane_alt' | translate"
+              [alt]="'say-hi.paperplane_alt' | translate"
+              class="paper-plane"
+            />
+            <h3 [innerHTML]="'say-hi.form_success' | translate"></h3>
+            <img
+              alt="zurück"
+              [alt]="'say_hi.button_back' | translate"
+              (click)="resetFormAndHideResult()"
+              class="goBack"
+              src="assets/img/go-back-arrows.svg"
+            />
+          </div>
+        }
       </div>
     </div>
-    <div class="legal-container"  [class.open]="privacyOpened" [ngStyle]="{}">
-    </div>
+    <div class="legal-container" [class.open]="privacyOpened" [ngStyle]="{}"></div>
   </div>
 </div>

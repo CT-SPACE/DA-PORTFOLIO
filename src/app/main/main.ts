@@ -19,6 +19,10 @@ export class Main {
   private hoverTimers = new Map<HTMLImageElement, number>();
   private frameIndex = new Map<HTMLImageElement, number>();
 
+  /**
+   * Starts the hover animation for the arrow image by cycling through frames.
+   * @param target The event target, expected to be an HTMLImageElement.
+   */
   startArrowHover(target: EventTarget | null): void {
     const img = target as HTMLImageElement;
     if (!img) return;
@@ -50,6 +54,10 @@ export class Main {
     this.hoverTimers.set(img, id);
   }
 
+  /**
+   * Stops the hover animation for the arrow image and resets to the first frame.
+   * @param target The event target, expected to be an HTMLImageElement.
+   */
   stopArrowHover(target: EventTarget | null): void {
     const img = target as HTMLImageElement;
     if (!img) return;
@@ -65,6 +73,9 @@ export class Main {
     this.frameIndex.delete(img);
   }
 
+  /**
+   * Scrolls the window smoothly to the bottom of the page.
+   */
   scrollToBottom() {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }

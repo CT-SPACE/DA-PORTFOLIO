@@ -22,7 +22,7 @@ export class Footer {
   ngOnInit() {
     this.intervalId = setInterval(() => {
       this.showFirst = !this.showFirst;
-    }, 500); 
+    }, 500);
   }
 
   ngOnDestroy() {
@@ -42,8 +42,7 @@ export class Footer {
       this.copied = true;
       setTimeout(() => {
         this.copied = false;
-      }, 3000); 
+      }, 3000);
     });
   }
 }
-

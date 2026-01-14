@@ -23,38 +23,52 @@ selected = signal < 'de' | 'en' > ('de');
 @ViewChild(Menu) menu!: Menu;
 
 
-select(choice: 'de' | 'en') {
-  this.selected.set(choice);
-  this.translate.use(choice);
 
-  if (typeof window !== 'undefined') {
-    try { window.localStorage.setItem('lang', choice); } catch {}
+  /**
+   * Selects the language and updates the translation service and local storage.
+   * @param choice The selected language ('de' or 'en').
+   */
+  select(choice: 'de' | 'en') {
+    this.selected.set(choice);
+    this.translate.use(choice);
+
+    if (typeof window !== 'undefined') {
+      try { window.localStorage.setItem('lang', choice); } catch {}
+    }
   }
-}
 
 
+
+  /**
+   * Angular lifecycle hook that is called after data-bound properties are initialized.
+   * Sets up resize event listener, preloads frames, and initializes language selection.
+   */
   ngOnInit() {
-  window.addEventListener('resize', () => this.windowWidth.set(window.innerWidth));
-  this.preloadFrames();
+    window.addEventListener('resize', () => this.windowWidth.set(window.innerWidth));
+    this.preloadFrames();
 
-  if (typeof window !== 'undefined') {
-    const saved = window.localStorage.getItem('lang');
-    const lang: 'de' | 'en' =
-      saved === 'de' || saved === 'en'
-        ? saved
-        : (navigator.languages?.[0] ?? navigator.language ?? 'de').startsWith('de') ? 'de' : 'en';
+    if (typeof window !== 'undefined') {
+      const saved = window.localStorage.getItem('lang');
+      const lang: 'de' | 'en' =
+        saved === 'de' || saved === 'en'
+          ? saved
+          : (navigator.languages?.[0] ?? navigator.language ?? 'de').startsWith('de') ? 'de' : 'en';
 
-    this.selected.set(lang);
-    this.translate.use(lang);
+      this.selected.set(lang);
+      this.translate.use(lang);
+    }
   }
-}
 
+
+  /**
+   * Toggles the menu open/close state with animation and updates the menu accordingly.
+   */
   onToggleMenu(): void {
     if (this.isAnimating()) return;
     this.isAnimating.set(true);
     const forward = !this.isOpen();
     this.isOpen.set(!this.isOpen());
-    const sequence = forward ? [0,1,2,3,4] : [4,3,2,1,0] ;
+    const sequence = forward ? [0, 1, 2, 3, 4] : [4, 3, 2, 1, 0];
     let i = 0;
     const stepMs = 120;
     const timer = setInterval(() => {
@@ -68,11 +82,14 @@ select(choice: 'de' | 'en') {
         this.isAnimating.set(false);
       }
     }, stepMs);
-    if (!forward){
+    if (!forward) {
       this.menu.onClose();
-   }
+    }
   }
 
+  /**
+   * Preloads all frame images for the menu animation.
+   */
   private preloadFrames() {
     for (const src of this.frames) {
       const img = new Image();

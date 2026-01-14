@@ -7,6 +7,4 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './headline.html',
   styleUrl: './headline.scss',
 })
-export class Headline {
-
-}
+export class Headline {}

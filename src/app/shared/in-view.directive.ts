@@ -2,7 +2,7 @@ import { Directive, ElementRef, EventEmitter, Input, Output, OnDestroy } from '@
 
 @Directive({
   selector: '[inView]',
-   standalone: true,
+  standalone: true,
 })
 export class InViewDirective implements OnDestroy {
   private observer?: IntersectionObserver;
@@ -13,15 +13,14 @@ export class InViewDirective implements OnDestroy {
   @Output() inViewChange = new EventEmitter<boolean>();
   @Input() rootSelector?: string = undefined;
 
-
   constructor(private el: ElementRef<HTMLElement>) {
     if (typeof window === 'undefined') {
       return;
     }
-      let rootElement = null;
-  if (this.rootSelector) {
-    rootElement = document.querySelector(this.rootSelector);
-  }
+    let rootElement = null;
+    if (this.rootSelector) {
+      rootElement = document.querySelector(this.rootSelector);
+    }
     const target = this.el.nativeElement;
     this.observer = new IntersectionObserver(
       (entries) => {
@@ -34,9 +33,11 @@ export class InViewDirective implements OnDestroy {
         }
         this.inViewChange.emit(visible);
       },
-      { threshold: this.threshold, 
+      {
+        threshold: this.threshold,
         rootMargin: this.rootMargin,
-       ...(rootElement ? { root: rootElement } : {})  }
+        ...(rootElement ? { root: rootElement } : {}),
+      },
     );
     this.observer.observe(target);
   }

@@ -1,7 +1,6 @@
 @use '../../styles.scss' as *;
 
 .meContainer {
-
   position: relative;
   float: right;
   display: flex;
@@ -52,10 +51,12 @@
   }
 }
 
-.meText>* {
+.meText > * {
   opacity: 1;
   transform: translateX(-10%);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease;
   transition-delay: 0s;
 }
 
@@ -63,28 +64,28 @@
   opacity: 1;
 }
 
-.meTextWrap.in-view .meText>* {
+.meTextWrap.in-view .meText > * {
   transform: translateX(0);
 }
 
-.meText>p:nth-of-type(1) {
+.meText > p:nth-of-type(1) {
   transition-delay: 0s;
 }
 
-.meText>p:nth-of-type(2) {
+.meText > p:nth-of-type(2) {
   transition-delay: 0.1s;
 }
 
-.meText>p:nth-of-type(3) {
+.meText > p:nth-of-type(3) {
   transition-delay: 0.2s;
 }
 
-.meText>p:nth-of-type(4) {
+.meText > p:nth-of-type(4) {
   transition-delay: 0.4s;
   margin-top: 50px;
 }
 
-.meText>.buttonContainer {
+.meText > .buttonContainer {
   transition-delay: 0.6s;
 }
 
@@ -101,7 +102,7 @@
   font-size: 18px;
   line-height: 1.8;
 
-  >div {
+  > div {
     flex: 1;
     width: 100%;
   }
@@ -121,7 +122,7 @@
 
   @media (max-width: 400px) {
     .meContainer {
-      >img.me {
+      > img.me {
         height: 90%;
         object-fit: unset;
       }

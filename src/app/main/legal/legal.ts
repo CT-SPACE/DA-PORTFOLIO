@@ -17,6 +17,9 @@ export class LegalComponent implements OnInit {
 
   constructor() {}
 
+  /**
+   * Angular lifecycle hook called after component initialization.
+   */
   ngOnInit(): void {
   }
 

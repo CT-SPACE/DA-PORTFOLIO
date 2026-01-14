@@ -65,10 +65,21 @@ export class Projects {
     },
   ];
 
+
+  /**
+   * Opens the given URL in a new browser tab.
+   * @param url The URL to open.
+   */
   openNewTab(url: string): void {
     window.open(url, '_blank', 'noopener');
   }
 
+  /**
+   * Handles project click events. On touch devices, requires a double tap to open the project link.
+   * On desktop, opens the project link immediately.
+   * @param project The project object.
+   * @param event The click event.
+   */
   onProjectClick(project: any, event: Event) {
     const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     if (isTouch && event.type === 'click') {
