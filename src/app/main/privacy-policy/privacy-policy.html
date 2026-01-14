@@ -3,7 +3,7 @@
     <p>
       <img
         alt="{{ 'privacyPolicy.button_back' | translate }}"
-        [routerLink]="['/sayhi']"
+        (click)="goToMainAndScrollToSayhi()"
         class="goBack"
         src="assets/img/go-back-arrows.svg"
       />

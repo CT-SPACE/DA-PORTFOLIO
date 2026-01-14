@@ -53,12 +53,15 @@
     height: clamp(350px, 50vw, 600px) !important;
     gap: 5px;
     padding: 20px 0 130px 0;
+    font-size: clamp(1.1rem, 3vh, 2rem) !important;
 
     > .sayhiContainer .sayhi h1 {
       font-size: 1.8rem !important;
     }
   }
+}
 
+.menuPanel{
   @media (max-height: 950px) {
     display: flex !important;
     gap: 0px !important;

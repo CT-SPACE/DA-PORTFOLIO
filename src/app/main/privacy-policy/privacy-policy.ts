@@ -29,10 +29,17 @@ export class PrivacyPolicy {
   }
 
   /**
-   * Navigates to the main page.
+   * Navigates to the main page and scrolls down to SayHi-Section.
    */
-  goToMain(): void {
-    this.router.navigate(['/']);
+  goToMainAndScrollToSayhi(): void {
+        this.router.navigate(['/']).then(() => {
+      setTimeout(() => {
+      const el = document.getElementById('sayhiAnchor');
+      if (el) {
+        el.scrollIntoView({ behavior: 'auto' }); 
+      }
+    }, 100);
+  });
   }
 
   /**
@@ -44,10 +51,11 @@ export class PrivacyPolicy {
 
   /**
    * Handles the event when privacy is accepted and closes the dialog.
+   * Return to SayHi section on main page.
    */
   onCloseAccepted(): void {
     console.log('onCloseAccepted called - current state', this.opened);
-    this.goToMain();
+    this.goToMainAndScrollToSayhi();
     this.privacyService.accept();
   }
 }
