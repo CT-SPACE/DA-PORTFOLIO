@@ -2,6 +2,10 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InViewDirective } from '../shared/in-view.directive';
 import { TranslateModule } from '@ngx-translate/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-my-skills',
@@ -10,6 +14,19 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./my-skills.scss'],
 })
 export class MySkills implements AfterViewInit {
+constructor(
+  private breakpointObserver: BreakpointObserver,
+  private cdr: ChangeDetectorRef,
+) {
+  this.breakpointObserver
+    .observe('(max-width: 800px)')
+    .pipe(takeUntilDestroyed())
+    .subscribe(({ matches }) => {
+      this.inViewMobileSkills = matches;
+      this.cdr.markForCheck();
+    });
+}
+
   windowHeight = window.innerHeight - 100;
   visible = { tools: false, skills: false, knowledges: false };
   @ViewChild('skillsContainer') skillsContainerRef!: ElementRef;
@@ -106,6 +123,7 @@ export class MySkills implements AfterViewInit {
    * @param containerHeight The height of the section container.
    */
   setInViewMobile(type: 'skills' | 'tools' | 'knowledges', containerHeight: number) {
+    console.log('Window Height:', this.windowHeight, 'Container Height:', containerHeight, 'Type:', type);
     const flag: boolean = this.windowHeight <= containerHeight;
     if (type === 'skills') {
       this.inViewMobileSkills = flag;

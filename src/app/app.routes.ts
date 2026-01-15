@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: '', component: Main, pathMatch: 'full' },
   { path: 'legal', component: LegalComponent },
   { path: 'privacy', component: PrivacyPolicy },
+  { path: 'sayhi', component: Main, data: { scrollToSayHi: true } },
 ];

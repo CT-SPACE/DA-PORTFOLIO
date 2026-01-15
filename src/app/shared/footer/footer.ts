@@ -25,13 +25,27 @@ export class Footer {
     }, 500);
   }
 
+  /**
+   * Angular lifecycle hook called when the component is destroyed.
+   */
   ngOnDestroy() {
     clearInterval(this.intervalId);
   }
 
+  /**
+   * Scrolls the window to the top smoothly.
+   */
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  /**
+   * Determines whether to hide the "Go to Top" button based on the current route.
+   */
+  get hideGoTop(): boolean {
+  return this.router.url === '/privacy' || this.router.url === '/legal';
+}
+
 
   copyEmail() {
     const A = 'christina.troitzsch';

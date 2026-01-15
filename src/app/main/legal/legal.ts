@@ -23,4 +23,19 @@ export class LegalComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+  // /**
+  //  * Navigates to the main page and scrolls down to SayHi-Section.
+  //  */
+  // goToMainAndScrollToSayhi(): void {
+  //       this.router.navigate(['/']).then(() => {
+  //     setTimeout(() => {
+  //     const el = document.getElementById('sayhiAnchor');
+  //     if (el) {
+  //       el.scrollIntoView({ behavior: 'auto' }); 
+  //     }
+  //   }, 100);
+  // });
+  // }
+
 }

@@ -1,16 +1,36 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { InViewDirective } from '../shared/in-view.directive';
 import { TranslateModule } from '@ngx-translate/core';
 import { ViewChild, ElementRef } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { ChangeDetectorRef } from '@angular/core';
+import { request } from 'http';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [InViewDirective, TranslateModule],
+  imports: [CommonModule, InViewDirective, TranslateModule],
   templateUrl: './about-me.html',
   styleUrl: './about-me.scss',
 })
 export class AboutMe implements AfterViewInit {
+  aboutmeContentRef: any;
+
+constructor(
+  private breakpointObserver: BreakpointObserver,
+  private cdr: ChangeDetectorRef,
+) {
+  this.breakpointObserver
+    .observe('(max-width: 800px)')
+    .pipe(takeUntilDestroyed())
+    .subscribe(({ matches }) => {
+      this.inViewMobile = matches;
+      this.cdr.markForCheck();
+    });
+}
+
   visible = false;
   windowHeight = window.innerHeight - 100;
   @ViewChild('aboutmeContainer') aboutmeContainerRef!: ElementRef;
@@ -21,20 +41,38 @@ export class AboutMe implements AfterViewInit {
    * Lifecycle hook that is called after the component's view has been fully initialized.
    * Calculates the height of the about me container and sets the inViewMobile flag accordingly.
    */
+  // ngAfterViewInit() {
+  //   setTimeout(() => {
+  //     if (this.aboutmeContainerRef && this.aboutmeContainerRef.nativeElement) {
+  //       const aboutmeHeight = this.aboutmeContainerRef.nativeElement.scrollHeight;
+  //       console.log('About Me Container Height:', aboutmeHeight);
+  //       this.setInViewMobile(aboutmeHeight);
+  //     }
+  //   });
+  // }
+
   ngAfterViewInit() {
-    setTimeout(() => {
-      if (this.aboutmeContainerRef && this.aboutmeContainerRef.nativeElement) {
-        const aboutmeHeight = this.aboutmeContainerRef.nativeElement.offsetHeight;
-        this.setInViewMobile(aboutmeHeight);
-      }
-    });
-  }
+  requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    const el = this.aboutmeContentRef?.nativeElement;
+    if (el) {
+      const height = el.scrollHeight;
+      console.log('Height:', height);
+      this.setInViewMobile(height);
+    }
+  });
+});
+}
+
 
   /**
    * Sets the inViewMobile flag based on the container's height compared to the window height.
-   * @param containerHeight The height of the about me container.
+   * @param containerHeight The height of the #aboutmeContainer.
    */
   setInViewMobile(containerHeight: number): void {
+    setTimeout(() => {
     this.inViewMobile = this.windowHeight <= containerHeight;
+    console.log('inViewMobile set to:', this.inViewMobile, ' (Window Height:', this.windowHeight, ', Container Height:', containerHeight, ')' );
+  }, 100);
   }
 }

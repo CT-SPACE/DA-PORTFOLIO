@@ -28,6 +28,7 @@ export class PrivacyPolicy {
     console.log('PrivacyPolicy ngAfterViewInit called');
   }
 
+
   /**
    * Navigates to the main page and scrolls down to SayHi-Section.
    */
@@ -41,6 +42,7 @@ export class PrivacyPolicy {
     }, 100);
   });
   }
+
 
   /**
    * Navigates to the legal (impressum) page.

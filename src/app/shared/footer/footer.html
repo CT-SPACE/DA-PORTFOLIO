@@ -12,10 +12,12 @@
   </div>
 
   <div class="stayConnectedIcons">
+    @if (!hideGoTop) {
     <div class="goTop" (click)="scrollToTop()" title="" [title]="'footer.goTop' | translate">
       <img src="assets/img/toTop2.svg" class="toTopImg2" alt="" />
       <img src="assets/img/toTop1.svg" class="toTopImg1" alt="" />
     </div>
+    }
     <div class="icon">
       <a target="_blank" rel="noopener" href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"
         ><img src="assets/img/icon___Github.svg" alt="Porfolio on Github"

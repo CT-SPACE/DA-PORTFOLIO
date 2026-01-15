@@ -4,16 +4,28 @@ import { Headline } from '../headline/headline';
 import { AboutMe } from '../about-me/about-me';
 import { MySkills } from '../my-skills/my-skills';
 import { Portfolio } from '../portfolio/portfolio';
+import { References } from '../references/references';
 import { SayHi } from '../say-hi/say-hi';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
-  imports: [Headline, AboutMe, MySkills, Portfolio, SayHi, TranslateModule],
+  imports: [Headline, AboutMe, MySkills, Portfolio,References, SayHi, TranslateModule],
   templateUrl: './main.html',
   styleUrl: './main.scss',
 })
 export class Main {
+   constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(data => {
+      if (data['scrollToSayHi']) {
+        setTimeout(() => {
+          document.getElementById('sayhiAnchor')?.scrollIntoView({ behavior: 'auto' });
+        }, 100);
+      }
+    });
+  }
+
   protected readonly title = signal('DA-PORTFOLIO');
 
   private hoverTimers = new Map<HTMLImageElement, number>();
