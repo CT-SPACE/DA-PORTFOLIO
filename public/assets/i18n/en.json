@@ -43,6 +43,25 @@
         "description_pokedex": "Here, the content is fed via API, so that everything worth knowing about the little rascals can be accessed.",
         "description_quizapp":"A Bootstrap-based single-page application."
     },
+        "references":{
+        "h2": "References",
+        "p_1": "Here is some feedback from people I have worked with:",
+        "1":{
+            "refText" : "Christina is a very interested front-end developer who always works with great care. Her passion for web development is evident, and she contributes significantly to the success of our projects.",
+        "refAuthor": "M. Mustermann",
+        "refRelation": "former team leader"
+        },
+        "2":{
+            "refText" : "I have had the pleasure of working with Christina on several projects. She has an excellent eye for design and user-friendliness, which is reflected in the applications she has developed.",
+        "refAuthor": "A. Beispiel",
+        "refRelation": "team colleague"
+        },
+        "3":{
+            "refText" : "I highly recommend her to any company looking for a talented and dedicated front-end developer.",
+        "refAuthor": "J. Doe",
+        "refRelation": "former supervisor"
+        }
+    },
     "say-hi":{
         "h1": "Say Hi!",
         "p_1": "Shall we discuss a new project?",

@@ -23,6 +23,8 @@ export class SayHi implements OnInit {
   @ViewChild('contactForm') contactForm!: NgForm;
   showPrivacyHint: boolean = false;
   emailValid: boolean = false;
+  nameValid: boolean = false;
+  messageValid: boolean = false;
   submitResultVisible: boolean = false;
   mailTest: boolean = false;
   http = inject(HttpClient);
@@ -77,10 +79,16 @@ export class SayHi implements OnInit {
    * Handles the attempt to submit the form, marking all fields as touched and showing privacy hint if needed.
    * @param event The submit event.
    */
-  onTrySubmit(event: Event) {
-    event.preventDefault();
-    this.contactForm.control.markAllAsTouched();
-    this.showPrivacyHint = !this.privacyAccepted || !this.contactForm.valid;
+  onTrySubmit(form: NgForm | null, event: Event) {
+    console.log('onTrySubmit called');
+      event.preventDefault();
+    console.log('contactForm:', form);
+    const ngForm = form ?? this.contactForm;
+    if (!ngForm) return;
+    ngForm.control.markAllAsTouched();
+    this.showPrivacyHint = !this.validateName(this.contactData.name) || !this.validateEmail(this.contactData.email) || !this.validateMessage(this.contactData.message) || !this.privacyAccepted;
+    // this.showPrivacyHint = !this.privacyAccepted || !ngForm.valid;
+    console.log('showPrivacyHint set to:', this.showPrivacyHint, 'ngForm valid:', ngForm.valid, 'validateName:', this.validateName(this.contactData.name), 'validateEmail:', this.validateEmail(this.contactData.email), 'validateMessage:', this.validateMessage(this.contactData.message) );
   }
 
   /**
@@ -101,9 +109,6 @@ export class SayHi implements OnInit {
           },
           error: (error) => {
             console.error('There was an error!', error);
-          },
-          complete: () => {
-            console.info('Send post completed successfully.');
           },
         });
     } else if (ngForm.submitted && ngForm.valid && this.mailTest) {
@@ -135,6 +140,12 @@ export class SayHi implements OnInit {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
   }
 
+  validateName(name: string): boolean {
+    const cleaned = name.replace(/\s/g, '');
+    this.nameValid = cleaned.length >= 2;
+    return this.nameValid;
+  }
+
   /**
    * Validates the message length (minimum 5 non-whitespace characters).
    * @param message The message string to validate.
@@ -142,7 +153,8 @@ export class SayHi implements OnInit {
    */
   validateMessage(message: string): boolean {
     const cleaned = message.replace(/\s/g, '');
-    return cleaned.length >= 5;
+    this.messageValid = cleaned.length >= 5;
+    return this.messageValid;
   }
 
   /**

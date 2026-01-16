@@ -1,14 +1,17 @@
 
-<h2>{{ 'references.h2' |  translate }}</h2>
+<div class="Title">
+        <h2>{{ 'references.h2' |  translate }}</h2>
+<p class="subtitle" [innerHTML]="'references.p_1' |  translate"></p>
+</div>
 <div class="referencesContainer">
-    
+
     
     <div class="referencesRow">
         <div class="referenceCard">
             <div class="referenceHeader">
                 <p class="refQuote">"</p>
             <p class="refAuthor">{{ "references.1.refAuthor" | translate }} </p>
-        <p class="refRelation">{{ "references.1.refRelation" | translate }} </p>/p></div>
+        <p class="refRelation">{{ "references.1.refRelation" | translate }} </p></div>
         <div class="referenceText">
             <p class="referenceText" [innerHTML]="'references.1.refText' |  translate"></p>
            </div>
@@ -16,19 +19,19 @@
              <div class="referenceCard">
             <div class="referenceHeader">
                 <p class="refQuote">"</p>
-            <p class="refAuthor">{{ "references.1.refAuthor" | translate }} </p>
-        <p class="refRelation">{{ "references.1.refRelation" | translate }} </p>/p></div>
+            <p class="refAuthor">{{ "references.2.refAuthor" | translate }} </p>
+        <p class="refRelation">{{ "references.2.refRelation" | translate }} </p></div>
         <div class="referenceText">
-            <p class="referenceText" [innerHTML]="'references.1.refText' |  translate"></p>
+            <p class="referenceText" [innerHTML]="'references.2.refText' |  translate"></p>
            </div>
         </div>
         <div class="referenceCard">
             <div class="referenceHeader">
                 <p class="refQuote">"</p>
-            <p class="refAuthor">{{ "references.1.refAuthor" | translate }} </p>
-        <p class="refRelation">{{ "references.1.refRelation" | translate }} </p>/p></div>
+            <p class="refAuthor">{{ "references.3.refAuthor" | translate }} </p>
+        <p class="refRelation">{{ "references.3.refRelation" | translate }} </p></div>
         <div class="referenceText">
-            <p class="referenceText" [innerHTML]="'references.1.refText' |  translate"></p>
+            <p class="referenceText" [innerHTML]="'references.3.refText' |  translate"></p>
            </div>
         </div>
 </div>

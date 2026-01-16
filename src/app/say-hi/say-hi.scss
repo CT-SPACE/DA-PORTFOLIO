@@ -223,7 +223,7 @@ textarea::-webkit-resizer {
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.8rem;
-  pointer-events: none;
+  // pointer-events: none;
   padding: 0 4px;
   transition:
     top 160ms ease,
@@ -286,7 +286,7 @@ textarea::-webkit-resizer {
 }
 
 button.standardButton:disabled {
-  cursor: unset;
+  cursor:default;
   pointer-events: none;
   opacity: 0.6;
 }
@@ -298,6 +298,8 @@ button.standardButton {
   width: 150px;
   height: 40px;
   position: relative;
+    user-select: none;
+    -webkit-user-select: none;
   top: 42px;
   z-index: 10;
 }

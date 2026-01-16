@@ -43,6 +43,25 @@
         "description_pokedex": "Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.",
         "description_quizapp":"Eine Bootstrap basierte Singlepage App. "
     },
+    "references":{
+        "h2": "Referenzen",
+        "p_1": "Hier sind einige Rückmeldungen von Menschen, mit denen ich zusammengearbeitet habe:",
+        "1":{
+            "refText" : "Christina ist eine sehr interessierte Frontend Entwicklerin, die stets mit großer Sorgfalt arbeitet. Ihre Leidenschaft für Webentwicklung ist spürbar und sie trägt maßgeblich zum Erfolg unserer Projekte bei.",
+        "refAuthor": "M. Mustermann",
+        "refRelation": "ehmaliger Teamleiter"
+        },
+        "2":{
+            "refText" : "Ich hatte das Vergnügen, mit Christina an mehreren Projekten zusammenzuarbeiten. Sie hat ein ausgezeichnetes Auge für Design und Benutzerfreundlichkeit, was sich in den von ihr entwickelten Anwendungen widerspiegelt.",
+        "refAuthor": "A. Beispiel",
+        "refRelation": "ehemalige Teamkollegin"
+        },
+        "3":{
+            "refText" : " Ich kann sie sehr empfehlen für jedes Unternehmen, das eine talentierte und engagierte Frontend Entwicklerin sucht.",
+        "refAuthor": "J. Doe",
+        "refRelation": "ehemalige Vorgesetzte"
+        }
+    },
     "say-hi":{
         "h1": "Say Hi!",
         "p_1": "Wollen wir ein neues Projekt diskutieren?",

@@ -150,8 +150,9 @@
             }
             <div
               class="showPrivacyHint"
-              [class.hideElement]="privacyAccepted"
-              (click)="onTrySubmit($event)"
+               [class.hideElement]="privacyAccepted && contactForm?.valid"
+              
+              (click)="onTrySubmit(contactForm, $event)"
             ></div>
             <button
               class="standardButton dark"

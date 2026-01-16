@@ -1,11 +1,5 @@
 @use '../../../styles.scss' as *;
 
-:host(.open) {
-  top: var(--header-h, 49px);
-  z-index: 0;
-  pointer-events: auto;
-}
-
 :host {
   z-index: 0;
   top: -100%;
@@ -20,7 +14,24 @@
   pointer-events: none;
 }
 
+:host(.open), :host(.closing) {
+  top: var(--header-h, 49px);
+  z-index: 0;
+  pointer-events: auto;
+}
+
+:host(.closing) .menuPanel {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
 .menuPanel {
+  transform: translateY(0);
+  transition: transform 120ms ease-out, opacity 820ms cubic-bezier(1, 0, 0, 1);
+  opacity: 1;
+
   width: 100%;
   min-height: 50vh;
   position: relative;
@@ -59,9 +70,7 @@
       font-size: 1.8rem !important;
     }
   }
-}
 
-.menuPanel{
   @media (max-height: 950px) {
     display: flex !important;
     gap: 0px !important;

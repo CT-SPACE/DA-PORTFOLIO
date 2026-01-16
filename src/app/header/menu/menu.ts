@@ -18,8 +18,10 @@ export class Menu {
   copied = false;
   @Input() isOpen = false;
   @HostBinding('class.open') get opened() {
-    return this.isOpen;
+     return this.isOpen && !this.isClosing;
   }
+  @HostBinding('class.closing') isClosing = false;
+
   @HostBinding('attr.aria-hidden') get ariaHidden() {
     return String(!this.isOpen);
   }
@@ -58,25 +60,41 @@ export class Menu {
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
+
   /**
    * Closes the menu and scrolls to the active section if set, after the menu transition.
    */
+  // onClose(): void {
+  //   if (!this.isOpen) return;
+  //   this.isOpen = false;
+
+  //   const durationMs = this.getMenuTransitionMs();
+  //   if (this.activeId) {
+  //     const target = document.getElementById(this.activeId);
+  //     if (!target) return;
+  //     const targetTop = window.scrollY + target.getBoundingClientRect().top;
+  //     const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
+  //     setTimeout(() => {
+  //       const top = targetTop - headerH;
+  //       window.scrollTo({ top, behavior: 'smooth' });
+  //     }, durationMs);
+  //   }
+  // }
+
   onClose(): void {
-    if (!this.isOpen) return;
-    this.isOpen = false;
+     if (!this.isOpen || this.isClosing) return;
+   this.isClosing = true;
 
     const durationMs = this.getMenuTransitionMs();
-    if (this.activeId) {
-      const target = document.getElementById(this.activeId);
-      if (!target) return;
-      const targetTop = window.scrollY + target.getBoundingClientRect().top;
-      const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-      setTimeout(() => {
-        const top = targetTop - headerH;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }, durationMs);
-    }
+    const finish = () => {
+      this.isOpen = false;
+      this.isClosing = false;
+      this.scrollAfterClose();
+    };
+
+    durationMs > 0 ? setTimeout(finish, durationMs) : finish();
   }
+
 
   /**
    * Reads a CSS variable in px and returns its numeric value.
@@ -108,17 +126,48 @@ export class Menu {
     return panel?.offsetHeight ?? 0;
   }
 
+  private scrollAfterClose(): void {
+    if (!this.activeId) return;
+    const target = document.getElementById(this.activeId);
+    if (!target) return;
+    const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
+    const targetTop = window.scrollY + target.getBoundingClientRect().top;
+    window.scrollTo({ top: targetTop - headerH, behavior: 'smooth' });
+  }
+
   /**
    * Gets the menu transition duration in milliseconds.
    * @returns The transition duration in ms.
    */
-  private getMenuTransitionMs(): number {
-    const host = document.querySelector('app-menu') as HTMLElement | null;
-    const style = host ? getComputedStyle(host) : null;
-    const dur = style?.transitionDuration || '0s';
-    const m = dur.match(/([\d.]+)s/);
-    const secs = m ? parseFloat(m[1]) : 0;
-    return Math.max(0, Math.round(secs * 1000));
+  // private getMenuTransitionMs(): number {
+  //   const host = document.querySelector('app-menu') as HTMLElement | null;
+  //   const style = host ? getComputedStyle(host) : null;
+  //   const dur = style?.transitionDuration || '0s';
+  //   const m = dur.match(/([\d.]+)s/);
+  //   const secs = m ? parseFloat(m[1]) : 0;
+  //   return Math.max(0, Math.round(secs * 1000));
+  // }
+    private getMenuTransitionMs(): number {
+    const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
+    if (!panel) return 0;
+
+    const toMs = (raw: string) =>
+      raw
+        .split(',')
+        .map((v) => v.trim())
+        .filter(Boolean)
+        .map((v) => (v.endsWith('ms') ? parseFloat(v) : parseFloat(v) * 1000));
+
+    const style = getComputedStyle(panel);
+    const durations = toMs(style.transitionDuration || '0s');
+    const delays = toMs(style.transitionDelay || '0s');
+
+    const longest = durations.reduce((max, duration, idx) => {
+      const delay = delays[idx] ?? delays[delays.length - 1] ?? 0;
+      return Math.max(max, duration + delay);
+    }, 0);
+
+    return Math.round(longest);
   }
 
   /**

@@ -12,30 +12,11 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./legal.scss', '../privacy-policy/privacy-policy.scss'],
 })
 
-export class LegalComponent implements OnInit {
+export class LegalComponent {
   isOpen: boolean = false;
 
   constructor() {}
 
-  /**
-   * Angular lifecycle hook called after component initialization.
-   */
-  ngOnInit(): void {
-  }
-
   
-  // /**
-  //  * Navigates to the main page and scrolls down to SayHi-Section.
-  //  */
-  // goToMainAndScrollToSayhi(): void {
-  //       this.router.navigate(['/']).then(() => {
-  //     setTimeout(() => {
-  //     const el = document.getElementById('sayhiAnchor');
-  //     if (el) {
-  //       el.scrollIntoView({ behavior: 'auto' }); 
-  //     }
-  //   }, 100);
-  // });
-  // }
 
 }
