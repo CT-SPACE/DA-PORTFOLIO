@@ -175,7 +175,7 @@ textarea:hover {
 
   scrollbar-width: thin; // Für Firefox
   border-radius: 4px;
-  // border: 1px solid transparent;
+
   scrollbar-color: #696666 var(--main-font-color); // Für Firefox (Daumen, Track)
 
   &::-webkit-scrollbar {
@@ -223,7 +223,7 @@ textarea::-webkit-resizer {
   transform: translateY(-50%);
   color: rgba(255, 255, 255, 0.75);
   font-size: 0.8rem;
-  // pointer-events: none;
+
   padding: 0 4px;
   transition:
     top 160ms ease,

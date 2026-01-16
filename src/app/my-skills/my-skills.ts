@@ -123,7 +123,6 @@ constructor(
    * @param containerHeight The height of the section container.
    */
   setInViewMobile(type: 'skills' | 'tools' | 'knowledges', containerHeight: number) {
-    console.log('Window Height:', this.windowHeight, 'Container Height:', containerHeight, 'Type:', type);
     const flag: boolean = this.windowHeight <= containerHeight;
     if (type === 'skills') {
       this.inViewMobileSkills = flag;

@@ -63,31 +63,6 @@ selected = signal < 'de' | 'en' > ('de');
   /**
    * Toggles the menu open/close state with animation and updates the menu accordingly.
    */
-  // onToggleMenu(): void {
-  //   if (this.isAnimating()) return;
-  //   this.isAnimating.set(true);
-  //   const forward = !this.isOpen();
-  //   this.isOpen.set(!this.isOpen());
-  //   const sequence = forward ? [0, 1, 2, 3, 4] : [4, 3, 2, 1, 0];
-  //   let i = 0;
-  //   const stepMs = 120;
-  //   const timer = setInterval(() => {
-  //     const idx = sequence[i];
-  //     this.currentIndex.set(idx);
-  //     this.currentSrc.set(this.frames[idx]);
-  //     i++;
-  //     if (i >= sequence.length) {
-  //       clearInterval(timer);
-  //       this.isOpen.set(forward);
-  //       this.isAnimating.set(false);
-  //     }
-  //   }, stepMs);
-  //   if (!forward) {
-  //     this.menu.onClose();
-  //   }
-  // }
-
-  
   onToggleMenu(): void {
     if (this.isAnimating()) return;
     this.isAnimating.set(true);

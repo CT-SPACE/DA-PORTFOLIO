@@ -19,12 +19,10 @@ export class PrivacyService {
   }
 
   openLegalContainer(): void {
-    console.log('openLegalContainer aufgerufen');
     this.legalContainer$.next(true);
   }
 
   closeLegalContainer(): void {
-    console.log('closeLegalContainer aufgerufen');
     setTimeout(() => {
       this.legalContainer$.next(false);
     }, 100);
@@ -36,30 +34,21 @@ export class PrivacyService {
 
   openLegalContainerAndScroll(targetId: string): void {
     this.openLegalContainer();
+    this.scrollToTarget(targetId, -100);
+    setTimeout(() => this.scrollToTarget(targetId, 40), 1000);
+  }
 
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const rect = targetElement.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  private scrollToTarget(targetId: string, offset: number): void {
+    const el = document.getElementById(targetId);
+    if (!el) return;
 
-      window.scrollTo({
-        top: rect.top + scrollTop - 100,
-        behavior: 'smooth',
-      });
-    }
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    setTimeout(() => {
-      const el = document.getElementById(targetId);
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        window.scrollTo({
-          top: rect.top + scrollTop + 40,
-          behavior: 'smooth',
-        });
-      }
-    }, 1000);
+    window.scrollTo({
+      top: rect.top + scrollTop + offset,
+      behavior: 'smooth',
+    });
   }
 
   switchToImpressum(): void {

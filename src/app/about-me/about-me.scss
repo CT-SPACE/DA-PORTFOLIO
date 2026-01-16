@@ -10,9 +10,7 @@
 .meContainer {
   position: relative;
   display: flex;
-  // flex: 0 0 auto;
   float:right;
-  // align-self: flex-start;
   order: 2;
   margin-left: auto;
   height: clamp(280px, 60vw, 380px);
@@ -65,7 +63,6 @@
 
 .meText > p,
 .meText > .buttonContainer {
-  // transform: translateX(-40vw);
   opacity: 0;
     flex: 1 1 auto;
   transition:
@@ -76,13 +73,13 @@
 .meTextWrapView .meText > p,
 .meText > .buttonContainer {
   transform: translateX(-40vw);
-  // opacity: 0;
+
 }
 
 .meTextWrapMobile .meText > p,
 .meTextWrapMobile .meText > .buttonContainer {
   transform: translateX(-4vw);
-  // opacity: 0;
+
 }
 
 

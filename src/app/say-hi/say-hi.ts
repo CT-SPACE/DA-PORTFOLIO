@@ -80,15 +80,11 @@ export class SayHi implements OnInit {
    * @param event The submit event.
    */
   onTrySubmit(form: NgForm | null, event: Event) {
-    console.log('onTrySubmit called');
       event.preventDefault();
-    console.log('contactForm:', form);
     const ngForm = form ?? this.contactForm;
     if (!ngForm) return;
     ngForm.control.markAllAsTouched();
     this.showPrivacyHint = !this.validateName(this.contactData.name) || !this.validateEmail(this.contactData.email) || !this.validateMessage(this.contactData.message) || !this.privacyAccepted;
-    // this.showPrivacyHint = !this.privacyAccepted || !ngForm.valid;
-    console.log('showPrivacyHint set to:', this.showPrivacyHint, 'ngForm valid:', ngForm.valid, 'validateName:', this.validateName(this.contactData.name), 'validateEmail:', this.validateEmail(this.contactData.email), 'validateMessage:', this.validateMessage(this.contactData.message) );
   }
 
   /**
@@ -121,7 +117,6 @@ export class SayHi implements OnInit {
    */
   showSubmitResult(): void {
     this.submitResultVisible = true;
-    console.log('Form submitted:', this.contactData);
   }
 
   /**

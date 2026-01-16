@@ -25,7 +25,7 @@ export class PrivacyPolicy {
    * Angular lifecycle hook called after the component's view has been fully initialized.
    */
   ngAfterViewInit(): void {
-    console.log('PrivacyPolicy ngAfterViewInit called');
+ 
   }
 
 
@@ -56,7 +56,6 @@ export class PrivacyPolicy {
    * Return to SayHi section on main page.
    */
   onCloseAccepted(): void {
-    console.log('onCloseAccepted called - current state', this.opened);
     this.goToMainAndScrollToSayhi();
     this.privacyService.accept();
   }

@@ -11,14 +11,11 @@ import { Router } from '@angular/router';
   styleUrl: './menu.scss',
 })
 export class Menu {
-  constructor(
-    private vs: ViewportScroller,
-    private router: Router,
-  ) {}
+  constructor(private vs: ViewportScroller, private router: Router) {}
   copied = false;
   @Input() isOpen = false;
   @HostBinding('class.open') get opened() {
-     return this.isOpen && !this.isClosing;
+    return this.isOpen && !this.isClosing;
   }
   @HostBinding('class.closing') isClosing = false;
 
@@ -53,37 +50,19 @@ export class Menu {
     if (!target) return;
 
     const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-    const menuH = this.isOpen ? (this.readPxVar('--menu-h') ?? this.getMenuHeight()) : 0;
+    const menuH = this.isOpen ? this.readPxVar('--menu-h') ?? this.getMenuHeight() : 0;
 
     const targetTop = window.scrollY + target.getBoundingClientRect().top;
     const top = targetTop - (headerH + menuH);
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
-
   /**
    * Closes the menu and scrolls to the active section if set, after the menu transition.
    */
-  // onClose(): void {
-  //   if (!this.isOpen) return;
-  //   this.isOpen = false;
-
-  //   const durationMs = this.getMenuTransitionMs();
-  //   if (this.activeId) {
-  //     const target = document.getElementById(this.activeId);
-  //     if (!target) return;
-  //     const targetTop = window.scrollY + target.getBoundingClientRect().top;
-  //     const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-  //     setTimeout(() => {
-  //       const top = targetTop - headerH;
-  //       window.scrollTo({ top, behavior: 'smooth' });
-  //     }, durationMs);
-  //   }
-  // }
-
   onClose(): void {
-     if (!this.isOpen || this.isClosing) return;
-   this.isClosing = true;
+    if (!this.isOpen || this.isClosing) return;
+    this.isClosing = true;
 
     const durationMs = this.getMenuTransitionMs();
     const finish = () => {
@@ -94,7 +73,6 @@ export class Menu {
 
     durationMs > 0 ? setTimeout(finish, durationMs) : finish();
   }
-
 
   /**
    * Reads a CSS variable in px and returns its numeric value.
@@ -139,15 +117,8 @@ export class Menu {
    * Gets the menu transition duration in milliseconds.
    * @returns The transition duration in ms.
    */
-  // private getMenuTransitionMs(): number {
-  //   const host = document.querySelector('app-menu') as HTMLElement | null;
-  //   const style = host ? getComputedStyle(host) : null;
-  //   const dur = style?.transitionDuration || '0s';
-  //   const m = dur.match(/([\d.]+)s/);
-  //   const secs = m ? parseFloat(m[1]) : 0;
-  //   return Math.max(0, Math.round(secs * 1000));
-  // }
-    private getMenuTransitionMs(): number {
+ 
+  private getMenuTransitionMs(): number {
     const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
     if (!panel) return 0;
 

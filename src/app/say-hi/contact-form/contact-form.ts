@@ -85,8 +85,6 @@ export class ContactForm {
     el.innerHTML = `<div class="submit-result">
       <img src="assets/img/flieger.svg" alt="Nachricht gesendet" class="paper-plane" />
     <h3>Danke! Deine Nachricht wurde versandt.</h3></div>`;
-
-    console.log('Form submitted:', this.contactData);
   }
 
   /**
