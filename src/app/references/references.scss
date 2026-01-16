@@ -60,6 +60,9 @@ p.subtitle{
 
     &:hover{
         border-color: var(--accent-font-color);
+        .referenceText{
+            font-style:italic;
+        }
     }
 
     @media (max-width: 1200px) {

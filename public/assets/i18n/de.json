@@ -73,7 +73,7 @@
         "form_dsgvo_link": "Datenschutzerklärung",
         "form_dsgvo_last": "gelesen und bestätige.",
         "form_success": "Danke! Deine Nachricht wurde versandt.",
-        "form_error": "Hoppla! Da ist etwas schiefgelaufen. Bitte versuche es später noch einmal.",
+        "form_error": "Hoppla! Da ist etwas schiefgelaufen. </br>Bitte versuche es später noch einmal.",
         "form_error_name": "Bitte gib mindestens 3 Zeichen ein!",
         "form_error_email": "Bitte gib eine gültige E‑Mail Adresse ein!",
         "form_error_message": "Ich benötige mehr Informationen zu deinem Projekt",

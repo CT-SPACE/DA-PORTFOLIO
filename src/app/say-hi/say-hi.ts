@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'app-say-hi',
   imports: [TranslateModule, CommonModule, FormsModule, RouterModule, RouterLink],
@@ -16,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./say-hi.scss'],
 })
 export class SayHi implements OnInit {
+
   privacyAccepted: boolean = false;
   privacyOpened: boolean = false;
   activeId: string | null = null;
@@ -26,6 +28,7 @@ export class SayHi implements OnInit {
   nameValid: boolean = false;
   messageValid: boolean = false;
   submitResultVisible: boolean = false;
+  isSuccess: boolean = false;
   mailTest: boolean = false;
   http = inject(HttpClient);
   contactData = {
@@ -92,33 +95,62 @@ export class SayHi implements OnInit {
    * @param ngForm The Angular form object.
    * @param event The submit event.
    */
-  onSubmit(ngForm: NgForm, event: Event): void {
-    event.preventDefault();
-    this.showSubmitResult();
-    if (ngForm.valid && ngForm.submitted && !this.mailTest) {
-      this.http
-        .post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
-        .subscribe({
-          next: (response) => {
-            this.showSubmitResult();
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error('There was an error!', error);
-          },
-        });
-    } else if (ngForm.submitted && ngForm.valid && this.mailTest) {
-      ngForm.resetForm();
+onSubmit(ngForm: NgForm, event: Event): void {
+  event.preventDefault();
+
+  if (!this.canSubmit(ngForm)) {
+    this.showSubmitResult(false); // Fehlerfall
+    this.showPrivacyHint = !this.privacyAccepted;
+    return;
+  }
+
+  this.showSubmitResult(true); // Erfolgsfall (wird ggf. von sendMail überschrieben)
+  if (this.mailTest) {
+    ngForm.resetForm();
+    return;
+  }
+
+  this.sendMail(ngForm);
+}
+
+/**
+ * Helper methode for onSubmit() to verifying if the email was sent or not.
+ * @param ngForm 
+ */
+private sendMail(ngForm: NgForm): void {
+  this.http
+    .post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
+    .subscribe({
+      next: () => {
+        this.showSubmitResult(true); // Erfolg
+        ngForm.resetForm();
+      },
+      error: () => {
+        this.showSubmitResult(false); // Fehler
+      },
+    });
+}
+
+/**
+ * Validates if the form can be submitted.
+ * @param ngForm 
+ * @returns 
+ */
+  private canSubmit(ngForm: NgForm): boolean {
+    if (!ngForm.valid || !ngForm.submitted) {
+      ngForm.control.markAllAsTouched();
+      return false;
     }
+    return true;
   }
 
   /**
    * Displays the submit result and logs the contact data.
    */
-  showSubmitResult(): void {
-    this.submitResultVisible = true;
-  }
-
+showSubmitResult(isSuccess: boolean): void {
+  this.isSuccess = isSuccess;
+  this.submitResultVisible = true;
+}
   /**
    * Toggles the privacy acceptance state.
    */

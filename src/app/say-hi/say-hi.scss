@@ -298,8 +298,9 @@ button.standardButton {
   width: 150px;
   height: 40px;
   position: relative;
-    user-select: none;
+
     -webkit-user-select: none;
+        user-select: none;
   top: 42px;
   z-index: 10;
 }

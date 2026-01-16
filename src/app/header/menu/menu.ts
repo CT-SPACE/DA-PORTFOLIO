@@ -117,11 +117,21 @@ export class Menu {
    * Gets the menu transition duration in milliseconds.
    * @returns The transition duration in ms.
    */
- 
   private getMenuTransitionMs(): number {
     const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
     if (!panel) return 0;
 
+    const { durations, delays } = this.getTransitionTimings(panel);
+    const longest = durations.reduce((max, duration, idx) => {
+      const delay = delays[idx] ?? delays[delays.length - 1] ?? 0;
+      return Math.max(max, duration + delay);
+    }, 0);
+
+    return Math.round(longest);
+  }
+
+  private getTransitionTimings(panel: HTMLElement) {
+    const style = getComputedStyle(panel);
     const toMs = (raw: string) =>
       raw
         .split(',')
@@ -129,16 +139,10 @@ export class Menu {
         .filter(Boolean)
         .map((v) => (v.endsWith('ms') ? parseFloat(v) : parseFloat(v) * 1000));
 
-    const style = getComputedStyle(panel);
-    const durations = toMs(style.transitionDuration || '0s');
-    const delays = toMs(style.transitionDelay || '0s');
-
-    const longest = durations.reduce((max, duration, idx) => {
-      const delay = delays[idx] ?? delays[delays.length - 1] ?? 0;
-      return Math.max(max, duration + delay);
-    }, 0);
-
-    return Math.round(longest);
+    return {
+      durations: toMs(style.transitionDuration || '0s'),
+      delays: toMs(style.transitionDelay || '0s'),
+    };
   }
 
   /**

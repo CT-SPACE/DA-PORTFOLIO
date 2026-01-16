@@ -168,7 +168,7 @@
             </button>
           </form>
         }
-        @if (submitResultVisible) {
+        <!-- @if (submitResultVisible) {
           <div class="submit-result">
             <img
               src="assets/img/flieger.svg"
@@ -185,7 +185,23 @@
               src="assets/img/go-back-arrows.svg"
             />
           </div>
-        }
+        } -->
+@if (submitResultVisible) {
+  <div class="submit-result">
+    @if (isSuccess) {
+      <span [innerHTML]="'say-hi.form_sucess' | translate"></span>
+    } @else {
+      <span [innerHTML]="'say-hi.form_error' | translate"></span>
+    }
+      <img
+              alt="zurück"
+              [alt]="'say_hi.button_back' | translate"
+              (click)="resetFormAndHideResult()"
+              class="goBack"
+              src="assets/img/go-back-arrows.svg"
+            />
+  </div>
+}
       </div>
     </div>
     <div class="legal-container" [class.open]="privacyOpened" [ngStyle]="{}"></div>

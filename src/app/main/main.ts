@@ -11,13 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
-  imports: [Headline, AboutMe, MySkills, Portfolio,References, SayHi, TranslateModule],
+  imports: [Headline, AboutMe, MySkills, Portfolio, References, SayHi, TranslateModule],
   templateUrl: './main.html',
   styleUrl: './main.scss',
 })
 export class Main {
-   constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe(data => {
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe((data) => {
       if (data['scrollToSayHi']) {
         setTimeout(() => {
           document.getElementById('sayhiAnchor')?.scrollIntoView({ behavior: 'auto' });
@@ -35,32 +35,70 @@ export class Main {
    * Starts the hover animation for the arrow image by cycling through frames.
    * @param target The event target, expected to be an HTMLImageElement.
    */
+  // startArrowHover(target: EventTarget | null): void {
+  //   const img = target as HTMLImageElement;
+  //   if (!img) return;
+
+  //   const frames = [
+  //     img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg',
+  //     img.dataset['frame2'] || 'assets/img/spacer-arrow_2.svg',
+  //     img.dataset['frame3'] || 'assets/img/spacer-arrow_3.svg',
+  //   ];
+
+  //   // Preload
+  //   frames.forEach((src) => {
+  //     const i = new Image();
+  //     i.src = src;
+  //   });
+
+  //   img.src = frames[0];
+  //   this.frameIndex.set(img, 0);
+
+  //   if (this.hoverTimers.has(img)) return;
+
+  //   const intervalMs = 220;
+  //   const id = window.setInterval(() => {
+  //     const idx = ((this.frameIndex.get(img) || 0) + 1) % frames.length;
+  //     this.frameIndex.set(img, idx);
+  //     img.src = frames[idx];
+  //   }, intervalMs);
+
+  //   this.hoverTimers.set(img, id);
+  // }
+
   startArrowHover(target: EventTarget | null): void {
     const img = target as HTMLImageElement;
     if (!img) return;
 
+    const frames = this.prepareArrowFrames(img);
+    if (this.hoverTimers.has(img)) return;
+
+    this.runArrowAnimation(img, frames, 220);
+  }
+
+  private prepareArrowFrames(img: HTMLImageElement): string[] {
     const frames = [
       img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg',
       img.dataset['frame2'] || 'assets/img/spacer-arrow_2.svg',
       img.dataset['frame3'] || 'assets/img/spacer-arrow_3.svg',
     ];
 
-    // Preload
     frames.forEach((src) => {
-      const i = new Image();
-      i.src = src;
+      const preload = new Image();
+      preload.src = src;
     });
 
     img.src = frames[0];
     this.frameIndex.set(img, 0);
 
-    if (this.hoverTimers.has(img)) return;
+    return frames;
+  }
 
-    const intervalMs = 220;
+  private runArrowAnimation(img: HTMLImageElement, frames: string[], intervalMs: number): void {
     const id = window.setInterval(() => {
-      const idx = ((this.frameIndex.get(img) || 0) + 1) % frames.length;
-      this.frameIndex.set(img, idx);
-      img.src = frames[idx];
+      const next = ((this.frameIndex.get(img) || 0) + 1) % frames.length;
+      this.frameIndex.set(img, next);
+      img.src = frames[next];
     }, intervalMs);
 
     this.hoverTimers.set(img, id);
