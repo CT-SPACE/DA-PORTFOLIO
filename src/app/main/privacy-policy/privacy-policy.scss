@@ -47,16 +47,19 @@
 #privacy,
 #legalContent {
   width: clamp(200px, 80%, 600px);
-  margin: 80px auto 30px auto;
+  margin: 140px auto 30px auto;
   font-size: 14px;
   padding: clamp(20px, 8%, 50px);
   border: 1px solid var(--main-font-color);
   line-height: 18px;
   border-radius: 8px;
   box-sizing: border-box;
-  max-height: 80%;
+  max-height: calc(100% - 200px);
   overflow-y: auto;
   position: relative;
+  top: -20px;
+  
+
 
   h1 {
     font-size: 20px !important;
@@ -74,15 +77,18 @@
   @media (max-width: 600px) {
     width: 90%;
     padding: 20px;
-    max-height: 80%;
     overflow-y: auto;
-    position: relative;
 
     h1 {
       font-size: clamp(10px, 3vw, 16px) !important;
       top: 20px;
     }
   }
+    @media (max-height:800px) {
+    max-height: calc(100% - 100px) !important;
+    top: -30px !important;
+  }
+
 }
 
 .privacyBTN {

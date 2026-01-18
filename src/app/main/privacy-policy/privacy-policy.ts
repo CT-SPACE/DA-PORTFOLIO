@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { SayHi } from '../../say-hi/say-hi';
+import { Renderer2,  Inject, OnDestroy, AfterViewInit, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 import { PrivacyService } from '../../shared/privacy.service';
 import { TranslateModule } from '@ngx-translate/core';
@@ -13,10 +13,12 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.scss',
 })
-export class PrivacyPolicy {
+export class PrivacyPolicy implements AfterViewInit, OnDestroy{
   constructor(
     private router: Router,
+    private renderer: Renderer2,
     private privacyService: PrivacyService,
+     @Inject(DOCUMENT) private document: Document
   ) {}
 
   opened: boolean = false;
@@ -25,7 +27,7 @@ export class PrivacyPolicy {
    * Angular lifecycle hook called after the component's view has been fully initialized.
    */
   ngAfterViewInit(): void {
- 
+ this.renderer.addClass(document.body, 'bodyNoScroll');
   }
 
 
@@ -59,4 +61,8 @@ export class PrivacyPolicy {
     this.goToMainAndScrollToSayhi();
     this.privacyService.accept();
   }
+  ngOnDestroy(): void {
+    this.renderer.removeClass(this.document.body, 'bodyNoScroll');
+  }
+
 }

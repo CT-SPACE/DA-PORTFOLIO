@@ -1,5 +1,9 @@
 @use '../../../styles.scss' as *;
 
+:host{
+  height: calc(100vh - 138px);
+}
+
 .dialog {
   position: relative;
   width: clamp(300px, 80vw, 600px);

@@ -1,3 +1,4 @@
+<div class="widthHeader">
 <div class="header">
   <img src="assets/img/logo.png" class="logo" alt="" [alt]="'header.logo_alt' | translate" />
   <div class="navi">
@@ -14,9 +15,10 @@
       [src]="currentSrc()"
       alt=""
       [alt]="'header.menu_alt' | translate"
-      (click)="onToggleMenu()"
+      (click)="onToggleMenu()" 
       [attr.aria-pressed]="isOpen()"
     />
   </div>
 </div>
-<app-menu [isOpen]="isOpen()"></app-menu>
+</div>
+<app-menu [isOpen]="isOpen()" (toggleMenu)="onToggleMenu()"></app-menu>

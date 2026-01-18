@@ -89,7 +89,7 @@
   font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
   left: -12px;
   top: -10px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--accent-font-color);
   opacity: 0;
   transform: translateY(-4px);
@@ -101,7 +101,7 @@
 
   @media (max-width: 600px) {
     left: -10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -252,7 +252,7 @@
   align-items: center;
   gap: 10px;
   color: var(--main-bg-color);
-  font-size: 0.5rem;
+  font-size: 1rem;
 
   @media (max-width: 600px) {
     padding: 10px 20px;
@@ -263,11 +263,11 @@
   }
 
   > :first-child {
-    height: 14px;
+    height: 20px;
   }
 
   img {
-    height: 26px;
+    height: 30px;
     cursor: pointer;
     transition: filter 100ms ease;
     filter: none;
@@ -285,6 +285,7 @@
   & div {
     display: flex;
     gap: 15px;
+    margin-bottom: 5px;
 
     div.icon {
       position: relative;

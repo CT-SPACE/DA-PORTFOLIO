@@ -1,7 +1,8 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, HostBinding, Input, Output, EventEmitter } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +22,9 @@ export class Menu {
 
   @HostBinding('attr.aria-hidden') get ariaHidden() {
     return String(!this.isOpen);
+
   }
+    @Output() toggleMenu = new EventEmitter<boolean>();
 
   activeId: string | null = null;
   private headerHeightFallback = 50;
@@ -39,22 +42,34 @@ export class Menu {
     } else {
       this.scrollToSection(sectionId);
     }
+     this.onClose();
   }
 
   /**
    * Scrolls smoothly to the specified section, accounting for header and menu height.
    * @param sectionId The ID of the section to scroll to.
    */
+  // private scrollToSection(sectionId: string): void {
+  //   const target = document.getElementById(sectionId);
+  //   if (!target) return;
+
+  //   const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
+  //   const menuH = this.isOpen ? this.readPxVar('--menu-h') ?? this.getMenuHeight() : 0;
+
+  //   const targetTop = window.scrollY + target.getBoundingClientRect().top;
+  //   const top = targetTop - (headerH + menuH);
+  //   window.scrollTo({ top, behavior: 'smooth' })
+  //   this.onClose();
+  // }
   private scrollToSection(sectionId: string): void {
-    const target = document.getElementById(sectionId);
+    this.activeId = sectionId;
+       if (!this.activeId) return;
+    const target = document.getElementById(this.activeId);
     if (!target) return;
-
-    const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-    const menuH = this.isOpen ? this.readPxVar('--menu-h') ?? this.getMenuHeight() : 0;
-
+    const headerH = 50;
     const targetTop = window.scrollY + target.getBoundingClientRect().top;
-    const top = targetTop - (headerH + menuH);
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top: targetTop - headerH, behavior: 'smooth' });
+   
   }
 
   /**
@@ -63,15 +78,16 @@ export class Menu {
   onClose(): void {
     if (!this.isOpen || this.isClosing) return;
     this.isClosing = true;
-
+this.toggleMenu.emit();
     const durationMs = this.getMenuTransitionMs();
     const finish = () => {
       this.isOpen = false;
       this.isClosing = false;
-      this.scrollAfterClose();
+      // this.scrollAfterClose();
     };
 
     durationMs > 0 ? setTimeout(finish, durationMs) : finish();
+     
   }
 
   /**
@@ -112,6 +128,7 @@ export class Menu {
     const targetTop = window.scrollY + target.getBoundingClientRect().top;
     window.scrollTo({ top: targetTop - headerH, behavior: 'smooth' });
   }
+  
 
   /**
    * Gets the menu transition duration in milliseconds.

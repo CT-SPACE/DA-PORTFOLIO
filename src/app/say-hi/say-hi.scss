@@ -1,3 +1,10 @@
+
+
+:host{
+  min-height: unset;
+  // background-color: var(--main-font-color)
+}
+
 .legal {
   font-size: 12px;
   text-decoration: none;
@@ -17,18 +24,27 @@
   flex-direction: column;
   align-items: center;
   & .diagonal {
+    // border-top:4px solid var(--main-bg-color);
     width: 104%;
     background: var(--main-font-color);
     height: 64px;
     clip-path: polygon(0 0%, 0% 0, 0% 100%, 100% 100%);
     position: relative;
-    bottom: -2px;
+
   }
   & .sayhi {
-    width: 100%;
+        width: 100%;
     background: var(--main-font-color);
+    position: relative;
     color: var(--main-bg-color);
+    border-bottom: 1px solid black;
     bottom: 0;
+    & h1 {
+      width:100%;
+      max-width:1400px;
+      margin: 0 auto;
+      box-sizing:border-box
+    }
     @media (max-width: 600px) {
       padding: 0 20px;
     }
@@ -39,6 +55,7 @@
       position: relative;
       color: var(--main-bg-color);
       text-align: left;
+
       padding: 0 50px;
       @media (max-width: 600px) {
         padding: 0 20px;
@@ -55,6 +72,7 @@
   max-width: 600px;
   box-sizing: border-box;
   display: flex;
+  padding:10px;
   flex-direction: column;
   align-items: center;
   margin: 2rem auto 3rem auto;

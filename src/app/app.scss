@@ -9,8 +9,10 @@ router-outlet {
 }
 
 app-footer {
-  position: absolute;
+  position: relative;
+  display:flex;
   z-index: 20;
   width: 100%;
+  border-top: 1px solid var(--main-font-color);
   background-color: var(--main-font-color);
 }

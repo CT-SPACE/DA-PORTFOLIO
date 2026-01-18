@@ -7,6 +7,8 @@
   padding: 0 50px;
   box-sizing: border-box;
 
+  
+
   @media (max-width: 600px) {
     gap: 50px;
     padding: 0 20px;
@@ -29,10 +31,19 @@
     width: clamp(320px, 30vw, 533px);
     border: 3px solid var(--main-font-color);
     opacity: 0;
+    text-align:right;
     transition:
       opacity 0.3s ease,
       scale 0.3s ease;
     border-radius: 5px;
+      > .liveLinkText{
+        font-size:0.7rem;
+        font-family:"Syne - Medium", 'Helvetica Neue', sans-serif;
+        line-height:0.6rem;
+        padding: 0px 18px;
+
+
+    }
     @media (max-width: 600px) {
       width: clamp(200px, 60vw, 300px);
     }
@@ -98,8 +109,8 @@
 
     > .imgContainer .imgOverlay {
       left: -18px !important;
-    }
-
+      text-align:left;
+  }
     > div:last-child {
       text-align: right;
     }
@@ -111,7 +122,12 @@
         scale: 1.05;
         opacity: 1;
         cursor: pointer;
+        .liveLinkText {
+          opacity: 1;
+          scale: 2.1;
 
+     transition: opacity 0.4s ease, scale 1.4s ease;
+        }
         .imgLink {
           transition-delay: 0.2s;
           rotate: 0deg;
@@ -131,11 +147,14 @@
         max-height: 200px;
         transform: translateX(0);
         opacity: 1;
+        :host{
+          gap:50px;
+        }
       }
 
       .buttonGithub {
         transition-delay: 0.5s;
-        height: 60px;
+        min-height: 60px;
         width: 100% !important;
         transform: translateX(0);
         padding: 10px;
@@ -266,7 +285,7 @@
       transform: translateX(560);
     }
     @media (max-width: 900px) {
-      font-size: 0.8rem;
+      font-size: 1rem;
       line-height: 1rem;
     }
   }
@@ -325,4 +344,24 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+@keyframes liveLinkFadeOut {
+  0% {
+    scale: 1;
+    opacity: 0;
+
+  }
+  20%{
+    scale: 1.2;
+    opacity: 1;
+  }
+  80% {
+    scale:3;
+    opacity: 0.8;
+  }
+  100% {
+     scale:3rem;
+      opacity: 0;
+    }
 }

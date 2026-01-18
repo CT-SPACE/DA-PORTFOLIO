@@ -1,48 +1,6 @@
 <h2 class="right skills" [innerHTML]="'my-skills.h2' | translate"></h2>
 <div class="skillsBorder">
-  <!-- <div
-    #skillsContainer
-    class="skillsContainer"
-    inView
-    [threshold]="inViewMobileSkills ? 0 : 0.2"
-    [rootMargin]="'10% 0px 10% -0%'"
-    (inViewChange)="setSectionVisible('skills', $event)"
-  >
-    <h4 [innerHTML]="'my-skills.h4_skills' | translate"></h4>
-    <div class="skillsGrid">
-      @for (skill of skills; track skill; let i = $index) {
-        @if (!inViewMobileSkills) {
-          <div
-            class="skillBox"
-            [style.animationDelay.ms]="i * 180"
-            [class.in-view]="visible.skills"
-          >
-            <img
-              [src]="'assets/img/icon_' + skill + '.svg'"
-              alt=""
-              [attr.title]="skill + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ skill }}</p>
-          </div>
-        } @else {
-          <div
-            class="individual"
-            [style.animationDelay.ms]="i * 180"
-            [class.in-view]="visible.skills"
-          >
-            <img
-              [src]="'assets/img/icon_' + skill + '.svg'"
-              alt=""
-              [attr.title]="skill + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ skill }}</p>
-          </div>
-        }
-      }
-    </div>
-  </div> -->
+
 <ng-template #skillsContent>
   <h4 [innerHTML]="'my-skills.h4_skills' | translate"></h4>
   <div class="skillsGrid">
@@ -119,48 +77,6 @@
   </div>
 }
 
-  <!-- <div
-    #knowledgesContainer
-    class="skillsContainer"
-    inView
-    [threshold]="0.2"
-    (inViewChange)="setSectionVisible('knowledges', $event)"
-  >
-    <h4 [innerHTML]="'my-skills.h4_knowledges' | translate"></h4>
-    <div class="skillsGrid">
-      @for (knowledge of knowledges; track knowledge; let i = $index) {
-        @if (!inViewMobileKnowledges) {
-          <div
-            class="skillBox"
-            [style.animationDelay.ms]="i * 180"
-            [class.in-view]="visible.knowledges"
-          >
-            <img
-              [src]="'assets/img/icon_' + knowledge + '.svg'"
-              alt=""
-              [attr.title]="knowledge + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ knowledge }}</p>
-          </div>
-        } @else {
-          <div
-            class="individual"
-            [style.animationDelay.ms]="i * 180"
-            [class.in-view]="visible.knowledges"
-          >
-            <img
-              [src]="'assets/img/icon_' + knowledge + '.svg'"
-              alt=""
-              [attr.title]="knowledge + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ knowledge }}</p>
-          </div>
-        }
-      }
-    </div>
-  </div> -->
   <ng-template #toolsContent>
   <h4 [innerHTML]="'my-skills.h4_tools' | translate"></h4>
   <div class="skillsGrid">
@@ -187,8 +103,8 @@
     #toolsContainer
     class="skillsContainer"
     inView
-    [threshold]="0.2"
-    [rootMargin]="'10% 0px 10% -0%'"
+    [threshold]="0.1"
+    [rootMargin]="'-10% 0px -10% -0%'"
     (inViewChange)="setSectionVisible('tools', $event)"
   >
     <ng-container *ngTemplateOutlet="toolsContent"></ng-container>
@@ -198,43 +114,5 @@
     <ng-container *ngTemplateOutlet="toolsContent"></ng-container>
   </div>
 }
-  <!-- <div
-    #toolsContainer
-    class="skillsContainer"
-    inView
-    [threshold]="inViewMobileTools ? 0 : 0.2"
-    [rootMargin]="'-0% 0px -10% -0%'"
-    (inViewChange)="setSectionVisible('tools', $event)"
-  >
-    <h4 [innerHTML]="'my-skills.h4_tools' | translate"></h4>
-    <div class="skillsGrid">
-      @for (tool of tools; track tool; let i = $index) {
-        @if (!inViewMobileTools) {
-          <div class="skillBox" [style.animationDelay.ms]="i * 180" [class.in-view]="visible.tools">
-            <img
-              [src]="'assets/img/icon_' + tool + '.svg'"
-              alt=""
-              [attr.title]="tool + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ tool }}</p>
-          </div>
-        } @else {
-          <div
-            class="individual"
-            [style.animationDelay.ms]="i * 180"
-            [class.in-view]="visible.tools"
-          >
-            <img
-              [src]="'assets/img/icon_' + tool + '.svg'"
-              alt=""
-              [attr.title]="tool + ' icon'"
-              class="skillIcon"
-            />
-            <p class="skillName">{{ tool }}</p>
-          </div>
-        }
-      }
-    </div>
-  </div> -->
+
 </div>

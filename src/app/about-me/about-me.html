@@ -1,36 +1,4 @@
-<!-- <h2>{{ 'about-me.h2' | translate }}</h2>
-<div class="aboutmeDiv">
-  <div
-    class="meTextWrap"
-    #aboutmeContainer 
-    inView
-    [threshold]="inViewMobile ? 0 : 0.2"
-    [rootMargin]="'-10% 0px -10%'"
-  >
-    <div class="meText">
-      <div class="meContainer" inView   [threshold]="inViewMobile ? 0 : 0.2"
-    [rootMargin]="'-10% 0px -10%'">
-        <div class="meBorder"></div>
-        <img src="assets/img/ich.png" class="me" alt="Christina Troitzsch" />
-      </div>
-      <p [innerHTML]="'about-me.p_1' | translate"></p>
-      <p [innerHTML]="'about-me.p_2' | translate"></p>
-      <p [innerHTML]="'about-me.p_3' | translate"></p>
 
-      <p>
-        <img src="assets/img/icon__Homebase.svg" class="iconAboutMe" alt="" />
-        <span [innerHTML]="'about-me.p_homebase' | translate"></span><br />
-        <img src="assets/img/icon__Work.svg" class="iconAboutMe" alt="" />
-        <span [innerHTML]="'about-me.p_workmode' | translate"></span><br />
-      </p>
-      <div class="buttonContainer">
-        <a href="#sayhiAnchor"
-          ><button class="standardButton light" type="button">Let's talk</button></a
-        >
-      </div>
-    </div>
-  </div> 
-</div>-->
 <h2>{{ 'about-me.h2' | translate }}</h2>
 <div class="aboutmeDiv">
 <ng-template #aboutMeContent>
@@ -62,7 +30,7 @@
     class="meTextWrapView"
     inView
     [threshold]="0.2"
-    [rootMargin]="'-10% 0px -10%'"
+    [rootMargin]="'-20% 0px -20%'"
   >
     <ng-container *ngTemplateOutlet="aboutMeContent" ></ng-container>
   </div>

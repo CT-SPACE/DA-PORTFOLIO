@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild } from '@angular/core';
+import { Component, signal, ViewChild , Output, EventEmitter} from '@angular/core';
 import { Menu } from '../header/menu/menu';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService, TranslatePipe } from '@ngx-translate/core';
@@ -7,6 +7,7 @@ import { TranslateModule, TranslateService, TranslatePipe } from '@ngx-translate
   selector: 'app-header',
   imports: [Menu, CommonModule, TranslateModule, TranslatePipe],
   templateUrl: './header.html',
+  standalone: true,
   styleUrl: './header.scss',
 })
 export class Header {
@@ -25,6 +26,7 @@ export class Header {
   currentSrc = signal(this.frames[0]);
   selected = signal<'de' | 'en'>('de');
   @ViewChild(Menu) menu!: Menu;
+  @Output() menuToggled = new EventEmitter<boolean>();
 
   /**
    * Selects the language and updates the translation service and local storage.
@@ -76,6 +78,7 @@ export class Header {
     }
 
     this.playBurgerSequence(forward);
+      this.menuToggled.emit(this.isOpen());
   }
 
   private playBurgerSequence(forward: boolean): void {

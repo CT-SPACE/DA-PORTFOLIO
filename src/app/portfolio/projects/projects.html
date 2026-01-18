@@ -13,6 +13,9 @@
             [class.left]="i % 2 === 1"
             alt=""
           />
+                <span class="liveLinkText" [class.left]="i % 2 === 1">
+            {{ 'portfolio.projects_liveLink' | translate }}
+                </span>
         </div>
         <img
           [src]="project.imgSrc"

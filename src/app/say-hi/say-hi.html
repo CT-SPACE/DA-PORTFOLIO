@@ -168,24 +168,7 @@
             </button>
           </form>
         }
-        <!-- @if (submitResultVisible) {
-          <div class="submit-result">
-            <img
-              src="assets/img/flieger.svg"
-              title="'say-hi.paperplane_alt' | translate"
-              [alt]="'say-hi.paperplane_alt' | translate"
-              class="paper-plane"
-            />
-            <h3 [innerHTML]="'say-hi.form_success' | translate"></h3>
-            <img
-              alt="zurück"
-              [alt]="'say_hi.button_back' | translate"
-              (click)="resetFormAndHideResult()"
-              class="goBack"
-              src="assets/img/go-back-arrows.svg"
-            />
-          </div>
-        } -->
+
 @if (submitResultVisible) {
   <div class="submit-result">
     @if (isSuccess) {

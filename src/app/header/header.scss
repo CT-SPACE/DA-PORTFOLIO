@@ -7,21 +7,30 @@
   right: 0;
   z-index: 100;
 }
-
-.header {
-  /* Shared header height variable for menu alignment */
-  --header-h: 50px;
+.widthHeader {
+    --header-h: 50px;
   height: var(--header-h);
   position: relative;
   background-color: var(--main-bg-color);
-  top: 0;
-  left: 0;
-  right: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+
   display: flex;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 100%;
+  position:absolute;
+    top: 0;
+  left: 0;
+  right: 0;
+    z-index: 100;
+}
+
+.header {
+  /* Shared header height variable for menu alignment */
+
+margin: 0 auto;
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;

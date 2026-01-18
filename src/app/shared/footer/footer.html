@@ -12,32 +12,35 @@
   </div>
 
   <div class="stayConnectedIcons">
+    
     @if (!hideGoTop) {
     <div class="goTop" (click)="scrollToTop()" title="" [title]="'footer.goTop' | translate">
       <img src="assets/img/toTop2.svg" class="toTopImg2" alt="" />
       <img src="assets/img/toTop1.svg" class="toTopImg1" alt="" />
     </div>
     }
-    <div class="icon">
-      <a target="_blank" rel="noopener" href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"
-        ><img src="assets/img/icon___Github.svg" alt="Porfolio on Github"
-      /></a>
-    </div>
-    <div class="icon">
-      <a (click)="copyEmail()"
-        ><img
-          src="assets/img/icon___Email.svg"
-          alt="Email-Icon"
-          [alt]="'footer.email_alt' | translate"
-      /></a>
-      <span class="copyStatus" [class.visible]="copied">{{
-        'footer.copySuccess' | translate
-      }}</span>
-    </div>
-    <div class="icon">
-      <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/christina-troitzsch-cv"
-        ><img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkeIn"
-      /></a>
+    <div class="footerIcons">
+      <div class="icon">
+        <a target="_blank" rel="noopener" href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"
+          ><img src="assets/img/icon___Github.svg" alt="Porfolio on Github"
+        /></a>
+      </div>
+      <div class="icon">
+        <a (click)="copyEmail()"
+          ><img
+            src="assets/img/icon___Email.svg"
+            alt="Email-Icon"
+            [alt]="'footer.email_alt' | translate"
+        /></a>
+        <span class="copyStatus" [class.visible]="copied">{{
+          'footer.copySuccess' | translate
+        }}</span>
+      </div>
+      <div class="icon">
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/christina-troitzsch-cv"
+          ><img src="assets/img/icon___Linkedin.svg" alt="Profil on LinkeIn"
+        /></a>
+      </div>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, AfterViewInit, OnDestroy, Inject, Renderer2 } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -12,11 +12,23 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./legal.scss', '../privacy-policy/privacy-policy.scss'],
 })
 
-export class LegalComponent {
+export class LegalComponent implements AfterViewInit, OnDestroy {
   isOpen: boolean = false;
 
-  constructor() {}
+constructor(
+    private renderer: Renderer2,
+     @Inject(DOCUMENT) private document: Document
+  ) {}
 
-  
+    /**
+   * Angular lifecycle hook called after the component's view has been fully initialized.
+   */
+  ngAfterViewInit(): void {
+ this.renderer.addClass(document.body, 'bodyNoScroll');
+  }
+
+    ngOnDestroy(): void {
+    this.renderer.removeClass(this.document.body, 'bodyNoScroll');
+  }
 
 }
