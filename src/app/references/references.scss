@@ -74,8 +74,11 @@ p.subtitle{
         width:45%;
         gap:15px;
     }
+        @media (max-width: 600px){
+        width: 65% !important;
+     }
         @media (max-width: 400px) {
-        width:80%;
+        width:80% !important;
         gap:20px;
     }
 }   

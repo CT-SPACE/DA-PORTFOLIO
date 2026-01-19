@@ -14,7 +14,8 @@
   pointer-events: none;
 }
 
-:host(.open), :host(.closing) {
+:host(.open),
+:host(.closing) {
   top: var(--header-h, 49px);
   z-index: 0;
   pointer-events: auto;
@@ -44,43 +45,94 @@
   align-items: center;
   font-family: 'Syne - Bold', 'Helvetica Neue', sans-serif !important;
   font-weight: 800;
-  gap: 40px;
-  font-size: 3rem;
+  gap: 30px;
+  font-size: clamp(2rem, 5vh, 3rem);
   justify-content: center;
   color: var(--main-font-color);
   padding-bottom: 100px;
   box-sizing: border-box;
+ 
+  @media (max-width:900px){
+     gap: 5px;
+    padding: 20px 0 130px 0;
+      font-size: clamp(1.4rem, 3vh, 2rem) !important;
+  }
 
   @media (max-width: 600px) {
-    gap: 5px;
+    gap: clamp(10px, 3vh, 20px);
     padding: 20px 0 130px 0;
-
-    > .sayhiContainer .sayhi h1 {
+     height: calc(100vh - 50px) !important;
+    >.sayhiContainer .sayhi h1 {
       font-size: 2.4rem !important;
     }
   }
 
   @media (max-width: 400px) {
-    height: clamp(350px, 50vw, 600px) !important;
+        height: calc(100vh - 50px) !important;
     gap: 5px;
     padding: 20px 0 130px 0;
     font-size: clamp(1.1rem, 3vh, 2rem) !important;
 
-    > .sayhiContainer .sayhi h1 {
+    >.sayhiContainer .sayhi h1 {
       font-size: 1.8rem !important;
     }
   }
 
-  @media (max-height: 950px) {
+
+   @media (max-height: 1000px) {
+    min-height:60vh;
     display: flex !important;
     gap: 0px !important;
-    font-size: clamp(1.1rem, 3vh, 2rem) !important;
+    // font-size: clamp(1.8rem, 3vh, 2rem) !important;
+
   }
 
-  @media (max-height: 550px) {
-    > .menuItem {
+  @media (max-height: 600px) {
+        height: calc(100vh - 50px) !important;
+        gap: clamp(2px, 1vh, 10px) !important;
+  padding: 10px 0 110px 0 !important;
+    // font-size: clamp(1.2rem, 3vh, 2rem) !important;
+
+    >.menuItem {
       height: 50px;
     }
+       >.sayhiContainer {
+              .diagonal{
+                height: 50px;
+              }
+              .stayConnected{
+                height:50px;
+              }
+
+              .sayhi h1 {
+      font-size: 1.6rem !important;
+            }
+          }
+  }
+ 
+
+  @media (max-height: 400px) {
+    font-size:1.1rem !important;
+       padding: 2px 0 110px 0 !important;
+            >.sayhiContainer {
+              .diagonal{
+                height: 50px;
+              }
+              .stayConnected{
+                height:50px;
+              }
+
+              .sayhi h1 {
+      font-size: 1.6rem !important;
+            }
+    }
+  }
+  @media (max-height:330px){
+      justify-content:center !important;
+       padding: 0px 0 90px 0 !important;
+      .mySkills, .about, .portfolio{
+                height:40px;
+              }
   }
 }
 
@@ -123,7 +175,7 @@
 
 .menuItem {
   box-sizing: border-box;
-
+  z-index:20;
   border: 2px solid transparent;
   cursor: pointer;
   transition: width 0.3s ease;
@@ -133,7 +185,7 @@
   &.active {
     cursor: default;
 
-    > span {
+    >span {
       border: 2px solid var(--main-font-color);
       padding: 6px 30px;
     }
@@ -151,7 +203,7 @@
       width: 0;
     }
 
-    > .angle {
+    >.angle {
       border: 2px solid transparent;
     }
   }
@@ -201,6 +253,7 @@
 
 .sayhiContainer {
   width: 100%;
+  background-color: var(--main-font-color);
   display: flex;
   position: absolute;
   bottom: 0;
@@ -208,17 +261,17 @@
   align-items: center;
 
   & .diagonal {
-    width: 104%;
-    background: var(--main-font-color);
-    height: 64px;
-    clip-path: polygon(0 0%, 0% 0, 0% 100%, 100% 100%);
+    width: 100%;
+    background: var(--main-bg-color);
+    height: 65px;
+    clip-path: polygon( -2% -2%,102% -2%, 102% 102%, -2% -2% );
+    border-top: 2px solid var(--main-bg-color);
     position: relative;
-    overflow: hidden;
-    bottom: -2px;
   }
 
   & .sayhi {
     width: 100%;
+    max-width: 1400px;
     background: var(--main-font-color);
     color: var(--main-bg-color);
 
@@ -277,8 +330,7 @@
     }
 
     &:hover {
-      filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%)
-        hue-rotate(133deg) contrast(81%);
+      filter: brightness(81%) saturate(100%) invert(47%) sepia(48%) saturate(2460%) hue-rotate(133deg) contrast(81%);
     }
   }
 

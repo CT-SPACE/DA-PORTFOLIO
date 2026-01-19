@@ -164,15 +164,6 @@
     }
   }
 
-  @media (max-width: 800px) {
-    &.mobile {
-      > div.imgContainer .imgOverlay {
-        top: -10px;
-        left: 10px;
-      }
-    }
-  }
-
   @media (max-width: 600px) {
     &.mobile {
       flex-direction: column;

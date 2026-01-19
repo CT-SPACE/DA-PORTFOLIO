@@ -3,6 +3,7 @@
 h2 {
   &.skills {
     
+    left: 20px;
      top: -8px !important;
     
 
@@ -12,6 +13,7 @@ h2 {
 
     @media (max-width: 400px) {
       top: -38px !important;
+      left:unset;
     }
   } 
   
