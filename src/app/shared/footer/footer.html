@@ -8,7 +8,7 @@
       class="logo toWhite"
     /><br />
     <span class="copyright">&copy;&nbsp;Christina&nbsp;Troitzsch&nbsp;2025</span><br />
-    <a [routerLink]="['/legal']" class="legal">{{ 'footer.legal' | translate }}</a>
+    <a [routerLink]="['/legal']" [skipLocationChange]="true" class="legal">{{ 'footer.legal' | translate }}</a>
   </div>
 
   <div class="stayConnectedIcons">
@@ -21,7 +21,7 @@
     }
     <div class="footerIcons">
       <div class="icon">
-        <a target="_blank" rel="noopener" href="https://github.com/CT-SPACE/DA-PORTFOLIO.git"
+        <a target="_blank" rel="noopener" href="https://github.com/CT-SPACE"
           ><img src="assets/img/icon___Github.svg" alt="Porfolio on Github"
         /></a>
       </div>

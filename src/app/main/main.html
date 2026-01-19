@@ -6,7 +6,8 @@
       src="assets/img/sayhiEmail_ver.svg"
       alt=""
       [alt]="'main.vertEmail_alt' | translate"
-      class="vertEmail"
+      class="vertEmail" 
+      (click)="scrollToBottom()"
     />
     <div class="scrollDown" (click)="scrollToBottom()">
       <div class="scrollDownArrow">
@@ -95,7 +96,7 @@
   </div>
 
   <app-portfolio id="portfolioSection" class="app-section"></app-portfolio>
-  <app-references id="referencesSection" class="app-section"></app-references>
+  <!-- <app-references id="referencesSection" class="app-section"></app-references> -->
   <div class="spacer right">
     <a href="#sayHiSection" title="Sag Hallo">
       <img

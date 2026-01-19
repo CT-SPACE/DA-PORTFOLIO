@@ -147,9 +147,6 @@
         max-height: 200px;
         transform: translateX(0);
         opacity: 1;
-        :host{
-          gap:50px;
-        }
       }
 
       .buttonGithub {
@@ -250,7 +247,7 @@
     }
 
     @media (max-width: 800px) {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-size: clamp(1.2rem, 4vw, 2.4rem);
     }
   }
 

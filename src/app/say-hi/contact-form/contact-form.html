@@ -56,7 +56,7 @@
     <div class="checkboxImg" aria-hidden="true" title="Privacy Acceptance"></div>
     <span
       >Ich habe die
-      <a [routerLink]="['/privacy']" (click)="$event.stopPropagation()" class="privacyLink">
+      <a [routerLink]="['/privacy']" [skipLocationChange]="true" (click)="$event.stopPropagation()" class="privacyLink">
         Datenschutzerklärung</a
       >
       gelesen und bestätige.</span

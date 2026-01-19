@@ -83,7 +83,7 @@
     min-height:60vh;
     display: flex !important;
     gap: 0px !important;
-    // font-size: clamp(1.8rem, 3vh, 2rem) !important;
+
 
   }
 
@@ -91,7 +91,6 @@
         height: calc(100vh - 50px) !important;
         gap: clamp(2px, 1vh, 10px) !important;
   padding: 10px 0 110px 0 !important;
-    // font-size: clamp(1.2rem, 3vh, 2rem) !important;
 
     >.menuItem {
       height: 50px;
@@ -101,7 +100,7 @@
                 height: 50px;
               }
               .stayConnected{
-                height:50px;
+               padding: 0px 50px !important;
               }
 
               .sayhi h1 {
@@ -119,7 +118,7 @@
                 height: 50px;
               }
               .stayConnected{
-                height:50px;
+              padding: 0px 50px !important;
               }
 
               .sayhi h1 {
@@ -267,6 +266,9 @@
     clip-path: polygon( -2% -2%,102% -2%, 102% 102%, -2% -2% );
     border-top: 2px solid var(--main-bg-color);
     position: relative;
+        @media (min-width: 1400px){
+      height: clamp(65px, 4.4vw, 100px)
+    }
   }
 
   & .sayhi {

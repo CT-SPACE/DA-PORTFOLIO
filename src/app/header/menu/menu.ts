@@ -27,7 +27,7 @@ export class Menu {
     @Output() toggleMenu = new EventEmitter<boolean>();
 
   activeId: string | null = null;
-  private headerHeightFallback = 50;
+  // private headerHeightFallback = 50;
 
   /**
    * Toggles the menu item and scrolls to the given section. If on a legal/privacy page, navigates home first.
@@ -37,30 +37,15 @@ export class Menu {
     this.activeId = sectionId;
     const currentUrl = this.router.url;
     if (currentUrl === '/legal' || currentUrl === '/privacy') {
-      await this.router.navigate(['/']);
+      await this.router.navigate(['/'],  { fragment: sectionId });
       setTimeout(() => this.scrollToSection(sectionId), 100);
     } else {
+       this.router.navigate([], { fragment: sectionId });
       this.scrollToSection(sectionId);
     }
      this.onClose();
   }
 
-  /**
-   * Scrolls smoothly to the specified section, accounting for header and menu height.
-   * @param sectionId The ID of the section to scroll to.
-   */
-  // private scrollToSection(sectionId: string): void {
-  //   const target = document.getElementById(sectionId);
-  //   if (!target) return;
-
-  //   const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-  //   const menuH = this.isOpen ? this.readPxVar('--menu-h') ?? this.getMenuHeight() : 0;
-
-  //   const targetTop = window.scrollY + target.getBoundingClientRect().top;
-  //   const top = targetTop - (headerH + menuH);
-  //   window.scrollTo({ top, behavior: 'smooth' })
-  //   this.onClose();
-  // }
   private scrollToSection(sectionId: string): void {
     this.activeId = sectionId;
        if (!this.activeId) return;
@@ -78,57 +63,18 @@ export class Menu {
   onClose(): void {
     if (!this.isOpen || this.isClosing) return;
     this.isClosing = true;
+    this.activeId = null; 
 this.toggleMenu.emit();
     const durationMs = this.getMenuTransitionMs();
     const finish = () => {
       this.isOpen = false;
       this.isClosing = false;
-      // this.scrollAfterClose();
     };
 
     durationMs > 0 ? setTimeout(finish, durationMs) : finish();
      
   }
 
-  /**
-   * Reads a CSS variable in px and returns its numeric value.
-   * @param name The CSS variable name.
-   * @returns The numeric value in pixels, or null if not set.
-   */
-  private readPxVar(name: string): number | null {
-    const val = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-    if (!val) return null;
-    const px = parseFloat(val.replace('px', ''));
-    return Number.isFinite(px) ? px : null;
-  }
-
-  /**
-   * Gets the height of the header element.
-   * @returns The header height in pixels.
-   */
-  private getHeaderHeight(): number {
-    const header = document.querySelector('app-header') as HTMLElement | null;
-    return header?.offsetHeight ?? this.headerHeightFallback;
-  }
-
-  /**
-   * Gets the height of the menu panel element.
-   * @returns The menu panel height in pixels.
-   */
-  private getMenuHeight(): number {
-    const panel = document.querySelector('app-menu .menuPanel') as HTMLElement | null;
-    return panel?.offsetHeight ?? 0;
-  }
-
-  private scrollAfterClose(): void {
-    if (!this.activeId) return;
-    const target = document.getElementById(this.activeId);
-    if (!target) return;
-    const headerH = this.readPxVar('--header-h') ?? this.getHeaderHeight();
-    const targetTop = window.scrollY + target.getBoundingClientRect().top;
-    window.scrollTo({ top: targetTop - headerH, behavior: 'smooth' });
-  }
-  
 
   /**
    * Gets the menu transition duration in milliseconds.
@@ -161,6 +107,7 @@ this.toggleMenu.emit();
       delays: toMs(style.transitionDelay || '0s'),
     };
   }
+
 
   /**
    * Copies the email address to the clipboard and shows a copied notification.

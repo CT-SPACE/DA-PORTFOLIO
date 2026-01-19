@@ -144,9 +144,9 @@ div.aboutmeDiv {
      order:0;
       margin: 0 0 20px 0;
       align-self: center;
-      height: clamp(200px, 10vw, 280px);
+      height: clamp(200px, 80vw, 280px);
       .meBorder {
-        height: clamp(200px, 10vw, 280px);
+        height: clamp(200px, 80vw, 280px);
       }
     }
 
@@ -157,16 +157,16 @@ div.aboutmeDiv {
     }
   }
 
-  @media (max-width: 400px) {
+  @media (max-width: 300px) {
     .meContainer {
-      > img.me {
+      // > img.me {
 
-        height: 90%;
+        height: 80vw;
         object-fit: unset;
-      }
+      // }
 
       .meBorder {
-        height: 90%;
+        height: 80vw;
       }
     }
   }

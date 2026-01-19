@@ -135,6 +135,7 @@
                 >{{ 'say-hi.form_dsgvo_first' | translate }}
                 <a
                   [routerLink]="['/privacy']"
+                   [skipLocationChange]="true"
                   (click)="$event.stopPropagation()"
                   class="privacyLink"
                   >{{ 'say-hi.form_dsgvo_link' | translate }}</a
