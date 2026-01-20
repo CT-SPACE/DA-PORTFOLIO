@@ -49,7 +49,7 @@ export class Projects {
       description: 'portfolio.description_pokedex',
       imgSrc: 'assets/img/project_pokedex.png',
       tools: ['JavaScript', 'HTML', 'CSS', 'API'],
-      gitLink: '',
+      gitLink: 'https://github.com/CT-SPACE/POKEDEX.git',
       slug: 'pokedex',
       liveLink: 'https://troitzsch.de/DA/POKEDEX/',
     },
