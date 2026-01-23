@@ -165,7 +165,7 @@ h2 {
   }
 
   @media (max-width: 400px) {
-    font-size: 1.2rem !important;
+    font-size: clamp(1.2rem, 8vw, 1.8rem) !important;
     margin: 1rem auto;
     left: 0;
   }
