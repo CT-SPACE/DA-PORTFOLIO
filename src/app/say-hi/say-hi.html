@@ -30,13 +30,15 @@
               @if (name.valid && name.touched && !name.disabled) {
                 <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
               }
+                            <div class="height20">
               @if (!name.valid && name.touched && !name.disabled) {
                 <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg" />
-                <span
+                <div
                   class="alertMessage missing"
                   [innerHTML]="'say-hi.form_error_name' | translate"
-                ></span>
+                ></div>
               }
+              </div>
             </div>
 
             <div class="field">
@@ -68,6 +70,7 @@
               ) {
                 <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
               }
+              <div class="height20">
               @if (
                 (!email.valid || !validateEmail(contactData.email)) &&
                 email.touched &&
@@ -79,10 +82,12 @@
                   [innerHTML]="'say-hi.form_error_email' | translate"
                 ></span>
               }
+              </div>
             </div>
 
             <div class="field">
               <textarea
+                (input)="autoResize($event)" 
                 #message="ngModel"
                 id="message"
                 name="message"
@@ -103,20 +108,23 @@
                 title="message"
                 [innerHTML]="'say-hi.form_message' | translate"
               ></label>
+              <span class="resizer-icon"></span>
               @if (validateMessage(contactData.message) && message.touched && !message.disabled) {
                 <img alt="alert" class="alertIcon okay" src="assets/img/okay_2.svg" />
               }
+              <div class="height20">
               @if (!validateMessage(contactData.message) && message.touched && !message.disabled) {
                 <img alt="alert" class="alertIcon missing" src="assets/img/missing_2.svg" />
-                <span
+                <div
                   class="alertMessage missing"
                   [innerHTML]="'say-hi.form_error_message' | translate"
-                ></span>
+                ></div>
               }
+              </div>
             </div>
 
             <div
-              class="privacy"
+              class="privacy flex-col"
               role="checkbox"
               tabindex="0"
               [class.checked]="privacyAccepted"
@@ -124,37 +132,40 @@
               (click)="onTogglePrivacyAcceptance()"
               aria-label="Datenschutzerklärung akzeptieren"
               title="Datenschutzerklärung akzeptieren"
-            >
+            > <div class="flex-row">
               <div
                 class="checkboxImg"
                 [class.hint]="showPrivacyHint && !privacyAccepted"
                 aria-hidden="true"
                 title="Privacy Acceptance"
               ></div>
-              <span
-                >{{ 'say-hi.form_dsgvo_first' | translate }}
-                <a
-                  [routerLink]="['/privacy']"
-                   [skipLocationChange]="true"
-                  (click)="$event.stopPropagation()"
-                  class="privacyLink"
-                  >{{ 'say-hi.form_dsgvo_link' | translate }}</a
+                <span
+                  >{{ 'say-hi.form_dsgvo_first' | translate }}
+                  <a
+                    [routerLink]="['/privacy']"
+                    [skipLocationChange]="false "
+                    (click)="$event.stopPropagation()"
+                    class="privacyLink"
+                    >{{ 'say-hi.form_dsgvo_link' | translate }}</a
+                  >
+                  {{ 'say-hi.form_dsgvo_last' | translate }}</span
                 >
-                {{ 'say-hi.form_dsgvo_last' | translate }}</span
-              >
+              </div>
+               <div class="height20">
+              @if (showPrivacyHint && !privacyAccepted) {
+                <div
+                  class="alertMessage missing privacyHint"
+                  [innerHTML]="'say-hi.form_error_dsgvo' | translate"
+                ></div>
+              }
+              </div>
             </div>
-            @if (showPrivacyHint && !privacyAccepted) {
-              <div
-                class="alertMessage missing privacyHint"
-                [innerHTML]="'say-hi.form_error_dsgvo' | translate"
-              ></div>
-            }
             <div
               class="showPrivacyHint"
-               [class.hideElement]="privacyAccepted && contactForm?.valid"
-              
+              [class.hideElement]="privacyAccepted && contactForm?.valid"
               (click)="onTrySubmit(contactForm, $event)"
             ></div>
+
             <button
               class="standardButton dark"
               [disabled]="
@@ -170,22 +181,22 @@
           </form>
         }
 
-@if (submitResultVisible) {
-  <div class="submit-result">
-    @if (isSuccess) {
-      <span [innerHTML]="'say-hi.form_sucess' | translate"></span>
-    } @else {
-      <span [innerHTML]="'say-hi.form_error' | translate"></span>
-    }
-      <img
+        @if (submitResultVisible) {
+          <div class="submit-result">
+            @if (isSuccess) {
+              <span [innerHTML]="'say-hi.form_success' | translate"></span>
+            } @else {
+              <span [innerHTML]="'say-hi.form_error' | translate"></span>
+            }
+            <img
               alt="zurück"
               [alt]="'say_hi.button_back' | translate"
               (click)="resetFormAndHideResult()"
               class="goBack"
               src="assets/img/go-back-arrows.svg"
             />
-  </div>
-}
+          </div>
+        }
       </div>
     </div>
     <div class="legal-container" [class.open]="privacyOpened" [ngStyle]="{}"></div>

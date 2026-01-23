@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'app-say-hi',
   imports: [TranslateModule, CommonModule, FormsModule, RouterModule, RouterLink],
@@ -17,12 +16,14 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrls: ['./say-hi.scss'],
 })
 export class SayHi implements OnInit {
-
   privacyAccepted: boolean = false;
   privacyOpened: boolean = false;
   activeId: string | null = null;
   @ViewChild('formContainerRef') formContainerRef!: ElementRef<HTMLButtonElement>;
   @ViewChild('contactForm') contactForm!: NgForm;
+  @ViewChild('textarea') textarea!: ElementRef<HTMLTextAreaElement>;
+  @ViewChild('resizer') resizer!: ElementRef<HTMLSpanElement>;
+
   showPrivacyHint: boolean = false;
   emailValid: boolean = false;
   nameValid: boolean = false;
@@ -83,11 +84,15 @@ export class SayHi implements OnInit {
    * @param event The submit event.
    */
   onTrySubmit(form: NgForm | null, event: Event) {
-      event.preventDefault();
+    event.preventDefault();
     const ngForm = form ?? this.contactForm;
     if (!ngForm) return;
     ngForm.control.markAllAsTouched();
-    this.showPrivacyHint = !this.validateName(this.contactData.name) || !this.validateEmail(this.contactData.email) || !this.validateMessage(this.contactData.message) || !this.privacyAccepted;
+    this.showPrivacyHint =
+      !this.validateName(this.contactData.name) ||
+      !this.validateEmail(this.contactData.email) ||
+      !this.validateMessage(this.contactData.message) ||
+      !this.privacyAccepted;
   }
 
   /**
@@ -95,47 +100,47 @@ export class SayHi implements OnInit {
    * @param ngForm The Angular form object.
    * @param event The submit event.
    */
-onSubmit(ngForm: NgForm, event: Event): void {
-  event.preventDefault();
+  onSubmit(ngForm: NgForm, event: Event): void {
+    event.preventDefault();
 
-  if (!this.canSubmit(ngForm)) {
-    this.showSubmitResult(false); // Fehlerfall
-    this.showPrivacyHint = !this.privacyAccepted;
-    return;
+    if (!this.canSubmit(ngForm)) {
+      this.showSubmitResult(false); // Fehlerfall
+      this.showPrivacyHint = !this.privacyAccepted;
+      return;
+    }
+
+    this.showSubmitResult(true); // Erfolgsfall (wird ggf. von sendMail überschrieben)
+    if (this.mailTest) {
+      ngForm.resetForm();
+      return;
+    }
+
+    this.sendMail(ngForm);
   }
 
-  this.showSubmitResult(true); // Erfolgsfall (wird ggf. von sendMail überschrieben)
-  if (this.mailTest) {
-    ngForm.resetForm();
-    return;
+  /**
+   * Helper methode for onSubmit() to verifying if the email was sent or not.
+   * @param ngForm
+   */
+  private sendMail(ngForm: NgForm): void {
+    this.http
+      .post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
+      .subscribe({
+        next: () => {
+          this.showSubmitResult(true); // Erfolg
+          ngForm.resetForm();
+        },
+        error: () => {
+          this.showSubmitResult(false); // Fehler
+        },
+      });
   }
 
-  this.sendMail(ngForm);
-}
-
-/**
- * Helper methode for onSubmit() to verifying if the email was sent or not.
- * @param ngForm 
- */
-private sendMail(ngForm: NgForm): void {
-  this.http
-    .post(this.post.endPoint, this.post.body(this.contactData), this.post.options)
-    .subscribe({
-      next: () => {
-        this.showSubmitResult(true); // Erfolg
-        ngForm.resetForm();
-      },
-      error: () => {
-        this.showSubmitResult(false); // Fehler
-      },
-    });
-}
-
-/**
- * Validates if the form can be submitted.
- * @param ngForm 
- * @returns 
- */
+  /**
+   * Validates if the form can be submitted.
+   * @param ngForm
+   * @returns
+   */
   private canSubmit(ngForm: NgForm): boolean {
     if (!ngForm.valid || !ngForm.submitted) {
       ngForm.control.markAllAsTouched();
@@ -147,10 +152,10 @@ private sendMail(ngForm: NgForm): void {
   /**
    * Displays the submit result and logs the contact data.
    */
-showSubmitResult(isSuccess: boolean): void {
-  this.isSuccess = isSuccess;
-  this.submitResultVisible = true;
-}
+  showSubmitResult(isSuccess: boolean): void {
+    this.isSuccess = isSuccess;
+    this.submitResultVisible = true;
+  }
   /**
    * Toggles the privacy acceptance state.
    */
@@ -184,6 +189,15 @@ showSubmitResult(isSuccess: boolean): void {
     return this.messageValid;
   }
 
+  /**
+   * Resizes the textarea on mobile devices by typing
+   * @param event 
+   */
+  autoResize(event: Event) {
+    const el = event.target as HTMLTextAreaElement;
+    el.style.height = 'auto';
+    el.style.height = el.scrollHeight + 'px';
+  }
   /**
    * Resets the form and hides the submit result, also clears privacy acceptance and contact data.
    */

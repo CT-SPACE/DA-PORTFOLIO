@@ -60,11 +60,26 @@
 
   @media (max-width: 600px) {
     padding: 0 20px;
+    justify-content: space-between;;
   }
 
   @media (max-width: 400px) {
     flex-direction: column;
+    justify-content: flex-start;
     gap: 10px;
+  }
+  @media (max-height:600px) {
+    margin:1rem auto;
+  }
+  @media (max-height:600px) and (min-width:600px){
+    margin:unset;
+    align-items:center;
+    >div{
+      align-items:center;
+      display:flex !important;
+      gap: 10px;
+    }
+
   }
 
   .stayConnectedIcons {
@@ -87,7 +102,7 @@
         img {
           width: 26px;
 
-          @media (max-width: 600px) {
+          @media (max-width: 600px) or ((max-height:600px) and (min-width:600px)) {
             width: 40px;
           }
 

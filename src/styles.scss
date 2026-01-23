@@ -53,7 +53,7 @@ app-root {
 }
 
 app-privacy-policy,
-app-legal-notice {
+app-legal {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -63,6 +63,9 @@ app-legal-notice {
 
   @media (max-width: 400px) {
     height: calc(100vh - 196px);
+  }
+  @media (max-height:600px){
+    height: calc(100vh - 90px);
   }
 }
 
@@ -391,10 +394,20 @@ button.standardButton {
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 950px) {
 
   .privacy-reveal,
   .legal-reveal {
     height: 100%;
   }
 }
+@media (max-height:600px) and (min-width:600px){
+  .privacy-reveal,
+  .legal-reveal {
+    height: 100%;
+    // .legalContent{
+    //   max-height: calc(100% - 30px);
+    //     top: -10px !important;
+    // }
+  }
+} 

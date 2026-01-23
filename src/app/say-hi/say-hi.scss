@@ -1,8 +1,6 @@
-
-
-:host{
+:host {
   min-height: unset;
-  // background-color: var(--main-font-color)
+  background-color: var(--main-font-color)
 }
 
 .legal {
@@ -10,63 +8,12 @@
   text-decoration: none;
   color: var(--accent-font-color) !important;
   cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
 }
 
-// .sayhiContainer {
-//   width: 100%;
-//   overflow: hidden;
-//   display: flex;
-//   position: relative;
-
-//   flex-direction: column;
-//   align-items: center;
-//   & .diagonal {
-//     width: 104%;
-//     background: var(--main-font-color);
-//     height: 64px;
-//     clip-path: polygon(0 0%, 0% 0, 0% 100%, 100% 100%);
-//     position: relative;
-//     bottom:-1px;
-
-//   }
-//   & .sayhi {
-//         width: 100%;
-//     background: var(--main-font-color);
-//     position: relative;
-//     color: var(--main-bg-color);
-//     border-bottom: 1px solid black;
-//     bottom: 0;
-//     & h1 {
-//       width:100%;
-//       max-width:1400px;
-//       margin: 0 auto;
-//       box-sizing:border-box
-//     }
-//     @media (max-width: 600px) {
-//       padding: 0 20px;
-//     }
-
-//     & h1 {
-//       font-size: 3rem !important;
-//       font-weight: 600 !important;
-//       position: relative;
-//       color: var(--main-bg-color);
-//       text-align: left;
-
-//       padding: 0 50px;
-//       @media (max-width: 600px) {
-//         padding: 0 20px;
-//         font-size: 1.8rem !important;
-//       }
-//       &:hover {
-//         color: var(--accent-font-color);
-//       }
-//     }
-//   }
-// }
 
 
 .sayhiContainer {
@@ -82,11 +29,11 @@
     width: 100%;
     background: var(--main-bg-color);
     height: 65px;
-    clip-path: polygon( -2% -2%,102% -2%, 102% 102%, -2% -2% );
+    clip-path: polygon(-2% -2%, 102% -2%, 102% 102%, -2% -2%);
     border-top: 2px solid var(--main-bg-color);
     position: relative;
 
-    @media (min-width: 1400px){
+    @media (min-width: 1400px) {
       height: clamp(65px, 4.4vw, 100px)
     }
   }
@@ -118,12 +65,13 @@
     }
   }
 }
+
 .contactForm {
   width: 100%;
   max-width: 600px;
   box-sizing: border-box;
   display: flex;
-  padding:10px;
+  padding: 10px;
   flex-direction: column;
   align-items: center;
   margin: 2rem auto 3rem auto;
@@ -135,6 +83,7 @@
     margin-bottom: 1rem;
     padding: 0 10px;
   }
+
   p.normalCTA {
     font-family: 'Overpass', 'Helvetica Neue', sans-serif !important;
     font-size: 1rem;
@@ -143,6 +92,7 @@
     padding: 0 10px;
   }
 }
+
 .formContainer {
   width: 100%;
   max-width: 100%;
@@ -157,12 +107,20 @@ form {
   flex-direction: column;
   position: relative;
   align-items: center;
+
+  * {
+    box-sizing: border-box;
+    // border:1px solid greenyellow;
+
+  }
 }
+
 .floating-form {
   background: var(--main-font-color);
   color: var(--main-bg-color);
   padding: 24px;
   border-radius: 8px;
+
   @media (max-width: 400px) {
     padding: 8px;
   }
@@ -172,7 +130,7 @@ form {
 .floating-form .field {
   width: 100%;
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 /* Inputs/Textarea: nur unten Weiß, bei Fokus kompletter weißer Rahmen */
@@ -186,7 +144,7 @@ textarea {
   border-bottom-color: var(--main-bg-color);
   border-radius: 3px;
   line-height: 1.5rem;
-  padding: 14px 14px 10px;
+  padding: 14px 54px 10px 14px;
   transition:
     border-color 160ms ease,
     box-shadow 160ms ease;
@@ -194,6 +152,7 @@ textarea {
   scrollbar-width: none;
   /* Optional: Für IE/Edge Legacy */
   -ms-overflow-style: none;
+
   /* Für Chrome, Edge, Safari */
   &::-webkit-scrollbar {
     display: none;
@@ -224,10 +183,12 @@ textarea:-webkit-autofill:focus {
   &::-webkit-scrollbar {
     width: 8px; // Für Chrome, Edge, Safari
   }
+
   &::-webkit-scrollbar-thumb {
     background: #bdbdbd;
     border-radius: 4px;
   }
+
   &::-webkit-scrollbar-track {
     background: #f5f5f5;
     border-radius: 4px;
@@ -237,6 +198,7 @@ textarea:-webkit-autofill:focus {
 textarea:focus,
 textarea:focus-visible,
 textarea:hover {
+
   /* Für Chrome, Edge, Safari */
   &::-webkit-scrollbar {
     display: unset;
@@ -254,10 +216,12 @@ textarea:hover {
     width: 8px; // Für Chrome, Edge, Safari
     background: var(--main-font-color);
   }
+
   &::-webkit-scrollbar-thumb {
     background: #464444;
     border-radius: 4px;
   }
+
   &::-webkit-scrollbar-track {
     background: #514c4c;
     border-radius: 4px;
@@ -266,11 +230,38 @@ textarea:hover {
 
 textarea::-webkit-resizer {
   border-color: transparent;
-  background:
-    url('data:image/svg+xml;utf8,<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><line x1="4" y1="12" x2="12" y2="4" stroke="white" stroke-width="2"/><line x1="8" y1="16" x2="16" y2="8" stroke="white" stroke-width="2"/></svg>')
-      center/10px no-repeat,
-    var(--main-font-color);
+
+  @media(max-width:800px) {
+    background: none;
+  }
 }
+
+.field {
+  position: relative;
+
+  .resizer-icon {
+    position: absolute;
+    right: 2px;
+    bottom: 26px;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    background: url('data:image/svg+xml;utf8,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg"><line x1="8" y1="20" x2="20" y2="8" stroke="white" stroke-width="2"/><line x1="14" y1="24" x2="24" y2="14" stroke="white" stroke-width="2"/></svg>') center/contain no-repeat;
+    opacity: 0.7;
+    z-index: 2;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+}
+
+textarea {
+  position: relative;
+  cursor: ns-resize;
+  resize: none;
+}
+
 
 .floating-form textarea {
   min-height: 120px;
@@ -286,82 +277,102 @@ textarea::-webkit-resizer {
   font-size: 1rem;
 }
 
-/* Label als „Placeholder“: initial links im Feld */
-.floating-form .field > label {
-  position: absolute;
-  left: 12px;
-  bottom: 0;
-  background-color: var(--main-font-color);
-  transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.88rem;
+.floating-form .field {
+  label {
+    position: absolute;
+    left: 12px;
+    top: 30px;
+    background-color: var(--main-font-color);
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.88rem;
 
-  padding: 0 4px;
-  transition:
-    top 160ms ease,
-    transform 160ms ease,
-    font-size 160ms ease,
-    color 160ms ease,
-    background-color 160ms ease;
+    padding: 0 4px;
+    transition:
+      top 160ms ease,
+      transform 160ms ease,
+      font-size 160ms ease,
+      color 160ms ease,
+      background-color 160ms ease;
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.height20 {
+  height: 20px;
 }
 
 .alertMessage {
   display: block;
   color: indianred;
   font-size: 14px;
-  bottom: -16px;
-  margin-top: 4px;
-  margin-left: 12px;
+  margin: 2px 16px;
   background: none;
-  position: absolute;
+  position: relative;
   z-index: 1;
 }
 
 .privacyHint {
-  position: absolute;
+  position: relative;
   align-self: start;
   height: 16px;
-  bottom: 114px;
+  top: 0;
 }
+
 .alertIcon {
-  width: 12px;
+  width: 20px;
   border: 1px solid;
-  padding: 2px;
+  padding: 4px;
   border-radius: 50%;
   margin-right: 8px;
-  height: 12px;
+  height: 20px;
   opacity: 0.8;
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 26px;
   transform: translateY(-50%);
   z-index: 2;
+
   &.missing {
     border-color: indianred;
   }
+
   &.okay {
     border-color: var(--accent-font-color);
   }
 }
 
 /* Bei Fokus oder wenn Inhalt vorhanden: Label auf den oberen Rand setzen */
-.floating-form input:focus + label,
-.floating-form input:not(:placeholder-shown) + label,
-.floating-form textarea:focus + label,
-.floating-form textarea:not(:placeholder-shown) + label {
+.floating-form input:focus+label,
+.floating-form input:not(:placeholder-shown)+label,
+.floating-form textarea:focus+label,
+.floating-form textarea:not(:placeholder-shown)+label {
   top: 4px;
   height: fit-content;
-  transform: translateY(-100%); /* genau über die obere Border */
-  font-size: 14px;
+  transform: translateY(-100%);
+  font-size: 12px;
   background: var(--main-font-color);
   color: var(--main-bg-color);
 }
 
 button.standardButton:disabled {
-  cursor:default;
+  cursor: default;
   pointer-events: none;
   opacity: 0.6;
 }
+
 button.standardButton {
   position: relative;
 }
@@ -371,9 +382,9 @@ button.standardButton {
   height: 40px;
   position: relative;
 
-    -webkit-user-select: none;
-        user-select: none;
-  top: 42px;
+  -webkit-user-select: none;
+  user-select: none;
+  top: 38px;
   z-index: 10;
 }
 
@@ -386,18 +397,20 @@ button.standardButton {
   color: var(--main-bg-color);
   margin: 0 0 2rem 0;
   display: flex;
-  align-items: center;
+  justify-content: flex-start;
   text-align: left;
-  gap: 8px;
+  height: 40px;
 
   a {
     text-decoration: none;
     color: var(--accent-font-color);
     cursor: pointer;
+
     &:hover {
       text-decoration: underline;
     }
   }
+
   .checkboxImg {
     width: 20px;
     height: 20px;
@@ -416,8 +429,9 @@ button.standardButton {
   &:not(.checked):focus-visible .checkboxImg {
     background-position: -36px -9px;
   }
+
   &.checked .checkboxImg {
-    background-position: -59px -9px; /* checked-Frame (Sprite-Frame anpassen) */
+    background-position: -59px -9px;
   }
 
   &.checked:hover .checkboxImg,

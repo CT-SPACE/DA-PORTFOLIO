@@ -35,6 +35,7 @@
 }
 
 .privacy-reveal {
+  width:100%;
   position: relative;
 }
 
@@ -46,7 +47,8 @@
 
 #privacy,
 #legalContent {
-  width: clamp(200px, 80%, 600px);
+  // width: clamp(200px, 80%, 600px);
+  max-width:600px;
   margin: 140px auto 30px auto;
   font-size: 14px;
   padding: clamp(20px, 8%, 50px);
@@ -84,12 +86,24 @@
       top: 20px;
     }
   }
-    @media (max-height:800px) {
+
+  @media (max-width: 400px) {
+    margin: 10px auto 20px auto;
+    top:0px;
+  }
+    @media (max-height:950px) and (min-width:400px) {
     max-height: calc(100% - 100px) !important;
     top: -30px !important;
   }
+  @media (max-height:600px) and (min-width:600px){
 
-}
+      max-height: calc(100% - 30px) !important;
+        top: -10px !important;
+    }
+  
+} 
+
+
 
 .privacyBTN {
   margin: 40px auto -10px auto;
