@@ -6,7 +6,6 @@ import { MySkills } from '../my-skills/my-skills';
 import { Portfolio } from '../portfolio/portfolio';
 import { SayHi } from '../say-hi/say-hi';
 import { TranslateModule } from '@ngx-translate/core';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -15,18 +14,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './main.scss',
 })
 export class Main {
-  constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe((data) => {
-      if (data['scrollToSayHi']) {
-        setTimeout(() => {
-          document.getElementById('sayhiAnchor')?.scrollIntoView({ behavior: 'auto' });
-        }, 100);
-      }
-    });
-  }
+
 
   protected readonly title = signal('DA-PORTFOLIO');
-
 
    /**
    * Starts the hover animation for the arrow image by cycling through frames.
@@ -90,11 +80,4 @@ stopArrowHover(target: EventTarget | null): void {
   img.src = img.dataset['frame1'] || 'assets/img/spacer-arrow_1.svg';
 }
 
-
-  /**
-   * Scrolls the window smoothly to the bottom of the page.
-   */
-  scrollToBottom() {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-  }
 }

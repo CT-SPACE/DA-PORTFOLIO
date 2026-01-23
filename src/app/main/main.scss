@@ -18,35 +18,16 @@ app-say-hi {
   flex-direction: column;
   position: relative;
   max-width: clamp(300px, 90%, 1000px);
-  top: 16vh;
+  // top: 16vh;
   gap: 10px;
   box-sizing: border-box;
-  margin: 120px auto 160px auto;
+  margin: 50px auto 160px auto;
   > * {
     max-width: 100%;
     box-sizing: border-box;
   }
 }
 
-.dividerHome {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  position: relative;
-  padding:10px;
-  box-sizing: border-box;
-}
-.vertEmail {
-
-  filter: brightness(0.3);
-  cursor: pointer;
-  position: relative;
-  width: 1.2rem;
-  // @media (max-width: 600px) {
-  //   left: -90px;
-  // }
-}
 
 #mySkillsAnchor {
   position: relative;
@@ -78,65 +59,4 @@ app-say-hi {
   cursor: pointer;
 }
 
-.scrollDown {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 65px;
-right:0;
-  position: relative;
-  cursor: pointer;
-  > p {
-    margin-bottom:5px;
-    text-align: center;
-  }
-  img {
-    height: 40px;
-  }
-  // @media (max-width: 300px) {
-  //   right: 70px;
-  // }
-}
 
-.scrollDownArrow {
-  position: relative;
-  height: 100px;
-  width: 64.4px;
-  .arrow {
-    background-color: var(--main-bg-color);
-    opacity: 0;
-    position: absolute;
-    inset: 0;
-    width: 64.4px;
-    height: 100px;
-    animation: seq 1.5s steps(5, end) infinite;
-  }
-  .arrow:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .arrow:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-  .arrow:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-  .arrow:nth-child(4) {
-    animation-delay: 0.9s;
-  }
-  .arrow:nth-child(5) {
-    animation-delay: 1.2s;
-  }
-}
-
-@keyframes seq {
-  0% {
-    opacity: 1;
-  } /* sichtbar (vorwärts) */
-  25% {
-    opacity: 0;
-  } /* ab jetzt unsichtbar */
-  100% {
-    opacity: 0;
-  }
-}
