@@ -7,8 +7,8 @@ import { Directive, ElementRef, EventEmitter, Input, Output, OnDestroy } from '@
 export class InViewDirective implements OnDestroy {
   private observer?: IntersectionObserver;
 
-  @Input() threshold = 1;
-  @Input() rootMargin = '-10% 0px -10%';
+  @Input() threshold = 0.2;
+  @Input() rootMargin = '30% 0px 30% 50%';
   @Input() activeClass = 'in-view';
   @Output() inViewChange = new EventEmitter<boolean>();
   @Input() rootSelector?: string = undefined;

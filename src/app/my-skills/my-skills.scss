@@ -23,6 +23,38 @@ h4 {
   margin-top: 20px;
 }
 
+
+.observer-root-visual1 {
+    position: fixed;
+ border: 2px dashed red;
+ background: rgba(255,0,0,0.05);
+   top: -10%;
+  right: -0%;
+  bottom: -30%;
+  left: -50%;
+  z-index: 9993
+}
+.observer-root-visual2 {
+    position: fixed;
+ border: 2px dashed green;
+ background: rgba(0,255,0,0.05);
+    top: 10%;
+  left: -10%;
+  right: 0%;
+  bottom: 10%;
+  z-index: 9996
+}
+.observer-root-visual3 {
+    position: fixed;
+ border: 2px dashed blue;
+  background: rgba(0,0,255,0.05);
+   top: -10%;
+  right: -0%;
+  bottom: -30%;
+  left: -50%;
+  z-index: 9999;
+}
+
 .skillsBorder {
   border: 2px solid var(--main-font-color);
   position: relative;
@@ -38,7 +70,7 @@ h4 {
 .skillBox {
   opacity: 0;
   position: relative;
-  transform: translateX(-10px) translateY(10px) scale(2);
+  transform: translateX(-30px) translateY(10px) scale(2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,10 +78,13 @@ h4 {
   width: 120px;
   height: 120px;
   box-sizing: border-box;
+  // animation: flyInSkill 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
 
   &.in-view {
-    opacity: 1;
-    animation: skillSnap 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(1);
+  animation: skillSnap 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
 
@@ -60,21 +95,23 @@ h4 {
 .individual {
   opacity: 0;
   position: relative;
-  transform: translateX(-10px) translateY(10px) scale(2);
+  transform: translateX(-60px) translateY(-20px) scale(0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  animation: skillSnapMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  // animation: flyInSkillMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
   &.in-view {
+    opacity:0;
+    transform: translateY(0) translateX(0) scale(1);
     animation: skillSnapMobile 1s cubic-bezier(0.2, 0.9, 0.2, 1) both;
   }
 }
 
 .skillIcon {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
 
   &:hover {
@@ -120,7 +157,7 @@ h4 {
 
 @keyframes skillSnapMobile {
   0% {
-    transform: translateX(-40px) translateY(-20px) scale(0.8);
+    transform: translateX(-60px) translateY(-20px) scale(0.8);
     opacity: 0;
   }
 
@@ -145,7 +182,7 @@ h4 {
 
 @keyframes skillSnap {
   0% {
-    transform: translateX(-300px) translateY(10vh) scale(1.5);
+    transform: translateX(-300px) translateY(40px) scale(1.5);
     opacity: 0;
   }
 
@@ -154,7 +191,7 @@ h4 {
   }
 
   80% {
-    transform: translateX(0) translateY(-1vw) scale(1);
+    transform: translateX(0) translateY(-10px) scale(1);
   }
 
   90% {
@@ -165,5 +202,25 @@ h4 {
   100% {
     transform: translateX(0) translateY(0) scale(1);
     opacity: 1;
+  }
+}
+@keyframes flyInSkill {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes flyInSkillMobile {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

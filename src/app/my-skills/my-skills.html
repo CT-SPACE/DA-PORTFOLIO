@@ -6,10 +6,10 @@
   <div class="skillsGrid">
     @for (skill of skills; track skill; let i = $index) {
       <div
-        [ngClass]="inViewMobileSkills ? 'individual' : 'skillBox'"
-        [style.animationDelay.ms]="i * 180"
-        [class.in-view]="!inViewMobileSkills && visible.skills"
-      >
+  class="skillBox"
+  [style.animationDelay.ms]="i * 180"
+  [class.in-view]="visible.skills"
+>
         <img
           [src]="'assets/img/icon_' + skill + '.svg'"
           alt=""
@@ -22,32 +22,25 @@
   </div>
 </ng-template>
 
-@if (!inViewMobileSkills) {
   <div
     #skillsContainer
-    class="skillsContainer"
-    inView
-    [threshold]="0.2"
-    [rootMargin]="'10% 0px 10% -0%'"
-    (inViewChange)="setSectionVisible('skills', $event)"
-  >
+  class="skillsContainer"
+  inView
+  [threshold]="0.2"
+  [rootMargin]="'-10% 0px -50% -50%'"
+  (inViewChange)="setSectionVisible('skills', $event)"
+>
     <ng-container *ngTemplateOutlet="skillsContent"></ng-container>
   </div>
-} @else {
-  <div #skillsContainer class="skillsContainer">
-    <ng-container *ngTemplateOutlet="skillsContent"></ng-container>
-  </div>
-}
-
 <ng-template #knowledgesContent>
   <h4 [innerHTML]="'my-skills.h4_knowledges' | translate"></h4>
   <div class="skillsGrid">
     @for (knowledge of knowledges; track knowledge; let i = $index) {
-      <div
-        [ngClass]="inViewMobileKnowledges ? 'individual' : 'skillBox'"
-        [style.animationDelay.ms]="i * 180"
-        [class.in-view]="!inViewMobileKnowledges && visible.knowledges"
-      >
+     <div
+  class="skillBox"
+  [style.animationDelay.ms]="i * 180"
+  [class.in-view]="visible.knowledges"
+>
         <img
           [src]="'assets/img/icon_' + knowledge + '.svg'"
           alt=""
@@ -60,32 +53,27 @@
   </div>
 </ng-template>
 
-@if (!inViewMobileKnowledges) {
-  <div
+ <div
     #knowledgesContainer
-    class="skillsContainer"
-    inView
-    [threshold]="0.2"
-    [rootMargin]="'10% 0px 10% -0%'"
-    (inViewChange)="setSectionVisible('knowledges', $event)"
-  >
+  class="skillsContainer"
+  inView
+  [threshold]="0.2"
+  [rootMargin]="'0px'"
+  (inViewChange)="setSectionVisible('knowledges', $event)"
+>
     <ng-container *ngTemplateOutlet="knowledgesContent"></ng-container>
   </div>
-} @else {
-  <div #knowledgesContainer class="skillsContainer">
-    <ng-container *ngTemplateOutlet="knowledgesContent"></ng-container>
-  </div>
-}
+
 
   <ng-template #toolsContent>
   <h4 [innerHTML]="'my-skills.h4_tools' | translate"></h4>
   <div class="skillsGrid">
     @for (tool of tools; track tool; let i = $index) {
-      <div
-        [ngClass]="inViewMobileTools ? 'individual' : 'skillBox'"
-        [style.animationDelay.ms]="i * 180"
-        [class.in-view]="!inViewMobileTools && visible.tools"
-      >
+<div
+  class="skillBox"
+  [style.animationDelay.ms]="i * 180"
+  [class.in-view]="visible.tools"
+>
         <img
           [src]="'assets/img/icon_' + tool + '.svg'"
           alt=""
@@ -98,21 +86,16 @@
   </div>
 </ng-template>
 
-@if (!inViewMobileTools) {
   <div
-    #toolsContainer
-    class="skillsContainer"
-    inView
-    [threshold]="0.1"
-    [rootMargin]="'-10% 0px -10% -0%'"
-    (inViewChange)="setSectionVisible('tools', $event)"
-  >
+  #toolsContainer
+  class="skillsContainer"
+  inView
+  [threshold]="0.1"
+  [rootMargin]="'-30% 0 -20% -50%'"
+  (inViewChange)="setSectionVisible('tools', $event)"
+>
     <ng-container *ngTemplateOutlet="toolsContent"></ng-container>
   </div>
-} @else {
-  <div #toolsContainer class="skillsContainer">
-    <ng-container *ngTemplateOutlet="toolsContent"></ng-container>
-  </div>
-}
+
 
 </div>
