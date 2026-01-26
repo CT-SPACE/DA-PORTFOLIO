@@ -93,8 +93,6 @@ constructor(
    * @param value The visibility state.
    */
   setSectionVisible(section: 'skills' | 'knowledges' | 'tools', value: boolean) {
-      console.log('inViewChange:', section, value);
-
     this.visible[section] = value;
   }
 

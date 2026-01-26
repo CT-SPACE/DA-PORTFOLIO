@@ -38,11 +38,11 @@
     "portfolio":{
         "h2": "Portfolio",
         "projects_liveLink": "Live Link - Hier Klicken",
-        "description_polloloco": "Jump-and-Run Spiel, bei dem der Spieler verschiedene Items sammeln muss, um Punkte zu machen und den Endboss zu besiegen. Es geht um Hühner.",
-        "description_kingscup": "Das ist die Digitale Version des beliebten Kartenspiels \"King's Cup\". Diese App bietet eine interaktive Möglichkeit, das Spiel online zu spielen. Es können mehrere Gruppen unabhängig voneinander gleichzeitig spielen.",
-        "description_join": "Ein Task Manager der sich an dem Kanban System anlehnt und mit dem man Aufgaben erstellen kann und mit Drag and Drop organisiert wird. Man kann sich Registieren und seine Kontakte pflegen.",
-        "description_pokedex": "Hier werden die Inhalte über API gespeist, sodass alles Wissenswerte über die kleinen Racker abgerufen werden kann.",
-        "description_quizapp":"Eine Bootstrap basierte Singlepage App. "
+        "description_polloloco": "Das ist ein typischen Jump-and-Run Spiel. Es wurde objektorientiert mit JavaScript entwickelt. Das Design war größtenteils vorgegeben.",
+        "description_kingscup": "Das ist die Digitale Version des Kartenspiels \"King's Cup\". Das Spiel speichert auf Firebase die Spielstände der einzelne Gruppen, die unabhängig voneinander gleichzeitig spielen.",
+        "description_join": "Mit diesem Task Manager - der sich an dem Kanban System orientiert - kann man seine Aufgaben abbilden und mit Drag and Drop organisiert wird.",
+        "description_pokedex": "Hier werden die Inhalte über eine API gespeist, sodass alles Wissenswerte über die kleinen Monster abgerufen werden kann. Die von der API bereitgestellten Bilder wurden in ein eigenes Layout gepackt",
+        "description_quizapp":"Diese Bootstrap-basierte Singlepage App ist ein Beispiel für Quiz-Logik. "
     },
     "references":{
         "h2": "Referenzen",
