@@ -8,6 +8,17 @@
       {
         "aria-required-attr": "off"
       }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "scrollbar-width",
+          "scrollbar-color",
+          "scrollbar-width: none",
+          "scrollbar-width: thin"
+        ]
+      }
     ]
   }
 }
