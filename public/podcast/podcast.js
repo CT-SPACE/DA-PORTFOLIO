@@ -1,6 +1,8 @@
 const onoff = document.querySelector('.onoff');
 const woofer = document.querySelector('.woofer-animated');
-    const audio = new Audio('/assets/audio/KI-Podcast-Christina.mp3');
+const audio = new Audio('/assets/audio/KI-Podcast-Christina.mp3');
+const volumeDown = document.querySelector('.leiser');
+const volumeUp = document.querySelector('.lauter');
 
 const ctx = new AudioContext();
 const src = ctx.createMediaElementSource(audio);
@@ -42,12 +44,6 @@ async function togglePlayback() {
 
 onoff.addEventListener('click', togglePlayback);
 
-// function animate() {
-//   analyser.getByteFrequencyData(data);
-//   const volume = data.reduce((a, b) => a + b, 0) / data.length;
-//   woofer.style.transform = `scale(${1 + volume / 200})`;
-//   requestAnimationFrame(animate);
-// }
 function animate() {
   analyser.getByteFrequencyData(data);
 
@@ -58,7 +54,7 @@ function animate() {
   const normalized = Math.min(average / 140, 1);
 
   // etwas glätten, damit es nicht zu nervös wirkt
-  const scale = 1 + normalized * 0.18;
+  const scale = 1 + normalized * 0.3;
   const glow = normalized * 24;
   const brightness = 1 + normalized * 0.25;
 
@@ -74,6 +70,21 @@ function animate() {
 }
 updateButtonStatus();
 animate();
+
+audio.volume = 0.6;
+
+function changeVolume(delta) {
+  const nextVolume = Math.min(1, Math.max(0, audio.volume + delta));
+  audio.volume = nextVolume;
+}
+
+volumeDown.addEventListener('click', () => {
+  changeVolume(-0.1);
+});
+
+volumeUp.addEventListener('click', () => {
+  changeVolume(0.1);
+});
 
 audio.addEventListener('ended', () => {
   isPlaying = false;
