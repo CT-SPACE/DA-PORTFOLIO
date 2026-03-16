@@ -3,6 +3,7 @@ const woofer = document.querySelector('.woofer-animated');
 const audio = new Audio('/assets/audio/KI-Podcast-Christina.mp3');
 const volumeDown = document.querySelector('.leiser');
 const volumeUp = document.querySelector('.lauter');
+const deviceVolumeHint = document.querySelector('.device-volume-hint');
 
 const ctx = new AudioContext();
 const src = ctx.createMediaElementSource(audio);
@@ -13,6 +14,20 @@ src.connect(analyser);
 analyser.connect(ctx.destination);
 
 let isPlaying = false;
+let hintTimeoutId;
+
+function showDeviceVolumeHint() {
+  if (!deviceVolumeHint) {
+    return;
+  }
+
+  deviceVolumeHint.hidden = false;
+
+  clearTimeout(hintTimeoutId);
+  hintTimeoutId = setTimeout(() => {
+    deviceVolumeHint.hidden = true;
+  }, 5000);
+}
 
 function updateButtonStatus() {
 
@@ -40,6 +55,10 @@ async function togglePlayback() {
   }
 
   updateButtonStatus();
+
+  if (isPlaying) {
+    showDeviceVolumeHint();
+  }
 }
 
 onoff.addEventListener('click', togglePlayback);
@@ -76,6 +95,7 @@ audio.volume = 0.6;
 function changeVolume(delta) {
   const nextVolume = Math.min(1, Math.max(0, audio.volume + delta));
   audio.volume = nextVolume;
+  showDeviceVolumeHint();
 }
 
 volumeDown.addEventListener('click', () => {
