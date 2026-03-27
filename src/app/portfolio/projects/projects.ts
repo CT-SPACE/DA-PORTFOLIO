@@ -38,7 +38,7 @@ export class Projects {
       title: 'Join',
       description: 'portfolio.description_join',
       imgSrc: 'assets/img/project_join.png',
-      tools: ['Angular', 'TypeScript', 'SCSS', 'Firebase', 'Figma'],
+      tools: ['JavaScript', 'CSS', 'Firebase', 'Figma'],
       gitLink: 'https://github.com/CT-SPACE/JOIN-124_Gruppenarbeit',
       slug: 'join-app',
       liveLink: 'https://troitzsch.de/DA/JOIN/',
